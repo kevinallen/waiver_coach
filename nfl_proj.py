@@ -32,5 +32,4 @@ while (offset < 300):
         print opponent
         print player_stats
 
-    break
     offset += 25
