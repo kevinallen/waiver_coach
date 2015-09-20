@@ -21,7 +21,9 @@ while (offset < 300):
             in x.split()})
 
         name = player.contents[0]
-        position = player.parent.em.contents[0].split(' - ')[0]
+        team_info = player.parent.em.contents[0].split(' - ')
+        position = team_info[0]
+        team = team_info[1]
         opp = row.find('td', {'class': 'playerOpponent'})
         opponent = opp.contents[0]
 
@@ -36,6 +38,7 @@ while (offset < 300):
         stat_labels = ['pass_yds', 'pass_td', 'pass_int', 'rush_yds', 'rush_td',
             'rec_yds','rec_td', 'fum_td', '2pt', 'fum', 'pts']
         print name
+        print team
         print position
         print opponent
         print player_stats
