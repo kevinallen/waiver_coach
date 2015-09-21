@@ -9,9 +9,11 @@ The first step is to sign in with your Yahoo credentials to sync your league to 
  - [ ] Sketch out algorithm, website
  - [x] Connect to Yahoo using OAuth
  - [x] Collect data about teams, league settings, points, etc. from Yahoo. Store in CouchDB
- - [ ] Collect player statistics
+ - [ ] Get historical player statistics
+ - [ ] Get historical team information (e.g., schedule, wins/losses, aggregate stats)
  - [x] Scrape NFL.com player projections
- - [ ] Scrape ESPN.com player projections
+ - [x] Scrape ESPN.com player projections
+ - [ ] Scrape relative player rankings
  - [ ] Create simple recommendation algorithm (linear regression, decision trees) to get something up and running
  - [ ] Build web site
  - [ ] other stuff …
