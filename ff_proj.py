@@ -1,3 +1,5 @@
+# scrape data from http://www.fftoday.com/rankings/playerwkproj.php?Season=2015&GameWeek=2
+
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 
