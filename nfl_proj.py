@@ -30,8 +30,9 @@ while (offset < 300):
             team = "dropped"
         opp = row.find('td', {'class': 'playerOpponent'})
         opponent = opp.contents[0]
-
         stats = opp.find_next_siblings('td')
+        
+        # some player stats are missing, so need to check for span tag
         player_stats = []
         for stat in stats:
             if stat.span:
@@ -102,6 +103,7 @@ for offset in [1, 26]:
                 player_stats.append(stat.span.contents[0])
             else:
                 player_stats.append(stat.contents[0])
+
         stat_labels = ['pat_made', 'fg_made_0-19', 'fg_made_20-29',
             'fg_made_30-39', 'fg_made_40-49', 'fg_made_50', 'pts']
         print name
