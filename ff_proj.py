@@ -12,7 +12,7 @@ qb_stats = ['pass_comp', 'pass_attempts', 'pass_yds', 'pass_td', 'int',
 rb_stats = ['rush_attempts', 'rush_yds', 'rush_td', 'receptions',
     'rec_yds', 'rec_td', 'pts']
 wr_te_stats = ['receptions', 'rec_yds', 'rec_td', 'pts']
-k_stats = ['fg_made', 'fg_miss', 'xp_made', 'xp_miss']
+k_stats = ['fg_made', 'fg_miss', 'xp_made', 'xp_miss', 'pts']
 labels = {'QB': qb_stats, 'RB': rb_stats, 'WR': wr_te_stats,
     'TE': wr_te_stats, 'K': k_stats}
 
