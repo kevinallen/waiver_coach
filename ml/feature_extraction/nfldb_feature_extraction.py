@@ -3,6 +3,9 @@ import pandas as pd
 import numpy as np
 import re
 
+from sklearn.base import TransformerMixin
+
+
 # rs_time stands for regular season time
 # this is elapsed weeks of regular season
 # since the 1970 merger. It's currently
@@ -47,7 +50,7 @@ def player_week2dataframe(db, yr_wk, stats, player_info, position='RB'):
 	return(pdf)
 
 
-def make_lag_data_group(df, nlag=4, lag_cols=['year', 'week', 'rushing_att', 'rushing_yds'], same_year_bool=True):
+def make_lag_data_group(df, lag_cols, nlag=4, same_year_bool=True):
 	def lag_str(col, i):
 		return col + '_lag' + str(i);
 	dfout = df
@@ -61,7 +64,7 @@ def make_lag_data_group(df, nlag=4, lag_cols=['year', 'week', 'rushing_att', 'ru
 			dfout.loc[pd.isnull(dfout[yr_lag]),lag_str('same_year',i)] = np.nan
 	return dfout
 
-def make_lag_data(df, nlag=4, groupby_cols = ['player_id'], lag_cols=['year', 'week', 'rushing_att', 'rushing_yds'], same_year_bool=True):
+def make_lag_data(df, lag_cols, nlag=4, groupby_cols = ['player_id'], same_year_bool=True):
 	grouped = df.groupby(groupby_cols)
 	df_lag=None
 	for name, group in grouped:
@@ -82,10 +85,6 @@ def pick_columns(df, like=[], exact=[]):
 
 def drop_nan(df):
 	return(df.dropna(axis=0))
-
-from sklearn.pipeline import Pipeline
-from sklearn.pipeline import FeatureUnion
-from sklearn.base import TransformerMixin
 
 
 class WeeklyPlayerData(TransformerMixin):
@@ -162,56 +161,3 @@ class DropNaN(TransformerMixin):
 		return self
 
 
-db = nfldb.connect()
-
-yr_wk = [(j, i) for j in [2009,2010,2011,2012,2013,2014] for i in range(1,18)]
-stats = ['rushing_yds','rushing_att']
-player_info = ['player_id','full_name','position']
-playerData = WeeklyPlayerData(db=db, yr_wk=yr_wk, stats=stats, player_info=player_info, position='RB')
-lagData = LagPlayerData(nlag=4, groupby_cols=['player_id'], lag_cols=lag_cols, same_year_bool=True)
-keep_like = ['rushing_yds','rushing_yds_lag','rushing_att_lag','same_year_lag']
-pickColumns = ExtractColumns(like=keep_like)
-
-pipe = Pipeline(steps=[('data',playerData), ('lag',lagData), ('keep',pickColumns), ('drop',DropNaN())])
-pipe.fit_transform(X=None)
-
-
-pdf = player_week2dataframe(db=db, yr_wk=yr_wk, stats=stats, player_info=player_info, position='RB')
-lag_cols=['year', 'week', 'rushing_att', 'rushing_yds']
-pdf_lag = make_lag_data(pdf, nlag=4, groupby_cols=['player_id'], lag_cols=lag_cols, same_year_bool=True)
-keep_like = ['rushing_yds','rushing_yds_lag','rushing_att_lag','same_year_lag']
-pdf_lag = pick_columns(pdf_lag, like=keep_like)
-pdf_lag = drop_nan(pdf_lag)
-
-
-
-
-def train_test_split_index(n,test_size=0.2):
-	rand_i = np.random.choice(range(n), n, replace=False)
-	test_i = rand_i[range(int(round(n*test_size)))]
-	train_i = rand_i[range(int(round(n*test_size)),n)]
-	return train_i, test_i
-
-
-
-y_col = 'rushing_yds'
-y = pdf_lag[y_col]
-X = pdf_lag.drop(y_col, axis=1)
-
-train_i, test_i = train_test_split_index(X.shape[0], test_size=0.2)
-
-y_train = y.iloc[train_i]
-y_test = y.iloc[test_i]
-X_train = X.iloc[train_i]
-X_test = X.iloc[test_i]
-
-
-#from sklearn.cross_validation import train_test_split
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.metrics import mean_squared_error, mean_absolute_error
-
-gbr = GradientBoostingRegressor().fit(X_train, y_train)
-predict_test = gbr.predict(X_test)
-
-mean_squared_error(y_test, predict_test)**0.5
-mean_absolute_error(y_test, predict_test)
