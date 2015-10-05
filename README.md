@@ -5,19 +5,6 @@ The application will coalesce information about your fantasy league with informa
 
 The first step is to sign in with your Yahoo credentials to sync your league to the app.
 
-### Tasks:
- - [ ] Sketch out algorithm, website
- - [x] Connect to Yahoo using OAuth
- - [x] Collect data about teams, league settings, points, etc. from Yahoo. Store in CouchDB
- - [ ] Get historical player statistics
- - [ ] Get historical team information (e.g., schedule, wins/losses, aggregate stats)
- - [x] Scrape NFL.com player projections
- - [x] Scrape ESPN.com player projections
- - [ ] Scrape relative player rankings
- - [ ] Create simple recommendation algorithm (linear regression, decision trees) to get something up and running
- - [ ] Build web site
- - [ ] other stuff …
-
 ### Misc Links
 https://github.com/BurntSushi/nflgame
 https://github.com/BurntSushi/nfldb
