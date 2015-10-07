@@ -2,6 +2,7 @@ import nfldb
 import pandas as pd
 import numpy as np
 import re
+import math
 
 from sklearn.base import TransformerMixin
 
@@ -15,9 +16,48 @@ from sklearn.base import TransformerMixin
 def rs_time(year, week, base_year=1970):
 	return ((year - base_year)*17 + week)
 
+# takes year and week and returns the rs_time
+def inverse_rs_time(rs_t, base_year=1970):
+	year = int(math.floor((rs_t-1)/17 + base_year))
+	week = rs_t - (year - base_year)*17
+	if(rs_time(year, week, base_year) == rs_t):
+		return {'year':year,'week':week}
+	else:
+		raise ValueError('the result of inverse_rs_time is not consistent with rs_time')
+
 # used like df.apply(rs_time_df, 1) to get time for each row of df
 def rs_time_df(obj, base_year=1970):
 	return rs_time(year=obj.year, week=obj.week, base_year=base_year)
+
+# this function fills in missing weeks for each player and 
+# creates a variable called "played"
+def fill_time_of_group(group, stats, player_info, group_by='player_id'):
+
+
+	#groups = data.groupby(['player_id'])
+	#groups.apply(fill_time_of_group, stats=stats, player_info=player_info, group_by='player_id')
+	#groups = dict(list(groups))
+	#group = groups[groups.keys()[0]]
+	used_t = group.index
+	all_t = range(min(used_t), max(used_t)+1)
+	# add rows for missing times
+	group = group.reindex(all_t)
+	# wherever player_id is missing, create feature called played=0, else played=1
+	group['played'] = pd.isnull(group['player_id']) == False
+	# pad player_info
+	player_info = ['player_id','full_name','position']
+	group[player_info] = group[player_info].fillna(method='pad')
+	# 0 for all stats
+	stats = ['rushing_yds','rushing_att']
+	group[stats] = group[stats].fillna(0)
+	# add year week for all
+	yr_wk_df = pd.DataFrame(list(pd.Series(all_t).apply(inverse_rs_time)), index=all_t)
+	yr_wk_col = list(yr_wk_df.columns.values)
+	group[yr_wk_col] = yr_wk_df
+	# return
+	return group
+
+
 
 # takes a nfldb database link (db) and returns a dataframe
 # where each row is a plyear in a year in a week
@@ -26,7 +66,9 @@ def rs_time_df(obj, base_year=1970):
 # player_info is a list of information to pull for each player
 # position is a position to filter for
 # returns the data frame indexed by rs_time (regular season time)
-def player_week2dataframe(db, yr_wk, stats, player_info, position='RB'):
+# fill_time indicates whether to fill missing time in the player's career with 0 stats
+# if fill_time == True it also creates a binary feature called 'played'
+def player_week2dataframe(db, yr_wk, stats, player_info, position='RB', fill_time=True):
 	player_list = []
 	for yr, wk in yr_wk:
 		# query for this weak
@@ -47,6 +89,13 @@ def player_week2dataframe(db, yr_wk, stats, player_info, position='RB'):
 	pdf = pd.DataFrame(player_list)
 	pdf['time'] = pdf.apply(rs_time_df, 1)
 	pdf.set_index('time', inplace=True)
+
+	if(fill_time):
+		groupby_col = 'player_id'
+		# fills in missing time & creates played
+		pdf = pdf.groupby(groupby_col).apply(fill_time_of_group, stats=stats, player_info=player_info, group_by='player_id')
+
+
 	return(pdf)
 
 
@@ -88,7 +137,7 @@ def drop_nan(df):
 
 
 class WeeklyPlayerData(TransformerMixin):
-	def __init__(self, db, yr_wk=None, stats=[], player_info=['player_id','full_name','position'],position=None):
+	def __init__(self, db, yr_wk=None, fill_time=True, stats=[], player_info=['player_id','full_name','position'],position=None):
 		self.db=db
 		if(yr_wk):
 			self.yr_wk = yr_wk
@@ -97,6 +146,7 @@ class WeeklyPlayerData(TransformerMixin):
 		self.player_info = player_info
 		self.stats = stats
 		self.position = position
+		self.fill_time=fill_time
 	# fit function essentially says do nothing
 	def fit(self, *args, **kwargs):
 		return self
@@ -105,7 +155,7 @@ class WeeklyPlayerData(TransformerMixin):
 		# this function essentially pulls data
 		# However, may change that later - X may 
 		# be a list of player names to get or something
-		return player_week2dataframe(db=self.db, yr_wk=self.yr_wk, stats=self.stats, player_info=self.player_info, position=self.position)
+		return player_week2dataframe(db=self.db, yr_wk=self.yr_wk, stats=self.stats, fill_time=self.fill_time, player_info=self.player_info, position=self.position)
 	def get_params(self, deep=True):
 		return {}
 	def set_params(self, **parameters):

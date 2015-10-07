@@ -28,17 +28,18 @@ def main():
 	yr_wk = [(j, i) for j in [2009,2010,2011,2012,2013,2014] for i in range(1,18)]
 	stats = ['rushing_yds','rushing_att']
 	player_info = ['player_id','full_name','position']
-	playerData = WeeklyPlayerData(db=db, yr_wk=yr_wk, stats=stats, player_info=player_info, position='RB')
+	playerData = WeeklyPlayerData(db=db, yr_wk=yr_wk, stats=stats, player_info=player_info, fill_time=True, position='RB')
 
 	# creates lags of the data
-	lag_cols = ['year', 'week', 'rushing_att', 'rushing_yds']
-	lagData = LagPlayerData(nlag=8, groupby_cols=['player_id'], lag_cols=lag_cols, same_year_bool=True)
+	lag_cols = ['year', 'week', 'rushing_att', 'rushing_yds', 'played']
+	lagData = LagPlayerData(nlag=5, groupby_cols=['player_id'], lag_cols=lag_cols, same_year_bool=True)
 
 	# picks columns
-	keep_like = ['rushing_yds','rushing_yds_lag','rushing_att_lag','same_year_lag']
+	keep_like = ['rushing_yds','rushing_yds_lag','rushing_att_lag','same_year_lag', 'played_lag']
 	pickColumns = ExtractColumns(like=keep_like)
 
 	# pipeline for getting data
+	#pipe = Pipeline(steps=[('data',playerData), ('lag',lagData)])
 	pipe = Pipeline(steps=[('data',playerData), ('lag',lagData), ('keep',pickColumns), ('drop',DropNaN())])
 	data = pipe.fit_transform(X=None)
 
