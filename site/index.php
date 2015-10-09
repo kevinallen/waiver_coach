@@ -28,7 +28,52 @@
   </head>
 
   <body>
+    <?php
+    class Player {
+        public $name = "";
+        public $team = "";
+        public $team_abbr = "";
+        public $position = "";
+        public $id;
+    }
 
+    $player1 = new Player();
+    $player1->id = 1;
+    $player1->name = "Charles Clay";
+    $player1->team = "Buffalo Bills";
+    $player1->team_abbr = "BUF";
+    $player1->position = "Tight End";
+    $player1->position_abbr = "TE";
+
+    $player2 = new Player();
+    $player2->id = 2;
+    $player2->name = "Gary Barnidge";
+    $player2->team = "Cleveland Browns";
+    $player2->team_abbr = "CLE";
+    $player2->position = "Tight End";
+    $player2->position_abbr = "TE";
+
+    $player3 = new Player();
+    $player3->id = 3;
+    $player3->name = "Kamar Aiken";
+    $player3->team = "Baltimore Ravens";
+    $player3->team_abbr = "BAL";
+    $player3->position = "Wide Receiver";
+    $player3->position_abbr = "WR";
+
+    $player4 = new Player();
+    $player4->id = 4;
+    $player4->name = "LeGarrette Blount";
+    $player4->team = "New England Patriots";
+    $player4->team_abbr = "NE";
+    $player4->position = "Running Back";
+    $player4->position_abbr = "RB";
+
+    $players = array($player1->id=>$player1,
+                     $player2->id=>$player2,
+                     $player3->id=>$player3,
+                     $player4->id=>$player4);
+    ?>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid title_bg">
         <div class="navbar-header ">
@@ -57,14 +102,20 @@
               Recommended
           </div>
           <ul class="nav nav-sidebar">
-            <li><a href="#">Player 1</a></li>
-            <li><a href="#">Player 2</a></li>
-            <li><a href="#">Player 3</a></li>
-            <li><a href="#">Player 4</a></li>
+            <?php foreach($players as $player) :?>
+                <li><a href="http://localhost:8080/?player=<?php echo $player->id?>"><?php echo $player->name;?></a></li>
+            <?php endforeach;?>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h2 class="page-header">Dashboard</h1>
+          <h2 class="page-header">
+              <?php if (array_key_exists('player',$_GET)) {
+                  echo $players[$_GET['player']]->name;
+              } else {
+                  echo "Welcome to Waiver Coach";
+              }
+              ?>
+          </h2>
 
 
           </div>
