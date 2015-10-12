@@ -126,14 +126,51 @@ def make_lag_data(df, lag_cols, nlag=4, groupby_cols = ['player_id'], same_year_
 
 # chooses columns that match the patterns in like
 def pick_columns(df, like=[], exact=[]):
-	re_pat = re.compile('|'.join(like))
 	col_names = df.columns.values.tolist()
-	col_matches = [col for col in col_names if re_pat.search(col)]
-	col_matches.extend([col for col in exact if (not(col in col_matches) and col in col_names)])
+	if(len(like) != 0):
+		re_pat = re.compile('|'.join(like))
+		col_matches = [col for col in col_names if re_pat.search(col)]
+	else:
+		col_matches = []
+	col_matches.extend([col for col in exact if (not(col in col_matches) and (col in col_names))])
 	return df[col_matches]
 
 def drop_nan(df):
 	return(df.dropna(axis=0))
+
+def fill_nan(df, value=0):
+	return(df.fillna(value=value))
+
+### Make variable that captures average of group
+def make_mean_data_group(df, mean_cols):
+	def col_str(col):
+		return col + '_mean';
+	dfout = pd.rolling_mean(df[mean_cols].fillna(value=0), min_periods=0, window=10000000)
+	dfout.columns = [col_str(col) for col in dfout.columns]
+	dfout = pd.concat([df, dfout], axis=1)
+	return dfout
+
+### Make variable that captures average of group
+def make_mean_data(df, mean_cols, groupby_cols = ['player_id']):
+	grouped = df.groupby(groupby_cols)
+	df_out=None
+	for name, group in grouped:
+		dfi = make_mean_data_group(group, mean_cols=mean_cols)
+		if(df_out is None):
+			df_out = dfi
+		else:
+			df_out = pd.concat([df_out, dfi], axis=0)
+	return(df_out)
+
+### Set a threshold for played percent on lagged data
+# if they didnt play in more than pct_played_threshold*n of the n lagged games
+# the row gets thrown out
+def filter_played_percent(df, pct_played_threshold):
+	re_pat = re.compile('played_lag')
+	col_names = df.columns.values.tolist()
+	col_matches = [col for col in col_names if re_pat.search(col)]
+	return df[df[col_matches].fillna(value=0).mean(axis=1) > pct_played_threshold]
+
 
 
 class WeeklyPlayerData(TransformerMixin):
@@ -160,7 +197,7 @@ class WeeklyPlayerData(TransformerMixin):
 		return {}
 	def set_params(self, **parameters):
 		for parameter, value in parameters.items():
-			self.setattr(parameter, value)
+			setattr(self, parameter, value)
 		return self
 
 class LagPlayerData(TransformerMixin):
@@ -179,7 +216,22 @@ class LagPlayerData(TransformerMixin):
 		return {}
 	def set_params(self, **parameters):
 		for parameter, value in parameters.items():
-			self.setattr(parameter, value)
+			setattr(self, parameter, value)
+		return self
+
+class MeanPlayerData(TransformerMixin):
+	def __init__(self, groupby_cols=['player_id'], mean_cols=[]):
+		self.groupby_cols = groupby_cols
+		self.mean_cols = mean_cols
+	def fit(self, *args, **kwargs):
+		return self
+	def transform(self, X):
+		return make_mean_data(X, groupby_cols=self.groupby_cols, mean_cols=self.mean_cols)
+	def get_params(self, deep=True):
+		return {}
+	def set_params(self, **parameters):
+		for parameter, value in parameters.items():
+			setattr(self, parameter, value)
 		return self
 
 class ExtractColumns(TransformerMixin):
@@ -194,20 +246,42 @@ class ExtractColumns(TransformerMixin):
 		return {}
 	def set_params(self, **parameters):
 		for parameter, value in parameters.items():
-			self.setattr(parameter, value)
+			setattr(self, parameter, value)
 		return self
 
 
-class DropNaN(TransformerMixin):
+class HandleNaN(TransformerMixin):
+	def __init__(self, method='fill'):
+		# method should be fill or drop
+		self.method = method
 	def fit(self, *args, **kwargs):
 		return self
 	def transform(self, X):
-		return drop_nan(X)
+		if(self.method == 'drop'):
+			return drop_nan(X)
+		elif(self.method == 'fill'):
+			return fill_nan(X)
+		else:
+			raise ValueError('HandleNaN method must be "drop" or "fill" not ' + str(self.method))
 	def get_params(self, deep=True):
 		return {}
 	def set_params(self, **parameters):
 		for parameter, value in parameters.items():
-			self.setattr(parameter, value)
+			setattr(self, parameter, value)
+		return self
+
+class FilterPlayedPercent(TransformerMixin):
+	def __init__(self, pct_played_threshold=0.0):
+		self.pct_played_threshold = pct_played_threshold
+	def fit(self, *args, **kwargs):
+		return self
+	def transform(self, X):
+		return filter_played_percent(X, self.pct_played_threshold)
+	def get_params(self, deep=True):
+		return {}
+	def set_params(self, **parameters):
+		for parameter, value in parameters.items():
+			setattr(self, parameter, value)
 		return self
 
 
