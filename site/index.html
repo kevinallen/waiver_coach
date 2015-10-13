@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href='https://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+    <!-- still need to design an 32x32 icon -->
+    <link rel="icon" href="favicon.ico">
+
+    <title>Waiver Coach</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid title_bg">
+        <div class="navbar-header ">
+          <a class="navbar-brand title" href="#">Waiver Coach</a>
+        </div>
+        <!--
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+            -->
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <div class="nav-heading">
+              Recommended
+          </div>
+          <ul id="playerlist" class="nav nav-sidebar"></ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div id="playercontent">
+                
+            </div>
+            <template id="playertemplate">
+                <h2 class="page-header">Player Details</h2>
+                <h3 id="playername"></h3>
+                <h4 id="playerinfo"></h4>
+            </template>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript">
+        // Parse URL Queries
+        function url_query( query ) {
+            query = query.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+            var expr = "[\\?&]"+query+"=([^&#]*)";
+            var regex = new RegExp( expr );
+            var results = regex.exec( window.location.href );
+            if ( results !== null ) {
+                return results[1];
+            } else {
+                return false;
+            }
+        }
+
+        $(document).ready( function () {
+
+            //build the left navigation with player names from json
+            $.getJSON("model_output.json", function( data ) {
+                $.each(data, function( key, val ) {
+                    var li = document.createElement('li');
+                    li.innerHTML = "<a href='http://localhost:8080/index.html?player=" +
+                        val._id + "'>" + val.name + "</a>";
+                    document.getElementById("playerlist").appendChild(li);
+                });
+                displayPlayerData(data);
+            });
+        });
+
+        //display the currently selected player's details
+        function displayPlayerData( data ) {
+            var player_param = url_query('player');
+            if (player_param) {
+                var player = data[parseInt(player_param)];
+                var template = document.querySelector('#playertemplate').content;
+                var name = template.querySelector('#playername');
+                name.textContent = player['name'];
+                //var info = template.querySelector('playerinfo');
+                var clone = document.importNode(template, true);
+                document.querySelector('#playercontent').appendChild(clone);
+            }
+        }
+    </script>
+  </body>
+</html>
