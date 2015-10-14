@@ -113,7 +113,6 @@
         //display the currently selected player's details
         function displayPlayerData(target) {
             var playerid = $(target).attr('playerid');
-            alert(sessionStorage.getItem('playerid'));
             var currentplayer = sessionStorage.getItem('playerid');
             if (playerid == currentplayer) {
                 return;
