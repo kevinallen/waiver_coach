@@ -13,8 +13,6 @@ def players2dict(players):
 
 db = nfldb.connect()
 q = nfldb.Query(db)
-# filter for year, week, and regular season
-q.game(season_year=2015, season_type='Regular')
 
 # get current season phase, year, week
 season_phase, cur_year, cur_week = nfldb.current(db)
