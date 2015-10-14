@@ -44,7 +44,7 @@ def main():
 	result_path = '../results'
 
 	# make player data transformer
-	yr_wk = [(j, i) for j in range(2009,2015) for i in range(1,18)]
+	yr_wk = [(j, i) for j in range(2012,2015) for i in range(1,18)]
 	yr_wk += [(2015, i) for i in range(1,5)]
 
 	#stats = ['rushing_yds','rushing_att']
@@ -70,7 +70,7 @@ def main():
 
 
 	# pipeline for seting which columns we want and handling NaN
-	pct_played_threshold = 0.2
+	pct_played_threshold = 0.6
 	pipe2_steps = [('handle',HandleNaN(method='fill')), ('filterplayed',FilterPlayedPercent(pct_played_threshold=pct_played_threshold))]
 	pipe2 = Pipeline(steps=pipe2_steps)
 
@@ -89,7 +89,8 @@ def main():
 	df_pred = row_info.iloc[predict_i]
 
 	# set y_col
-	y_cols = ['receiving_rec', 'receiving_tds', 'receiving_yds', 'rushing_att', 'rushing_tds','rushing_yds']
+	#y_cols = ['receiving_rec', 'receiving_tds', 'receiving_yds', 'rushing_att', 'rushing_tds','rushing_yds']
+	y_cols = ['rushing_yds']
 
 	for y_col in y_cols:
 		# Pick the right columns
@@ -142,7 +143,7 @@ def main():
 		# Make prediction, just gbr for now
 		preds = gbr.predict(X.iloc[predict_i])
 		df_pred[y_col] = preds
-	
+
 	out_path = result_path + '/predictions' + '_' + str(int(yr_wk_pred[0][0])) + '_' + str(int(yr_wk_pred[0][1])) + '.json'
 	df_pred.to_json(path_or_buf = out_path, orient = 'records')
 
