@@ -53,12 +53,14 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div id="playercontent">
-                
+                <h2 class="page-header">Welcome to the Waiver Coach!</h2>
             </div>
             <template id="playertemplate">
-                <h2 class="page-header">Player Details</h2>
-                <h3 id="playername"></h3>
-                <h4 id="playerinfo"></h4>
+                <div id="playercontent">
+                    <h2 class="page-header">Player Details</h2>
+                    <h3 id="playername"></h3>
+                    <h4 id="playerinfo"></h4>
+                </div>
             </template>
         </div>
       </div>
@@ -67,9 +69,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" language="javascript">
+
         // Parse URL Queries
         function url_query( query ) {
             query = query.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
@@ -84,30 +87,47 @@
         }
 
         $(document).ready( function () {
-
+            sessionStorage.clear();
             //build the left navigation with player names from json
             $.getJSON("model_output.json", function( data ) {
                 $.each(data, function( key, val ) {
                     var li = document.createElement('li');
-                    li.innerHTML = "<a href='http://localhost:8080/index.html?player=" +
-                        val._id + "'>" + val.name + "</a>";
+                    // li.innerHTML = "<a href='http://localhost:8080/index.html?player=" +
+                    //     val._id + "'>" + val.name + "</a>";
+                    li.innerHTML = "<a playerid=" + val._id + " href=''>" +
+                        val.name + "</a>";
                     document.getElementById("playerlist").appendChild(li);
                 });
-                displayPlayerData(data);
+                sessionStorage.setItem('playerjson', JSON.stringify(data));
+
+                $('a').bind("click", function(event) {
+                    displayPlayerData(event.target);
+                    return false;
+                });
             });
+
+
         });
 
+
         //display the currently selected player's details
-        function displayPlayerData( data ) {
-            var player_param = url_query('player');
-            if (player_param) {
-                var player = data[parseInt(player_param)];
+        function displayPlayerData(target) {
+            var playerid = $(target).attr('playerid');
+            alert(sessionStorage.getItem('playerid'));
+            var currentplayer = sessionStorage.getItem('playerid');
+            if (playerid == currentplayer) {
+                return;
+            } else {
+                sessionStorage.setItem('playerid', playerid);
+                var data = JSON.parse(sessionStorage.getItem('playerjson'));
+                var player = data[parseInt(playerid)];
                 var template = document.querySelector('#playertemplate').content;
                 var name = template.querySelector('#playername');
                 name.textContent = player['name'];
                 //var info = template.querySelector('playerinfo');
                 var clone = document.importNode(template, true);
-                document.querySelector('#playercontent').appendChild(clone);
+                var oldcontent = document.querySelector('#playercontent');
+                oldcontent.parentNode.replaceChild(clone, oldcontent);
             }
         }
     </script>
