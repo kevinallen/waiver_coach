@@ -74,34 +74,26 @@
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" language="javascript">
 
-        // Parse URL Queries
-        function url_query( query ) {
-            query = query.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-            var expr = "[\\?&]"+query+"=([^&#]*)";
-            var regex = new RegExp( expr );
-            var results = regex.exec( window.location.href );
-            if ( results !== null ) {
-                return results[1];
-            } else {
-                return false;
-            }
-        }
-
         $(document).ready( function () {
+            //clear session storage on page refresh
             sessionStorage.clear();
+
             //build the left navigation with player names from json
             $.getJSON("predictions_2015_4.json", function( data ) {
                 $.each(data, function( index, val ) {
                     var li = document.createElement('li');
-                    // li.innerHTML = "<a href='http://localhost:8080/index.html?player=" +
-                    //     val._id + "'>" + val.name + "</a>";
                     li.innerHTML = "<a class='player_link' player_id=" +
                         val.player_id + " href=''>" + val.full_name + "</a>";
                     document.getElementById("playerlist").appendChild(li);
+                    // only show the first 5 players in left navigation
+                    // TODO: sort data prior to display
                     if(index >= 4) { return false; }
                 });
+
+                // load model output into session to use in other functions
                 sessionStorage.setItem('playerjson', JSON.stringify(data));
 
+                // handle the click event on player names in left navigation
                 $('a.player_link').bind("click", function(event) {
                     displayPlayerData(event.target);
                     return false;
@@ -112,10 +104,13 @@
         });
 
 
-        //display the currently selected player's details
+        // display the currently selected player's details
         function displayPlayerData(target) {
+            // get the player_id from the chosen player and store in session
             var player_id = $(target).attr('player_id');
             var currentplayer = sessionStorage.getItem('player_id');
+
+            // logic to determine whether to load a new player's details
             if (player_id == currentplayer) {
                 return;
             } else {
@@ -125,6 +120,8 @@
                 var player = data.filter(function(obj,index) {
                     return obj['player_id'] == player_id;
                 })[0];
+
+                // modify the HTML5 template and add to the DOM
                 var template = document.querySelector('#playertemplate').content;
                 var name = template.querySelector('#playername');
                 name.textContent = player['full_name'];
