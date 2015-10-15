@@ -54,7 +54,7 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div id="playercontent">
-                <h2 class="page-header">Welcome to the Waiver Coach!</h2>
+                <h2 class="page-header">Recommended Players</h2>
             </div>
             <template id="playertemplate">
                 <div id="playercontent">
@@ -100,6 +100,13 @@
                     document.getElementById("playerlist").appendChild(li);
                     if(index >= 4) { return false; }
                 });
+
+                $.each(data, function(index, val) {
+                    var heading = document.createElement('h4');
+                    heading.innerHTML = (index + 1) + ". " + val.full_name;
+                    document.getElementById("playercontent").appendChild(heading);
+                });
+
                 sessionStorage.setItem('playerjson', JSON.stringify(data));
 
                 $('a.player_link').bind("click", function(event) {
