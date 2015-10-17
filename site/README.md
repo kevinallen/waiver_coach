@@ -1,5 +1,5 @@
 ### Running the site locally
-If you have PHP 5 on your local machine, you can start a PHP web server from the command line. After changing to the site directory, use this command:
+It is easy to start a web server using Python. After changing to the site directory in the terminal, use this command:
 
 ```Shell
 python -m SimpleHTTPServer
