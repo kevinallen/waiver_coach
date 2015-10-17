@@ -25,7 +25,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid title_bg">
         <div class="navbar-header ">
-          <a class="navbar-brand title" href="#">Waiver Coach</a>
+          <a class="navbar-brand title" href="/index.html">Waiver Coach</a>
         </div>
         <!--
         <div id="navbar" class="navbar-collapse collapse">
@@ -54,7 +54,7 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div id="playercontent">
-                <h2 class="page-header">Welcome to the Waiver Coach!</h2>
+                <h2 class="page-header">Recommended Players</h2>
             </div>
             <template id="playertemplate">
                 <div id="playercontent">
@@ -75,7 +75,7 @@
     <script type="text/javascript" language="javascript">
 
         $(document).ready( function () {
-            //clear session storage on page refresh
+            // clear session storage on page refresh
             sessionStorage.clear();
 
             //build the left navigation with player names from json
@@ -85,22 +85,28 @@
                     li.innerHTML = "<a class='player_link' player_id=" +
                         val.player_id + " href=''>" + val.full_name + "</a>";
                     document.getElementById("playerlist").appendChild(li);
-                    // only show the first 5 players in left navigation
-                    // TODO: sort data prior to display
+                    // only show the first five players
+                    // TODO: need to sort the data prior to display
                     if(index >= 4) { return false; }
                 });
 
-                // load model output into session to use in other functions
+                // build the main display of all players
+                $.each(data, function(index, val) {
+                    var heading = document.createElement('h4');
+                    heading.innerHTML = (index + 1) + ". " + val.full_name;
+                    document.getElementById("playercontent").appendChild(heading);
+                });
+
+                // store json in session to reuse in other functions
                 sessionStorage.setItem('playerjson', JSON.stringify(data));
 
-                // handle the click event on player names in left navigation
+                // load player data when clicking on a recommended player in
+                // left navigation area
                 $('a.player_link').bind("click", function(event) {
                     displayPlayerData(event.target);
                     return false;
                 });
             });
-
-
         });
 
 

@@ -1,7 +1,7 @@
 .navbar-inverse .title {
     color: #FF5930;
     font-family: 'Play', sans-serif;
-    font-size: 26pt;
+    font-size: 3em;
 }
 
 .navbar-inverse .title_bg {
@@ -9,8 +9,12 @@
 }
 
 .nav-heading {
-    font-size: 12pt;
+    font-size: 1.2em;
     font-weight: bold;
+}
+
+.nav-heading span.more_link {
+    font-size: 0.75em;
 }
 
 /*
