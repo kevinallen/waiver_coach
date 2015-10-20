@@ -1,6 +1,6 @@
 # Getting nfldb up and running
 
-# Install postgrs
+# Install postgres
 
 following instructions for a Mac here: http://www.russbrooks.com/2010/11/25/install-postgresql-9-on-os-x
 	
@@ -141,3 +141,24 @@ And it works!
 	Aaron Rodgers (GB, QB) 4303
 	Josh Freeman (UNK, UNK) 4065
 	Carson Palmer (ARI, QB) 4018
+
+# Updating
+
+It only appears to be up to date as of the end of the 2014 season, so you will need to run an update the first time you use it.
+
+	nfldb-update
+
+It might take a while the first time. It took me about 6 minutes. After that, it should be up to date. Try changing the top-ten-qb query to see if it works for 2015. As of week 3 this looks right (it's after the Thursday night NYG/WAS game, wich explains why Eli Manning and Kirk Cousins are in the top 4).
+
+	ROSSs-MacBook-Pro:nfldb rossboberg$ vi top-ten-qbs.py 
+	ROSSs-MacBook-Pro:nfldb rossboberg$ python top-ten-qbs.py 
+	Eli Manning (NYG, QB) 764
+	Tom Brady (NE, QB) 754
+	Ben Roethlisberger (PIT, QB) 720
+	Kirk Cousins (WAS, QB) 715
+	Matt Ryan (ATL, QB) 661
+	Philip Rivers (SD, QB) 645
+	Drew Brees (NO, QB) 610
+	Ryan Tannehill (MIA, QB) 585
+	Sam Bradford (PHI, QB) 560
+	Tony Romo (DAL, QB) 551
