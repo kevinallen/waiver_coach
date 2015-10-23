@@ -1,4 +1,5 @@
 import nfldb
+import pandas as pd
 
 def week_team_list(db, season_year, week, season_type='Regular'):
 	# returns list of teams playing in the specified week
@@ -27,6 +28,64 @@ def players2dict(players):
 
 def player_id2dict(id_list):
 	return players2dict(player_id2player(id_list))
+
+def player_game_info(db, player_ids = [], as_DataFrame = True, use_current_team = False, yr_wk=[]):
+	# this function gets information for every game this player has played
+	if not use_current_team:
+		var_query = '''
+		SELECT DISTINCT
+		  player.full_name, play_player.player_id, play_player.team, play_player.gsis_id, game.home_team, game.away_team, game.week, game.season_year
+		FROM play_player
+		LEFT JOIN game ON play_player.gsis_id = game.gsis_id
+		LEFT JOIN player ON play_player.player_id = player.player_id
+		WHERE player.player_id IN %s
+		'''
+	else:
+		var_query = '''
+		SELECT DISTINCT
+		  player.full_name, player.player_id, player.team, game.gsis_id, game.home_team, game.away_team, game.week, game.season_year
+		FROM player
+		LEFT JOIN game ON (player.team = game.home_team OR player.team = game.away_team)
+		WHERE player.player_id IN %s
+		'''
+	# string for player id WHERE clause
+	where_str = "('"+"','".join(player_ids)+"')"
+	if len(yr_wk) > 0:
+		yr_wk_str = " OR ".join(['(game.season_year = ' + str(yr_wk_i[0]) + ' AND game.week = ' + str(yr_wk_i[1]) +")" for yr_wk_i in yr_wk])
+		where_str += " AND (" + yr_wk_str + ")"
+	# final query
+	query = var_query % where_str
+	players = []
+	with nfldb.Tx(db) as cursor:
+	    cursor.execute(query)
+	    for row in cursor.fetchall():
+	        pp = row
+	        players.append(pp)
+	# create some derived information
+	for player in players:
+		# set the opponent team & whether player was at home
+		player['at_home'] = player['home_team'] == player['team']
+		if player['at_home']:
+			player['opp_team'] = player['away_team']
+		else:
+			player['opp_team'] = player['home_team']
+	# make in to DataFrame
+	if as_DataFrame:
+		players = pd.DataFrame(players)
+	return(players)
+
+# Need two functions to get teams
+
+# One to take a list of of PlayPlayers and find the team THAT WEEK & opposing team THAT WEEK
+## This is useful for building training data
+def player_current_game_info(db, year, week, player_ids=[], as_DataFrame=True):
+	return(player_game_info(db, player_ids, yr_wk=[(year, week)], as_DataFrame=as_DataFrame, use_current_team=True))
+
+# Another to take a list of player_ids & year & week and find the CURRENT team & opposing team THAT WEEK
+## This is useful for building actual predictions
+def player_all_game_info(db, player_ids=[], as_DataFrame=True):
+	return(player_game_info(db, player_ids, yr_wk=[], as_DataFrame=as_DataFrame, use_current_team=False))
+
 
 if False:
 
@@ -64,3 +123,11 @@ if False:
 		player_info = nfldb.Query(db).player(player_id=player_ids)
 
 
+	# player id this week
+	pps = nfldb.Query(db).player(player_id=player_ids).game(season_year=cur_year, week=cur_week).as_play_players()
+	teams = [pp.team for pp in pps]
+
+	player_game_info(player_ids, use_current_team=True, yr_wk=yr_wk)
+
+	yr_wk = [(2015,6),(2015,5)]
+	" OR ".join(['(game.season_year = ' + str(yr_wk_i[0]) + ' AND game.week = ' + str(yr_wk_i[1]) +")" for yr_wk_i in yr_wk])
