@@ -34,7 +34,7 @@ def player_game_info(db, player_ids = [], as_DataFrame = True, use_current_team 
 	if not use_current_team:
 		var_query = '''
 		SELECT DISTINCT
-		  player.full_name, play_player.player_id, play_player.team, play_player.gsis_id, game.home_team, game.away_team, game.week, game.season_year
+		  player.full_name, play_player.player_id, play_player.team, play_player.gsis_id, game.home_team, game.away_team, game.week, game.season_year as year
 		FROM play_player
 		LEFT JOIN game ON play_player.gsis_id = game.gsis_id
 		LEFT JOIN player ON play_player.player_id = player.player_id
@@ -43,7 +43,7 @@ def player_game_info(db, player_ids = [], as_DataFrame = True, use_current_team 
 	else:
 		var_query = '''
 		SELECT DISTINCT
-		  player.full_name, player.player_id, player.team, game.gsis_id, game.home_team, game.away_team, game.week, game.season_year
+		  player.full_name, player.player_id, player.team, game.gsis_id, game.home_team, game.away_team, game.week, game.season_year as year
 		FROM player
 		LEFT JOIN game ON (player.team = game.home_team OR player.team = game.away_team)
 		WHERE player.player_id IN %s
@@ -74,17 +74,19 @@ def player_game_info(db, player_ids = [], as_DataFrame = True, use_current_team 
 		players = pd.DataFrame(players)
 	return(players)
 
-# Need two functions to get teams
+# Need two functions to get player info like team and opposing team
 
 # One to take a list of of PlayPlayers and find the team THAT WEEK & opposing team THAT WEEK
 ## This is useful for building training data
-def player_current_game_info(db, year, week, player_ids=[], as_DataFrame=True):
-	return(player_game_info(db, player_ids, yr_wk=[(year, week)], as_DataFrame=as_DataFrame, use_current_team=True))
+def player_all_game_info(db, player_ids=[], as_DataFrame=True):
+	return(player_game_info(db, player_ids, yr_wk=[], as_DataFrame=as_DataFrame, use_current_team=False))
 
 # Another to take a list of player_ids & year & week and find the CURRENT team & opposing team THAT WEEK
 ## This is useful for building actual predictions
-def player_all_game_info(db, player_ids=[], as_DataFrame=True):
-	return(player_game_info(db, player_ids, yr_wk=[], as_DataFrame=as_DataFrame, use_current_team=False))
+def player_current_game_info(db, year, week, player_ids=[], as_DataFrame=True):
+	return(player_game_info(db, player_ids, yr_wk=[(year, week)], as_DataFrame=as_DataFrame, use_current_team=True))
+
+
 
 
 if False:
