@@ -25,7 +25,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid title_bg">
         <div class="navbar-header ">
-          <a class="navbar-brand title" href="#">Waiver Coach</a>
+          <a class="navbar-brand title" href="index.html">Waiver Coach</a>
         </div>
         <!--
         <div id="navbar" class="navbar-collapse collapse">
@@ -56,13 +56,7 @@
             <div id="playercontent">
                 <h2 class="page-header">Welcome to the Waiver Coach!</h2>
             </div>
-            <template id="playertemplate">
-                <div id="playercontent">
-                    <h2 class="page-header">Player Details</h2>
-                    <h3 id="playername"></h3>
-                    <h4 id="playerinfo"></h4>
-                </div>
-            </template>
+            <button id='login' onclick="login('yahoo');">Sign in to Yahoo</button>
         </div>
       </div>
     </div>
@@ -72,6 +66,11 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="hello/demos/client_ids.js"></script>
+    <script src="hello/src/hello.polyfill.js"></script>
+    <script src="hello/src/hello.js"></script>
+    <script src="hello/src/modules/yahoo.js"></script>
+    <script src="yahoo_oauth.js"></script>
     <script type="text/javascript" language="javascript">
 
         $(document).ready( function () {
@@ -79,11 +78,11 @@
             sessionStorage.clear();
 
             //build the left navigation with player names from json
-            $.getJSON("predictions_2015_4.json", function( data ) {
+            $.getJSON("predictions.json", function( data ) {
                 $.each(data, function( index, val ) {
                     var li = document.createElement('li');
-                    li.innerHTML = "<a class='player_link' player_id=" +
-                        val.player_id + " href=''>" + val.full_name + "</a>";
+                    li.innerHTML = "<a href='player_details.html?player_id=" +
+                        val.player_id + "'>" + val.full_name + "</a>";
                     document.getElementById("playerlist").appendChild(li);
                     // only show the first 5 players in left navigation
                     // TODO: sort data prior to display
@@ -93,44 +92,8 @@
                 // load model output into session to use in other functions
                 sessionStorage.setItem('playerjson', JSON.stringify(data));
 
-                // handle the click event on player names in left navigation
-                $('a.player_link').bind("click", function(event) {
-                    displayPlayerData(event.target);
-                    return false;
-                });
             });
-
-
         });
-
-
-        // display the currently selected player's details
-        function displayPlayerData(target) {
-            // get the player_id from the chosen player and store in session
-            var player_id = $(target).attr('player_id');
-            var currentplayer = sessionStorage.getItem('player_id');
-
-            // logic to determine whether to load a new player's details
-            if (player_id == currentplayer) {
-                return;
-            } else {
-                sessionStorage.setItem('player_id', player_id);
-                var data = JSON.parse(sessionStorage.getItem('playerjson'));
-                // filter down the json to just the selected player
-                var player = data.filter(function(obj,index) {
-                    return obj['player_id'] == player_id;
-                })[0];
-
-                // modify the HTML5 template and add to the DOM
-                var template = document.querySelector('#playertemplate').content;
-                var name = template.querySelector('#playername');
-                name.textContent = player['full_name'];
-                //var info = template.querySelector('playerinfo');
-                var clone = document.importNode(template, true);
-                var oldcontent = document.querySelector('#playercontent');
-                oldcontent.parentNode.replaceChild(clone, oldcontent);
-            }
-        }
     </script>
   </body>
 </html>

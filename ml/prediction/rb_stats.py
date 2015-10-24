@@ -10,6 +10,7 @@ from ml.feature_extraction.nfldb_feature_extraction import ExtractColumns
 from ml.feature_extraction.nfldb_feature_extraction import HandleNaN
 from ml.feature_extraction.nfldb_feature_extraction import FilterPlayedPercent
 from ml.nfldb_helpers.generic_helpers import week_player_id_list
+from ml.nfldb_helpers.generic_helpers import player_current_game_info
 
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.linear_model import LinearRegression
@@ -52,8 +53,8 @@ def main():
 
 	if(not load_cached):
 		# make player data transformer
-		yr_wk = [(j, i) for j in range(2012,2015) for i in range(1,18)]
-		yr_wk += [(2015, i) for i in range(1,6)]
+		yr_wk = [(j, i) for j in range(2009,2015) for i in range(1,18)]
+		yr_wk += [(2015, i) for i in range(1,7)]
 
 		#stats = ['rushing_yds','rushing_att']
 		stats = ['receiving_rec', 'receiving_tar', 'receiving_tds', 'receiving_yac_yds', 'receiving_yds', 'rushing_att', 'rushing_tds','rushing_yds']
@@ -82,29 +83,22 @@ def main():
 
 		pipe = Pipeline([('pipe1',pipe1),('pipe2',pipe2)])
 
-		# pipe_params = {'pipe1__data__stats':stats,
-		# 'pipe1__data__player_info':player_info,
-		# 'pipe1__lag__lag_cols':lag_cols,
-		# 'pipe1__mean__mean_cols':mean_cols,
-		# 'pipe2__filterplayed__pct_played_threshold':pct_played_threshold
-		# }
-
 		all_columns = pipe.fit_transform(X=None)
 		all_columns.position = all_columns.position.astype(str)
 
+		# pickle files
 		pickle.dump(pipe.set_params(pipe1__data__db=None), open(cache_path + '/pipe_'+position+'.p', 'wb'))
-		#pickle.dump(pipe_params, open(cache_path + '/pipe_params_'+position+'.p', 'wb'))
 		pickle.dump(all_columns, open(cache_path + '/data_'+position+'.p', 'wb'))
 	else:
-		#pipe_params = pickle.load(open(cache_path + '/pipe_params_'+position+'.p', 'rb'))
+		# Load from "cached" (pickled) transformer and data
+		# data
 		all_columns = pickle.load(open(cache_path + '/data_'+position+'.p', 'rb'))
+		# pipeline
 		pipe = pickle.load(open(cache_path + '/pipe_'+position+'.p', 'rb'))
-		#pipe = pipe.set_params(**pipe_params)
+		# retrieve the list of stats that was predicted
 		pipe_params = pipe.get_params()
 		stats = pipe_params['pipe1__data__stats']
-		player_info = pipe_params['pipe1__data__player_info']
-		lag_cols = pipe_params['pipe1__lag__lag_cols']
-		mean_cols = pipe_params['pipe1__mean__mean_cols']
+
 
 	pipe.set_params(pipe1__data__db=db)
 
@@ -120,11 +114,11 @@ def main():
 
 	### prediction data
 	# prediction pipeline
-	pred_data_pipe = Pipeline(steps=[('pipe1',pipe1),('pipe2',pipe2)])
+	pred_data_pipe = pipe#Pipeline(steps=[('pipe1',pipe1),('pipe2',pipe2)])
 
 	# get information we need to make predictions
 	season_phase, cur_year, cur_week = nfldb.current(db)
-	pred_week = cur_week
+	pred_week = cur_week + 1
 	pred_yr_wk = [(j, i) for j in range(2009,cur_year-1) for i in range(1,18)]
 	pred_yr_wk += [(cur_year, i) for i in range(1,pred_week+1)]
 
@@ -135,6 +129,13 @@ def main():
 
 	pred_data = pred_data_pipe.fit_transform(player_ids)
 	pred_info = infoColumns.fit_transform(X=pred_data)
+
+	# get extra info like team and opponent
+	# should probably be put in to infoColumns transformer later
+	extra_info = player_current_game_info(db, year=cur_year, week=pred_week, player_ids = list(pred_info['player_id']))
+	join_on = ['player_id']
+	add_on = ['team', 'opp_team', 'at_home']
+	pred_info = pred_info.join(extra_info.set_index(join_on).loc[:,add_on], on=join_on)
 
 	# predict for the last week
 	pred_yr_wk_t = [pred_yr_wk[-1]]

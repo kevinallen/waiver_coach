@@ -83,6 +83,7 @@ def player_week2dataframe(db, yr_wk, stats, player_info, player_ids=None, positi
 			q.player(position=position)
 		if(player_ids):
 			q.player(player_id=player_ids)
+			# create copy of player_ids to remove as handled
 			player_ids_i = list(player_ids)
 		# loop through PlayPlayer objects, aggregated for the week
 		for pp in q.as_aggregate():
