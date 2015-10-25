@@ -3,7 +3,7 @@
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 
-week = 2
+week = 7 
 posids = ['10', '20', '30', '40', '80'] # position ids in URL
 positions = ['QB', 'RB', 'WR', 'TE', 'K']
 # stats are different for each position

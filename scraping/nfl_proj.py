@@ -2,7 +2,7 @@ from urllib2 import urlopen
 from bs4 import BeautifulSoup
 
 offset = 1
-week = 2
+week = 7 
 
 # get offensive stats
 while (offset < 300):

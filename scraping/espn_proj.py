@@ -1,7 +1,7 @@
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 
-week = 2
+week = 7 
 offset = 0 # shows 40 at a time
 
 while offset < 320:
