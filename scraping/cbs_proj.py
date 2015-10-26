@@ -4,7 +4,7 @@ from pymongo import MongoClient
 import re
 
 client = MongoClient()
-db = client.projections
+db = client.data
 
 positions = ['QB','RB','WR','TE','K','DST']
 wks = [wk for wk in range(1,17)]
@@ -66,7 +66,7 @@ for wk in wks:
                 name_key = duplicates[(name_key,pos)]
 
             player = {'name_key':name_key,'position':pos,'team':team,
-                'name':name,'wk':wk}
+                'name':name,'wk':wk, 'source':'cbs'}
             player.update(player_stats)
             # insert player data into mongodb
-            db.cbs.insert_one(player)
+            db.projections.insert_one(player)
