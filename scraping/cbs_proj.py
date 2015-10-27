@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from pymongo import MongoClient
 import re
 
+# storing data in mongodb
 client = MongoClient()
 db = client.data
 
@@ -10,9 +11,9 @@ positions = ['QB','RB','WR','TE','K','DST']
 wks = [wk for wk in range(1,17)]
 
 # stats available on CBS
-qb_stats = ['pass_attempts','pass_comp', 'pass_yds','pass_tds','int','comp_pct',
-    'rush_yds_att','rush_attempts','rush_yds','rush_avg','rush_tds','fumbles',
-    'pts']
+qb_stats = ['pass_attempts','pass_comp', 'pass_yds','pass_tds','pass_int',
+    'comp_pct','rush_yds_att','rush_attempts','rush_yds','rush_avg','rush_tds',
+    'fumbles','pts']
 rb_stats = ['rush_attempts','rush_yds','rush_avg','rush_tds','receptions',
     'rec_yds','rec_avg','rec_tds','fumbles','pts']
 wr_te_stats = ['receptions','rec_yds','rec_avg','rec_tds','fumbles','pts']
@@ -65,8 +66,10 @@ for wk in wks:
             if (name_key,pos) in duplicates:
                 name_key = duplicates[(name_key,pos)]
 
+            # build player dict
             player = {'name_key':name_key,'position':pos,'team':team,
-                'name':name,'wk':wk, 'source':'cbs'}
+                'name':name,'week':wk, 'source':'CBS', 'year':2015}
             player.update(player_stats)
+
             # insert player data into mongodb
             db.projections.insert_one(player)
