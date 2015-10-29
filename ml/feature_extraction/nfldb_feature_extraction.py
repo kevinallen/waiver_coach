@@ -219,13 +219,8 @@ def filter_played_percent(df, pct_played_threshold):
 	return df[df[col_matches].fillna(value=0).mean(axis=1) >= pct_played_threshold]
 
 ### Add column to dataframe to use as a unique key to join
-# other datasets (e.g., projections scraped from web)
-def add_name_key(df):
-	name_keys = df.apply(make_name_key, axis=1)
-	df.loc[:,'name_key'] = pd.Series(name_keys)
-	return df
-
-### Creates a name_key when passed a dataframe row-wise
+# other datasets (e.g., projections scraped from web).
+# Creates a name_key when passed a dataframe row-wise
 def make_name_key(df):
     full_name = df['full_name']
     pos = df['position']
@@ -351,7 +346,9 @@ class AddNameKey(TransformerMixin):
 	def fit(self, *args, **kwargs):
 		return self
 	def transform(self, X):
-		return add_name_key(X)
+		name_keys = X.apply(make_name_key, axis=1)
+		X.loc[:,'name_key'] = pd.Series(name_keys)
+		return X
 	def get_params(self, deep=True):
 		return {}
 	def set_params(self, **parameters):
