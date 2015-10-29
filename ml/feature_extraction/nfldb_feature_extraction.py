@@ -28,7 +28,7 @@ def inverse_rs_time(rs_t, base_year=1970):
 def rs_time_df(obj, base_year=1970):
 	return rs_time(year=obj.year, week=obj.week, base_year=base_year)
 
-# this function fills in missing weeks for each player and 
+# this function fills in missing weeks for each player and
 # creates a variable called "played"
 def fill_time_of_group(group, stats, player_info, group_by='player_id'):
 
@@ -218,7 +218,21 @@ def filter_played_percent(df, pct_played_threshold):
 	col_matches = [col for col in col_names if re_pat.search(col)]
 	return df[df[col_matches].fillna(value=0).mean(axis=1) >= pct_played_threshold]
 
+### Add column to dataframe to use as a unique key to join
+# other datasets (e.g., projections scraped from web)
+def add_name_key(df):
+	name_keys = df.apply(make_name_key, axis=1)
+	df.loc[:,'name_key'] = pd.Series(name_keys)
+	return df
 
+### Creates a name_key when passed a dataframe row-wise
+def make_name_key(df):
+    full_name = df['full_name']
+    pos = df['position']
+    name_key = re.sub(r"[\.,\s\']","", full_name).upper()
+    if (name_key,pos) in duplicates:
+        name_key = duplicates[(name_key,pos)]
+    return name_key
 
 class WeeklyPlayerData(TransformerMixin):
 	def __init__(self, db, yr_wk=None, fill_time=True, stats=[], player_info=['player_id','full_name','position'],position=None):
@@ -237,7 +251,7 @@ class WeeklyPlayerData(TransformerMixin):
 	def transform(self, X=None):
 		# X does nothing for this function
 		# this function essentially pulls data
-		# However, may change that later - X may 
+		# However, may change that later - X may
 		# be a list of player names to get or something
 		return player_week2dataframe(player_ids=X, db=self.db, yr_wk=self.yr_wk, stats=self.stats, fill_time=self.fill_time, player_info=self.player_info, position=self.position)
 	def get_params(self, deep=True):
@@ -331,4 +345,16 @@ class FilterPlayedPercent(TransformerMixin):
 			setattr(self, parameter, value)
 		return self
 
-
+class AddNameKey(TransformerMixin):
+	def __init__(self):
+		pass
+	def fit(self, *args, **kwargs):
+		return self
+	def transform(self, X):
+		return add_name_key(X)
+	def get_params(self, deep=True):
+		return {}
+	def set_params(self, **parameters):
+		for parameter, value in parameters.items():
+			setattr(self, parameter, value)
+		return self
