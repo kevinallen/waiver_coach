@@ -118,7 +118,7 @@ def main():
 
 	# get information we need to make predictions
 	season_phase, cur_year, cur_week = nfldb.current(db)
-	pred_week = cur_week + 1
+	pred_week = cur_week + 1	
 	pred_yr_wk = [(j, i) for j in range(2009,cur_year-1) for i in range(1,18)]
 	pred_yr_wk += [(cur_year, i) for i in range(1,pred_week+1)]
 

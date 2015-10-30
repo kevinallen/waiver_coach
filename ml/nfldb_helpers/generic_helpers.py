@@ -9,6 +9,7 @@ def week_team_list(db, season_year, week, season_type='Regular'):
 	return teams
 
 def week_player_list(db, season_year, week, season_type='Regular', position=None):
+	# returns a list of players objects who are on teams playing in the specified week
 	week_teams = week_team_list(db=db, season_year=season_year, week=week, season_type=season_type)
 	q = nfldb.Query(db).player(team=week_teams)
 	if position:

@@ -8,3 +8,13 @@ For me it's
 
 	export PYTHONPATH="${PYTHONPATH}:/Users/rossboberg/Documents/MIDS/capstone/waiver_coach/"
 
+# Folders
+`data\` saves pickled pipelines and data for quick loading
+
+`feature_extraction\` has files for feature extraction
+
+`nfldb_helpers\` has helper functions for getting data & info from nfldb postgres
+
+`prediction\` has functions for acctually making predictions (tying to gether data, feature extraction, etc)
+
+`results\` houses results of predictions
