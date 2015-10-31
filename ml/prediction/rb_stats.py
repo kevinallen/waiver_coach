@@ -15,6 +15,9 @@ from ml.nfldb_helpers.generic_helpers import player_current_game_info
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.pipeline import Pipeline
 from sklearn.pipeline import FeatureUnion
@@ -144,69 +147,96 @@ def main():
 
 	# set y_col
 	y_cols = ['played', 'receiving_rec', 'receiving_tds', 'receiving_yds', 'rushing_att', 'rushing_tds','rushing_yds']
+	#y_cols = ['played', 'receiving_rec', 'rushing_yds']
 	#y_cols = ['rushing_yds', 'played']
 
 	played_only = True
 
+
 	for y_col in y_cols:
-		# Pick the right columns
-		keep_like = [y_col] + lag_cols + mean_cols + other_cols
-		pickColumns = ExtractColumns(like=keep_like)
-		X_y = pickColumns.fit_transform(X=full_train)
+	    # Pick the right columns
+	    keep_like = [y_col] + lag_cols + mean_cols + other_cols
+	    pickColumns = ExtractColumns(like=keep_like)
+	    X_y = pickColumns.fit_transform(X=full_train)
 
-		if(played_only and y_col != 'played' and 'played' in X_y.columns):
-			played_bool = X_y['played'] == 1
-			X_y = X_y[played_bool]
+	    if(played_only and y_col != 'played' and 'played' in X_y.columns):
+	        played_bool = X_y['played'] == 1
+	        X_y = X_y[played_bool]
 
-		# get X and y
-		y = X_y[y_col]
-		X = X_y.drop(y_col, axis=1)
+	    # get X and y
+	    y = X_y[y_col]
+	    X = X_y.drop(y_col, axis=1)
 
-		# random split train and test
-		train_i, test_i = train_test_split_index(X.shape[0], test_size=0.1, seed=0)
-		# set up data
-		y_train = y.iloc[train_i]
-		y_test = y.iloc[test_i]
-		X_train = X.iloc[train_i]
-		X_test = X.iloc[test_i]
-		### Test Predictions
-		# Gradident Boosting
-		gb = GradientBoostingRegressor(n_estimators=100, learning_rate=0.1).fit(X_train, y_train)
-		predict_test = gb.predict(X_test)
-		gb_rmse = mean_squared_error(y_test, predict_test)**0.5
-		gb_mae = mean_absolute_error(y_test, predict_test)
-		# Random Forest Regressor
-		rf = RandomForestRegressor().fit(X_train, y_train)
-		predict_test = rf.predict(X_test)
-		rf_rmse = mean_squared_error(y_test, predict_test)**0.5
-		rf_mae = mean_absolute_error(y_test, predict_test)
-		# Linear Regression
-		lr = LinearRegression().fit(X_train, y_train)
-		predict_test = lr.predict(X_test)
-		lr_rmse = mean_squared_error(y_test, predict_test)**0.5
-		lr_mae = mean_absolute_error(y_test, predict_test)
-		# Print Results
-		print 'Predicting %s' % (y_col)
-		print 'Gradient Boosting: RMSE %.2f | MAE %.2f' % (gb_rmse, gb_mae)
-		print 'Random Forest: RMSE %.2f | MAE %.2f' % (rf_rmse, rf_mae)
-		print 'Linear Regression: RMSE %.2f | MAE %.2f' % (lr_rmse, lr_mae)
-		# Build full models on all data
+	    # random split train and test
+	    train_i, test_i = train_test_split_index(X.shape[0], test_size=0.1, seed=0)
+	    # set up data
+	    y_train = y.iloc[train_i]
+	    y_test = y.iloc[test_i]
+	    X_train = X.iloc[train_i]
+	    X_test = X.iloc[test_i]
+	    ### Test Predictions
 
-		gb = gb.fit(X, y)
-		rf = rf.fit(X, y)
-		lr = lr.fit(X, y)
-		#### Next week's predictions
-		#pipe1 = pipe1.set_params(data__yr_wk=yr_wk_pred)
-		#data1 = pipe1.transform(X=None)
-		#data2 = pipe2.transform(X=data1)
-		#X_y_pred = pickColumns.transform(X=data2)
-		#info_pred = infoColumns.transform(X=data2)
-		#X_pred = X_y_pred.drop(y_col, axis=1)
-		#y_pred = X_y_pred[y_col]
-		# Make prediction, just gbr for now
-		X_pred = pickColumns.fit_transform(X=pred_data).drop(y_col, axis=1)
-		preds = gb.predict(X_pred.iloc[predict_i])
-		df_pred[y_col] = preds
+	    if(y_col == 'played'):
+	        # Gradident Boosting
+	        gb = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1).fit(X_train, y_train)
+	        gb_test = gb.predict_proba(X_test)[:,1]
+	        # Random Forest Regressor
+	        rf = RandomForestClassifier().fit(X_train, y_train)
+	        rf_test = rf.predict_proba(X_test)[:,1]
+	        # Logistic Regression
+	        lr = LogisticRegression().fit(X_train, y_train)
+	        lr_test = lr.predict_proba(X_test)[:,1]
+	    else:
+	        # Gradident Boosting
+	        gb = GradientBoostingRegressor(n_estimators=100, learning_rate=0.1).fit(X_train, y_train)
+	        gb_test = gb.predict(X_test)
+	        # Random Forest Regressor
+	        rf = RandomForestRegressor().fit(X_train, y_train)
+	        rf_test = rf.predict(X_test)
+	        # Linear Regression
+	        lr = LinearRegression().fit(X_train, y_train)
+	        lr_test = lr.predict(X_test)
+
+	    gb_rmse = mean_squared_error(y_test, gb_test)**0.5
+	    gb_mae = mean_absolute_error(y_test, gb_test)
+
+	    predict_test = rf.predict(X_test)
+	    rf_rmse = mean_squared_error(y_test, rf_test)**0.5
+	    rf_mae = mean_absolute_error(y_test, rf_test)
+
+	    predict_test = lr.predict(X_test)
+	    lr_rmse = mean_squared_error(y_test, lr_test)**0.5
+	    lr_mae = mean_absolute_error(y_test, lr_test)
+	    # Print Results
+	    print 'Predicting %s' % (y_col)
+	    print 'Gradient Boosting: RMSE %.2f | MAE %.2f' % (gb_rmse, gb_mae)
+	    print 'Random Forest: RMSE %.2f | MAE %.2f' % (rf_rmse, rf_mae)
+	    if(y_col == 'played'):
+	        print 'Logistic Regression: RMSE %.2f | MAE %.2f' % (lr_rmse, lr_mae)
+	    else:
+	        print 'Linear Regression: RMSE %.2f | MAE %.2f' % (lr_rmse, lr_mae)
+	    # Build full models on all data
+
+	    gb = gb.fit(X, y)
+	    rf = rf.fit(X, y)
+	    lr = lr.fit(X, y)
+	    #### Next week's predictions
+	    #pipe1 = pipe1.set_params(data__yr_wk=yr_wk_pred)
+	    #data1 = pipe1.transform(X=None)
+	    #data2 = pipe2.transform(X=data1)
+	    #X_y_pred = pickColumns.transform(X=data2)
+	    #info_pred = infoColumns.transform(X=data2)
+	    #X_pred = X_y_pred.drop(y_col, axis=1)
+	    #y_pred = X_y_pred[y_col]
+	    # Make prediction, just gbr for now
+	    X_pred = pickColumns.fit_transform(X=pred_data).drop(y_col, axis=1)
+	    
+	    if(y_col == 'played'):
+	        preds = gb.predict_proba(X_pred.iloc[predict_i])[:,1]
+	    else:
+	        preds = gb.predict(X_pred.iloc[predict_i])
+
+	    df_pred[y_col] = preds
 
 	out_path = result_path + '/predictions' + '_' + str(int(pred_yr_wk_t[0][0])) + '_' + str(int(pred_yr_wk_t[0][1])) + '.json'
 	df_pred.to_json(path_or_buf = out_path, orient = 'records')
