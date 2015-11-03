@@ -1,3 +1,6 @@
+import numpy as np
+import pandas as pd
+
 # Get stats scraped from web for current year
 def webprojections_2dataframe(db, position='RB', stats=[]):
     # choose which columns to select
