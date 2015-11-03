@@ -224,7 +224,7 @@ def filter_played_percent(df, pct_played_threshold):
 def make_name_key(df):
 	# building duplicates dict manually for now
 	duplicates = {('DAVIDJOHNSON','TE'):'DAVIDJOHNSON1',
-				  ('RYANGRIFFIN','TE'):'RYANGRIFFIN'}
+		('RYANGRIFFIN','TE'):'RYANGRIFFIN'}
 
 	full_name = df['full_name']
 	pos = df['position']
