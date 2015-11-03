@@ -222,12 +222,16 @@ def filter_played_percent(df, pct_played_threshold):
 # other datasets (e.g., projections scraped from web).
 # Creates a name_key when passed a dataframe row-wise
 def make_name_key(df):
-    full_name = df['full_name']
-    pos = df['position']
-    name_key = re.sub(r"[\.,\s\']","", full_name).upper()
-    if (name_key,pos) in duplicates:
-        name_key = duplicates[(name_key,pos)]
-    return name_key
+	# building duplicates dict manually for now
+	duplicates = {('DAVIDJOHNSON','TE'):'DAVIDJOHNSON1',
+				  ('RYANGRIFFIN','TE'):'RYANGRIFFIN'}
+
+	full_name = df['full_name']
+	pos = df['position']
+	name_key = re.sub(r"[\.,\s\']","", full_name).upper()
+	if (name_key,pos) in duplicates:
+	    name_key = duplicates[(name_key,pos)]
+	return name_key
 
 class WeeklyPlayerData(TransformerMixin):
 	def __init__(self, db, yr_wk=None, fill_time=True, stats=[], player_info=['player_id','full_name','position'],position=None):
