@@ -28,7 +28,8 @@
 			get: {
 				me: yql('select * from social.profile(0) where guid=me'),
 				'me/friends': yql('select * from social.contacts(0) where guid=me'),
-				'me/following': yql('select * from social.contacts(0) where guid=me')
+				'me/following': yql('select * from social.contacts(0) where guid=me'),
+				'league': yql('select * from fantasysports.leagues where use_login=1 and game_key=348')
 			},
 			wrap: {
 				me: formatUser,
@@ -37,7 +38,8 @@
 				// It might be better to loop through the social.relationship table with has unique IDs of users.
 				'me/friends': formatFriends,
 				'me/following': formatFriends,
-				'default': paging
+				'default': paging,
+				'league': formatLeague
 			}
 		}
 	});
@@ -92,6 +94,16 @@
 
 		return o;
 	}
+	
+	function formatLeague(o) {
+
+		formatError(o);
+		if (o.query && o.query.results && o.query.results.league) {
+			o = o.query.results.league;
+		}
+		// This will probably break if you have more than one league...
+		return o;
+	}
 
 	function formatFriends(o, headers, request) {
 		formatError(o);
@@ -144,7 +156,8 @@
 	}
 
 	function yql(q) {
-		return 'https://query.yahooapis.com/v1/yql?q=' + (q + ' limit @{limit|100} offset @{start|0}').replace(/\s/g, '%20') + '&format=json';
+		return 'https://query.yahooapis.com/v1/yql?q=' + (q).replace(/\s/g, '%20') + '&format=json&diagnostics=true&callback=';
+	//	return 'https://query.yahooapis.com/v1/yql?q=' + (q + ' limit @{limit|100} offset @{start|0}').replace(/\s/g, '%20') + '&format=json';
 	}
 
 })(hello);
