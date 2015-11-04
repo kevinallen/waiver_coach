@@ -13,9 +13,11 @@ For me it's
 
 `feature_extraction\` has files for feature extraction
 
+`mongo_helpers\` has a helper function getting data stored in MongoDB
+
 `nfldb_helpers\` has helper functions for getting data & info from nfldb postgres
 
-`prediction\` has functions for acctually making predictions (tying to gether data, feature extraction, etc)
+`prediction\` has functions for actually making predictions (ties together data, feature extraction, etc)
 
 `results\` houses results of predictions
 
@@ -27,7 +29,7 @@ As of 10/30/2015, here are the results for RB's
 	Gradient Boosting: RMSE 0.39 | MAE 0.29
 	Random Forest: RMSE 0.40 | MAE 0.29
 	Logistic Regression: RMSE 0.39 | MAE 0.30
-	
+
 	Predicting receiving_rec
 	Gradient Boosting: RMSE 1.63 | MAE 1.09
 	Random Forest: RMSE 1.65 | MAE 1.08
@@ -52,7 +54,7 @@ As of 10/30/2015, here are the results for RB's
 	Gradient Boosting: RMSE 0.46 | MAE 0.25
 	Random Forest: RMSE 0.46 | MAE 0.25
 	Linear Regression: RMSE 0.46 | MAE 0.26
-	
+
 	Predicting rushing_yds
 	Gradient Boosting: RMSE 28.55 | MAE 19.45
 	Random Forest: RMSE 29.33 | MAE 19.61

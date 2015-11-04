@@ -15,7 +15,7 @@ As of 10/30/2015, here are the results
 	Gradient Boosting: RMSE 0.39 | MAE 0.29
 	Random Forest: RMSE 0.40 | MAE 0.29
 	Logistic Regression: RMSE 0.39 | MAE 0.30
-	
+
 	Predicting receiving_rec
 	Gradient Boosting: RMSE 1.63 | MAE 1.09
 	Random Forest: RMSE 1.65 | MAE 1.08
@@ -40,7 +40,7 @@ As of 10/30/2015, here are the results
 	Gradient Boosting: RMSE 0.46 | MAE 0.25
 	Random Forest: RMSE 0.46 | MAE 0.25
 	Linear Regression: RMSE 0.46 | MAE 0.26
-	
+
 	Predicting rushing_yds
 	Gradient Boosting: RMSE 28.55 | MAE 19.45
 	Random Forest: RMSE 29.33 | MAE 19.61
@@ -49,3 +49,6 @@ As of 10/30/2015, here are the results
 ## rushing_yards.py
 
 Old simple code for predicting rushing yards. Made obsolete by rb_stats.py.
+
+## rb_web_data.py
+Used to make predictions based on stat projections scraped from the web. Currently only prints a dataframe with data from the web joined to data from nfldb.
