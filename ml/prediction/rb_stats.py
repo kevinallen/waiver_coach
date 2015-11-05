@@ -9,8 +9,12 @@ from ml.feature_extraction.nfldb_feature_extraction import MeanPlayerData
 from ml.feature_extraction.nfldb_feature_extraction import ExtractColumns
 from ml.feature_extraction.nfldb_feature_extraction import HandleNaN
 from ml.feature_extraction.nfldb_feature_extraction import FilterPlayedPercent
-from ml.nfldb_helpers.generic_helpers import week_player_id_list
-from ml.nfldb_helpers.generic_helpers import player_current_game_info
+from ml.helpers.nfldb_helpers import week_player_id_list
+from ml.helpers.nfldb_helpers import player_current_game_info
+from ml.helpers.scoring_helpers import make_scorer
+from ml.helpers.scoring_helpers import score_stats
+from ml.helpers.testing_helpers import train_test_split_index
+from ml.helpers.testing_helpers import split_by_year_week
 
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.linear_model import LinearRegression
@@ -21,30 +25,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.pipeline import Pipeline
 from sklearn.pipeline import FeatureUnion
-
-def train_test_split_index(n,test_size=0.2,seed=None):
-	if(seed):
-		np.random.seed(seed)
-	rand_i = np.random.choice(range(n), n, replace=False)
-	test_i = rand_i[range(int(round(n*test_size)))]
-	train_i = rand_i[range(int(round(n*test_size)),n)]
-	return train_i, test_i
-
-def split_by_year_week(X, test_yr_wk):
-	train_i = []
-	test_i = []
-	for i in range(X.shape[0]):
-		match = False
-		row_yr_wk = (X.iloc[i]['year'], X.iloc[i]['week'])
-		for yr_wk in test_yr_wk:
-			if row_yr_wk[0] == yr_wk[0] and row_yr_wk[1] == yr_wk[1]:
-				match = True
-				test_i += [i]
-				break
-		if not match:
-			train_i += [i]
-	return train_i, test_i
-
 
 def main():
 	# connect to nfldb
@@ -207,6 +187,7 @@ def main():
 	    predict_test = lr.predict(X_test)
 	    lr_rmse = mean_squared_error(y_test, lr_test)**0.5
 	    lr_mae = mean_absolute_error(y_test, lr_test)
+	    
 	    # Print Results
 	    print 'Predicting %s' % (y_col)
 	    print 'Gradient Boosting: RMSE %.2f | MAE %.2f' % (gb_rmse, gb_mae)
@@ -220,14 +201,9 @@ def main():
 	    gb = gb.fit(X, y)
 	    rf = rf.fit(X, y)
 	    lr = lr.fit(X, y)
+
+	    
 	    #### Next week's predictions
-	    #pipe1 = pipe1.set_params(data__yr_wk=yr_wk_pred)
-	    #data1 = pipe1.transform(X=None)
-	    #data2 = pipe2.transform(X=data1)
-	    #X_y_pred = pickColumns.transform(X=data2)
-	    #info_pred = infoColumns.transform(X=data2)
-	    #X_pred = X_y_pred.drop(y_col, axis=1)
-	    #y_pred = X_y_pred[y_col]
 	    # Make prediction, just gbr for now
 	    X_pred = pickColumns.fit_transform(X=pred_data).drop(y_col, axis=1)
 	    
