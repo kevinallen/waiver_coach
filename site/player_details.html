@@ -113,6 +113,11 @@
             sessionStorage.clear();
 
             $.getJSON("predictions.json", function( data ) {
+                // sort the data before it is displayed
+                data.sort(function(a, b) {
+                    return parseFloat(b.rushing_yds) - parseFloat(a.rushing_yds);
+                });
+
                 $.each(data, function( index, val ) {
                     var li = document.createElement('li');
                     li.innerHTML = "<a href='player_details.html?player_id=" +
