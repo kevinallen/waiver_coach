@@ -46,6 +46,18 @@ As of 10/30/2015, here are the results
 	Random Forest: RMSE 29.33 | MAE 19.61
 	Linear Regression: RMSE 28.07 | MAE 19.24
 
+## test_rb_stats.ipynb
+
+Version of rb_stats.py in ipython notebook for testing
+
+## rb_nn.py
+
+Script to create nearest neighbor distributions for players
+
+## test_rb_nn.ipynb
+
+ipython notebook for testing rb_nn.py
+
 ## rushing_yards.py
 
 Old simple code for predicting rushing yards. Made obsolete by rb_stats.py.
