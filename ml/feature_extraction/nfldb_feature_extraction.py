@@ -3,8 +3,12 @@ import pandas as pd
 import numpy as np
 import re
 import math
+import pickle
 
 from sklearn.base import TransformerMixin
+from ml.helpers.nfldb_helpers import week_player_id_list
+from ml.helpers.nfldb_helpers import player_current_game_info
+from ml.helpers.testing_helpers import split_by_year_week
 
 # rs_time stands for regular season time
 # this is elapsed weeks of regular season
@@ -359,3 +363,101 @@ class AddNameKey(TransformerMixin):
 		for parameter, value in parameters.items():
 			setattr(self, parameter, value)
 		return self
+
+# which stats are relevant for predicting a position
+def position_stats(position):
+    if position == 'RB':
+        return(['receiving_rec', 'receiving_tar', 'receiving_tds', 'receiving_yac_yds', 'receiving_yds', 'rushing_att', 'rushing_tds','rushing_yds'])
+   
+# load feature set for training - returns tuple of (data, pipeline, list-of-stats)
+def load_feature_set(db, cache_path='../data', position='RB', load_cached=True, nlag=6, to_yr_wk=(2015, 6), stat_override=None):
+    if(not load_cached):
+        # make player data transformer
+        yr_wk = [(j, i) for j in range(2009,to_yr_wk[0]) for i in range(1,18)]
+        yr_wk += [(to_yr_wk[0], i) for i in range(1,to_yr_wk[1]+1)]
+        
+        if(stat_override):
+            stats = stat_override
+        else:
+            stats = position_stats(position)
+
+        player_info = ['player_id','full_name','position']
+        playerData = WeeklyPlayerData(db=db, yr_wk=yr_wk, stats=stats, player_info=player_info, fill_time=True, position=position)
+
+        # creates lags of the data
+        lag_cols = ['year', 'week', 'played'] + stats
+        lagData = LagPlayerData(nlag=nlag, groupby_cols=['player_id'], lag_cols=lag_cols, same_year_bool=True)
+
+        # creates means of the data
+        mean_cols = stats
+        meanData = MeanPlayerData(groupby_cols=['player_id'], mean_cols=mean_cols)
+
+        # pipeline for getting data
+        pipe1 = Pipeline(steps=[('data',playerData), ('lag',lagData), ('mean',meanData)])
+        #processed_data = pipe1.fit_transform(X=None)
+
+        # print processed_data
+        # pipeline for seting which columns we want and handling NaN
+        pct_played_threshold = 0.0
+        pipe2_steps = [('handle',HandleNaN(method='fill')), ('filterplayed',FilterPlayedPercent(pct_played_threshold=pct_played_threshold))]
+        pipe2 = Pipeline(steps=pipe2_steps)
+
+        pipe = Pipeline([('pipe1',pipe1),('pipe2',pipe2)])
+
+        all_columns = pipe.fit_transform(X=None)
+        all_columns.position = all_columns.position.astype(str)
+
+        # pickle files
+        pickle.dump(pipe.set_params(pipe1__data__db=None), open(cache_path + '/pipe_'+position+'.p', 'wb'))
+        pickle.dump(all_columns, open(cache_path + '/data_'+position+'.p', 'wb'))
+    else:
+        # Load from "cached" (pickled) transformer and data
+        # data
+        all_columns = pickle.load(open(cache_path + '/data_'+position+'.p', 'rb'))
+        # pipeline
+        pipe = pickle.load(open(cache_path + '/pipe_'+position+'.p', 'rb'))
+        # retrieve the list of stats that was predicted
+        pipe_params = pipe.get_params()
+        stats = pipe_params['pipe1__data__stats']
+
+    pipe.set_params(pipe1__data__db=db)
+    
+    return (all_columns, pipe, stats)
+
+
+# load features set for prediciton - return tuple of (data, index-of-data-for-predictions, info-about-players-in-data, (year, week))
+def prediction_feature_set(db, pipe, infoColumns, pred_year=None, pred_week=None, player_ids=None):
+    pipe.set_params(pipe1__data__db=db)
+    
+    ### prediction data
+    # get information we need to make predictions
+    season_phase, cur_year, cur_week = nfldb.current(db)
+    if(pred_year is None):
+        pred_year = cur_year
+        
+    if(pred_week is None):
+        pred_week = cur_week + 1
+        
+    pred_yr_wk = [(j, i) for j in range(2009,pred_year-1) for i in range(1,18)]
+    pred_yr_wk += [(pred_year, i) for i in range(1,pred_week+1)]
+
+    pipe.set_params(pipe1__data__yr_wk = pred_yr_wk)
+    
+    if(player_ids is None):
+        player_ids = week_player_id_list(db, pred_year, pred_week, position='RB')
+
+    pred_data = pipe.fit_transform(player_ids)
+    pred_info = infoColumns.fit_transform(X=pred_data)
+
+    # get extra info like team and opponent
+    # should probably be put in to infoColumns transformer later
+    extra_info = player_current_game_info(db, year=pred_year, week=pred_week, player_ids = list(pred_info['player_id']))
+    join_on = ['player_id']
+    add_on = ['team', 'opp_team', 'at_home']
+    pred_info = pred_info.join(extra_info.set_index(join_on).loc[:,add_on], on=join_on)
+
+    # predict for the last week
+    pred_yr_wk_t = [pred_yr_wk[-1]]
+    garbage_i, predict_i = split_by_year_week(pred_data, pred_yr_wk_t)
+    
+    return((pred_data, predict_i, pred_info, (pred_year, pred_week)))
