@@ -5,7 +5,6 @@
 ##########
 ### Dependencies
 
-%matplotlib inline
 import nfldb
 import pandas as pd
 import numpy as np
@@ -37,7 +36,7 @@ from sklearn.pipeline import FeatureUnion
 #############
 ### Function for plotting KNN distributinos and saving them
 
-def plot_knn(nn_df, plot_stat, n_bins=2, bandwidth=2.5, result_path='../results/knn'):
+def plot_knn(nn_df, plot_stat, pred_yr_wk, n_bins=2, bandwidth=2.5, result_path='../results/knn'):
     # the histogram of the data
     stat_X = nn_df.iloc[1:][plot_stat]
     player_name = nn_df.iloc[0]['full_name']
@@ -145,12 +144,17 @@ def main():
 	##################################
 	### READ AND PLOT KNN RESULTS
 	for check_i in range(pred_all.shape[0]):
-    # check neighbors
-    # check_nn is a data frame where the first row is the player
-    # and the rest of the rows are the nearest neighbors
-    check_nn = pred_all.iloc[[check_i],:].append(X_all.iloc[i_knn].iloc[neighbor[check_i,:]])
-    check_nn['StandardPoints'] = score_stats(check_nn, make_scorer(base_type='standard'))
-    check_nn['PPRPoints'] = score_stats(check_nn, make_scorer(base_type='ppr'))
-    
-    plot_knn(check_nn, plot_stat='StandardPoints', n_bins=25, bandwidth=2.5)
-    #check_nn
+	    # check neighbors
+	    # check_nn is a data frame where the first row is the player
+	    # and the rest of the rows are the nearest neighbors
+	    check_nn = pred_all.iloc[[check_i],:].append(X_all.iloc[i_knn].iloc[neighbor[check_i,:]])
+	    check_nn['StandardPoints'] = score_stats(check_nn, make_scorer(base_type='standard'))
+	    check_nn['PPRPoints'] = score_stats(check_nn, make_scorer(base_type='ppr'))
+	    
+	    plot_knn(check_nn, plot_stat='StandardPoints', pred_yr_wk=pred_yr_wk, n_bins=25, bandwidth=2.5)
+
+
+if __name__ == "__main__":
+	main()
+
+
