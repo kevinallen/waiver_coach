@@ -8,7 +8,7 @@ client = MongoClient()
 db = client.data
 
 # fftoday only shows data for week 1 through the current week
-wks = [wk for wk in range(1,8)]
+wks = [wk for wk in range(1,10)]
 
 posids = ['10', '20', '30', '40', '80'] # position ids in URL
 positions = {'10':'QB', '20':'RB', '30':'WR', '40':'TE', '80':'K'}

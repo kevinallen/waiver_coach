@@ -1,8 +1,23 @@
 import numpy as np
 import pandas as pd
+from sklearn.base import TransformerMixin
 
-# Get stats scraped from web for current year
-def webprojections_2dataframe(db, position='RB', stats=[]):
+def webprojections_2dataframe(db, position=None, stats=[]):
+    """Returns projections scraped from web as pandas dataframe.
+
+    Args:
+        db (pymongo.database.Database): MongoDB database with scraped data
+        position (string): Position to include, for now just 'RB'
+        stats (list[str]): Projected stats to include in dataframe
+
+    Returns:
+        pandas.DataFrame: All projected stats scraped from the web
+    """
+
+    # set a default position if none specified
+    if position == None:
+        position = 'RB'
+
     # choose which columns to select
     playerinfo = {'name':1,'name_key':1,'team':1,'position':1,'year':1,
         'week':1}
@@ -46,6 +61,27 @@ def webprojections_2dataframe(db, position='RB', stats=[]):
 
     new_df = pd.DataFrame(new_df)
     return new_df
+
+class ProjectedPlayerData(TransformerMixin):
+	def __init__(self, db, position=None, stats=[]):
+		self.db=db
+		self.stats = stats
+		self.position = position
+	# fit function essentially says do nothing
+	def fit(self, *args, **kwargs):
+		return self
+	def transform(self, X=None):
+		# X does nothing for this function
+		# this function essentially pulls data
+		# However, may change that later - X may
+		# be a list of player names to get or something
+		return webprojections_2dataframe(db=self.db, stats=self.stats, position=self.position)
+	def get_params(self, deep=True):
+		return {'stats':self.stats}
+	def set_params(self, **parameters):
+		for parameter, value in parameters.items():
+			setattr(self, parameter, value)
+		return self
 
 ### Example usage
 if False:
