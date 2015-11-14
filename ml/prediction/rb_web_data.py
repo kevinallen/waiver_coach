@@ -17,7 +17,7 @@ def main():
     # week to predict stats for
     predict_week = 9
 
-    yr_wk = [(2015, i) for i in range(1,8)]
+    yr_wk = [(2015, i) for i in range(1,predict_week)]
     stats = ['receiving_rec', 'receiving_tar', 'receiving_tds', 'receiving_yac_yds',
              'receiving_yds', 'rushing_att', 'rushing_tds','rushing_yds']
     player_info = ['player_id','full_name','position']
