@@ -179,7 +179,7 @@
                     stat_dom.textContent = round(player[stat],2);
                 });
                 var distimage = template.querySelector('#distimage')
-                distimage.src = 'distimages/7/' + player_id + '_StandardPoints.png'
+                distimage.src = 'distimages/'+player.week+'/' + player_id + '_StandardPoints.png'
                 var clone = document.importNode(template, true);
                 var oldcontent = document.querySelector('#playercontent');
                 oldcontent.parentNode.replaceChild(clone, oldcontent);
