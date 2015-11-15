@@ -87,8 +87,46 @@ def player_all_game_info(db, player_ids=[], as_DataFrame=True):
 def player_current_game_info(db, year, week, player_ids=[], as_DataFrame=True):
 	return(player_game_info(db, player_ids, yr_wk=[(year, week)], as_DataFrame=as_DataFrame, use_current_team=True))
 
+def player_team_game_info(db):
+	query = '''
+	SELECT	pr.full_name,
+		pr.player_id,
+		pr.position,
+		g.week,
+		g.season_year,
+		MIN(g.home_team) AS home_team,
+		MIN(g.away_team) AS away_team,
+		MIN(g.home_score) AS home_score,
+		MIN(g.away_score) AS away_score,
+		SUM(pp.receiving_rec) AS receiving_rec,
+		SUM(pp.receiving_tds) AS receiving_tds,
+		SUM(pp.receiving_yds) AS receiving_yds,
+		SUM(pp.rushing_att) AS rushing_att,
+		SUM(pp.rushing_tds) AS rushing_tds,
+		SUM(pp.rushing_yds) AS rushing_yds
+	FROM player pr
+	INNER JOIN play_player pp on pr.player_id = pp.player_id
+	INNER JOIN game g on pp.gsis_id = g.gsis_id
+	WHERE 	season_year >= 2009
+		AND season_type = 'Regular'
+		AND pr.position = 'RB'
+	GROUP BY
+		pr.full_name,
+		pr.player_id,
+		pr.position,
+		g.week,
+		g.season_year
+	ORDER BY full_name,season_year,week;
+	'''
 
+	data = []
+	with nfldb.Tx(db) as cursor:
+	    cursor.execute(query)
+	    for row in cursor.fetchall():
+	        data.append(row)
 
+	data = pd.DataFrame(data)
+	return data
 
 if False:
 

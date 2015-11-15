@@ -51,9 +51,9 @@ function login(network){
 
 
 hello.init({
-	'yahoo' : 'dj0yJmk9ZFZkc2FkaVBEQ0dPJmQ9WVdrOU5HaGxVazFOTnpJbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD04Zg--'
+	'yahoo' : 'dj0yJmk9T0dUclhxZXpRU2ExJmQ9WVdrOVdqVTJhekp6TXpZbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1hYQ--'
 },
 {
-	redirect_uri:'index.html',
+	redirect_uri:'http://kevinallen.github.io/waiver_coach/site/index.html',
 	oauth_proxy: "https://auth-server.herokuapp.com/proxy"
 });
