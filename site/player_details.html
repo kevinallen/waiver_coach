@@ -82,8 +82,8 @@
                         </table>
                     </div>
                     <div id='playerviz'>
-                        <img src='test_image.pgn' alt='Player Distribution' style='width:600px;height:400px'>
-                    <div>
+                        <img id = 'distimage' src='' alt='Player Distribution Unavailable' style='width:600px;height:400px'>
+                    </div>
                 </div>
             </template>
         </div>
@@ -178,6 +178,8 @@
                     var stat_dom = template.querySelector('#' + stat);
                     stat_dom.textContent = round(player[stat],2);
                 });
+                var distimage = template.querySelector('#distimage')
+                distimage.src = 'distimages/7/' + player_id + '_StandardPoints.png'
                 var clone = document.importNode(template, true);
                 var oldcontent = document.querySelector('#playercontent');
                 oldcontent.parentNode.replaceChild(clone, oldcontent);
@@ -186,3 +188,4 @@
     </script>
   </body>
 </html>
+
