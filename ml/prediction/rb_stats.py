@@ -43,6 +43,9 @@ def fit_predict(model, X_train, y_train, X_test = None, y_test = None, predict_p
     return(return_obj)
 
 def main():
+	#pred_week = None
+	pred_week = 10
+
 	db = nfldb.connect()
 	result_path='../results'
 	full_train, pipe, stats = load_feature_set(db)
@@ -55,7 +58,7 @@ def main():
 	infoColumns = ExtractColumns(like=[], exact=['year','week','time','player_id','full_name'])
 	row_info = infoColumns.fit_transform(X=full_train)
 
-	pred_data, predict_i, pred_info, pred_yr_wk = prediction_feature_set(db, pipe, infoColumns)
+	pred_data, predict_i, pred_info, pred_yr_wk = prediction_feature_set(db, pipe, infoColumns, pred_week=pred_week)
 
 	X_all = full_train
 	pred_all = pred_data.iloc[predict_i]

@@ -10,6 +10,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
+import os
 
 from ml.feature_extraction.nfldb_feature_extraction import ExtractColumns
 from ml.feature_extraction.nfldb_feature_extraction import load_feature_set
@@ -36,10 +37,11 @@ from sklearn.pipeline import FeatureUnion
 #############
 ### Function for plotting KNN distributinos and saving them
 
-def plot_knn(nn_df, plot_stat, pred_yr_wk, n_bins=2, bandwidth=2.5, result_path='../results/knn'):
+def plot_knn(nn_df, plot_stat, pred_yr_wk, result_path, n_bins=2, bandwidth=2.5, save_id = True, save_time = False, save_stat = True):
     # the histogram of the data
     stat_X = nn_df.iloc[1:][plot_stat]
     player_name = nn_df.iloc[0]['full_name']
+    player_id =  nn_df.iloc[0]['player_id']
     n, bins, patches = plt.hist(stat_X, n_bins, normed=1, edgecolor='none', facecolor='grey', alpha=0.25)
 
     # get plot limits
@@ -63,7 +65,23 @@ def plot_knn(nn_df, plot_stat, pred_yr_wk, n_bins=2, bandwidth=2.5, result_path=
     plt.title(player_name)
     plt.grid(True)
 
-    save_path = '/'.join([result_path, '_'.join([player_name.replace(' ',''), str(pred_yr_wk[0]), str(pred_yr_wk[1]), plot_stat])]) + '.png'
+    if not os.path.exists(result_path):
+    	os.makedirs(result_path)
+
+    save_path = result_path + '/'
+    fname_list = []
+    if save_id:
+    	fname_list += [player_id]
+    else:
+    	fname_list += [player_name]
+
+    if save_time:
+    	fname_list += [str(pred_yr_wk[0]), str(pred_yr_wk[1])]
+
+    if save_stat:
+    	fname_list += [plot_stat]
+
+    save_path += '_'.join(fname_list) + '.png'
 
     plt.savefig(save_path)
     plt.close()
@@ -71,6 +89,7 @@ def plot_knn(nn_df, plot_stat, pred_yr_wk, n_bins=2, bandwidth=2.5, result_path=
 def main():
 	################################
 	### CONFIGURE
+	pred_week = 10 #None
 	db = nfldb.connect()
 	result_path='../results'
 
@@ -87,7 +106,7 @@ def main():
 	row_info = infoColumns.fit_transform(X=full_train)
 
 	# load prediction data
-	pred_data, predict_i, pred_info, pred_yr_wk = prediction_feature_set(db, pipe, infoColumns)
+	pred_data, predict_i, pred_info, pred_yr_wk = prediction_feature_set(db, pipe, infoColumns, pred_week=pred_week)
 
 	##################################
 	### PREPARE DATA FOR TRAIN AND PREDICT
@@ -151,7 +170,7 @@ def main():
 	    check_nn['StandardPoints'] = score_stats(check_nn, make_scorer(base_type='standard'))
 	    check_nn['PPRPoints'] = score_stats(check_nn, make_scorer(base_type='ppr'))
 	    
-	    plot_knn(check_nn, plot_stat='StandardPoints', pred_yr_wk=pred_yr_wk, n_bins=25, bandwidth=2.5)
+	    plot_knn(check_nn, plot_stat='StandardPoints', pred_yr_wk=pred_yr_wk, result_path=result_path+'/knn/distimages/'+str(pred_yr_wk[1]), n_bins=25, bandwidth=2.5)
 
 
 if __name__ == "__main__":
