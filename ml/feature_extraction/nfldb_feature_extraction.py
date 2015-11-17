@@ -9,6 +9,7 @@ from sklearn.base import TransformerMixin
 from ml.helpers.nfldb_helpers import week_player_id_list
 from ml.helpers.nfldb_helpers import player_current_game_info
 from ml.helpers.testing_helpers import split_by_year_week
+from sklearn.pipeline import Pipeline
 
 # rs_time stands for regular season time
 # this is elapsed weeks of regular season
@@ -368,14 +369,14 @@ class AddNameKey(TransformerMixin):
 def position_stats(position):
     if position == 'RB':
         return(['receiving_rec', 'receiving_tar', 'receiving_tds', 'receiving_yac_yds', 'receiving_yds', 'rushing_att', 'rushing_tds','rushing_yds'])
-   
+
 # load feature set for training - returns tuple of (data, pipeline, list-of-stats)
 def load_feature_set(db, cache_path='../data', position='RB', load_cached=True, nlag=6, to_yr_wk=(2015, 6), stat_override=None):
     if(not load_cached):
         # make player data transformer
         yr_wk = [(j, i) for j in range(2009,to_yr_wk[0]) for i in range(1,18)]
         yr_wk += [(to_yr_wk[0], i) for i in range(1,to_yr_wk[1]+1)]
-        
+
         if(stat_override):
             stats = stat_override
         else:
@@ -413,36 +414,36 @@ def load_feature_set(db, cache_path='../data', position='RB', load_cached=True, 
     else:
         # Load from "cached" (pickled) transformer and data
         # data
-        all_columns = pickle.load(open(cache_path + '/data_'+position+'.p', 'rb'))
+		all_columns = pickle.load(open(cache_path + '/data_'+position+'.p', 'rb'))
         # pipeline
-        pipe = pickle.load(open(cache_path + '/pipe_'+position+'.p', 'rb'))
+		pipe = pickle.load(open(cache_path + '/pipe_'+position+'.p', 'rb'))
         # retrieve the list of stats that was predicted
-        pipe_params = pipe.get_params()
-        stats = pipe_params['pipe1__data__stats']
+		pipe_params = pipe.get_params()
+		stats = pipe_params['pipe1__data__stats']
 
     pipe.set_params(pipe1__data__db=db)
-    
+
     return (all_columns, pipe, stats)
 
 
 # load features set for prediciton - return tuple of (data, index-of-data-for-predictions, info-about-players-in-data, (year, week))
 def prediction_feature_set(db, pipe, infoColumns, pred_year=None, pred_week=None, player_ids=None):
     pipe.set_params(pipe1__data__db=db)
-    
+
     ### prediction data
     # get information we need to make predictions
     season_phase, cur_year, cur_week = nfldb.current(db)
     if(pred_year is None):
         pred_year = cur_year
-        
+
     if(pred_week is None):
         pred_week = cur_week + 1
-        
+
     pred_yr_wk = [(j, i) for j in range(2009,pred_year-1) for i in range(1,18)]
     pred_yr_wk += [(pred_year, i) for i in range(1,pred_week+1)]
 
     pipe.set_params(pipe1__data__yr_wk = pred_yr_wk)
-    
+
     if(player_ids is None):
         player_ids = week_player_id_list(db, pred_year, pred_week, position='RB')
 
@@ -459,5 +460,5 @@ def prediction_feature_set(db, pipe, infoColumns, pred_year=None, pred_week=None
     # predict for the last week
     pred_yr_wk_t = [pred_yr_wk[-1]]
     garbage_i, predict_i = split_by_year_week(pred_data, pred_yr_wk_t)
-    
+
     return((pred_data, predict_i, pred_info, (pred_year, pred_week)))
