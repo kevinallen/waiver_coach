@@ -92,6 +92,7 @@ def player_team_game_info(db):
 	SELECT	pr.full_name,
 		pr.player_id,
 		pr.position,
+		pr.team,
 		g.week,
 		g.season_year,
 		MIN(g.home_team) AS home_team,
@@ -114,9 +115,38 @@ def player_team_game_info(db):
 		pr.full_name,
 		pr.player_id,
 		pr.position,
+		pr.team,
 		g.week,
 		g.season_year
 	ORDER BY full_name,season_year,week;
+	'''
+
+	data = []
+	with nfldb.Tx(db) as cursor:
+	    cursor.execute(query)
+	    for row in cursor.fetchall():
+	        data.append(row)
+
+	data = pd.DataFrame(data)
+	return data
+
+def player_team_info(db):
+	query = '''
+	SELECT 	pp.player_id,
+			p.full_name,
+			pp.team,
+			g.season_year AS year,
+			g.week
+	FROM game g
+	LEFT JOIN play_player pp on g.gsis_id = pp.gsis_id
+	LEFT JOIN player p on pp.player_id = p.player_id
+	WHERE g.season_type = 'Regular' AND p.position = 'RB'
+	GROUP BY
+			pp.player_id,
+			p.full_name,
+			pp.team,
+			g.season_year,
+			g.week;
 	'''
 
 	data = []
