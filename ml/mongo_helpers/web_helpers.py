@@ -62,6 +62,19 @@ def webprojections_2dataframe(db, position=None, stats=[]):
     new_df = pd.DataFrame(new_df)
     return new_df
 
+def vegas_2dataframe(db, columns):
+    # specify which columns to return
+    if columns is not None:
+        columns = {col: 1 for col in columns}
+    else:
+        columns = {}
+
+    data = db.vegas.find(columns)
+    df = pd.DataFrame(list(data))
+    del df['_id']
+
+    return df
+
 class ProjectedPlayerData(TransformerMixin):
 	def __init__(self, db, position=None, stats=[]):
 		self.db=db
@@ -82,6 +95,21 @@ class ProjectedPlayerData(TransformerMixin):
 		for parameter, value in parameters.items():
 			setattr(self, parameter, value)
 		return self
+
+class VegasData(TransformerMixin):
+    def __init__(self, db, columns=None):
+        self.db = db
+        self.columns = columns
+    def fit(self, *args, **kwargs):
+        return self
+    def transform(self, X=None):
+        return vegas_2dataframe(db=self.db, columns=self.columns)
+    def get_params(self, deep=True):
+        return None
+    def set_params(self, **parameters):
+        for parameter, value in parameters.items():
+            setattr(self, parameter, value)
+        return self
 
 ### Example usage
 if False:
