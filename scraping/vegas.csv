@@ -1,0 +1,1669 @@
+DateTime,Favorite,Spread,Underdog,Total,Money_Odds,Week,Year,Month,Weekday,Favorite_Abbr,Underdog_Abbr
+9/10/15 20:30,At New England,-7,Pittsburgh,51,-$350 +$290,1,2015,9,Thu,NE,PIT
+9/14/15 19:10,Philadelphia,-3,At Atlanta,56,-$185 +$165,1,2015,9,Mon,PHI,ATL
+9/14/15 22:20,Minnesota,-2.5,At San Francisco,42.5,-$145 +$125,1,2015,9,Mon,MIN,SF
+9/13/15 13:00,Green Bay,-6.5,At Chicago,48.5,-$290 +$245,1,2015,9,Sun,GB,CHI
+9/13/15 13:00,Kansas City,-1,At Houston,40.5,-$115 -$105,1,2015,9,Sun,KC,HOU
+9/13/15 13:00,At NY Jets,-3.5,Cleveland,38.5,-$190 +$170,1,2015,9,Sun,NYJ,CLE
+9/13/15 13:00,Indianapolis,-1,At Buffalo,44.5,-$120 +$100,1,2015,9,Sun,IND,BUF
+9/13/15 13:00,Miami,-4,At Washington,45.5,-$210 +$180,1,2015,9,Sun,MIA,WAS
+9/13/15 13:00,Carolina,-3,At Jacksonville,41,-$150 +$130,1,2015,9,Sun,CAR,JAC
+9/13/15 13:00,Seattle,-3.5,At St. Louis,41,-$185 +$165,1,2015,9,Sun,SEA,STL
+9/13/15 16:05,At Arizona,-2.5,New Orleans,48.5,-$135 +$115,1,2015,9,Sun,ARI,NO
+9/13/15 16:05,At San Diego,-3.5,Detroit,45.5,-$185 +$165,1,2015,9,Sun,SD,DET
+9/13/15 16:25,At Tampa Bay,-3,Tennessee,40.5,-$145 +$125,1,2015,9,Sun,TB,TEN
+9/13/15 16:25,Cincinnati,-3,At Oakland,43,-$155 +$135,1,2015,9,Sun,CIN,OAK
+9/13/15 16:25,At Denver,-4.5,Baltimore,46.5,-$230 +$190,1,2015,9,Sun,DEN,BAL
+9/13/15 20:30,At Dallas,-7,NY Giants,52.5,-$320 +$260,1,2015,9,Sun,DAL,NYG
+9/17/15 20:25,At Kansas City,-3,Denver,42,-$165 +$145,2,2015,9,Thu,KC,DEN
+9/21/15 20:30,At Indianapolis,-6,NY Jets,46,-$265 +$225,2,2015,9,Mon,IND,NYJ
+9/20/15 13:00,At Carolina,-3,Houston,41,-$145 +$125,2,2015,9,Sun,CAR,HOU
+9/20/15 13:00,At New Orleans,-9,Tampa Bay,47,-$475 +$375,2,2015,9,Sun,NO,TB
+9/20/15 13:00,At Pittsburgh,-6,San Francisco,46,-$255 +$215,2,2015,9,Sun,PIT,SF
+9/20/15 13:00,At Minnesota,-2.5,Detroit,44,-$145 +$125,2,2015,9,Sun,MIN,DET
+9/20/15 13:00,At Buffalo,-1,New England,44.5,-$120 +$100,2,2015,9,Sun,BUF,NE
+9/20/15 13:00,Arizona,-2,At Chicago,46,-$130 +$110,2,2015,9,Sun,ARI,CHI
+9/20/15 13:00,Tennessee,-1,At Cleveland,41,-$115 -$105,2,2015,9,Sun,TEN,CLE
+9/20/15 13:00,At Cincinnati,-3.5,San Diego,48,-$180 +$160,2,2015,9,Sun,CIN,SD
+9/20/15 13:00,St. Louis,-3,At Washington,41,-$175 +$155,2,2015,9,Sun,STL,WAS
+9/20/15 13:00,At NY Giants,-2,Atlanta,50,-$130 +$110,2,2015,9,Sun,NYG,ATL
+9/20/15 16:05,Baltimore,-6,At Oakland,42,-$260 +$220,2,2015,9,Sun,BAL,OAK
+9/20/15 16:05,Miami,-6,At Jacksonville,42,-$260 +$220,2,2015,9,Sun,MIA,JAC
+9/20/15 16:25,At Philadelphia,-6.5,Dallas,54,-$280 +$240,2,2015,9,Sun,PHI,DAL
+9/20/15 20:30,At Green Bay,-3,Seattle,49.5,-$180 +$160,2,2015,9,Sun,GB,SEA
+9/24/15 20:25,At NY Giants,-3,Washington,45,-$165 +$145,3,2015,9,Thu,NYG,WAS
+9/28/15 20:30,At Green Bay,-5.5,Kansas City,47.5,-$240 +$200,3,2015,9,Mon,GB,KC
+9/27/15 13:00,At St. Louis,-1,Pittsburgh,48.5,-$120 +$100,3,2015,9,Sun,STL,PIT
+9/27/15 13:00,At Minnesota,-2,San Diego,45.5,-$135 +$115,3,2015,9,Sun,MIN,SD
+9/27/15 13:00,At Houston,-6,Tampa Bay,41,-$260 +$220,3,2015,9,Sun,HOU,TB
+9/27/15 13:00,At NY Jets,-3,Philadelphia,47,-$170 +$150,3,2015,9,Sun,NYJ,PHI
+9/27/15 13:00,At Carolina,-9.5,New Orleans,43,-$450 +$350,3,2015,9,Sun,CAR,NO
+9/27/15 13:00,At New England,-14,Jacksonville,49,-$1400 +$800,3,2015,9,Sun,NE,JAC
+9/27/15 13:00,At Baltimore,-1.5,Cincinnati,45.5,-$125 +$105,3,2015,9,Sun,BAL,CIN
+9/27/15 13:00,At Cleveland,-3.5,Oakland,44,-$180 +$160,3,2015,9,Sun,CLE,OAK
+9/27/15 13:00,Indianapolis,-3.5,At Tennessee,46.5,-$185 +$165,3,2015,9,Sun,IND,TEN
+9/27/15 13:00,At Dallas,0,Atlanta,43.5,-$110 -$110,3,2015,9,Sun,DAL,ATL
+9/27/15 16:05,At Arizona,-7,San Francisco,45,-$315 +$260,3,2015,9,Sun,ARI,SF
+9/27/15 16:25,At Seattle,-16.5,Chicago,43.5,-$2400 +$1100,3,2015,9,Sun,SEA,CHI
+9/27/15 16:25,At Miami,-1,Buffalo,43.5,-$120 +$100,3,2015,9,Sun,MIA,BUF
+9/27/15 20:30,Denver,-3,At Detroit,45,-$155 +$135,3,2015,9,Sun,DEN,DET
+10/1/15 20:25,Baltimore,-3,At Pittsburgh,44,-$150 +$130,4,2015,10,Thu,BAL,PIT
+10/5/15 20:30,At Seattle,-10,Detroit,43,-$575 +$425,4,2015,10,Mon,SEA,DET
+10/4/15 9:30,NY Jets,-2.5,Miami,42.5,-$145 +$125,4,2015,10,Sun,NYJ,MIA
+10/4/15 13:00,At Indianapolis,-4,Jacksonville,43.5,-$200 +$170,4,2015,10,Sun,IND,JAC
+10/4/15 13:00,At Atlanta,-4.5,Houston,47.5,-$220 +$180,4,2015,10,Sun,ATL,HOU
+10/4/15 13:00,Carolina,-3,At Tampa Bay,40.5,-$160 +$140,4,2015,10,Sun,CAR,TB
+10/4/15 13:00,At Buffalo,-6,NY Giants,46.5,-$265 +$225,4,2015,10,Sun,BUF,NYG
+10/4/15 13:00,Oakland,-3,At Chicago,44.5,-$175 +$155,4,2015,10,Sun,OAK,CHI
+10/4/15 13:00,Philadelphia,-3,At Washington,45.5,-$155 +$135,4,2015,10,Sun,PHI,WAS
+10/4/15 13:00,At Cincinnati,-3.5,Kansas City,45,-$175 +$155,4,2015,10,Sun,CIN,KC
+10/4/15 16:05,At San Diego,-5,Cleveland,44.5,-$240 +$200,4,2015,10,Sun,SD,CLE
+10/4/15 16:25,Green Bay,-7.5,At San Francisco,48,-$360 +$300,4,2015,10,Sun,GB,SF
+10/4/15 16:25,At Denver,-7,Minnesota,43.5,-$315 +$265,4,2015,10,Sun,DEN,MIN
+10/4/15 16:25,At Arizona,-7,St. Louis,43.5,-$320 +$270,4,2015,10,Sun,ARI,STL
+10/4/15 20:30,At New Orleans,-3,Dallas,48.5,-$155 +$135,4,2015,10,Sun,NO,DAL
+10/8/15 20:25,At Houston,-5,Indianapolis,41,-$240 +$200,5,2015,10,Thu,HOU,IND
+10/12/15 20:30,At San Diego,-4,Pittsburgh,45.5,-$210 +$180,5,2015,10,Mon,SD,PIT
+10/11/15 13:00,At Tampa Bay,-1,Jacksonville,41.5,-$120 +$100,5,2015,10,Sun,TB,JAC
+10/11/15 13:00,Buffalo,-1,At Tennessee,43,-$115 -$105,5,2015,10,Sun,BUF,TEN
+10/11/15 13:00,At Baltimore,-6.5,Cleveland,43,-$280 +$240,5,2015,10,Sun,BAL,CLE
+10/11/15 13:00,At Atlanta,-7,Washington,48.5,-$320 +$260,5,2015,10,Sun,ATL,WAS
+10/11/15 13:00,At Kansas City,-9.5,Chicago,44.5,-$475 +$375,5,2015,10,Sun,KC,CHI
+10/11/15 13:00,At Philadelphia,-6.5,New Orleans,49.5,-$275 +$235,5,2015,10,Sun,PHI,NO
+10/11/15 13:00,At Green Bay,-9,St. Louis,46,-$460 +$360,5,2015,10,Sun,GB,STL
+10/11/15 13:00,At Cincinnati,-3,Seattle,44.5,-$170 +$150,5,2015,10,Sun,CIN,SEA
+10/11/15 16:05,Arizona,-4.5,At Detroit,46,-$215 +$185,5,2015,10,Sun,ARI,DET
+10/11/15 16:25,New England,-8.5,At Dallas,50.5,-$420 +$350,5,2015,10,Sun,NE,DAL
+10/11/15 16:25,Denver,-5.5,At Oakland,45,-$250 +$210,5,2015,10,Sun,DEN,OAK
+10/11/15 20:30,At NY Giants,-7.5,San Francisco,44,-$360 +$300,5,2015,10,Sun,NYG,SF
+10/15/15 20:25,Atlanta,-3,At New Orleans,52.5,-$165 +$145,6,2015,10,Thu,ATL,NO
+10/19/15 20:30,At Philadelphia,-3.5,NY Giants,50.5,-$195 +$170,6,2015,10,Mon,PHI,NYG
+10/18/15 13:00,Denver,-3.5,At Cleveland,42,-$170 +$150,6,2015,10,Sun,DEN,CLE
+10/18/15 13:00,Cincinnati,-3,At Buffalo,42,-$160 +$140,6,2015,10,Sun,CIN,BUF
+10/18/15 13:00,At Minnesota,-3.5,Kansas City,43,-$180 +$160,6,2015,10,Sun,MIN,KC
+10/18/15 13:00,At Jacksonville,-3,Houston,43,-$150 +$130,6,2015,10,Sun,JAC,HOU
+10/18/15 13:00,At Detroit,-3.5,Chicago,45.5,-$195 +$170,6,2015,10,Sun,DET,CHI
+10/18/15 13:00,At NY Jets,-7.5,Washington,40,-$370 +$310,6,2015,10,Sun,NYJ,WAS
+10/18/15 13:00,Arizona,-5.5,At Pittsburgh,45,-$250 +$210,6,2015,10,Sun,ARI,PIT
+10/18/15 13:00,At Tennessee,-2.5,Miami,43.5,-$140 +$120,6,2015,10,Sun,TEN,MIA
+10/18/15 16:05,At Seattle,-7,Carolina,41,-$325 +$270,6,2015,10,Sun,SEA,CAR
+10/18/15 16:25,At Green Bay,-10.5,San Diego,50.5,-$600 +$450,6,2015,10,Sun,GB,SD
+10/18/15 16:25,Baltimore,-2.5,At San Francisco,43.5,-$145 +$125,6,2015,10,Sun,BAL,SF
+10/18/15 20:30,New England,-9,At Indianapolis,54,-$390 +$320,6,2015,10,Sun,NE,IND
+10/22/15 20:25,Seattle,-6.5,At San Francisco,42,-$300 +$250,7,2015,10,Thu,SEA,SF
+10/26/15 20:30,At Arizona,-10,Baltimore,49.5,-$500 +$400,7,2015,10,Mon,ARI,BAL
+10/25/15 9:30,Buffalo,-3.5,Jacksonville,41.5,-$185 +$165,7,2015,10,Sun,BUF,JAC
+10/25/15 13:00,At St. Louis,-6,Cleveland,44,-$265 +$225,7,2015,10,Sun,STL,CLE
+10/25/15 13:00,At Kansas City,-3.5,Pittsburgh,41.5,-$185 +$165,7,2015,10,Sun,KC,PIT
+10/25/15 13:00,At Miami,-4.5,Houston,45.5,-$220 +$185,7,2015,10,Sun,MIA,HOU
+10/25/15 13:00,At New England,-7,NY Jets,47.5,-$325 +$265,7,2015,10,Sun,NE,NYJ
+10/25/15 13:00,At Detroit,-1,Minnesota,45,-$120 +$100,7,2015,10,Sun,DET,MIN
+10/25/15 13:00,Atlanta,-6,At Tennessee,45.5,-$250 +$210,7,2015,10,Sun,ATL,TEN
+10/25/15 13:00,At Washington,-3,Tampa Bay,41.5,-$155 +$135,7,2015,10,Sun,WAS,TB
+10/25/15 13:00,At Indianapolis,-5,New Orleans,53,-$240 +$200,7,2015,10,Sun,IND,NO
+10/25/15 16:05,At San Diego,-3.5,Oakland,48.5,-$185 +$165,7,2015,10,Sun,SD,OAK
+10/25/15 16:25,At NY Giants,-3,Dallas,44.5,-$160 +$140,7,2015,10,Sun,NYG,DAL
+10/25/15 20:30,At Carolina,-2.5,Philadelphia,46,-$140 +$120,7,2015,10,Sun,CAR,PHI
+10/29/15 20:25,At New England,-8,Miami,51.5,-$450 +$350,8,2015,10,Thu,NE,MIA
+11/1/15 9:30,Kansas City,-3,Detroit,45,-$170 +$150,8,2015,11,Sun,KC,DET
+11/1/15 13:00,Minnesota,-1.5,At Chicago,44,-$125 +$105,8,2015,11,Sun,MIN,CHI
+11/1/15 13:00,At Atlanta,-8,Tampa Bay,47.5,-$400 +$330,8,2015,11,Sun,ATL,TB
+11/1/15 13:00,At New Orleans,-3,NY Giants,52,-$165 +$145,8,2015,11,Sun,NO,NYG
+11/1/15 13:00,At St. Louis,-8,San Francisco,41,-$400 +$330,8,2015,11,Sun,STL,SF
+11/1/15 13:00,Arizona,-7,At Cleveland,46,-$330 +$270,8,2015,11,Sun,ARI,CLE
+11/1/15 13:00,At Pittsburgh,0,Cincinnati,49.5,-$110 -$110,8,2015,11,Sun,PIT,CIN
+11/1/15 13:00,At Baltimore,-4.5,San Diego,50.5,-$225 +$190,8,2015,11,Sun,BAL,SD
+11/1/15 13:00,At Houston,-3.5,Tennessee,43,-$180 +$160,8,2015,11,Sun,HOU,TEN
+11/1/15 16:05,NY Jets,-3,At Oakland,44,-$175 +$155,8,2015,11,Sun,NYJ,OAK
+11/1/15 16:25,Seattle,-5,At Dallas,41.5,-$230 +$190,8,2015,11,Sun,SEA,DAL
+11/1/15 20:30,Green Bay,-2.5,At Denver,45.5,-$145 +$125,8,2015,11,Sun,GB,DEN
+11/12/15 20:25,At NY Jets,-3,Buffalo,43,-$155 +$135,10,2015,11,Thu,NYJ,BUF
+11/16/15 20:30,At Cincinnati,-11,Houston,47.5,-$600 +$475,10,2015,11,Mon,CIN,HOU
+11/15/15 13:00,At Green Bay,-11.5,Detroit,48,-$775 +$550,10,2015,11,Sun,GB,DET
+11/15/15 13:00,At Tampa Bay,-1.5,Dallas,43.5,-$125 +$105,10,2015,11,Sun,TB,DAL
+11/15/15 13:00,Carolina,-4.5,At Tennessee,43,-$230 +$190,10,2015,11,Sun,CAR,TEN
+11/15/15 13:00,At St. Louis,-8,Chicago,42.5,-$400 +$330,10,2015,11,Sun,STL,CHI
+11/15/15 13:00,New Orleans,-1.5,At Washington,50.5,-$125 +$105,10,2015,11,Sun,NO,WAS
+11/15/15 13:00,At Philadelphia,-6.5,Miami,47,-$280 +$240,10,2015,11,Sun,PHI,MIA
+11/15/15 13:00,At Pittsburgh,-4.5,Cleveland,41,-$230 +$190,10,2015,11,Sun,PIT,CLE
+11/15/15 13:00,At Baltimore,-6,Jacksonville,48,-$260 +$220,10,2015,11,Sun,BAL,JAC
+11/15/15 16:05,At Oakland,-2.5,Minnesota,42.5,-$145 +$125,10,2015,11,Sun,OAK,MIN
+11/15/15 16:25,At Denver,-6.5,Kansas City,42,-$290 +$245,10,2015,11,Sun,DEN,KC
+11/15/15 16:25,New England,-7,At NY Giants,55,-$330 +$270,10,2015,11,Sun,NE,NYG
+11/15/15 20:30,At Seattle,-3,Arizona,44.5,-$160 +$140,10,2015,11,Sun,SEA,ARI
+9/4/14 20:35,At Seattle,-5,Green Bay,47,-$240 +$200,1,2014,9,Thu,SEA,GB
+9/8/14 19:10,At Detroit,-6.5,NY Giants,46,-$270 +$230,1,2014,9,Mon,DET,NYG
+9/8/14 22:25,At Arizona,-3,San Diego,46,-$155 +$135,1,2014,9,Mon,ARI,SD
+9/7/14 13:00,New Orleans,-3,At Atlanta,51.5,-$165 +$145,1,2014,9,Sun,NO,ATL
+9/7/14 13:00,At St. Louis,-3,Minnesota,43.5,-$150 +$130,1,2014,9,Sun,STL,MIN
+9/7/14 13:00,At Pittsburgh,-6,Cleveland,41.5,-$270 +$230,1,2014,9,Sun,PIT,CLE
+9/7/14 13:00,At Philadelphia,-10,Jacksonville,50,-$625 +$450,1,2014,9,Sun,PHI,JAC
+9/7/14 13:00,At NY Jets,-6.5,Oakland,41.5,-$290 +$245,1,2014,9,Sun,NYJ,OAK
+9/7/14 13:00,At Baltimore,-1,Cincinnati,43.5,-$115 -$105,1,2014,9,Sun,BAL,CIN
+9/7/14 13:00,At Chicago,-7,Buffalo,47.5,-$320 +$260,1,2014,9,Sun,CHI,BUF
+9/7/14 13:00,At Houston,-3,Washington,44,-$170 +$150,1,2014,9,Sun,HOU,WAS
+9/7/14 13:00,At Kansas City,-3,Tennessee,45,-$165 +$145,1,2014,9,Sun,KC,TEN
+9/7/14 13:00,New England,-4,At Miami,47.5,-$200 +$175,1,2014,9,Sun,NE,MIA
+9/7/14 16:25,At Tampa Bay,-4.5,Carolina,38.5,-$230 +$195,1,2014,9,Sun,TB,CAR
+9/7/14 16:25,San Francisco,-3.5,At Dallas,50,-$175 +$155,1,2014,9,Sun,SF,DAL
+9/7/14 20:30,At Denver,-8.5,Indianapolis,54,-$410 +$330,1,2014,9,Sun,DEN,IND
+9/11/14 20:25,At Baltimore,-2.5,Pittsburgh,44.5,-$140 +$120,2,2014,9,Thu,BAL,PIT
+9/14/14 13:00,At Carolina,-1.5,Detroit,43.5,-$120 +$100,2,2014,9,Sun,CAR,DET
+9/14/14 13:00,At Buffalo,-1,Miami,43,-$120 +$100,2,2014,9,Sun,BUF,MIA
+9/14/14 13:00,At Washington,-5,Jacksonville,43,-$240 +$200,2,2014,9,Sun,WAS,JAC
+9/14/14 13:00,At Tennessee,-3.5,Dallas,49.5,-$175 +$155,2,2014,9,Sun,TEN,DAL
+9/14/14 13:00,At NY Giants,-2,Arizona,41.5,-$130 +$110,2,2014,9,Sun,NYG,ARI
+9/14/14 13:00,New England,-3,At Minnesota,49,-$180 +$160,2,2014,9,Sun,NE,MIN
+9/14/14 13:00,New Orleans,-6,At Cleveland,49.5,-$265 +$225,2,2014,9,Sun,NO,CLE
+9/14/14 13:00,At Cincinnati,-5.5,Atlanta,49,-$250 +$210,2,2014,9,Sun,CIN,ATL
+9/14/14 16:05,At Tampa Bay,-4.5,St. Louis,37.5,-$220 +$185,2,2014,9,Sun,TB,STL
+9/14/14 16:05,Seattle,-5,At San Diego,45,-$240 +$200,2,2014,9,Sun,SEA,SD
+9/14/14 16:25,Houston,-3,At Oakland,41,-$170 +$150,2,2014,9,Sun,HOU,OAK
+9/14/14 16:25,At Green Bay,-7.5,NY Jets,46.5,-$360 +$300,2,2014,9,Sun,GB,NYJ
+9/14/14 16:25,At Denver,-13,Kansas City,49,-$1050 +$675,2,2014,9,Sun,DEN,KC
+9/14/14 20:30,At San Francisco,-7,Chicago,47.5,-$345 +$285,2,2014,9,Sun,SF,CHI
+9/14/14 20:35,At Indianapolis,-3,Philadelphia,54,-$155 +$135,2,2014,9,Sun,IND,PHI
+9/18/14 20:25,At Atlanta,-6.5,Tampa Bay,47,-$295 +$245,3,2014,9,Thu,ATL,TB
+9/22/14 20:35,At NY Jets,-1.5,Chicago,45,-$125 +$105,3,2014,9,Mon,NYJ,CHI
+9/21/14 13:00,At Buffalo,-2.5,San Diego,45.5,-$140 +$120,3,2014,9,Sun,BUF,SD
+9/21/14 13:00,Dallas,-2,At St. Louis,45,-$130 +$110,3,2014,9,Sun,DAL,STL
+9/21/14 13:00,At Philadelphia,-4,Washington,50,-$210 +$180,3,2014,9,Sun,PHI,WAS
+9/21/14 13:00,At NY Giants,-1,Houston,41.5,-$120 +$100,3,2014,9,Sun,NYG,HOU
+9/21/14 13:00,At New Orleans,-10,Minnesota,49.5,-$625 +$450,3,2014,9,Sun,NO,MIN
+9/21/14 13:00,At Cincinnati,-6.5,Tennessee,44.5,-$300 +$250,3,2014,9,Sun,CIN,TEN
+9/21/14 13:00,Baltimore,-1.5,At Cleveland,43,-$125 +$105,3,2014,9,Sun,BAL,CLE
+9/21/14 13:00,At Detroit,-1.5,Green Bay,52,-$120 +$100,3,2014,9,Sun,DET,GB
+9/21/14 13:00,Indianapolis,-6.5,At Jacksonville,45,-$290 +$240,3,2014,9,Sun,IND,JAC
+9/21/14 13:00,At New England,-14,Oakland,47,-$1300 +$800,3,2014,9,Sun,NE,OAK
+9/21/14 16:05,San Francisco,-3,At Arizona,41,-$155 +$135,3,2014,9,Sun,SF,ARI
+9/21/14 16:25,At Seattle,-4.5,Denver,48,-$225 +$190,3,2014,9,Sun,SEA,DEN
+9/21/14 16:25,At Miami,-5.5,Kansas City,42.5,-$255 +$215,3,2014,9,Sun,MIA,KC
+9/21/14 20:30,At Carolina,-3,Pittsburgh,42.5,-$180 +$160,3,2014,9,Sun,CAR,PIT
+9/25/14 20:25,At Washington,-3,NY Giants,44.5,-$175 +$155,4,2014,9,Thu,WAS,NYG
+9/29/14 20:30,New England,-3,At Kansas City,45.5,-$145 +$125,4,2014,9,Mon,NE,KC
+9/28/14 13:00,Miami,-4,Oakland,41,-$190 +$170,4,2014,9,Sun,MIA,OAK
+9/28/14 13:00,Green Bay,-2,At Chicago,51,-$130 +$110,4,2014,9,Sun,GB,CHI
+9/28/14 13:00,At Houston,-3,Buffalo,44,-$150 +$130,4,2014,9,Sun,HOU,BUF
+9/28/14 13:00,At Indianapolis,-7.5,Tennessee,46,-$375 +$315,4,2014,9,Sun,IND,TEN
+9/28/14 13:00,At Baltimore,-3,Carolina,42,-$165 +$145,4,2014,9,Sun,BAL,CAR
+9/28/14 13:00,At NY Jets,-1.5,Detroit,44,-$125 +$105,4,2014,9,Sun,NYJ,DET
+9/28/14 13:00,At Pittsburgh,-7.5,Tampa Bay,45,-$365 +$305,4,2014,9,Sun,PIT,TB
+9/28/14 16:05,At San Diego,-12,Jacksonville,44.5,-$775 +$550,4,2014,9,Sun,SD,JAC
+9/28/14 16:25,At San Francisco,-4,Philadelphia,49.5,-$200 +$170,4,2014,9,Sun,SF,PHI
+9/28/14 16:25,Atlanta,-6,At Minnesota,47.5,-$250 +$210,4,2014,9,Sun,ATL,MIN
+9/28/14 20:30,New Orleans,-3,At Dallas,54,-$150 +$130,4,2014,9,Sun,NO,DAL
+10/2/14 20:25,At Green Bay,-9.5,Minnesota,46.5,-$470 +$370,5,2014,10,Thu,GB,MIN
+10/6/14 20:30,Seattle,-7,At Washington,46,-$340 +$280,5,2014,10,Mon,SEA,WAS
+10/5/14 13:00,At Carolina,-1.5,Chicago,47,-$125 +$105,5,2014,10,Sun,CAR,CHI
+10/5/14 13:00,Cleveland,-1,At Tennessee,44,-$120 +$100,5,2014,10,Sun,CLE,TEN
+10/5/14 13:00,At Philadelphia,-4,St. Louis,48,-$210 +$180,5,2014,10,Sun,PHI,STL
+10/5/14 13:00,At NY Giants,-4,Atlanta,50.5,-$210 +$180,5,2014,10,Sun,NYG,ATL
+10/5/14 13:00,At New Orleans,-11,Tampa Bay,48,-$675 +$475,5,2014,10,Sun,NO,TB
+10/5/14 13:00,At Dallas,-5.5,Houston,48,-$250 +$210,5,2014,10,Sun,DAL,HOU
+10/5/14 13:00,At Detroit,-5,Buffalo,43.5,-$235 +$195,5,2014,10,Sun,DET,BUF
+10/5/14 13:00,At Indianapolis,-3,Baltimore,49.5,-$145 +$125,5,2014,10,Sun,IND,BAL
+10/5/14 13:00,Pittsburgh,-6,At Jacksonville,47.5,-$260 +$220,5,2014,10,Sun,PIT,JAC
+10/5/14 16:05,At Denver,-8.5,Arizona,47.5,-$400 +$330,5,2014,10,Sun,DEN,ARI
+10/5/14 16:25,At San Francisco,-5,Kansas City,43.5,-$230 +$190,5,2014,10,Sun,SF,KC
+10/5/14 16:25,At San Diego,-7,NY Jets,44.5,-$305 +$255,5,2014,10,Sun,SD,NYJ
+10/5/14 20:30,Cincinnati,-2.5,At New England,46.5,-$140 +$120,5,2014,10,Sun,CIN,NE
+10/9/14 20:25,Indianapolis,-2.5,At Houston,46,-$140 +$120,6,2014,10,Thu,IND,HOU
+10/13/14 20:30,San Francisco,-3.5,At St. Louis,44.5,-$205 +$175,6,2014,10,Mon,SF,STL
+10/12/14 13:00,Denver,-10,At NY Jets,47.5,-$490 +$390,6,2014,10,Sun,DEN,NYJ
+10/12/14 13:00,At Cleveland,-2,Pittsburgh,46.5,-$130 +$110,6,2014,10,Sun,CLE,PIT
+10/12/14 13:00,At Tennessee,-4,Jacksonville,42.5,-$205 +$175,6,2014,10,Sun,TEN,JAC
+10/12/14 16:25,At Atlanta,-3.5,Chicago,56,-$175 +$155,6,2014,10,Sun,ATL,CHI
+10/12/14 13:00,Green Bay,-2,At Miami,47,-$130 +$110,6,2014,10,Sun,GB,MIA
+10/12/14 13:00,At Minnesota,-1.5,Detroit,43,-$125 +$105,6,2014,10,Sun,MIN,DET
+10/12/14 13:00,At Cincinnati,-7,Carolina,44,-$310 +$260,6,2014,10,Sun,CIN,CAR
+10/12/14 13:00,At Buffalo,0,New England,44.5,-$110 -$110,6,2014,10,Sun,BUF,NE
+10/12/14 13:00,Baltimore,-3.5,At Tampa Bay,44.5,-$185 +$165,6,2014,10,Sun,BAL,TB
+10/12/14 16:05,San Diego,-7.5,At Oakland,44,-$360 +$300,6,2014,10,Sun,SD,OAK
+10/12/14 16:25,At Seattle,-9.5,Dallas,47,-$480 +$380,6,2014,10,Sun,SEA,DAL
+10/12/14 16:25,At Arizona,-5.5,Washington,46.5,-$245 +$205,6,2014,10,Sun,ARI,WAS
+10/12/14 20:30,At Philadelphia,-1.5,NY Giants,51,-$125 +$105,6,2014,10,Sun,PHI,NYG
+10/16/14 20:25,At New England,-9.5,NY Jets,44.5,-$525 +$400,7,2014,10,Thu,NE,NYJ
+10/20/14 20:30,At Pittsburgh,-3,Houston,44.5,-$150 +$130,7,2014,10,Mon,PIT,HOU
+10/19/14 13:00,At Indianapolis,-3.5,Cincinnati,50.5,-$185 +$165,7,2014,10,Sun,IND,CIN
+10/19/14 13:00,At Washington,-6,Tennessee,46.5,-$250 +$210,7,2014,10,Sun,WAS,TEN
+10/19/14 13:00,At Chicago,-3,Miami,48,-$170 +$150,7,2014,10,Sun,CHI,MIA
+10/19/14 13:00,Cleveland,-4.5,At Jacksonville,45,-$220 +$180,7,2014,10,Sun,CLE,JAC
+10/19/14 13:00,Seattle,-6.5,At St. Louis,43.5,-$310 +$260,7,2014,10,Sun,SEA,STL
+10/19/14 13:00,At Green Bay,-6.5,Carolina,49.5,-$300 +$250,7,2014,10,Sun,GB,CAR
+10/19/14 13:00,At Baltimore,-7,Atlanta,50,-$310 +$255,7,2014,10,Sun,BAL,ATL
+10/19/14 13:00,At Buffalo,-6.5,Minnesota,43,-$270 +$230,7,2014,10,Sun,BUF,MIN
+10/19/14 13:00,At Detroit,-1.5,New Orleans,46.5,-$125 +$105,7,2014,10,Sun,DET,NO
+10/19/14 16:05,At San Diego,-3,Kansas City,46,-$175 +$155,7,2014,10,Sun,SD,KC
+10/19/14 16:25,At Dallas,-5.5,NY Giants,47,-$240 +$200,7,2014,10,Sun,DAL,NYG
+10/19/14 16:25,Arizona,-3.5,At Oakland,46.5,-$175 +$155,7,2014,10,Sun,ARI,OAK
+10/19/14 20:30,At Denver,-6.5,San Francisco,48.5,-$300 +$250,7,2014,10,Sun,DEN,SF
+10/23/14 20:25,At Denver,-9,San Diego,51,-$450 +$350,8,2014,10,Thu,DEN,SD
+10/27/14 20:30,At Dallas,-9.5,Washington,49,-$480 +$380,8,2014,10,Mon,DAL,WAS
+10/26/14 9:30,Detroit,-3.5,Atlanta(At London),45.5,-$180 +$160,8,2014,10,Sun,DET,ATL
+10/26/14 13:00,At Tampa Bay,-1.5,Minnesota,43,-$125 +$105,8,2014,10,Sun,TB,MIN
+10/26/14 13:00,At New England,-6,Chicago,52,-$260 +$220,8,2014,10,Sun,NE,CHI
+10/26/14 13:00,At Kansas City,-7,St. Louis,44,-$355 +$295,8,2014,10,Sun,KC,STL
+10/26/14 13:00,Seattle,-6,At Carolina,45,-$265 +$225,8,2014,10,Sun,SEA,CAR
+10/26/14 13:00,At NY Jets,-3,Buffalo,40.5,-$155 +$135,8,2014,10,Sun,NYJ,BUF
+10/26/14 13:00,Miami,-6.5,At Jacksonville,42,-$330 +$270,8,2014,10,Sun,MIA,JAC
+10/26/14 13:00,Houston,-3.5,At Tennessee,43,-$185 +$165,8,2014,10,Sun,HOU,TEN
+10/26/14 13:00,Baltimore,-3,At Cincinnati,44.5,-$155 +$135,8,2014,10,Sun,BAL,CIN
+10/26/14 16:05,Philadelphia,-1,At Arizona,48.5,-$115 -$105,8,2014,10,Sun,PHI,ARI
+10/26/14 16:25,Indianapolis,-4.5,At Pittsburgh,48.5,-$235 +$195,8,2014,10,Sun,IND,PIT
+10/26/14 16:25,At Cleveland,-6.5,Oakland,44.5,-$300 +$250,8,2014,10,Sun,CLE,OAK
+10/26/14 20:30,At New Orleans,-2,Green Bay,55.5,-$130 +$110,8,2014,10,Sun,NO,GB
+10/30/14 20:25,New Orleans,-3,At Carolina,49,-$175 +$155,9,2014,10,Thu,NO,CAR
+11/3/14 20:30,Indianapolis,-3,At NY Giants,51.5,-$170 +$150,9,2014,11,Mon,IND,NYG
+11/2/14 13:00,At Miami,-2.5,San Diego,45,-$145 +$125,9,2014,11,Sun,MIA,SD
+11/2/14 13:00,At Cincinnati,-10,Jacksonville,43.5,-$575 +$425,9,2014,11,Sun,CIN,JAC
+11/2/14 13:00,At Cleveland,-7,Tampa Bay,44,-$320 +$260,9,2014,11,Sun,CLE,TB
+11/2/14 13:00,At Minnesota,0,Washington,44,-$115 -$105,9,2014,11,Sun,MIN,WAS
+11/2/14 13:00,Philadelphia,-2,At Houston,48.5,-$135 +$115,9,2014,11,Sun,PHI,HOU
+11/2/14 13:00,At Kansas City,-8.5,NY Jets,41.5,-$440 +$350,9,2014,11,Sun,KC,NYJ
+11/2/14 13:00,At Dallas,-1.5,Arizona,45,-$125 +$105,9,2014,11,Sun,DAL,ARI
+11/2/14 16:05,At San Francisco,-10.5,St. Louis,44,-$600 +$450,9,2014,11,Sun,SF,STL
+11/2/14 16:25,Denver,-3,At New England,53,-$155 +$135,9,2014,11,Sun,DEN,NE
+11/2/14 16:25,At Seattle,-13.5,Oakland,44,-$1000 +$650,9,2014,11,Sun,SEA,OAK
+11/2/14 20:30,At Pittsburgh,-2,Baltimore,48,-$135 +$115,9,2014,11,Sun,PIT,BAL
+11/6/14 20:25,At Cincinnati,-6.5,Cleveland,46,-$280 +$240,10,2014,11,Thu,CIN,CLE
+11/10/14 20:30,At Philadelphia,-7,Carolina,48.5,-$335 +$275,10,2014,11,Mon,PHI,CAR
+11/9/14 13:00,Dallas,-7.5,Jacksonville,45,-$345 +$280,10,2014,11,Sun,DAL,JAC
+11/9/14 13:00,At Detroit,-3,Miami,43,-$155 +$135,10,2014,11,Sun,DET,MIA
+11/9/14 13:00,At Buffalo,-1.5,Kansas City,42,-$125 +$105,10,2014,11,Sun,BUF,KC
+11/9/14 13:00,At New Orleans,-5.5,San Francisco,49.5,-$250 +$210,10,2014,11,Sun,NO,SF
+11/9/14 13:00,At Baltimore,-10.5,Tennessee,44,-$600 +$450,10,2014,11,Sun,BAL,TEN
+11/9/14 13:00,Pittsburgh,-4.5,At NY Jets,47,-$210 +$180,10,2014,11,Sun,PIT,NYJ
+11/9/14 13:00,Atlanta,-3,At Tampa Bay,47,-$175 +$155,10,2014,11,Sun,ATL,TB
+11/9/14 16:05,Denver,-12.5,At Oakland,51,-$850 +$575,10,2014,11,Sun,DEN,OAK
+11/9/14 16:25,At Arizona,-7,St. Louis,43.5,-$330 +$270,10,2014,11,Sun,ARI,STL
+11/9/14 16:25,At Seattle,-9.5,NY Giants,45,-$525 +$400,10,2014,11,Sun,SEA,NYG
+11/9/14 20:30,At Green Bay,-9.5,Chicago,54,-$460 +$360,10,2014,11,Sun,GB,CHI
+11/13/14 20:25,At Miami,-4,Buffalo,41,-$205 +$175,11,2014,11,Thu,MIA,BUF
+11/17/14 20:30,Pittsburgh,-7,At Tennessee,46,-$340 +$280,11,2014,11,Mon,PIT,TEN
+11/16/14 13:00,At Cleveland,-4,Houston,42,-$220 +$180,11,2014,11,Sun,CLE,HOU
+11/16/14 13:00,At Chicago,-2.5,Minnesota,46.5,-$140 +$120,11,2014,11,Sun,CHI,MIN
+11/16/14 16:25,At Green Bay,-5.5,Philadelphia,55.5,-$235 +$195,11,2014,11,Sun,GB,PHI
+11/16/14 13:00,Seattle,-1,At Kansas City,43.5,-$115 -$105,11,2014,11,Sun,SEA,KC
+11/16/14 13:00,Atlanta,-2.5,At Carolina,47,-$145 +$125,11,2014,11,Sun,ATL,CAR
+11/16/14 13:00,At New Orleans,-8,Cincinnati,51.5,-$380 +$310,11,2014,11,Sun,NO,CIN
+11/16/14 13:00,At Washington,-7,Tampa Bay,46,-$330 +$270,11,2014,11,Sun,WAS,TB
+11/16/14 13:00,Denver,-9,At St. Louis,50,-$460 +$360,11,2014,11,Sun,DEN,STL
+11/16/14 13:00,San Francisco,-4,At NY Giants,45,-$205 +$175,11,2014,11,Sun,SF,NYG
+11/16/14 16:05,At San Diego,-10,Oakland,45.5,-$700 +$500,11,2014,11,Sun,SD,OAK
+11/16/14 16:25,Detroit,-1.5,At Arizona,41.5,-$120 +$100,11,2014,11,Sun,DET,ARI
+11/16/14 20:30,At Indianapolis,-3,New England,59,-$155 +$135,11,2014,11,Sun,IND,NE
+11/20/14 20:25,Kansas City,-7.5,At Oakland,42,-$365 +$305,12,2014,11,Thu,KC,OAK
+11/24/14 20:30,At New Orleans,-3,Baltimore,50.5,-$145 +$125,12,2014,11,Mon,NO,BAL
+11/24/14 19:00,At Buffalo,-2.5,NY Jets,42.5,-$140 +$120,12,2014,11,Mon,BUF,NYJ
+11/23/14 13:00,At Atlanta,-2.5,Cleveland,48.5,-$145 +$125,12,2014,11,Sun,ATL,CLE
+11/23/14 13:00,At Philadelphia,-11.5,Tennessee,49,-$750 +$550,12,2014,11,Sun,PHI,TEN
+11/23/14 13:00,At New England,-7,Detroit,47.5,-$340 +$280,12,2014,11,Sun,NE,DET
+11/23/14 13:00,Green Bay,-8,At Minnesota,49.5,-$390 +$320,12,2014,11,Sun,GB,MIN
+11/23/14 13:00,At Indianapolis,-13.5,Jacksonville,49.5,-$950 +$650,12,2014,11,Sun,IND,JAC
+11/23/14 13:00,At Houston,-2.5,Cincinnati,44.5,-$145 +$125,12,2014,11,Sun,HOU,CIN
+11/23/14 13:00,At Chicago,-4.5,Tampa Bay,46.5,-$210 +$180,12,2014,11,Sun,CHI,TB
+11/23/14 16:05,At Seattle,-7.5,Arizona,41.5,-$350 +$290,12,2014,11,Sun,SEA,ARI
+11/23/14 16:05,At San Diego,-5,St. Louis,43.5,-$230 +$190,12,2014,11,Sun,SD,STL
+11/23/14 16:25,At Denver,-6.5,Miami,47.5,-$310 +$260,12,2014,11,Sun,DEN,MIA
+11/23/14 16:25,At San Francisco,-9.5,Washington,44,-$575 +$425,12,2014,11,Sun,SF,WAS
+11/23/14 20:30,Dallas,-4.5,At NY Giants,49,-$220 +$180,12,2014,11,Sun,DAL,NYG
+11/27/14 12:30,At Detroit,-7,Chicago,46,-$340 +$280,13,2014,11,Thu,DET,CHI
+11/27/14 16:30,At Dallas,-3.5,Philadelphia,57,-$175 +$155,13,2014,11,Thu,DAL,PHI
+11/27/14 20:30,At San Francisco,-1.5,Seattle,40.5,-$125 +$105,13,2014,11,Thu,SF,SEA
+12/1/14 20:30,Miami,-7,At NY Jets,41.5,-$320 +$260,13,2014,12,Mon,MIA,NYJ
+11/30/14 13:00,At Indianapolis,-8,Washington,49,-$400 +$330,13,2014,11,Sun,IND,WAS
+11/30/14 13:00,At Houston,-7,Tennessee,42.5,-$300 +$250,13,2014,11,Sun,HOU,TEN
+11/30/14 13:00,At Buffalo,-3,Cleveland,42,-$170 +$150,13,2014,11,Sun,BUF,CLE
+11/30/14 13:00,At Baltimore,-6.5,San Diego,46,-$295 +$245,13,2014,11,Sun,BAL,SD
+11/30/14 13:00,NY Giants,-3,At Jacksonville,44,-$155 +$135,13,2014,11,Sun,NYG,JAC
+11/30/14 13:00,Cincinnati,-6,At Tampa Bay,43.5,-$250 +$210,13,2014,11,Sun,CIN,TB
+11/30/14 13:00,At St. Louis,-6,Oakland,43,-$260 +$220,13,2014,11,Sun,STL,OAK
+11/30/14 13:00,At Pittsburgh,-3.5,New Orleans,54.5,-$180 +$160,13,2014,11,Sun,PIT,NO
+11/30/14 13:00,At Minnesota,-2.5,Carolina,41.5,-$140 +$120,13,2014,11,Sun,MIN,CAR
+11/30/14 16:05,Arizona,-1.5,At Atlanta,45,-$125 +$105,13,2014,11,Sun,ARI,ATL
+11/30/14 16:25,At Green Bay,-3,New England,58,-$155 +$135,13,2014,11,Sun,GB,NE
+11/30/14 20:30,At Kansas City,0,Denver,49.5,-$110 -$110,13,2014,11,Sun,KC,DEN
+12/4/14 20:25,Dallas,-3.5,At Chicago,50,-$205 +$175,14,2014,12,Thu,DAL,CHI
+12/8/14 20:30,At Green Bay,-13.5,Atlanta,55,-$850 +$575,14,2014,12,Mon,GB,ATL
+12/7/14 13:00,At Miami,-3,Baltimore,45,-$165 +$145,14,2014,12,Sun,MIA,BAL
+12/7/14 13:00,At Cincinnati,-3,Pittsburgh,47.5,-$155 +$135,14,2014,12,Sun,CIN,PIT
+12/7/14 13:00,Indianapolis,-3,At Cleveland,50,-$165 +$145,14,2014,12,Sun,IND,CLE
+12/7/14 13:00,Houston,-6.5,At Jacksonville,42,-$295 +$245,14,2014,12,Sun,HOU,JAC
+12/7/14 13:00,NY Giants,-3,At Tennessee,46.5,-$150 +$130,14,2014,12,Sun,NYG,TEN
+12/7/14 13:00,At New Orleans,-9.5,Carolina,50.5,-$450 +$350,14,2014,12,Sun,NO,CAR
+12/7/14 13:00,At Detroit,-10.5,Tampa Bay,42,-$600 +$450,14,2014,12,Sun,DET,TB
+12/7/14 13:00,St. Louis,-3,At Washington,44.5,-$145 +$125,14,2014,12,Sun,STL,WAS
+12/7/14 13:00,At Minnesota,-4,NY Jets,40,-$210 +$175,14,2014,12,Sun,MIN,NYJ
+12/7/14 16:05,At Denver,-9,Buffalo,47,-$470 +$360,14,2014,12,Sun,DEN,BUF
+12/7/14 16:05,Kansas City,-2.5,At Arizona,41,-$150 +$130,14,2014,12,Sun,KC,ARI
+12/7/14 16:25,San Francisco,-8.5,At Oakland,40.5,-$430 +$340,14,2014,12,Sun,SF,OAK
+12/7/14 16:25,Seattle,-1.5,At Philadelphia,48,-$125 +$105,14,2014,12,Sun,SEA,PHI
+12/7/14 20:30,New England,-4,At San Diego,54,-$215 +$185,14,2014,12,Sun,NE,SD
+12/11/14 20:25,At St. Louis,-6,Arizona,40.5,-$265 +$225,15,2014,12,Thu,STL,ARI
+12/14/14 13:00,At Kansas City,-11,Oakland,41.5,-$650 +$450,15,2014,12,Sun,KC,OAK
+12/14/14 13:00,At Baltimore,-14,Jacksonville,44.5,-$1150 +$700,15,2014,12,Sun,BAL,JAC
+12/14/14 13:00,Pittsburgh,-3,At Atlanta,55.5,-$155 +$135,15,2014,12,Sun,PIT,ATL
+12/14/14 13:00,At Indianapolis,-7,Houston,49,-$330 +$270,15,2014,12,Sun,IND,HOU
+12/14/14 13:00,At Cleveland,-2,Cincinnati,43.5,-$135 +$115,15,2014,12,Sun,CLE,CIN
+12/14/14 13:00,At New England,-9,Miami,48,-$460 +$380,15,2014,12,Sun,NE,MIA
+12/14/14 13:00,At Carolina,-3.5,Tampa Bay,41.5,-$180 +$160,15,2014,12,Sun,CAR,TB
+12/14/14 13:00,At NY Giants,-7,Washington,46.5,-$310 +$260,15,2014,12,Sun,NYG,WAS
+12/14/14 13:00,Green Bay,-3.5,At Buffalo,50,-$185 +$165,15,2014,12,Sun,GB,BUF
+12/14/14 16:25,At Detroit,-8,Minnesota,42,-$390 +$320,15,2014,12,Sun,DET,MIN
+12/14/14 16:05,NY Jets,-3,At Tennessee,41.5,-$175 +$155,15,2014,12,Sun,NYJ,TEN
+12/14/14 16:05,Denver,-4,At San Diego,49.5,-$210 +$180,15,2014,12,Sun,DEN,SD
+12/14/14 16:25,At Seattle,-9.5,San Francisco,38.5,-$500 +$400,15,2014,12,Sun,SEA,SF
+12/14/14 20:30,At Philadelphia,-3.5,Dallas,55,-$175 +$155,15,2014,12,Sun,PHI,DAL
+12/14/14 20:30,New Orleans,-3.5,At Chicago,53.5,-$185 +$165,15,2014,12,Sun,NO,CHI
+12/20/14 20:25,At San Francisco,-1.5,San Diego,40.5,-$125 +$105,16,2014,12,Sat,SF,SD
+12/20/14 16:30,Philadelphia,-7,At Washington,51,-$320 +$260,16,2014,12,Sat,PHI,WAS
+12/18/14 20:25,At Jacksonville,-4.5,Tennessee,39,-$215 +$180,16,2014,12,Thu,JAC,TEN
+12/22/14 20:30,Denver,-3.5,At Cincinnati,47.5,-$185 +$165,16,2014,12,Mon,DEN,CIN
+12/21/14 13:00,At Miami,-4.5,Minnesota,42.5,-$220 +$185,16,2014,12,Sun,MIA,MIN
+12/21/14 13:00,Green Bay,-11.5,At Tampa Bay,49,-$825 +$550,16,2014,12,Sun,GB,TB
+12/21/14 13:00,Detroit,-10,At Chicago,44.5,-$500 +$400,16,2014,12,Sun,DET,CHI
+12/21/14 13:00,At New Orleans,-6,Atlanta,56,-$260 +$220,16,2014,12,Sun,NO,ATL
+12/21/14 13:00,New England,-9.5,At NY Jets,47,-$500 +$400,16,2014,12,Sun,NE,NYJ
+12/21/14 13:00,At Pittsburgh,-2.5,Kansas City,49.5,-$135 +$115,16,2014,12,Sun,PIT,KC
+12/21/14 13:00,At Carolina,-6,Cleveland,40,-$260 +$220,16,2014,12,Sun,CAR,CLE
+12/21/14 13:00,Baltimore,-6.5,At Houston,41.5,-$290 +$240,16,2014,12,Sun,BAL,HOU
+12/21/14 16:05,At St. Louis,-6.5,NY Giants,43.5,-$270 +$230,16,2014,12,Sun,STL,NYG
+12/21/14 16:25,Buffalo,-6.5,At Oakland,41.5,-$280 +$240,16,2014,12,Sun,BUF,OAK
+12/21/14 16:25,At Dallas,-3.5,Indianapolis,53.5,-$175 +$155,16,2014,12,Sun,DAL,IND
+12/21/14 20:30,Seattle,-9.5,At Arizona,36.5,-$450 +$350,16,2014,12,Sun,SEA,ARI
+12/28/14 16:25,At Green Bay,-8.5,Detroit,47,-$400 +$330,17,2014,12,Sun,GB,DET
+12/28/14 13:00,At Houston,-8.5,Jacksonville,38.5,-$380 +$310,17,2014,12,Sun,HOU,JAC
+12/28/14 20:30,At Pittsburgh,-3,Cincinnati,48.5,-$170 +$150,17,2014,12,Sun,PIT,CIN
+12/28/14 13:00,Indianapolis,-7.5,At Tennessee,46.5,-$350 +$290,17,2014,12,Sun,IND,TEN
+12/28/14 13:00,At Baltimore,-14,Cleveland,40,-$1300 +$775,17,2014,12,Sun,BAL,CLE
+12/28/14 13:00,At New England,-4.5,Buffalo,43.5,-$215 +$185,17,2014,12,Sun,NE,BUF
+12/28/14 13:00,At Miami,-7,NY Jets,41,-$320 +$260,17,2014,12,Sun,MIA,NYJ
+12/28/14 16:25,At Atlanta,-3,Carolina,48,-$145 +$125,17,2014,12,Sun,ATL,CAR
+12/28/14 13:00,At Minnesota,-7,Chicago,47.5,-$320 +$260,17,2014,12,Sun,MIN,CHI
+12/28/14 13:00,At Kansas City,-3,San Diego,42,-$150 +$130,17,2014,12,Sun,KC,SD
+12/28/14 13:00,At NY Giants,-1,Philadelphia,52,-$120 +$100,17,2014,12,Sun,NYG,PHI
+12/28/14 13:00,Dallas,-6,At Washington,47.5,-$265 +$225,17,2014,12,Sun,DAL,WAS
+12/28/14 13:00,New Orleans,-6,At Tampa Bay,46.5,-$260 +$220,17,2014,12,Sun,NO,TB
+12/28/14 16:25,At Seattle,-11.5,St. Louis,41.5,-$700 +$500,17,2014,12,Sun,SEA,STL
+12/28/14 16:25,At San Francisco,-6.5,Arizona,37.5,-$290 +$245,17,2014,12,Sun,SF,ARI
+12/28/14 16:25,At Denver,-15.5,Oakland,48.5,-$1550 +$900,17,2014,12,Sun,DEN,OAK
+9/5/13 20:30,At Denver,-7.5,Baltimore,48.5,-$340 +$280,1,2013,9,Thu,DEN,BAL
+9/9/13 19:10,At Washington,-4,Philadelphia,52.5,-$190 +$165,1,2013,9,Mon,WAS,PHI
+9/9/13 22:20,Houston,-6,At San Diego,44.5,-$250 +$210,1,2013,9,Mon,HOU,SD
+9/8/13 13:00,New England,-10,At Buffalo,51,-$500 +$400,1,2013,9,Sun,NE,BUF
+9/8/13 13:00,At Pittsburgh,-6,Tennessee,42,-$265 +$225,1,2013,9,Sun,PIT,TEN
+9/8/13 13:00,At New Orleans,-3.5,Atlanta,55,-$190 +$170,1,2013,9,Sun,NO,ATL
+9/8/13 13:00,Tampa Bay,-4,At NY Jets,39.5,-$205 +$175,1,2013,9,Sun,TB,NYJ
+9/8/13 13:00,Kansas City,-3.5,At Jacksonville,42.5,-$195 +$170,1,2013,9,Sun,KC,JAC
+9/8/13 13:00,At Chicago,-3,Cincinnati,41.5,-$155 +$135,1,2013,9,Sun,CHI,CIN
+9/8/13 13:00,At Cleveland,-2.5,Miami,41,-$140 +$120,1,2013,9,Sun,CLE,MIA
+9/8/13 13:00,Seattle,-3,At Carolina,44.5,-$165 +$145,1,2013,9,Sun,SEA,CAR
+9/8/13 13:00,At Detroit,-4,Minnesota,46.5,-$210 +$180,1,2013,9,Sun,DET,MIN
+9/8/13 13:00,At Indianapolis,-11,Oakland,45.5,-$700 +$500,1,2013,9,Sun,IND,OAK
+9/8/13 16:25,At St. Louis,-4,Arizona,42.5,-$200 +$170,1,2013,9,Sun,STL,ARI
+9/8/13 16:25,At San Francisco,-5.5,Green Bay,47.5,-$240 +$200,1,2013,9,Sun,SF,GB
+9/8/13 20:30,At Dallas,-3.5,NY Giants,50,-$185 +$165,1,2013,9,Sun,DAL,NYG
+9/12/13 20:25,At New England,-11,NY Jets,43,-$600 +$450,2,2013,9,Thu,NE,NYJ
+9/16/13 20:40,At Cincinnati,-6.5,Pittsburgh,40,-$310 +$260,2,2013,9,Mon,CIN,PIT
+9/15/13 13:00,At Philadelphia,-7.5,San Diego,52.5,-$330 +$270,2,2013,9,Sun,PHI,SD
+9/15/13 13:00,At Baltimore,-6.5,Cleveland,43.5,-$300 +$250,2,2013,9,Sun,BAL,CLE
+9/15/13 13:00,At Houston,-7.5,Tennessee,42,-$390 +$320,2,2013,9,Sun,HOU,TEN
+9/15/13 13:00,At Indianapolis,-2,Miami,43.5,-$130 +$110,2,2013,9,Sun,IND,MIA
+9/15/13 13:00,Carolina,-3.5,At Buffalo,43.5,-$175 +$155,2,2013,9,Sun,CAR,BUF
+9/15/13 13:00,At Atlanta,-5,St. Louis,47,-$225 +$185,2,2013,9,Sun,ATL,STL
+9/15/13 13:00,At Green Bay,-7,Washington,49,-$370 +$310,2,2013,9,Sun,GB,WAS
+9/15/13 13:00,At Kansas City,-3,Dallas,45.5,-$160 +$140,2,2013,9,Sun,KC,DAL
+9/15/13 13:00,At Chicago,-6,Minnesota,41,-$265 +$225,2,2013,9,Sun,CHI,MIN
+9/15/13 16:05,New Orleans,-3.5,At Tampa Bay,48.5,-$170 +$150,2,2013,9,Sun,NO,TB
+9/15/13 16:05,Detroit,-2,At Arizona,48,-$130 +$110,2,2013,9,Sun,DET,ARI
+9/15/13 16:25,At Oakland,-4,Jacksonville,41,-$205 +$175,2,2013,9,Sun,OAK,JAC
+9/15/13 16:25,Denver,-3.5,At NY Giants,54,-$200 +$170,2,2013,9,Sun,DEN,NYG
+9/15/13 20:30,At Seattle,-3,San Francisco,44.5,-$155 +$135,2,2013,9,Sun,SEA,SF
+9/19/13 20:25,At Philadelphia,-3.5,Kansas City,50.5,-$180 +$160,3,2013,9,Thu,PHI,KC
+9/23/13 20:40,At Denver,-16.5,Oakland,49.5,-$2200 +$1100,3,2013,9,Mon,DEN,OAK
+9/22/13 13:00,At Tennessee,-3,San Diego,43,-$155 +$135,3,2013,9,Sun,TEN,SD
+9/22/13 13:00,At Minnesota,-7,Cleveland,40.5,-$320 +$260,3,2013,9,Sun,MIN,CLE
+9/22/13 13:00,At New England,-7,Tampa Bay,44.5,-$345 +$285,3,2013,9,Sun,NE,TB
+9/22/13 13:00,At Baltimore,-1,Houston,44.5,-$120 +$100,3,2013,9,Sun,BAL,HOU
+9/22/13 13:00,At Dallas,-3,St. Louis,47.5,-$170 +$150,3,2013,9,Sun,DAL,STL
+9/22/13 13:00,At New Orleans,-7.5,Arizona,48.5,-$350 +$290,3,2013,9,Sun,NO,ARI
+9/22/13 13:00,Detroit,-1,At Washington,49,-$120 +$100,3,2013,9,Sun,DET,WAS
+9/22/13 13:00,Green Bay,-3,At Cincinnati,50,-$150 +$130,3,2013,9,Sun,GB,CIN
+9/22/13 13:00,NY Giants,-2.5,At Carolina,47.5,-$140 +$120,3,2013,9,Sun,NYG,CAR
+9/22/13 16:05,At Miami,-2.5,Atlanta,45.5,-$145 +$125,3,2013,9,Sun,MIA,ATL
+9/22/13 16:25,At San Francisco,-10.5,Indianapolis,46,-$500 +$400,3,2013,9,Sun,SF,IND
+9/22/13 16:25,At Seattle,-19.5,Jacksonville,39.5,-$6500 +$2000,3,2013,9,Sun,SEA,JAC
+9/22/13 16:25,At NY Jets,-2.5,Buffalo,41,-$140 +$120,3,2013,9,Sun,NYJ,BUF
+9/22/13 20:30,Chicago,-2.5,At Pittsburgh,40.5,-$140 +$120,3,2013,9,Sun,CHI,PIT
+9/26/13 20:25,San Francisco,-3.5,At St. Louis,43,-$180 +$160,4,2013,9,Thu,SF,STL
+9/30/13 20:40,At New Orleans,-7,Miami,49,-$360 +$300,4,2013,9,Mon,NO,MIA
+9/29/13 13:00,Pittsburgh,-3,Minnesota,41.5,-$150 +$130,4,2013,9,Sun,PIT,MIN
+9/29/13 13:00,Baltimore,-3.5,At Buffalo,45,-$165 +$145,4,2013,9,Sun,BAL,BUF
+9/29/13 13:00,Cincinnati,-3.5,At Cleveland,42.5,-$185 +$165,4,2013,9,Sun,CIN,CLE
+9/29/13 13:00,Indianapolis,-9,At Jacksonville,42.5,-$420 +$350,4,2013,9,Sun,IND,JAC
+9/29/13 13:00,Seattle,-1.5,At Houston,41.5,-$125 +$105,4,2013,9,Sun,SEA,HOU
+9/29/13 13:00,At Tampa Bay,-2.5,Arizona,40.5,-$140 +$120,4,2013,9,Sun,TB,ARI
+9/29/13 13:00,At Detroit,-3,Chicago,48.5,-$155 +$135,4,2013,9,Sun,DET,CHI
+9/29/13 13:00,At Kansas City,-3.5,NY Giants,44,-$180 +$160,4,2013,9,Sun,KC,NYG
+9/29/13 16:05,At Tennessee,-3.5,NY Jets,40.5,-$180 +$160,4,2013,9,Sun,TEN,NYJ
+9/29/13 16:25,Dallas,-1.5,At San Diego,47,-$120 +$100,4,2013,9,Sun,DAL,SD
+9/29/13 16:25,Washington,-3.5,At Oakland,45.5,-$185 +$165,4,2013,9,Sun,WAS,OAK
+9/29/13 16:25,At Denver,-10.5,Philadelphia,58.5,-$600 +$450,4,2013,9,Sun,DEN,PHI
+9/29/13 20:30,At Atlanta,-3,New England,49.5,-$160 +$140,4,2013,9,Sun,ATL,NE
+10/3/13 20:25,At Cleveland,-3.5,Buffalo,40.5,-$200 +$170,5,2013,10,Thu,CLE,BUF
+10/7/13 20:40,At Atlanta,-10,NY Jets,45,-$550 +$400,5,2013,10,Mon,ATL,NYJ
+10/6/13 13:00,Kansas City,-2.5,At Tennessee,38,-$140 +$120,5,2013,10,Sun,KC,TEN
+10/6/13 13:00,At Miami,-2.5,Baltimore,43,-$140 +$120,5,2013,10,Sun,MIA,BAL
+10/6/13 13:00,At St. Louis,-11,Jacksonville,41,-$625 +$450,5,2013,10,Sun,STL,JAC
+10/6/13 13:00,New England,-1.5,At Cincinnati,45.5,-$125 +$105,5,2013,10,Sun,NE,CIN
+10/6/13 13:00,Seattle,-3,At Indianapolis,43.5,-$145 +$125,5,2013,10,Sun,SEA,IND
+10/6/13 13:00,At Green Bay,-10,Detroit,53.5,-$475 +$375,5,2013,10,Sun,GB,DET
+10/6/13 13:00,New Orleans,-1,At Chicago,50.5,-$120 +$100,5,2013,10,Sun,NO,CHI
+10/6/13 13:00,Philadelphia,-1,At NY Giants,54,-$125 +$105,5,2013,10,Sun,PHI,NYG
+10/6/13 16:05,Carolina,-3,At Arizona,41.5,-$155 +$135,5,2013,10,Sun,CAR,ARI
+10/6/13 23:35,San Diego,-5.5,At Oakland,47,-$240 +$200,5,2013,10,Sun,SD,OAK
+10/6/13 16:25,Denver,-8,At Dallas,57,-$370 +$310,5,2013,10,Sun,DEN,DAL
+10/6/13 20:30,At San Francisco,-4.5,Houston,43.5,-$215 +$185,5,2013,10,Sun,SF,HOU
+10/10/13 20:25,At Chicago,-9,NY Giants,47.5,-$400 +$330,6,2013,10,Thu,CHI,NYG
+10/14/13 20:40,Indianapolis,-1.5,At San Diego,51,-$125 +$105,6,2013,10,Mon,IND,SD
+10/13/13 13:00,At Kansas City,-8,Oakland,41,-$375 +$315,6,2013,10,Sun,KC,OAK
+10/13/13 13:00,Philadelphia,-3,At Tampa Bay,45,-$150 +$130,6,2013,10,Sun,PHI,TB
+10/13/13 13:00,Green Bay,-2,At Baltimore,49,-$130 +$110,6,2013,10,Sun,GB,BAL
+10/13/13 13:00,Detroit,-2,At Cleveland,43.5,-$130 +$110,6,2013,10,Sun,DET,CLE
+10/13/13 13:00,At Minnesota,-2.5,Carolina,45,-$140 +$120,6,2013,10,Sun,MIN,CAR
+10/13/13 13:00,At Houston,-9,St. Louis,43,-$440 +$360,6,2013,10,Sun,HOU,STL
+10/13/13 13:00,Pittsburgh,-1.5,At NY Jets,41,-$125 +$105,6,2013,10,Sun,PIT,NYJ
+10/13/13 13:00,Cincinnati,-6,At Buffalo,41.5,-$270 +$230,6,2013,10,Sun,CIN,BUF
+10/13/13 16:05,At Seattle,-12.5,Tennessee,42,-$750 +$550,6,2013,10,Sun,SEA,TEN
+10/13/13 16:05,At Denver,-27,Jacksonville,53,-$9000 +$3000,6,2013,10,Sun,DEN,JAC
+10/13/13 16:25,At San Francisco,-10,Arizona,40.5,-$550 +$400,6,2013,10,Sun,SF,ARI
+10/13/13 16:25,At New England,-2,New Orleans,51,-$125 +$105,6,2013,10,Sun,NE,NO
+10/13/13 20:30,At Dallas,-5.5,Washington,53,-$250 +$210,6,2013,10,Sun,DAL,WAS
+10/17/13 20:25,Seattle,-5.5,At Arizona,41,-$245 +$205,7,2013,10,Thu,SEA,ARI
+10/21/13 20:40,At NY Giants,-4,Minnesota,48,-$210 +$180,7,2013,10,Mon,NYG,MIN
+10/20/13 13:00,New England,-3.5,At NY Jets,43,-$180 +$160,7,2013,10,Sun,NE,NYJ
+10/20/13 13:00,San Diego,-7,At Jacksonville,45,-$350 +$290,7,2013,10,Sun,SD,JAC
+10/20/13 16:25,At Kansas City,-7,Houston,39,-$290 +$240,7,2013,10,Sun,KC,HOU
+10/20/13 13:00,At Detroit,-3,Cincinnati,46.5,-$150 +$130,7,2013,10,Sun,DET,CIN
+10/20/13 13:00,At Miami,-6,Buffalo,44,-$260 +$220,7,2013,10,Sun,MIA,BUF
+10/20/13 13:00,Chicago,-1,At Washington,48.5,-$120 +$100,7,2013,10,Sun,CHI,WAS
+10/20/13 13:00,At Philadelphia,-3,Dallas,55.5,-$160 +$140,7,2013,10,Sun,PHI,DAL
+10/20/13 13:00,At Carolina,-7,St. Louis,42.5,-$320 +$260,7,2013,10,Sun,CAR,STL
+10/20/13 13:00,At Atlanta,-6.5,Tampa Bay,43,-$290 +$240,7,2013,10,Sun,ATL,TB
+10/20/13 16:05,San Francisco,-3.5,At Tennessee,41,-$180 +$160,7,2013,10,Sun,SF,TEN
+10/20/13 16:25,At Green Bay,-8.5,Cleveland,45.5,-$440 +$340,7,2013,10,Sun,GB,CLE
+10/20/13 16:25,At Pittsburgh,-2,Baltimore,41,-$135 +$115,7,2013,10,Sun,PIT,BAL
+10/20/13 20:30,Denver,-6.5,At Indianapolis,56,-$280 +$240,7,2013,10,Sun,DEN,IND
+10/24/13 20:25,Carolina,-7,At Tampa Bay,39.5,-$300 +$250,8,2013,10,Thu,CAR,TB
+10/28/13 20:40,Seattle,-14,At St. Louis,43.5,-$925 +$625,8,2013,10,Mon,SEA,STL
+10/27/13 13:00,San Francisco,-16,Jacksonville,40,-$1800 +$1000,8,2013,10,Sun,SF,JAC
+10/27/13 13:00,At Detroit,-3,Dallas,52,-$160 +$140,8,2013,10,Sun,DET,DAL
+10/27/13 13:00,At Philadelphia,-5.5,NY Giants,50,-$240 +$200,8,2013,10,Sun,PHI,NYG
+10/27/13 13:00,At Kansas City,-7,Cleveland,39,-$350 +$290,8,2013,10,Sun,KC,CLE
+10/27/13 13:00,At New Orleans,-10.5,Buffalo,48.5,-$600 +$450,8,2013,10,Sun,NO,BUF
+10/27/13 13:00,At New England,-6.5,Miami,46,-$280 +$240,8,2013,10,Sun,NE,MIA
+10/27/13 16:05,At Cincinnati,-6,NY Jets,41,-$255 +$215,8,2013,10,Sun,CIN,NYJ
+10/27/13 16:05,Pittsburgh,-3,At Oakland,40,-$145 +$125,8,2013,10,Sun,PIT,OAK
+10/27/13 16:25,At Denver,-11,Washington,59,-$600 +$50,8,2013,10,Sun,DEN,WAS
+10/27/13 16:25,At Arizona,-2.5,Atlanta,45,-$140 +$120,8,2013,10,Sun,ARI,ATL
+10/27/13 20:30,Green Bay,-7.5,At Minnesota,47.5,-$350 +$290,8,2013,10,Sun,GB,MIN
+10/31/13 20:25,Cincinnati,-3,At Miami,42.5,-$155 +$135,9,2013,10,Thu,CIN,MIA
+11/4/13 20:40,At Green Bay,-10,Chicago,51,-$550 +$400,9,2013,11,Mon,GB,CHI
+11/3/13 13:00,At Carolina,-8.5,Atlanta,47,-$440 +$360,9,2013,11,Sun,CAR,ATL
+11/3/13 13:00,At Dallas,-9,Minnesota,51.5,-$525 +$400,9,2013,11,Sun,DAL,MIN
+11/3/13 13:00,New Orleans,-6,At NY Jets,46,-$275 +$235,9,2013,11,Sun,NO,NYJ
+11/3/13 13:00,Tennessee,-3,At St. Louis,41,-$160 +$140,9,2013,11,Sun,TEN,STL
+11/3/13 13:00,Kansas City,-5,At Buffalo,41,-$235 +$195,9,2013,11,Sun,KC,BUF
+11/3/13 13:00,At Washington,-1.5,San Diego,49.5,-$125 +$105,9,2013,11,Sun,WAS,SD
+11/3/13 16:05,At Oakland,-1,Philadelphia,45.5,-$120 +$100,9,2013,11,Sun,OAK,PHI
+11/3/13 16:05,At Seattle,-16,Tampa Bay,40.5,-$1900 +$975,9,2013,11,Sun,SEA,TB
+11/3/13 16:25,Baltimore,-1.5,At Cleveland,42,-$130 +$110,9,2013,11,Sun,BAL,CLE
+11/3/13 16:25,At New England,-6,Pittsburgh,42.5,-$280 +$240,9,2013,11,Sun,NE,PIT
+11/3/13 20:30,Indianapolis,-1.5,At Houston,43,-$125 +$105,9,2013,11,Sun,IND,HOU
+11/7/13 20:25,Washington,-1.5,At Minnesota,48.5,-$125 +$105,10,2013,11,Thu,WAS,MIN
+11/11/13 20:40,Miami,-2.5,At Tampa Bay,40,-$140 +$120,10,2013,11,Mon,MIA,TB
+11/10/13 13:00,At Tennessee,-11.5,Jacksonville,42,-$700 +$500,10,2013,11,Sun,TEN,JAC
+11/10/13 13:00,Philadelphia,-1,At Green Bay,47,-$120 +$100,10,2013,11,Sun,PHI,GB
+11/10/13 13:00,At Pittsburgh,-3,Buffalo,43,-$150 +$130,10,2013,11,Sun,PIT,BUF
+11/10/13 13:00,At NY Giants,-7,Oakland,41.5,-$330 +$270,10,2013,11,Sun,NYG,OAK
+11/10/13 13:00,At Indianapolis,-7.5,St. Louis,43.5,-$400 +$330,10,2013,11,Sun,IND,STL
+11/10/13 13:00,Seattle,-3.5,At Atlanta,46.5,-$185 +$165,10,2013,11,Sun,SEA,ATL
+11/10/13 13:00,At Baltimore,-1,Cincinnati,44,-$120 +$100,10,2013,11,Sun,BAL,CIN
+11/10/13 13:00,Detroit,-1,At Chicago,52.5,-$120 +$100,10,2013,11,Sun,DET,CHI
+11/10/13 16:05,At San Francisco,-6,Carolina,43.5,-$260 +$220,10,2013,11,Sun,SF,CAR
+11/10/13 16:25,At Arizona,-4,Houston,42,-$200 +$170,10,2013,11,Sun,ARI,HOU
+11/10/13 16:25,Denver,-7,At San Diego,57.5,-$320 +$260,10,2013,11,Sun,DEN,SD
+11/10/13 20:30,At New Orleans,-6.5,Dallas,55,-$270 +$230,10,2013,11,Sun,NO,DAL
+11/14/13 20:25,Indianapolis,-3,At Tennessee,42.5,-$150 +$130,11,2013,11,Thu,IND,TEN
+11/18/13 20:40,At Carolina,-3,New England,46.5,-$155 +$135,11,2013,11,Mon,CAR,NE
+11/17/13 13:00,At Tampa Bay,-2,Atlanta,43.5,-$135 +$115,11,2013,11,Sun,TB,ATL
+11/17/13 13:00,NY Jets,-2,At Buffalo,39,-$130 +$110,11,2013,11,Sun,NYJ,BUF
+11/17/13 13:00,Detroit,-3,At Pittsburgh,45.5,-$160 +$140,11,2013,11,Sun,DET,PIT
+11/17/13 13:00,At Philadelphia,-4.5,Washington,55,-$220 +$180,11,2013,11,Sun,PHI,WAS
+11/17/13 16:05,San Diego,-2.5,At Miami,45,-$145 +$125,11,2013,11,Sun,SD,MIA
+11/17/13 13:00,At Chicago,-3,Baltimore,40,-$175 +$155,11,2013,11,Sun,CHI,BAL
+11/17/13 13:00,At Cincinnati,-5,Cleveland,40,-$230 +$190,11,2013,11,Sun,CIN,CLE
+11/17/13 13:00,At Houston,-10.5,Oakland,41,-$550 +$425,11,2013,11,Sun,HOU,OAK
+11/17/13 13:00,Arizona,-9,At Jacksonville,40.5,-$440 +$360,11,2013,11,Sun,ARI,JAC
+11/17/13 20:30,At Denver,-7.5,Kansas City,49,-$350 +$290,11,2013,11,Sun,DEN,KC
+11/17/13 16:25,At Seattle,-13,Minnesota,45.5,-$850 +$575,11,2013,11,Sun,SEA,MIN
+11/17/13 16:25,At New Orleans,-3,San Francisco,50,-$175 +$155,11,2013,11,Sun,NO,SF
+11/17/13 16:25,At NY Giants,-3.5,Green Bay,41.5,-$180 +$160,11,2013,11,Sun,NYG,GB
+11/21/13 20:25,New Orleans,-8,At Atlanta,53,-$400 +$330,12,2013,11,Thu,NO,ATL
+11/25/13 20:40,San Francisco,-5.5,At Washington,45.5,-$250 +$210,12,2013,11,Mon,SF,WAS
+11/24/13 13:00,At Detroit,-7,Tampa Bay,49,-$350 +$290,12,2013,11,Sun,DET,TB
+11/24/13 13:00,At Houston,-10.5,Jacksonville,43.5,-$550 +$425,12,2013,11,Sun,HOU,JAC
+11/24/13 13:00,At Green Bay,-6,Minnesota,44,-$260 +$220,12,2013,11,Sun,GB,MIN
+11/24/13 13:00,At Kansas City,-3.5,San Diego,43.5,-$185 +$165,12,2013,11,Sun,KC,SD
+11/24/13 13:00,Carolina,-5,At Miami,40.5,-$220 +$190,12,2013,11,Sun,CAR,MIA
+11/24/13 13:00,At Cleveland,-2.5,Pittsburgh,40,-$140 +$120,12,2013,11,Sun,CLE,PIT
+11/24/13 13:00,At St. Louis,-2,Chicago,46,-$130 +$110,12,2013,11,Sun,STL,CHI
+11/24/13 13:00,At Baltimore,-4,NY Jets,38.5,-$210 +$175,12,2013,11,Sun,BAL,NYJ
+11/24/13 16:05,Tennessee,-2.5,At Oakland,42,-$140 +$120,12,2013,11,Sun,TEN,OAK
+11/24/13 16:05,At Arizona,-3,Indianapolis,45,-$165 +$145,12,2013,11,Sun,ARI,IND
+11/24/13 16:25,At NY Giants,-2.5,Dallas,45,-$145 +$125,12,2013,11,Sun,NYG,DAL
+11/24/13 20:30,Denver,-1,At New England,54,-$120 +$100,12,2013,11,Sun,DEN,NE
+11/28/13 12:30,At Detroit,-6.5,Green Bay,49,-$280 +$240,13,2013,11,Thu,DET,GB
+11/28/13 16:30,At Dallas,-9,Oakland,49.5,-$475 +$375,13,2013,11,Thu,DAL,OAK
+11/28/13 20:30,At Baltimore,-3,Pittsburgh,40.5,-$155 +$135,13,2013,11,Thu,BAL,PIT
+12/2/13 20:40,At Seattle,-6.5,New Orleans,48.5,-$275 +$235,13,2013,12,Mon,SEA,NO
+12/1/13 13:00,At Indianapolis,-3.5,Tennessee,46.5,-$195 +$170,13,2013,12,Sun,IND,TEN
+12/1/13 16:25,Denver,-5.5,At Kansas City,50,-$260 +$220,13,2013,12,Sun,DEN,KC
+12/1/13 13:00,At Cleveland,-7,Jacksonville,39.5,-$320 +$260,13,2013,12,Sun,CLE,JAC
+12/1/13 13:00,At Carolina,-7,Tampa Bay,41,-$350 +$290,13,2013,12,Sun,CAR,TB
+12/1/13 13:00,At Minnesota,-1,Chicago,50,-$120 +$100,13,2013,12,Sun,MIN,CHI
+12/1/13 13:00,At Philadelphia,-3.5,Arizona,48.5,-$180 +$160,13,2013,12,Sun,PHI,ARI
+12/1/13 13:00,At NY Jets,0,Miami,40,-$110 -$110,13,2013,12,Sun,NYJ,MIA
+12/1/13 16:05,At Buffalo,-4.5,Atlanta,48,-$210 +$180,13,2013,12,Sun,BUF,ATL
+12/1/13 16:05,At San Francisco,-7.5,St. Louis,40.5,-$370 +$310,13,2013,12,Sun,SF,STL
+12/1/13 13:00,New England,-7,At Houston,49,-$340 +$280,13,2013,12,Sun,NE,HOU
+12/1/13 16:25,Cincinnati,-1.5,At San Diego,48.5,-$125 +$105,13,2013,12,Sun,CIN,SD
+12/1/13 20:30,At Washington,-1,NY Giants,45,-$120 +$100,13,2013,12,Sun,WAS,NYG
+12/5/13 20:25,Houston,-3,At Jacksonville,43.5,-$170 +$150,14,2013,12,Thu,HOU,JAC
+12/9/13 20:40,At Chicago,-1.5,Dallas,49,-$125 +$105,14,2013,12,Mon,CHI,DAL
+12/8/13 13:00,Kansas City,-3.5,At Washington,44,-$185 +$165,14,2013,12,Sun,KC,WAS
+12/8/13 13:00,At Baltimore,-6,Minnesota,41.5,-$265 +$225,14,2013,12,Sun,BAL,MIN
+12/8/13 13:00,At New England,-10,Cleveland,47.5,-$525 +$400,14,2013,12,Sun,NE,CLE
+12/8/13 13:00,At NY Jets,-3,Oakland,39,-$160 +$140,14,2013,12,Sun,NYJ,OAK
+12/8/13 13:00,At Cincinnati,-7,Indianapolis,43.5,-$340 +$280,14,2013,12,Sun,CIN,IND
+12/8/13 20:30,At New Orleans,-3,Carolina,47.5,-$175 +$155,14,2013,12,Sun,NO,CAR
+12/8/13 13:00,At Philadelphia,-2.5,Detroit,51,-$145 +$125,14,2013,12,Sun,PHI,DET
+12/8/13 13:00,At Pittsburgh,-3,Miami,40.5,-$170 +$150,14,2013,12,Sun,PIT,MIA
+12/8/13 13:00,At Tampa Bay,-3,Buffalo,43,-$155 +$135,14,2013,12,Sun,TB,BUF
+12/8/13 16:05,At Denver,-12.5,Tennessee,50,-$800 +$575,14,2013,12,Sun,DEN,TEN
+12/8/13 16:25,At Arizona,-4.5,St. Louis,41,-$220 +$185,14,2013,12,Sun,ARI,STL
+12/8/13 16:25,At San Diego,-4.5,NY Giants,47,-$205 +$175,14,2013,12,Sun,SD,NYG
+12/8/13 16:25,At San Francisco,-2.5,Seattle,41.5,-$135 +$115,14,2013,12,Sun,SF,SEA
+12/8/13 13:00,At Green Bay,-3.5,Atlanta,47,-$185 +$165,14,2013,12,Sun,GB,ATL
+12/12/13 20:25,At Denver,-10,San Diego,57.5,-$575 +$425,15,2013,12,Thu,DEN,SD
+12/16/13 20:40,At Detroit,-5,Baltimore,49.5,-$230 +$190,15,2013,12,Mon,DET,BAL
+12/15/13 13:00,At Atlanta,-5.5,Washington,49.5,-$255 +$215,15,2013,12,Sun,ATL,WAS
+12/15/13 13:00,San Francisco,-5,At Tampa Bay,41,-$250 +$210,15,2013,12,Sun,SF,TB
+12/15/13 16:25,Arizona,-3,At Tennessee,43,-$150 +$130,15,2013,12,Sun,ARI,TEN
+12/15/13 16:25,New Orleans,-7,At St. Louis,48,-$300 +$250,15,2013,12,Sun,NO,STL
+12/15/13 13:00,Seattle,-9,At NY Giants,43,-$440 +$350,15,2013,12,Sun,SEA,NYG
+12/15/13 13:00,Chicago,-1,At Cleveland,44,-$115 -$105,15,2013,12,Sun,CHI,CLE
+12/15/13 13:00,At Indianapolis,-6,Houston,47,-$260 +$220,15,2013,12,Sun,IND,HOU
+12/15/13 13:00,Buffalo,-4,At Jacksonville,43.5,-$205 +$175,15,2013,12,Sun,BUF,JAC
+12/15/13 13:00,At Miami,-2.5,New England,47,-$140 +$120,15,2013,12,Sun,MIA,NE
+12/15/13 13:00,Philadelphia,-6.5,At Minnesota,53,-$290 +$240,15,2013,12,Sun,PHI,MIN
+12/15/13 16:05,At Carolina,-10,NY Jets,40.5,-$525 +$400,15,2013,12,Sun,CAR,NYJ
+12/15/13 16:05,Kansas City,-6.5,At Oakland,44.5,-$265 +$225,15,2013,12,Sun,KC,OAK
+12/15/13 16:25,At Dallas,-5.5,Green Bay,50,-$245 +$205,15,2013,12,Sun,DAL,GB
+12/15/13 20:30,Cincinnati,-2,At Pittsburgh,44.5,-$130 +$110,15,2013,12,Sun,CIN,PIT
+12/23/13 20:40,At San Francisco,-14.5,Atlanta,46.5,-$1000 +$650,16,2013,12,Mon,SF,ATL
+12/22/13 13:00,At Buffalo,-1,Miami,42,-$120 +$100,16,2013,12,Sun,BUF,MIA
+12/22/13 13:00,At Carolina,-3,New Orleans,44.5,-$180 +$160,16,2013,12,Sun,CAR,NO
+12/22/13 13:00,Dallas,-3,At Washington,52,-$165 +$145,16,2013,12,Sun,DAL,WAS
+12/22/13 13:00,At St. Louis,-3.5,Tampa Bay,43,-$180 +$160,16,2013,12,Sun,STL,TB
+12/22/13 20:30,At Philadelphia,-3,Chicago,54,-$150 +$130,16,2013,12,Sun,PHI,CHI
+12/22/13 13:00,At NY Jets,-2,Cleveland,41.5,-$130 +$110,16,2013,12,Sun,NYJ,CLE
+12/22/13 13:00,At Kansas City,-7.5,Indianapolis,47,-$340 +$280,16,2013,12,Sun,KC,IND
+12/22/13 13:00,At Cincinnati,-7.5,Minnesota,48,-$350 +$290,16,2013,12,Sun,CIN,MIN
+12/22/13 13:00,Denver,-10,At Houston,54,-$575 +$425,16,2013,12,Sun,DEN,HOU
+12/22/13 13:00,Tennessee,-4.5,At Jacksonville,44,-$225 +$185,16,2013,12,Sun,TEN,JAC
+12/22/13 16:05,At Seattle,-9,Arizona,43,-$475 +$375,16,2013,12,Sun,SEA,ARI
+12/22/13 16:05,At Detroit,-9,NY Giants,47.5,-$450 +$370,16,2013,12,Sun,DET,NYG
+12/22/13 16:25,At San Diego,-10,Oakland,50.5,-$525 +$400,16,2013,12,Sun,SD,OAK
+12/22/13 16:25,Pittsburgh,-1,At Green Bay,44,-$120 +$100,16,2013,12,Sun,PIT,GB
+12/22/13 16:25,New England,-1,At Baltimore,45.5,-$120 +$100,16,2013,12,Sun,NE,BAL
+12/29/13 13:00,Carolina,-6,At Atlanta,46,-$260 +$220,17,2013,12,Sun,CAR,ATL
+12/29/13 16:25,Green Bay,-3,At Chicago,51.5,-$155 +$135,17,2013,12,Sun,GB,CHI
+12/29/13 13:00,At Tennessee,-7,Houston,44.5,-$295 +$245,17,2013,12,Sun,TEN,HOU
+12/29/13 13:00,At Pittsburgh,-9,Cleveland,44.5,-$400 +$330,17,2013,12,Sun,PIT,CLE
+12/29/13 13:00,At NY Giants,-3.5,Washington,44.5,-$180 +$160,17,2013,12,Sun,NYG,WAS
+12/29/13 13:00,At Cincinnati,-6.5,Baltimore,43,-$300 +$250,17,2013,12,Sun,CIN,BAL
+12/29/13 13:00,At Indianapolis,-11,Jacksonville,45,-$650 +$475,17,2013,12,Sun,IND,JAC
+12/29/13 20:30,Philadelphia,-7,At Dallas,54.5,-$320 +$260,17,2013,12,Sun,PHI,DAL
+12/29/13 13:00,At Miami,-7,NY Jets,41,-$330 +$270,17,2013,12,Sun,MIA,NYJ
+12/29/13 13:00,Detroit,-2,At Minnesota,50,-$130 +$110,17,2013,12,Sun,DET,MIN
+12/29/13 16:25,At New England,-7.5,Buffalo,46.5,-$350 +$280,17,2013,12,Sun,NE,BUF
+12/29/13 16:25,At New Orleans,-10.5,Tampa Bay,46.5,-$650 +$475,17,2013,12,Sun,NO,TB
+12/29/13 16:25,Denver,-10,At Oakland,54,-$600 +$450,17,2013,12,Sun,DEN,OAK
+12/29/13 16:25,At Arizona,-3,San Francisco,41,-$155 +$135,17,2013,12,Sun,ARI,SF
+12/29/13 16:25,At San Diego,-14.5,Kansas City,46,-$1350 +$800,17,2013,12,Sun,SD,KC
+12/29/13 16:25,At Seattle,-12,St. Louis,41,-$900 +$600,17,2013,12,Sun,SEA,STL
+9/5/12 20:30,At NY Giants,-3.5,Dallas,45.5,-$195 +$170,1,2012,9,Wed,NYG,DAL
+9/10/12 19:00,At Baltimore,-7,Cincinnati,43,-$350 +$290,1,2012,9,Mon,BAL,CIN
+9/10/12 22:15,At Oakland,-1,San Diego,47.5,-$120 +$100,1,2012,9,Mon,OAK,SD
+9/9/12 13:00,At Chicago,-10,Indianapolis,42.5,-$525 +$400,1,2012,9,Sun,CHI,IND
+9/9/12 13:00,Philadelphia,-9,At Cleveland,42.5,-$450 +$370,1,2012,9,Sun,PHI,CLE
+9/9/12 13:00,At NY Jets,-3,Buffalo,39,-$150 +$130,1,2012,9,Sun,NYJ,BUF
+9/9/12 13:00,At New Orleans,-8.5,Washington,50,-$405 +$335,1,2012,9,Sun,NO,WAS
+9/9/12 13:00,New England,-5.5,At Tennessee,48,-$250 +$210,1,2012,9,Sun,NE,TEN
+9/9/12 13:00,At Minnesota,-3.5,Jacksonville,38,-$195 +$170,1,2012,9,Sun,MIN,JAC
+9/9/12 13:00,At Houston,-13,Miami,41.5,-$900 +$600,1,2012,9,Sun,HOU,MIA
+9/9/12 13:00,At Detroit,-8.5,St. Louis,46.5,-$420 +$350,1,2012,9,Sun,DET,STL
+9/9/12 13:00,Atlanta,-2.5,At Kansas City,43,-$135 +$115,1,2012,9,Sun,ATL,KC
+9/9/12 16:25,At Green Bay,-5,San Francisco,46.5,-$265 +$225,1,2012,9,Sun,GB,SF
+9/9/12 16:25,Carolina,-3,At Tampa Bay,45.5,-$155 +$135,1,2012,9,Sun,CAR,TB
+9/9/12 16:25,Seattle,-3,At Arizona,41,-$145 +$125,1,2012,9,Sun,SEA,ARI
+9/9/12 20:25,At Denver,-2.5,Pittsburgh,45.5,-$140 +$120,1,2012,9,Sun,DEN,PIT
+9/13/12 20:20,At Green Bay,-5,Chicago,50.5,-$240 +$200,2,2012,9,Thu,GB,CHI
+9/17/12 20:35,At Atlanta,-3,Denver,50.5,-$160 +$140,2,2012,9,Mon,ATL,DEN
+9/16/12 13:00,At NY Giants,-7.5,Tampa Bay,43.5,-$370 +$310,2,2012,9,Sun,NYG,TB
+9/16/12 13:00,At New England,-13.5,Arizona,47,-$850 +$650,2,2012,9,Sun,NE,ARI
+9/16/12 13:00,Minnesota,-3,At Indianapolis,45.5,-$145 +$125,2,2012,9,Sun,MIN,IND
+9/16/12 13:00,New Orleans,-3,At Carolina,53.5,-$150 +$130,2,2012,9,Sun,NO,CAR
+9/16/12 13:00,At Buffalo,-3,Kansas City,45,-$165 +$145,2,2012,9,Sun,BUF,KC
+9/16/12 13:00,At Philadelphia,-3,Baltimore,47,-$160 +$140,2,2012,9,Sun,PHI,BAL
+9/16/12 13:00,Oakland,-1.5,At Miami,41,-$130 +$110,2,2012,9,Sun,OAK,MIA
+9/16/12 13:00,At Cincinnati,-7,Cleveland,39.5,-$330 +$270,2,2012,9,Sun,CIN,CLE
+9/16/12 13:00,Houston,-6.5,At Jacksonville,40,-$320 +$260,2,2012,9,Sun,HOU,JAC
+9/16/12 16:05,Dallas,-3,At Seattle,42.5,-$170 +$150,2,2012,9,Sun,DAL,SEA
+9/16/12 16:05,Washington,-3.5,At St. Louis,42.5,-$195 +$165,2,2012,9,Sun,WAS,STL
+9/16/12 16:25,At Pittsburgh,-4.5,NY Jets,43,-$235 +$195,2,2012,9,Sun,PIT,NYJ
+9/16/12 16:25,At San Diego,-6.5,Tennessee,43.5,-$270 +$230,2,2012,9,Sun,SD,TEN
+9/16/12 20:25,At San Francisco,-7,Detroit,46,-$310 +$260,2,2012,9,Sun,SF,DET
+9/20/12 20:20,At Carolina,-2.5,NY Giants,48.5,-$150 +$130,3,2012,9,Thu,CAR,NYG
+9/24/12 20:35,Green Bay,-3,At Seattle,45.5,-$175 +$155,3,2012,9,Mon,GB,SEA
+9/23/12 13:00,At Chicago,-7,St. Louis,42,-$320 +$260,3,2012,9,Sun,CHI,STL
+9/23/12 13:00,At Dallas,-7.5,Tampa Bay,45.5,-$370 +$310,3,2012,9,Sun,DAL,TB
+9/23/12 13:00,San Francisco,-7,At Minnesota,42.5,-$325 +$265,3,2012,9,Sun,SF,MIN
+9/23/12 13:00,Detroit,-4,At Tennessee,47,-$200 +$175,3,2012,9,Sun,DET,TEN
+9/23/12 13:00,At Washington,-3,Cincinnati,49.5,-$170 +$150,3,2012,9,Sun,WAS,CIN
+9/23/12 13:00,NY Jets,-2.5,At Miami,40.5,-$150 +$130,3,2012,9,Sun,NYJ,MIA
+9/23/12 13:00,At New Orleans,-8.5,Kansas City,51.5,-$390 +$320,3,2012,9,Sun,NO,KC
+9/23/12 13:00,Buffalo,-3,At Cleveland,45,-$140 +$120,3,2012,9,Sun,BUF,CLE
+9/23/12 13:00,At Indianapolis,-3,Jacksonville,43,-$175 +$155,3,2012,9,Sun,IND,JAC
+9/23/12 16:05,Philadelphia,-3,At Arizona,42,-$175 +$155,3,2012,9,Sun,PHI,ARI
+9/23/12 16:05,At San Diego,-3,Atlanta,47,-$165 +$145,3,2012,9,Sun,SD,ATL
+9/23/12 16:25,Houston,-1.5,At Denver,43.5,-$125 +$105,3,2012,9,Sun,HOU,DEN
+9/23/12 16:25,Pittsburgh,-3.5,At Oakland,45,-$200 +$170,3,2012,9,Sun,PIT,OAK
+9/23/12 20:30,At Baltimore,-3,New England,48.5,-$150 +$140,3,2012,9,Sun,BAL,NE
+9/27/12 20:20,At Baltimore,-11.5,Cleveland,43.5,-$675 +$475,4,2012,9,Thu,BAL,CLE
+10/1/12 20:35,At Dallas,-3,Chicago,41,-$165 +$145,4,2012,10,Mon,DAL,CHI
+9/30/12 13:00,New England,-4,At Buffalo,48.5,-$210 +$175,4,2012,9,Sun,NE,BUF
+9/30/12 13:00,At Detroit,-3.5,Minnesota,48.5,-$195 +$170,4,2012,9,Sun,DET,MIN
+9/30/12 13:00,At Atlanta,-7,Carolina,48,-$325 +$265,4,2012,9,Sun,ATL,CAR
+9/30/12 13:00,San Francisco,-4,At NY Jets,41,-$215 +$180,4,2012,9,Sun,SF,NYJ
+9/30/12 13:00,San Diego,-2.5,At Kansas City,43.5,-$135 +$115,4,2012,9,Sun,SD,KC
+9/30/12 13:00,At Houston,-13,Tennessee,44.5,-$750 +$550,4,2012,9,Sun,HOU,TEN
+9/30/12 13:00,Seattle,-2.5,At St. Louis,39,-$140 +$120,4,2012,9,Sun,SEA,STL
+9/30/12 16:05,At Arizona,-4.5,Miami,39.5,-$220 +$190,4,2012,9,Sun,ARI,MIA
+9/30/12 16:05,At Denver,-6.5,Oakland,47,-$300 +$250,4,2012,9,Sun,DEN,OAK
+9/30/12 16:05,At Jacksonville,-1.5,Cincinnati,45.5,-$125 +$105,4,2012,9,Sun,JAC,CIN
+9/30/12 16:25,At Green Bay,-7.5,New Orleans,54,-$350 +$290,4,2012,9,Sun,GB,NO
+9/30/12 16:25,At Tampa Bay,-2,Washington,44.5,-$135 +$115,4,2012,9,Sun,TB,WAS
+9/30/12 20:30,At Philadelphia,-2,NY Giants,46.5,-$130 +$110,4,2012,9,Sun,PHI,NYG
+10/4/12 20:25,Arizona,-1.5,At St. Louis,38,-$125 +$105,5,2012,10,Thu,ARI,STL
+10/8/12 20:35,Houston,-9.5,At NY Jets,40.5,-$475 +$375,5,2012,10,Mon,HOU,NYJ
+10/7/12 13:00,Atlanta,-3,At Washington,51,-$160 +$140,5,2012,10,Sun,ATL,WAS
+10/7/12 13:00,At Pittsburgh,-4,Philadelphia,44,-$205 +$175,5,2012,10,Sun,PIT,PHI
+10/7/12 13:00,Green Bay,-6.5,At Indianapolis,49,-$290 +$245,5,2012,10,Sun,GB,IND
+10/7/12 13:00,At NY Giants,-8,Cleveland,43.5,-$400 +$330,5,2012,10,Sun,NYG,CLE
+10/7/12 16:25,At Minnesota,-6,Tennessee,44,-$260 +$220,5,2012,10,Sun,MIN,TEN
+10/7/12 13:00,At Cincinnati,-3,Miami,45,-$165 +$145,5,2012,10,Sun,CIN,MIA
+10/7/12 13:00,Baltimore,-6,At Kansas City,46.5,-$270 +$230,5,2012,10,Sun,BAL,KC
+10/7/12 16:05,At Carolina,-2,Seattle,42.5,-$125 +$105,5,2012,10,Sun,CAR,SEA
+10/7/12 16:05,Chicago,-6.5,At Jacksonville,39,-$270 +$230,5,2012,10,Sun,CHI,JAC
+10/7/12 16:25,At New England,-6,Denver,51,-$265 +$225,5,2012,10,Sun,NE,DEN
+10/7/12 16:25,At San Francisco,-10,Buffalo,45.5,-$500 +$400,5,2012,10,Sun,SF,BUF
+10/7/12 20:30,At New Orleans,-3.5,San Diego,53.5,-$185 +$165,5,2012,10,Sun,NO,SD
+10/11/12 20:25,Pittsburgh,-6,At Tennessee,43,-$260 +$220,6,2012,10,Thu,PIT,TEN
+10/15/12 20:40,At San Diego,0,Denver,48,-$110 -$110,6,2012,10,Mon,SD,DEN
+10/14/12 13:00,Cincinnati,-1.5,At Cleveland,42,-$130 +$110,6,2012,10,Sun,CIN,CLE
+10/14/12 13:00,At NY Jets,-3.5,Indianapolis,44,-$185 +$165,6,2012,10,Sun,NYJ,IND
+10/14/12 13:00,At Tampa Bay,-5,Kansas City,39.5,-$240 +$200,6,2012,10,Sun,TB,KC
+10/14/12 13:00,At Atlanta,-10,Oakland,49,-$500 +$400,6,2012,10,Sun,ATL,OAK
+10/14/12 13:00,At Baltimore,-3,Dallas,45.5,-$175 +$155,6,2012,10,Sun,BAL,DAL
+10/14/12 13:00,At Philadelphia,-3.5,Detroit,47.5,-$185 +$165,6,2012,10,Sun,PHI,DET
+10/14/12 13:00,At Miami,-5.5,St. Louis,38.5,-$250 +$210,6,2012,10,Sun,MIA,STL
+10/14/12 16:05,New England,-4,At Seattle,42.5,-$220 +$185,6,2012,10,Sun,NE,SEA
+10/14/12 16:05,At Arizona,-5,Buffalo,44.5,-$240 +$200,6,2012,10,Sun,ARI,BUF
+10/14/12 16:25,Minnesota,-2,At Washington,44,-$135 +$115,6,2012,10,Sun,MIN,WAS
+10/14/12 16:25,At San Francisco,-7,NY Giants,47,-$320 +$265,6,2012,10,Sun,SF,NYG
+10/14/12 20:30,At Houston,-4,Green Bay,47,-$195 +$170,6,2012,10,Sun,HOU,GB
+10/18/12 20:25,At San Francisco,-8,Seattle,37.5,-$380 +$310,7,2012,10,Thu,SF,SEA
+10/22/12 20:40,At Chicago,-6.5,Detroit,45.5,-$270 +$230,7,2012,10,Mon,CHI,DET
+10/21/12 13:00,At Buffalo,-4.5,Tennessee,46.5,-$215 +$185,7,2012,10,Sun,BUF,TEN
+10/21/12 13:00,At Minnesota,-7,Arizona,39,-$320 +$260,7,2012,10,Sun,MIN,ARI
+10/21/12 13:00,At Indianapolis,-1,Cleveland,46.5,-$120 +$100,7,2012,10,Sun,IND,CLE
+10/21/12 13:00,At Houston,-6.5,Baltimore,47.5,-$290 +$245,7,2012,10,Sun,HOU,BAL
+10/21/12 13:00,Green Bay,-5,At St. Louis,45.5,-$240 +$200,7,2012,10,Sun,GB,STL
+10/21/12 13:00,Dallas,-2.5,At Carolina,45,-$145 +$125,7,2012,10,Sun,DAL,CAR
+10/21/12 13:00,At NY Giants,-6,Washington,51.5,-$270 +$230,7,2012,10,Sun,NYG,WAS
+10/21/12 13:00,New Orleans,-1.5,At Tampa Bay,49.5,-$125 +$105,7,2012,10,Sun,NO,TB
+10/21/12 16:25,At New England,-11,NY Jets,47.5,-$675 +$475,7,2012,10,Sun,NE,NYJ
+10/21/12 16:25,At Oakland,-6,Jacksonville,44.5,-$270 +$230,7,2012,10,Sun,OAK,JAC
+10/21/12 20:30,Pittsburgh,-1.5,At Cincinnati,47,-$125 +$105,7,2012,10,Sun,PIT,CIN
+10/25/12 20:25,At Minnesota,-5.5,Tampa Bay,43,-$240 +$200,8,2012,10,Thu,MIN,TB
+10/29/12 20:40,San Francisco,-7,At Arizona,38,-$340 +$280,8,2012,10,Mon,SF,ARI
+10/28/12 13:00,New England,-7,St. Louis,46,-$330 +$270,8,2012,10,Sun,NE,STL
+10/28/12 13:00,At Tennessee,-3.5,Indianapolis,46.5,-$170 +$150,8,2012,10,Sun,TEN,IND
+10/28/12 13:00,At Green Bay,-15.5,Jacksonville,45.5,-$1100 +$800,8,2012,10,Sun,GB,JAC
+10/28/12 13:00,San Diego,-3,At Cleveland,41,-$150 +$130,8,2012,10,Sun,SD,CLE
+10/28/12 13:00,At Philadelphia,-3,Atlanta,43,-$145 +$125,8,2012,10,Sun,PHI,ATL
+10/28/12 13:00,At Detroit,-2.5,Seattle,43,-$145 +$125,8,2012,10,Sun,DET,SEA
+10/28/12 13:00,At NY Jets,-1,Miami,38.5,-$120 +$100,8,2012,10,Sun,NYJ,MIA
+10/28/12 13:00,At Chicago,-7,Carolina,41.5,-$350 +$290,8,2012,10,Sun,CHI,CAR
+10/28/12 13:00,At Pittsburgh,-4.5,Washington,44.5,-$210 +$180,8,2012,10,Sun,PIT,WAS
+10/28/12 16:05,At Kansas City,-1,Oakland,41.5,-$120 +$100,8,2012,10,Sun,KC,OAK
+10/28/12 16:25,NY Giants,-3,At Dallas,48,-$150 +$130,8,2012,10,Sun,NYG,DAL
+10/28/12 20:30,At Denver,-6,New Orleans,55.5,-$260 +$220,8,2012,10,Sun,DEN,NO
+11/1/12 20:25,At San Diego,-7,Kansas City,41,-$340 +$280,9,2012,11,Thu,SD,KC
+11/5/12 20:40,At New Orleans,-3,Philadelphia,52.5,-$140 +$120,9,2012,11,Mon,NO,PHI
+11/4/12 13:00,Denver,-5,At Cincinnati,47.5,-$225 +$185,9,2012,11,Sun,DEN,CIN
+11/4/12 13:00,At Green Bay,-10.5,Arizona,43,-$550 +$425,9,2012,11,Sun,GB,ARI
+11/4/12 13:00,Miami,-2,At Indianapolis,43.5,-$130 +$110,9,2012,11,Sun,MIA,IND
+11/4/12 13:00,Baltimore,-3.5,At Cleveland,44,-$195 +$170,9,2012,11,Sun,BAL,CLE
+11/4/12 13:00,At Houston,-11,Buffalo,48,-$600 +$450,9,2012,11,Sun,HOU,BUF
+11/4/12 13:00,At Washington,-3,Carolina,48,-$165 +$145,9,2012,11,Sun,WAS,CAR
+11/4/12 13:00,Detroit,-6,At Jacksonville,44,-$260 +$220,9,2012,11,Sun,DET,JAC
+11/4/12 13:00,Chicago,-5,At Tennessee,43.5,-$235 +$195,9,2012,11,Sun,CHI,TEN
+11/4/12 16:05,At Seattle,-4.5,Minnesota,38.5,-$225 +$185,9,2012,11,Sun,SEA,MIN
+11/4/12 16:05,At Oakland,-1.5,Tampa Bay,47,-$125 +$105,9,2012,11,Sun,OAK,TB
+11/4/12 16:25,At NY Giants,-3.5,Pittsburgh,48,-$200 +$170,9,2012,11,Sun,NYG,PIT
+11/4/12 20:30,At Atlanta,-4,Dallas,47.5,-$205 +$175,9,2012,11,Sun,ATL,DAL
+11/8/12 20:25,Indianapolis,-3,At Jacksonville,43,-$185 +$165,10,2012,11,Thu,IND,JAC
+11/12/12 20:40,At Pittsburgh,-13,Kansas City,39.5,-$750 +$550,10,2012,11,Mon,PIT,KC
+11/11/12 13:00,At New England,-13.5,Buffalo,54,-$800 +$600,10,2012,11,Sun,NE,BUF
+11/11/12 13:00,NY Giants,-4,At Cincinnati,47,-$200 +$170,10,2012,11,Sun,NYG,CIN
+11/11/12 13:00,At Tampa Bay,-3,San Diego,46.5,-$165 +$145,10,2012,11,Sun,TB,SD
+11/11/12 13:00,Denver,-3.5,At Carolina,46.5,-$190 +$165,10,2012,11,Sun,DEN,CAR
+11/11/12 13:00,At Miami,-6.5,Tennessee,44,-$300 +$250,10,2012,11,Sun,MIA,TEN
+11/11/12 13:00,At Baltimore,-7.5,Oakland,48,-$360 +$300,10,2012,11,Sun,BAL,OAK
+11/11/12 13:00,Atlanta,-2,At New Orleans,53.5,-$130 +$110,10,2012,11,Sun,ATL,NO
+11/11/12 13:00,Detroit,-3,At Minnesota,46,-$175 +$155,10,2012,11,Sun,DET,MIN
+11/11/12 16:05,At Seattle,-5.5,NY Jets,38.5,-$245 +$205,10,2012,11,Sun,SEA,NYJ
+11/11/12 16:25,Dallas,-2.5,At Philadelphia,44,-$140 +$120,10,2012,11,Sun,DAL,PHI
+11/11/12 16:25,At San Francisco,-13.5,St. Louis,38,-$800 +$600,10,2012,11,Sun,SF,STL
+11/11/12 20:30,At Chicago,-1,Houston,37.5,-$120 +$100,10,2012,11,Sun,CHI,HOU
+11/15/12 20:25,At Buffalo,-2.5,Miami,46,-$140 +$120,11,2012,11,Thu,BUF,MIA
+11/19/12 20:40,At San Francisco,-3.5,Chicago,34.5,-$200 +$170,11,2012,11,Mon,SF,CHI
+11/18/12 13:00,At Washington,-3.5,Philadelphia,45.5,-$190 +$170,11,2012,11,Sun,WAS,PHI
+11/18/12 13:00,Green Bay,-3,At Detroit,53.5,-$170 +$150,11,2012,11,Sun,GB,DET
+11/18/12 13:00,At Atlanta,-9.5,Arizona,43.5,-$470 +$370,11,2012,11,Sun,ATL,ARI
+11/18/12 13:00,Tampa Bay,-1,At Carolina,47,-$120 +$100,11,2012,11,Sun,TB,CAR
+11/18/12 13:00,At Dallas,-7,Cleveland,43.5,-$340 +$280,11,2012,11,Sun,DAL,CLE
+11/18/12 13:00,At St. Louis,-3.5,NY Jets,38.5,-$190 +$165,11,2012,11,Sun,STL,NYJ
+11/18/12 16:25,At New England,-10,Indianapolis,54.5,-$500 +$400,11,2012,11,Sun,NE,IND
+11/18/12 13:00,At Houston,-15.5,Jacksonville,40.5,-$1450 +$950,11,2012,11,Sun,HOU,JAC
+11/18/12 13:00,Cincinnati,-3,At Kansas City,42,-$170 +$150,11,2012,11,Sun,CIN,KC
+11/18/12 16:05,New Orleans,-6,At Oakland,55.5,-$265 +$225,11,2012,11,Sun,NO,OAK
+11/18/12 16:25,At Denver,-7.5,San Diego,48,-$380 +$320,11,2012,11,Sun,DEN,SD
+11/18/12 20:30,Baltimore,-3,At Pittsburgh,41,-$160 +$140,11,2012,11,Sun,BAL,PIT
+11/22/12 12:30,Houston,-3.5,At Detroit,48.5,-$190 +$170,12,2012,11,Thu,HOU,DET
+11/22/12 16:15,At Dallas,-3.5,Washington,47.5,-$185 +$165,12,2012,11,Thu,DAL,WAS
+11/22/12 20:20,New England,-7,At NY Jets,48,-$330 +$270,12,2012,11,Thu,NE,NYJ
+11/26/12 20:40,Carolina,-3,At Philadelphia,41.5,-$170 +$150,12,2012,11,Mon,CAR,PHI
+11/25/12 13:00,At Cincinnati,-7.5,Oakland,50,-$390 +$320,12,2012,11,Sun,CIN,OAK
+11/25/12 13:00,Pittsburgh,-1,At Cleveland,33.5,-$120 +$100,12,2012,11,Sun,PIT,CLE
+11/25/12 13:00,At Indianapolis,-2,Buffalo,51,-$135 +$115,12,2012,11,Sun,IND,BUF
+11/25/12 13:00,Denver,-10.5,At Kansas City,42,-$650 +$475,12,2012,11,Sun,DEN,KC
+11/25/12 13:00,Tennessee,-3.5,At Jacksonville,45,-$175 +$155,12,2012,11,Sun,TEN,JAC
+11/25/12 13:00,At Chicago,-6.5,Minnesota,38.5,-$275 +$235,12,2012,11,Sun,CHI,MIN
+11/25/12 13:00,Atlanta,-1,At Tampa Bay,51,-$120 +$100,12,2012,11,Sun,ATL,TB
+11/25/12 13:00,Seattle,-3,At Miami,37.5,-$170 +$150,12,2012,11,Sun,SEA,MIA
+11/25/12 16:05,Baltimore,-1,At San Diego,47,-$120 +$100,12,2012,11,Sun,BAL,SD
+11/25/12 16:25,San Francisco,-2.5,At New Orleans,50.5,-$140 +$120,12,2012,11,Sun,SF,NO
+11/25/12 16:25,At Arizona,-1.5,St. Louis,36,-$125 +$105,12,2012,11,Sun,ARI,STL
+11/25/12 20:30,At NY Giants,-3,Green Bay,51,-$145 +$125,12,2012,11,Sun,NYG,GB
+11/29/12 20:25,At Atlanta,-3.5,New Orleans,54.5,-$195 +$170,13,2012,11,Thu,ATL,NO
+12/3/12 20:40,NY Giants,-3,At Washington,50.5,-$140 +$120,13,2012,12,Mon,NYG,WAS
+12/2/12 13:00,At Chicago,-3,Seattle,37,-$165 +$145,13,2012,12,Sun,CHI,SEA
+12/2/12 13:00,At Green Bay,-7.5,Minnesota,47,-$370 +$310,13,2012,12,Sun,GB,MIN
+12/2/12 13:00,San Francisco,-7.5,At St. Louis,41,-$370 +$310,13,2012,12,Sun,SF,STL
+12/2/12 13:00,At NY Jets,-6.5,Arizona,37,-$270 +$230,13,2012,12,Sun,NYJ,ARI
+12/2/12 13:00,Carolina,-5.5,At Kansas City,41.5,-$240 +$200,13,2012,12,Sun,CAR,KC
+12/2/12 13:00,At Detroit,-7,Indianapolis,51.5,-$325 +$265,13,2012,12,Sun,DET,IND
+12/2/12 13:00,At Buffalo,-6,Jacksonville,41.5,-$265 +$225,13,2012,12,Sun,BUF,JAC
+12/2/12 13:00,New England,-7.5,At Miami,51,-$350 +$290,13,2012,12,Sun,NE,MIA
+12/2/12 13:00,Houston,-7,At Tennessee,47.5,-$310 +$260,13,2012,12,Sun,HOU,TEN
+12/2/12 16:05,At Denver,-8,Tampa Bay,50,-$400 +$330,13,2012,12,Sun,DEN,TB
+12/2/12 16:25,At Baltimore,-7,Pittsburgh,37,-$330 +$270,13,2012,12,Sun,BAL,PIT
+12/2/12 16:25,Cleveland,-2.5,At Oakland,39.5,-$140 +$120,13,2012,12,Sun,CLE,OAK
+12/2/12 16:25,At San Diego,0,Cincinnati,46,-$110 -$110,13,2012,12,Sun,SD,CIN
+12/2/12 20:30,At Dallas,-10.5,Philadelphia,44.5,-$600 +$450,13,2012,12,Sun,DAL,PHI
+12/6/12 20:25,Denver,-10,At Oakland,47,-$600 +$450,14,2012,12,Thu,DEN,OAK
+12/10/12 20:40,At New England,-5.5,Houston,51,-$260 +$220,14,2012,12,Mon,NE,HOU
+12/9/12 13:00,At Washington,-2,Baltimore,48,-$130 +$110,14,2012,12,Sun,WAS,BAL
+12/9/12 13:00,At Cleveland,-7,Kansas City,38,-$330 +$270,14,2012,12,Sun,CLE,KC
+12/9/12 13:00,At Pittsburgh,-7.5,San Diego,38,-$380 +$320,14,2012,12,Sun,PIT,SD
+12/9/12 13:00,At Indianapolis,-3.5,Tennessee,47,-$200 +$175,14,2012,12,Sun,IND,TEN
+12/9/12 13:00,NY Jets,-3,At Jacksonville,39,-$175 +$155,14,2012,12,Sun,NYJ,JAC
+12/9/12 13:00,Chicago,-1.5,At Minnesota,40.5,-$125 +$105,14,2012,12,Sun,CHI,MIN
+12/9/12 13:00,Atlanta,-3.5,At Carolina,47,-$175 +$155,14,2012,12,Sun,ATL,CAR
+12/9/12 13:00,At Tampa Bay,-7,Philadelphia,48,-$340 +$280,14,2012,12,Sun,TB,PHI
+12/9/12 13:00,At Buffalo,-3.5,St. Louis,42.5,-$185 +$165,14,2012,12,Sun,BUF,STL
+12/9/12 13:00,At Cincinnati,-3,Dallas,46,-$175 +$155,14,2012,12,Sun,CIN,DAL
+12/9/12 16:05,At San Francisco,-11,Miami,38.5,-$575 +$425,14,2012,12,Sun,SF,MIA
+12/9/12 16:25,At NY Giants,-4.5,New Orleans,52.5,-$225 +$185,14,2012,12,Sun,NYG,NO
+12/9/12 16:25,At Seattle,-10.5,Arizona,36,-$575 +$425,14,2012,12,Sun,SEA,ARI
+12/9/12 20:30,At Green Bay,-6,Detroit,49.5,-$285 +$245,14,2012,12,Sun,GB,DET
+12/13/12 20:25,Cincinnati,-5,At Philadelphia,45,-$235 +$195,15,2012,12,Thu,CIN,PHI
+12/17/12 20:40,NY Jets,-1,At Tennessee,40.5,-$120 +$100,15,2012,12,Mon,NYJ,TEN
+12/16/12 13:00,Green Bay,-3,At Chicago,43.5,-$150 +$130,15,2012,12,Sun,GB,CHI
+12/16/12 13:00,At Atlanta,-1,NY Giants,50,-$120 +$100,15,2012,12,Sun,ATL,NYG
+12/16/12 13:00,At New Orleans,-3.5,Tampa Bay,55,-$200 +$170,15,2012,12,Sun,NO,TB
+12/16/12 13:00,At St. Louis,-2.5,Minnesota,39.5,-$145 +$125,15,2012,12,Sun,STL,MIN
+12/16/12 13:00,At Cleveland,-4,Washington,40.5,-$230 +$190,15,2012,12,Sun,CLE,WAS
+12/16/12 13:00,At Miami,-7.5,Jacksonville,38.5,-$360 +$300,15,2012,12,Sun,MIA,JAC
+12/16/12 13:00,Denver,-3,At Baltimore,48,-$150 +$130,15,2012,12,Sun,DEN,BAL
+12/16/12 13:00,At Houston,-10.5,Indianapolis,48,-$600 +$450,15,2012,12,Sun,HOU,IND
+12/16/12 16:05,At San Diego,-3,Carolina,45.5,-$160 +$140,15,2012,12,Sun,SD,CAR
+12/16/12 16:05,Seattle,-4.5,At Buffalo,44,-$230 +$190,15,2012,12,Sun,SEA,BUF
+12/16/12 16:05,Detroit,-5.5,At Arizona,43.5,-$270 +$230,15,2012,12,Sun,DET,ARI
+12/16/12 16:25,Pittsburgh,-2,At Dallas,46,-$140 +$120,15,2012,12,Sun,PIT,DAL
+12/16/12 16:25,At Oakland,-4,Kansas City,43.5,-$225 +$190,15,2012,12,Sun,OAK,KC
+12/16/12 20:30,At New England,-4,San Francisco,47.5,-$210 +$180,15,2012,12,Sun,NE,SF
+12/22/12 20:30,Atlanta,-3.5,At Detroit,50,-$195 +$170,16,2012,12,Sat,ATL,DET
+12/23/12 13:00,At Green Bay,-10.5,Tennessee,44.5,-$675 +$475,16,2012,12,Sun,GB,TEN
+12/23/12 13:00,At Carolina,-9,Oakland,47,-$450 +$370,16,2012,12,Sun,CAR,OAK
+12/23/12 13:00,At Miami,-4.5,Buffalo,43,-$235 +$190,16,2012,12,Sun,MIA,BUF
+12/23/12 13:00,At Pittsburgh,-3,Cincinnati,40.5,-$175 +$155,16,2012,12,Sun,PIT,CIN
+12/23/12 13:00,New England,-14,At Jacksonville,51,-$1050 +$725,16,2012,12,Sun,NE,JAC
+12/23/12 13:00,Indianapolis,-5,At Kansas City,41.5,-$235 +$195,16,2012,12,Sun,IND,KC
+12/23/12 13:00,At Dallas,-3,New Orleans,54.5,-$145 +$125,16,2012,12,Sun,DAL,NO
+12/23/12 13:00,Washington,-4.5,At Philadelphia,46,-$220 +$180,16,2012,12,Sun,WAS,PHI
+12/23/12 13:00,At Tampa Bay,-3,St. Louis,43.5,-$160 +$140,16,2012,12,Sun,TB,STL
+12/23/12 16:25,NY Giants,-2.5,At Baltimore,47.5,-$140 +$120,16,2012,12,Sun,NYG,BAL
+12/23/12 13:00,At Houston,-7.5,Minnesota,43,-$370 +$310,16,2012,12,Sun,HOU,MIN
+12/23/12 16:05,At Denver,-11,Cleveland,44,-$700 +$500,16,2012,12,Sun,DEN,CLE
+12/23/12 16:25,Chicago,-7,At Arizona,36,-$310 +$250,16,2012,12,Sun,CHI,ARI
+12/23/12 20:30,At Seattle,-2.5,San Francisco,40.5,-$145 +$125,16,2012,12,Sun,SEA,SF
+12/23/12 13:00,At NY Jets,-3,San Diego,37,-$160 +$140,16,2012,12,Sun,NYJ,SD
+12/30/12 13:00,At Buffalo,-3.5,NY Jets,40.5,-$180 +$160,17,2012,12,Sun,BUF,NYJ
+12/30/12 16:25,At New England,-11.5,Miami,48,-$750 +$550,17,2012,12,Sun,NE,MIA
+12/30/12 13:00,At Cincinnati,-5.5,Baltimore,43,-$250 +$210,17,2012,12,Sun,CIN,BAL
+12/30/12 13:00,At Pittsburgh,-10,Cleveland,36.5,-$550 +$400,17,2012,12,Sun,PIT,CLE
+12/30/12 13:00,Houston,-6.5,At Indianapolis,47,-$290 +$245,17,2012,12,Sun,HOU,IND
+12/30/12 13:00,At Tennessee,-6,Jacksonville,42,-$270 +$230,17,2012,12,Sun,TEN,JAC
+12/30/12 13:00,At NY Giants,-6.5,Philadelphia,44.5,-$300 +$250,17,2012,12,Sun,NYG,PHI
+12/30/12 20:30,At Washington,-3,Dallas,49,-$170 +$150,17,2012,12,Sun,WAS,DAL
+12/30/12 13:00,Chicago,-3,At Detroit,46,-$165 +$145,17,2012,12,Sun,CHI,DET
+12/30/12 16:25,Green Bay,-3,At Minnesota,46,-$170 +$150,17,2012,12,Sun,GB,MIN
+12/30/12 13:00,At Atlanta,-3,Tampa Bay,45.5,-$150 +$130,17,2012,12,Sun,ATL,TB
+12/30/12 13:00,At New Orleans,-4.5,Carolina,54,-$210 +$180,17,2012,12,Sun,NO,CAR
+12/30/12 16:25,At Denver,-17,Kansas City,41,-$1700 +$1100,17,2012,12,Sun,DEN,KC
+12/30/12 16:25,At San Diego,-8.5,Oakland,41.5,-$420 +$350,17,2012,12,Sun,SD,OAK
+12/30/12 16:25,At San Francisco,-16.5,Arizona,38.5,-$1600 +$1000,17,2012,12,Sun,SF,ARI
+12/30/12 16:25,At Seattle,-11.5,St. Louis,42,-$600 +$450,17,2012,12,Sun,SEA,STL
+9/8/11 20:30,At Green Bay,-5,New Orleans,47.5,-$245 +$205,1,2011,9,Thu,GB,NO
+9/12/11 19:00,New England,-7,At Miami,46.5,-$360 +$300,1,2011,9,Mon,NE,MIA
+9/12/11 22:15,At Denver,-3,Oakland,42.5,-$175 +$155,1,2011,9,Mon,DEN,OAK
+9/11/11 13:00,At Baltimore,-1,Pittsburgh,37,-$125 +$105,1,2011,9,Sun,BAL,PIT
+9/11/11 13:00,At Tampa Bay,-1.5,Detroit,43.5,-$125 +$105,1,2011,9,Sun,TB,DET
+9/11/11 13:00,Atlanta,-2,At Chicago,40.5,-$125 +$105,1,2011,9,Sun,ATL,CHI
+9/11/11 13:00,At Kansas City,-4,Buffalo,39.5,-$210 +$180,1,2011,9,Sun,KC,BUF
+9/11/11 13:00,At Houston,-8.5,Indianapolis,44,-$440 +$330,1,2011,9,Sun,HOU,IND
+9/11/11 13:00,Philadelphia,-4,At St. Louis,44.5,-$210 +$180,1,2011,9,Sun,PHI,STL
+9/11/11 13:00,At Cleveland,-7,Cincinnati,36.5,-$320 +$260,1,2011,9,Sun,CLE,CIN
+9/11/11 13:00,Tennessee,-1,At Jacksonville,38,-$120 +$100,1,2011,9,Sun,TEN,JAC
+9/11/11 16:15,NY Giants,-1,At Washington,40,-$120 +$100,1,2011,9,Sun,NYG,WAS
+9/11/11 16:15,At Arizona,-6.5,Carolina,37.5,-$320 +$260,1,2011,9,Sun,ARI,CAR
+9/11/11 16:15,At San Francisco,-6,Seattle,38,-$250 +$210,1,2011,9,Sun,SF,SEA
+9/11/11 16:15,At San Diego,-9,Minnesota,44,-$450 +$350,1,2011,9,Sun,SD,MIN
+9/11/11 20:25,At NY Jets,-6.5,Dallas,41,-$300 +$250,1,2011,9,Sun,NYJ,DAL
+9/19/11 20:35,At NY Giants,-7,St. Louis,43.5,-$330 +$270,2,2011,9,Mon,NYG,STL
+9/18/11 13:00,At New Orleans,-5,Chicago,46.5,-$235 +$195,2,2011,9,Sun,NO,CHI
+9/18/11 13:00,At Detroit,-8,Kansas City,45,-$330 +$270,2,2011,9,Sun,DET,KC
+9/18/11 13:00,At NY Jets,-9,Jacksonville,38,-$415 +$340,2,2011,9,Sun,NYJ,JAC
+9/18/11 13:00,At Buffalo,-3.5,Oakland,41,-$200 +$175,2,2011,9,Sun,BUF,OAK
+9/18/11 13:00,At Washington,-4.5,Arizona,45,-$235 +$195,2,2011,9,Sun,WAS,ARI
+9/18/11 13:00,Baltimore,-5.5,At Tennessee,39,-$260 +$220,2,2011,9,Sun,BAL,TEN
+9/18/11 13:00,At Pittsburgh,-14,Seattle,40,-$1000 +$700,2,2011,9,Sun,PIT,SEA
+9/18/11 13:00,Green Bay,-10.5,At Carolina,45,-$650 +$450,2,2011,9,Sun,GB,CAR
+9/18/11 13:00,At Minnesota,-1,Tampa Bay,41,-$120 +$100,2,2011,9,Sun,MIN,TB
+9/18/11 13:00,Cleveland,-1.5,At Indianapolis,39,-$125 +$105,2,2011,9,Sun,CLE,IND
+9/18/11 16:05,Dallas,-3,At San Francisco,41,-$170 +$150,2,2011,9,Sun,DAL,SF
+9/18/11 16:15,Houston,-3,At Miami,47,-$155 +$135,2,2011,9,Sun,HOU,MIA
+9/18/11 16:15,At New England,-6.5,San Diego,53.5,-$300 +$250,2,2011,9,Sun,NE,SD
+9/18/11 16:15,At Denver,-3,Cincinnati,40.5,-$175 +$155,2,2011,9,Sun,DEN,CIN
+9/18/11 20:25,Philadelphia,-2.5,At Atlanta,49.5,-$140 +$120,2,2011,9,Sun,PHI,ATL
+9/26/11 20:35,At Dallas,-3.5,Washington,45,-$185 +$165,3,2011,9,Mon,DAL,WAS
+9/25/11 13:00,At Cincinnati,-1,San Francisco,38.5,-$120 +$100,3,2011,9,Sun,CIN,SF
+9/25/11 13:00,New England,-7,At Buffalo,54,-$340 +$280,3,2011,9,Sun,NE,BUF
+9/25/11 13:00,At New Orleans,-3.5,Houston,51,-$180 +$160,3,2011,9,Sun,NO,HOU
+9/25/11 13:00,At Philadelphia,-8,NY Giants,46.5,-$395 +$325,3,2011,9,Sun,PHI,NYG
+9/25/11 13:00,Miami,-1.5,At Cleveland,42.5,-$130 +$110,3,2011,9,Sun,MIA,CLE
+9/25/11 13:00,At Tennessee,-7,Denver,44,-$310 +$260,3,2011,9,Sun,TEN,DEN
+9/25/11 13:00,Detroit,-3,At Minnesota,44.5,-$165 +$145,3,2011,9,Sun,DET,MIN
+9/25/11 13:00,At Carolina,-3.5,Jacksonville,43,-$175 +$155,3,2011,9,Sun,CAR,JAC
+9/25/11 16:05,At San Diego,-14,Kansas City,44.5,-$900 +$650,3,2011,9,Sun,SD,KC
+9/25/11 16:05,NY Jets,-2.5,At Oakland,40,-$140 +$120,3,2011,9,Sun,NYJ,OAK
+9/25/11 16:05,Baltimore,-5.5,At St. Louis,42,-$255 +$215,3,2011,9,Sun,BAL,STL
+9/25/11 16:15,At Tampa Bay,-1,Atlanta,45,-$120 +$100,3,2011,9,Sun,TB,ATL
+9/25/11 16:15,Arizona,-3,At Seattle,43,-$160 +$140,3,2011,9,Sun,ARI,SEA
+9/25/11 16:15,Green Bay,-4.5,At Chicago,45.5,-$220 +$185,3,2011,9,Sun,GB,CHI
+9/25/11 20:25,Pittsburgh,-11,At Indianapolis,40,-$650 +$475,3,2011,9,Sun,PIT,IND
+10/3/11 20:35,At Tampa Bay,-10,Indianapolis,40.5,-$550 +$425,4,2011,10,Mon,TB,IND
+10/2/11 13:00,At Dallas,-2.5,Detroit,46.5,-$140 +$120,4,2011,10,Sun,DAL,DET
+10/2/11 13:00,New Orleans,-8.5,At Jacksonville,45,-$400 +$330,4,2011,10,Sun,NO,JAC
+10/2/11 13:00,At Philadelphia,-10,San Francisco,43.5,-$500 +$400,4,2011,10,Sun,PHI,SF
+10/2/11 13:00,Washington,-3,At St. Louis,44,-$155 +$135,4,2011,10,Sun,WAS,STL
+10/2/11 13:00,At Cleveland,-1.5,Tennessee,37.5,-$125 +$105,4,2011,10,Sun,CLE,TEN
+10/2/11 13:00,Buffalo,-3,At Cincinnati,43,-$155 +$135,4,2011,10,Sun,BUF,CIN
+10/2/11 13:00,Minnesota,-3,At Kansas City,40,-$160 +$140,4,2011,10,Sun,MIN,KC
+10/2/11 13:00,At Chicago,-7,Carolina,42,-$310 +$260,4,2011,10,Sun,CHI,CAR
+10/2/11 13:00,At Houston,-4,Pittsburgh,46.5,-$205 +$175,4,2011,10,Sun,HOU,PIT
+10/2/11 16:05,Atlanta,-6,At Seattle,39.5,-$265 +$225,4,2011,10,Sun,ATL,SEA
+10/2/11 16:05,NY Giants,-1.5,At Arizona,45.5,-$120 +$100,4,2011,10,Sun,NYG,ARI
+10/2/11 16:15,At San Diego,-6.5,Miami,45,-$300 +$250,4,2011,10,Sun,SD,MIA
+10/2/11 16:15,At Green Bay,-12,Denver,46.5,-$725 +$525,4,2011,10,Sun,GB,DEN
+10/2/11 16:15,New England,-6.5,At Oakland,55.5,-$275 +$235,4,2011,10,Sun,NE,OAK
+10/2/11 20:30,At Baltimore,-5,NY Jets,43,-$240 +$200,4,2011,10,Sun,BAL,NYJ
+10/10/11 20:35,At Detroit,-6.5,Chicago,47.5,-$300 +$250,5,2011,10,Mon,DET,CHI
+10/9/11 13:00,At Indianapolis,-1.5,Kansas City,38,-$125 +$105,5,2011,10,Sun,IND,KC
+10/9/11 13:00,At Minnesota,-3.5,Arizona,45,-$195 +$170,5,2011,10,Sun,MIN,ARI
+10/9/11 13:00,Philadelphia,-3,At Buffalo,53,-$170 +$150,5,2011,10,Sun,PHI,BUF
+10/9/11 13:00,At Houston,-5,Oakland,48.5,-$225 +$195,5,2011,10,Sun,HOU,OAK
+10/9/11 13:00,New Orleans,-6.5,At Carolina,51.5,-$300 +$250,5,2011,10,Sun,NO,CAR
+10/9/11 13:00,Cincinnati,-2.5,At Jacksonville,36.5,-$145 +$125,5,2011,10,Sun,CIN,JAC
+10/9/11 13:00,At Pittsburgh,-3,Tennessee,40,-$190 +$170,5,2011,10,Sun,PIT,TEN
+10/9/11 13:00,At NY Giants,-10,Seattle,43.5,-$550 +$425,5,2011,10,Sun,NYG,SEA
+10/9/11 16:05,At San Francisco,-3,Tampa Bay,41,-$150 +$130,5,2011,10,Sun,SF,TB
+10/9/11 16:15,At New England,-7.5,NY Jets,50.5,-$360 +$300,5,2011,10,Sun,NE,NYJ
+10/9/11 16:15,San Diego,-3.5,At Denver,47,-$195 +$170,5,2011,10,Sun,SD,DEN
+10/9/11 20:30,Green Bay,-6,At Atlanta,54,-$270 +$230,5,2011,10,Sun,GB,ATL
+10/17/11 20:35,At NY Jets,-7,Miami,41.5,-$370 +$310,6,2011,10,Mon,NYJ,MIA
+10/16/11 13:00,At Green Bay,-14,St. Louis,47,-$1050 +$725,6,2011,10,Sun,GB,STL
+10/16/11 13:00,At Pittsburgh,-12.5,Jacksonville,40,-$700 +$500,6,2011,10,Sun,PIT,JAC
+10/16/11 13:00,Philadelphia,-3,At Washington,46.5,-$150 +$130,6,2011,10,Sun,PHI,WAS
+10/16/11 13:00,At Detroit,-5,San Francisco,45,-$235 +$195,6,2011,10,Sun,DET,SF
+10/16/11 13:00,At Atlanta,-3.5,Carolina,49.5,-$180 +$160,6,2011,10,Sun,ATL,CAR
+10/16/11 13:00,At Cincinnati,-5,Indianapolis,40.5,-$240 +$200,6,2011,10,Sun,CIN,IND
+10/16/11 13:00,At NY Giants,-3.5,Buffalo,49,-$185 +$165,6,2011,10,Sun,NYG,BUF
+10/16/11 16:05,At Baltimore,-7,Houston,44,-$320 +$260,6,2011,10,Sun,BAL,HOU
+10/16/11 16:05,At Oakland,-7,Cleveland,45,-$310 +$260,6,2011,10,Sun,OAK,CLE
+10/16/11 16:15,At New England,-6.5,Dallas,55,-$305 +$255,6,2011,10,Sun,NE,DAL
+10/16/11 16:15,New Orleans,-6.5,At Tampa Bay,50,-$290 +$240,6,2011,10,Sun,NO,TB
+10/16/11 20:30,At Chicago,-2,Minnesota,41.5,-$130 +$110,6,2011,10,Sun,CHI,MIN
+10/24/11 20:35,Baltimore,-10.5,At Jacksonville,39,-$600 +$450,7,2011,10,Mon,BAL,JAC
+10/23/11 13:00,Chicago,-1.5,Tampa Bay,44,-$125 +$105,7,2011,10,Sun,CHI,TB
+10/23/11 13:00,At Carolina,-2.5,Washington,44.5,-$140 +$120,7,2011,10,Sun,CAR,WAS
+10/23/11 13:00,San Diego,-1,At NY Jets,43.5,-$120 +$100,7,2011,10,Sun,SD,NYJ
+10/23/11 13:00,At Cleveland,-3,Seattle,41,-$185 +$165,7,2011,10,Sun,CLE,SEA
+10/23/11 13:00,At Tennessee,-2.5,Houston,44,-$145 +$125,7,2011,10,Sun,TEN,HOU
+10/23/11 13:00,Denver,-1,At Miami,41.5,-$120 +$100,7,2011,10,Sun,DEN,MIA
+10/23/11 13:00,At Detroit,-4.5,Atlanta,46.5,-$230 +$195,7,2011,10,Sun,DET,ATL
+10/23/11 16:05,At Oakland,-3.5,Kansas City,41.5,-$180 +$160,7,2011,10,Sun,OAK,KC
+10/23/11 16:05,Pittsburgh,-4,At Arizona,46,-$220 +$185,7,2011,10,Sun,PIT,ARI
+10/23/11 16:15,At Dallas,-14,St. Louis,43,-$1100 +$750,7,2011,10,Sun,DAL,STL
+10/23/11 16:15,Green Bay,-10.5,At Minnesota,47,-$650 +$475,7,2011,10,Sun,GB,MIN
+10/23/11 20:30,At New Orleans,-13.5,Indianapolis,49,-$1050 +$700,7,2011,10,Sun,NO,IND
+10/31/11 20:35,San Diego,-3,At Kansas City,44.5,-$160 +$140,8,2011,10,Mon,SD,KC
+10/30/11 13:00,At Tennessee,-7.5,Indianapolis,43.5,-$380 +$320,8,2011,10,Sun,TEN,IND
+10/30/11 13:00,At Houston,-10,Jacksonville,41,-$480 +$380,8,2011,10,Sun,HOU,JAC
+10/30/11 13:00,At Carolina,-3,Minnesota,47,-$175 +$155,8,2011,10,Sun,CAR,MIN
+10/30/11 13:00,New Orleans,-13.5,At St. Louis,48.5,-$950 +$700,8,2011,10,Sun,NO,STL
+10/30/11 13:00,At Baltimore,-11.5,Arizona,43,-$800 +$600,8,2011,10,Sun,BAL,ARI
+10/30/11 13:00,At NY Giants,-9.5,Miami,43,-$550 +$425,8,2011,10,Sun,NYG,MIA
+10/30/11 16:05,At Buffalo,-4,Washington,46.5,-$210 +$180,8,2011,10,Sun,BUF,WAS
+10/30/11 16:05,Detroit,-3,At Denver,43.5,-$180 +$160,8,2011,10,Sun,DET,DEN
+10/30/11 16:15,New England,-3,At Pittsburgh,52,-$170 +$150,8,2011,10,Sun,NE,PIT
+10/30/11 16:15,At San Francisco,-9,Cleveland,38.5,-$450 +$350,8,2011,10,Sun,SF,CLE
+10/30/11 16:15,Cincinnati,-1.5,At Seattle,37.5,-$125 +$105,8,2011,10,Sun,CIN,SEA
+10/30/11 20:30,At Philadelphia,-3,Dallas,49,-$170 +$150,8,2011,10,Sun,PHI,DAL
+11/7/11 20:35,At Philadelphia,-8,Chicago,47.5,-$380 +$310,9,2011,11,Mon,PHI,CHI
+11/6/11 13:00,Atlanta,-6.5,At Indianapolis,44.5,-$310 +$260,9,2011,11,Sun,ATL,IND
+11/6/11 13:00,At New Orleans,-8.5,Tampa Bay,51,-$425 +$350,9,2011,11,Sun,NO,TB
+11/6/11 13:00,At Houston,-10.5,Cleveland,42.5,-$625 +$475,9,2011,11,Sun,HOU,CLE
+11/6/11 13:00,At Buffalo,-2.5,NY Jets,45,-$135 +$115,9,2011,11,Sun,BUF,NYJ
+11/6/11 13:00,At Kansas City,-5.5,Miami,40.5,-$245 +$205,9,2011,11,Sun,KC,MIA
+11/6/11 13:00,San Francisco,-5,At Washington,38,-$240 +$200,9,2011,11,Sun,SF,WAS
+11/6/11 13:00,At Dallas,-10.5,Seattle,46,-$600 +$450,9,2011,11,Sun,DAL,SEA
+11/6/11 16:05,At Oakland,-7,Denver,41.5,-$350 +$290,9,2011,11,Sun,OAK,DEN
+11/6/11 16:05,At Tennessee,-2.5,Cincinnati,41.5,-$145 +$125,9,2011,11,Sun,TEN,CIN
+11/6/11 16:15,At Arizona,-1,St. Louis,42,-$120 +$100,9,2011,11,Sun,ARI,STL
+11/6/11 16:15,At New England,-9.5,NY Giants,51.5,-$575 +$425,9,2011,11,Sun,NE,NYG
+11/6/11 16:15,Green Bay,-5.5,At San Diego,50.5,-$250 +$210,9,2011,11,Sun,GB,SD
+11/6/11 20:30,At Pittsburgh,-3.5,Baltimore,41.5,-$200 +$170,9,2011,11,Sun,PIT,BAL
+11/10/11 20:20,At San Diego,-7,Oakland,48,-$350 +$290,10,2011,11,Thu,SD,OAK
+11/14/11 20:35,At Green Bay,-13,Minnesota,50,-$800 +$600,10,2011,11,Mon,GB,MIN
+11/13/11 13:00,Pittsburgh,-3.5,At Cincinnati,40,-$205 +$175,10,2011,11,Sun,PIT,CIN
+11/13/11 13:00,At Kansas City,-3,Denver,42,-$185 +$165,10,2011,11,Sun,KC,DEN
+11/13/11 13:00,Jacksonville,-3,At Indianapolis,37.5,-$150 +$130,10,2011,11,Sun,JAC,IND
+11/13/11 13:00,At Dallas,-4.5,Buffalo,48.5,-$215 +$185,10,2011,11,Sun,DAL,BUF
+11/13/11 13:00,Houston,-3.5,At Tampa Bay,45.5,-$200 +$170,10,2011,11,Sun,HOU,TB
+11/13/11 13:00,At Carolina,-3.5,Tennessee,47.5,-$195 +$170,10,2011,11,Sun,CAR,TEN
+11/13/11 13:00,At Miami,-4,Washington,38,-$220 +$185,10,2011,11,Sun,MIA,WAS
+11/13/11 13:00,At Atlanta,-1,New Orleans,50,-$120 +$100,10,2011,11,Sun,ATL,NO
+11/13/11 16:15,At Chicago,-2.5,Detroit,42.5,-$150 +$130,10,2011,11,Sun,CHI,DET
+11/13/11 13:00,At Cleveland,-2.5,St. Louis,36.5,-$145 +$125,10,2011,11,Sun,CLE,STL
+11/13/11 13:00,At Philadelphia,-13,Arizona,47,-$750 +$550,10,2011,11,Sun,PHI,ARI
+11/13/11 16:05,Baltimore,-7,At Seattle,38.5,-$320 +$260,10,2011,11,Sun,BAL,SEA
+11/13/11 16:15,At San Francisco,-4,NY Giants,43,-$230 +$190,10,2011,11,Sun,SF,NYG
+11/13/11 20:30,At NY Jets,-2.5,New England,47,-$145 +$125,10,2011,11,Sun,NYJ,NE
+11/17/11 20:20,NY Jets,-6,At Denver,39,-$300 +$250,11,2011,11,Thu,NYJ,DEN
+11/21/11 20:35,At New England,-17,Kansas City,46.5,-$1600 +$1050,11,2011,11,Mon,NE,KC
+11/20/11 16:15,At Atlanta,-6,Tennessee,44,-$265 +$225,11,2011,11,Sun,ATL,TEN
+11/20/11 13:00,At Miami,-2.5,Buffalo,44,-$150 +$130,11,2011,11,Sun,MIA,BUF
+11/20/11 13:00,At Baltimore,-7,Cincinnati,40.5,-$310 +$260,11,2011,11,Sun,BAL,CIN
+11/20/11 13:00,At Cleveland,-1.5,Jacksonville,34.5,-$125 +$105,11,2011,11,Sun,CLE,JAC
+11/20/11 13:00,At Minnesota,-2,Oakland,46,-$135 +$115,11,2011,11,Sun,MIN,OAK
+11/20/11 13:00,At Detroit,-7,Carolina,47.5,-$320 +$260,11,2011,11,Sun,DET,CAR
+11/20/11 13:00,At Green Bay,-14,Tampa Bay,48.5,-$900 +$600,11,2011,11,Sun,GB,TB
+11/20/11 13:00,Dallas,-7,At Washington,42.5,-$355 +$295,11,2011,11,Sun,DAL,WAS
+11/20/11 16:05,At San Francisco,-10,Arizona,40.5,-$600 +$450,11,2011,11,Sun,SF,ARI
+11/20/11 16:05,At St. Louis,-3,Seattle,40.5,-$150 +$130,11,2011,11,Sun,STL,SEA
+11/20/11 16:15,At Chicago,-4.5,San Diego,45,-$225 +$190,11,2011,11,Sun,CHI,SD
+11/20/11 20:30,At NY Giants,-6,Philadelphia,45,-$250 +$210,11,2011,11,Sun,NYG,PHI
+11/24/11 12:30,Green Bay,-4.5,At Detroit,55,-$200 +$175,12,2011,11,Thu,GB,DET
+11/24/11 16:15,At Dallas,-7,Miami,45.5,-$325 +$265,12,2011,11,Thu,DAL,MIA
+11/24/11 20:20,At Baltimore,-3.5,San Francisco,40.5,-$175 +$155,12,2011,11,Thu,BAL,SF
+11/28/11 20:35,At New Orleans,-7,NY Giants,51,-$340 +$280,12,2011,11,Mon,NO,NYG
+11/27/11 13:00,At St. Louis,-2.5,Arizona,40,-$135 +$115,12,2011,11,Sun,STL,ARI
+11/27/11 13:00,At NY Jets,-9.5,Buffalo,42.5,-$500 +$400,12,2011,11,Sun,NYJ,BUF
+11/27/11 13:00,At Cincinnati,-6.5,Cleveland,38.5,-$300 +$250,12,2011,11,Sun,CIN,CLE
+11/27/11 13:00,Houston,-6.5,At Jacksonville,37,-$300 +$250,12,2011,11,Sun,HOU,JAC
+11/27/11 13:00,Carolina,-3.5,At Indianapolis,46.5,-$200 +$170,12,2011,11,Sun,CAR,IND
+11/27/11 13:00,At Tennessee,-3,Tampa Bay,43.5,-$155 +$135,12,2011,11,Sun,TEN,TB
+11/27/11 13:00,At Atlanta,-10,Minnesota,44,-$500 +$400,12,2011,11,Sun,ATL,MIN
+11/27/11 16:05,At Oakland,-3,Chicago,41,-$150 +$130,12,2011,11,Sun,OAK,CHI
+11/27/11 16:05,At Seattle,-3,Washington,37,-$155 +$135,12,2011,11,Sun,SEA,WAS
+11/27/11 16:15,New England,-3,At Philadelphia,50.5,-$160 +$140,12,2011,11,Sun,NE,PHI
+11/27/11 16:15,At San Diego,-4.5,Denver,42,-$230 +$190,12,2011,11,Sun,SD,DEN
+11/27/11 20:30,Pittsburgh,-11,At Kansas City,42,-$700 +$500,12,2011,11,Sun,PIT,KC
+12/1/11 20:25,Philadelphia,-3,At Seattle,43.5,-$160 +$140,13,2011,12,Thu,PHI,SEA
+12/5/11 20:35,San Diego,-3,At Jacksonville,40,-$165 +$145,13,2011,12,Mon,SD,JAC
+12/4/11 13:00,At Buffalo,-1,Tennessee,43.5,-$120 +$100,13,2011,12,Sun,BUF,TEN
+12/4/11 13:00,At Chicago,-8.5,Kansas City,35.5,-$410 +$340,13,2011,12,Sun,CHI,KC
+12/4/11 13:00,At Miami,-3,Oakland,43,-$175 +$155,13,2011,12,Sun,MIA,OAK
+12/4/11 13:00,At Pittsburgh,-7,Cincinnati,42.5,-$310 +$260,13,2011,12,Sun,PIT,CIN
+12/4/11 16:05,Baltimore,-7,At Cleveland,38.5,-$330 +$270,13,2011,12,Sun,BAL,CLE
+12/4/11 13:00,NY Jets,-3,At Washington,38.5,-$150 +$130,13,2011,12,Sun,NYJ,WAS
+12/4/11 13:00,Atlanta,-2,At Houston,38,-$130 +$110,13,2011,12,Sun,ATL,HOU
+12/4/11 13:00,Carolina,-2,At Tampa Bay,46.5,-$130 +$110,13,2011,12,Sun,CAR,TB
+12/4/11 20:30,At New Orleans,-8.5,Detroit,55.5,-$410 +$340,13,2011,12,Sun,NO,DET
+12/4/11 13:00,At Minnesota,-1,Denver,37.5,-$120 +$100,13,2011,12,Sun,MIN,DEN
+12/4/11 16:15,At San Francisco,-14,St. Louis,38.5,-$800 +$600,13,2011,12,Sun,SF,STL
+12/4/11 16:15,Dallas,-4.5,At Arizona,47,-$210 +$175,13,2011,12,Sun,DAL,ARI
+12/4/11 16:15,Green Bay,-7,At NY Giants,54,-$300 +$250,13,2011,12,Sun,GB,NYG
+12/4/11 13:00,At New England,-20.5,Indianapolis,48.5,-$2700 +$1600,13,2011,12,Sun,NE,IND
+12/8/11 20:25,At Pittsburgh,-14,Cleveland,40,-$1100 +$750,14,2011,12,Thu,PIT,CLE
+12/12/11 20:35,At Seattle,-8.5,St. Louis,38,-$405 +$335,14,2011,12,Mon,SEA,STL
+12/11/11 13:00,At Baltimore,-16,Indianapolis,41.5,-$1500 +$1000,14,2011,12,Sun,BAL,IND
+12/11/11 13:00,At Cincinnati,-2.5,Houston,37.5,-$140 +$120,14,2011,12,Sun,CIN,HOU
+12/11/11 16:15,At Green Bay,-12,Oakland,50,-$750 +$550,14,2011,12,Sun,GB,OAK
+12/11/11 13:00,At NY Jets,-11,Kansas City,35.5,-$700 +$500,14,2011,12,Sun,NYJ,KC
+12/11/11 13:00,At Detroit,-10,Minnesota,47,-$550 +$425,14,2011,12,Sun,DET,MIN
+12/11/11 13:00,New Orleans,-3.5,At Tennessee,48,-$180 +$160,14,2011,12,Sun,NO,TEN
+12/11/11 13:00,At Miami,-3,Philadelphia,44.5,-$150 +$130,14,2011,12,Sun,MIA,PHI
+12/11/11 13:00,New England,-7.5,At Washington,46.5,-$355 +$395,14,2011,12,Sun,NE,WAS
+12/11/11 13:00,Atlanta,-3,At Carolina,47.5,-$145 +$125,14,2011,12,Sun,ATL,CAR
+12/11/11 13:00,Tampa Bay,-3,At Jacksonville,42,-$150 +$130,14,2011,12,Sun,TB,JAC
+12/11/11 16:05,San Francisco,-3.5,At Arizona,39.5,-$180 +$160,14,2011,12,Sun,SF,ARI
+12/11/11 16:05,At Denver,-3,Chicago,35.5,-$180 +$160,14,2011,12,Sun,DEN,CHI
+12/11/11 16:15,At San Diego,-7,Buffalo,49.5,-$340 +$280,14,2011,12,Sun,SD,BUF
+12/11/11 20:30,At Dallas,-4.5,NY Giants,49.5,-$240 +$200,14,2011,12,Sun,DAL,NYG
+12/17/11 20:20,Dallas,-7.5,At Tampa Bay,47,-$370 +$310,15,2011,12,Sat,DAL,TB
+12/15/11 20:25,At Atlanta,-13.5,Jacksonville,41.5,-$975 +$675,15,2011,12,Thu,ATL,JAC
+12/19/11 20:35,At San Francisco,-3,Pittsburgh,37,-$165 +$145,15,2011,12,Mon,SF,PIT
+12/18/11 13:00,At NY Giants,-6,Washington,45.5,-$265 +$225,15,2011,12,Sun,NYG,WAS
+12/18/11 13:00,Green Bay,-11.5,At Kansas City,46,-$725 +$525,15,2011,12,Sun,GB,KC
+12/18/11 13:00,New Orleans,-7,At Minnesota,53.5,-$350 +$290,15,2011,12,Sun,NO,MIN
+12/18/11 13:00,At Chicago,-3.5,Seattle,35,-$195 +$170,15,2011,12,Sun,CHI,SEA
+12/18/11 13:00,At Buffalo,0,Miami,42.5,-$110 -$110,15,2011,12,Sun,BUF,MIA
+12/18/11 13:00,At Houston,-5,Carolina,45,-$240 +$200,15,2011,12,Sun,HOU,CAR
+12/18/11 13:00,Tennessee,-6.5,At Indianapolis,41.5,-$300 +$250,15,2011,12,Sun,TEN,IND
+12/18/11 13:00,Cincinnati,-7,At St. Louis,39,-$330 +$270,15,2011,12,Sun,CIN,STL
+12/18/11 16:05,Detroit,-3,At Oakland,47.5,-$145 +$125,15,2011,12,Sun,DET,OAK
+12/18/11 16:15,New England,-7,At Denver,47.5,-$345 +$285,15,2011,12,Sun,NE,DEN
+12/18/11 16:15,At Philadelphia,-3,NY Jets,44,-$160 +$140,15,2011,12,Sun,PHI,NYJ
+12/18/11 16:15,At Arizona,-6,Cleveland,37,-$270 +$230,15,2011,12,Sun,ARI,CLE
+12/18/11 20:30,Baltimore,-1,At San Diego,45,-$120 +$100,15,2011,12,Sun,BAL,SD
+12/24/11 13:00,At Kansas City,-3,Oakland,43,-$145 +$125,16,2011,12,Sat,KC,OAK
+12/24/11 13:00,Denver,-3,At Buffalo,43.5,-$150 +$130,16,2011,12,Sat,DEN,BUF
+12/24/11 13:00,At Tennessee,-8,Jacksonville,38.5,-$390 +$320,16,2011,12,Sat,TEN,JAC
+12/24/11 13:00,At Cincinnati,-4,Arizona,41,-$215 +$185,16,2011,12,Sat,CIN,ARI
+12/24/11 13:00,At New England,-7,Miami,49,-$350 +$290,16,2011,12,Sat,NE,MIA
+12/24/11 13:00,At Baltimore,-11,Cleveland,38.5,-$675 +$475,16,2011,12,Sat,BAL,CLE
+12/24/11 13:00,At NY Jets,-2.5,NY Giants,46,-$140 +$120,16,2011,12,Sat,NYJ,NYG
+12/24/11 13:00,At Washington,-6,Minnesota,43,-$260 +$220,16,2011,12,Sat,WAS,MIN
+12/24/11 13:00,At Carolina,-8,Tampa Bay,48.5,-$400 +$330,16,2011,12,Sat,CAR,TB
+12/24/11 13:00,At Pittsburgh,-10,St. Louis,33.5,-$500 +$400,16,2011,12,Sat,PIT,STL
+12/24/11 16:05,At Detroit,0,San Diego,52.5,-$110 -$110,16,2011,12,Sat,DET,SD
+12/24/11 16:15,San Francisco,-2.5,At Seattle,37,-$140 +$120,16,2011,12,Sat,SF,SEA
+12/24/11 16:15,Philadelphia,-2.5,At Dallas,49.5,-$140 +$120,16,2011,12,Sat,PHI,DAL
+12/22/11 20:25,Houston,-7,At Indianapolis,40.5,-$315 +$265,16,2011,12,Thu,HOU,IND
+12/26/11 20:35,At New Orleans,-7,Atlanta,53,-$340 +$280,16,2011,12,Mon,NO,ATL
+12/25/11 20:30,At Green Bay,-13.5,Chicago,41,-$875 +$600,16,2011,12,Sun,GB,CHI
+1/1/11 13:00,At Philadelphia,-7.5,Washington,44.5,-$340 +$280,17,2011,1,Sat,PHI,WAS
+1/1/11 16:15,At Atlanta,-10,Tampa Bay,45.5,-$450 +$350,17,2011,1,Sat,ATL,TB
+1/1/11 13:00,San Francisco,-12.5,At St. Louis,34.5,-$775 +$550,17,2011,1,Sat,SF,STL
+1/1/11 13:00,At Minnesota,-2.5,Chicago,42,-$145 +$125,17,2011,1,Sat,MIN,CHI
+1/1/11 13:00,Detroit,-6.5,At Green Bay,41.5,-$280 +$240,17,2011,1,Sat,DET,GB
+1/1/11 20:30,At NY Giants,-3,Dallas,48,-$165 +$145,17,2011,1,Sat,NYG,DAL
+1/1/11 13:00,At New Orleans,-7,Carolina,55,-$300 +$250,17,2011,1,Sat,NO,CAR
+1/1/11 13:00,Tennessee,-2.5,At Houston,38.5,-$135 +$115,17,2011,1,Sat,TEN,HOU
+1/1/11 16:15,Baltimore,-3,At Cincinnati,37.5,-$145 +$125,17,2011,1,Sat,BAL,CIN
+1/1/11 16:15,Pittsburgh,-7,At Cleveland,33,-$330 +$270,17,2011,1,Sat,PIT,CLE
+1/1/11 13:00,At Jacksonville,-3,Indianapolis,36.5,-$165 +$145,17,2011,1,Sat,JAC,IND
+1/1/11 13:00,At Miami,-2,NY Jets,39,-$130 +$110,17,2011,1,Sat,MIA,NYJ
+1/1/11 13:00,At New England,-10.5,Buffalo,50,-$600 +$425,17,2011,1,Sat,NE,BUF
+1/1/11 16:15,At Oakland,-2.5,San Diego,50,-$140 +$120,17,2011,1,Sat,OAK,SD
+1/1/11 16:15,At Denver,-2.5,Kansas City,37.5,-$130 +$110,17,2011,1,Sat,DEN,KC
+1/1/11 16:15,At Arizona,-2.5,Seattle,40.5,-$140 +$120,17,2011,1,Sat,ARI,SEA
+9/9/10 20:30,At New Orleans,-5,Minnesota,49,-$250 +$210,1,2010,9,Thu,NO,MIN
+9/13/10 19:00,At NY Jets,-1,Baltimore,36,-$120 +$100,1,2010,9,Mon,NYJ,BAL
+9/13/10 22:15,San Diego,-4,At Kansas City,45.5,-$205 +$175,1,2010,9,Mon,SD,KC
+9/12/10 13:00,At NY Giants,-5.5,Carolina,40.5,-$260 +$220,1,2010,9,Sun,NYG,CAR
+9/12/10 13:00,Miami,-3,At Buffalo,39,-$170 +$150,1,2010,9,Sun,MIA,BUF
+9/12/10 13:00,Atlanta,-1,At Pittsburgh,39,-$120 +$100,1,2010,9,Sun,ATL,PIT
+9/12/10 13:00,At Chicago,-6.5,Detroit,44.5,-$300 +$250,1,2010,9,Sun,CHI,DET
+9/12/10 13:00,At New England,-5,Cincinnati,45,-$235 +$195,1,2010,9,Sun,NE,CIN
+9/12/10 13:00,At Tampa Bay,-3,Cleveland,37,-$145 +$125,1,2010,9,Sun,TB,CLE
+9/12/10 13:00,At Jacksonville,-3,Denver,41.5,-$175 +$155,1,2010,9,Sun,JAC,DEN
+9/12/10 13:00,Indianapolis,-1.5,At Houston,48,-$125 +$105,1,2010,9,Sun,IND,HOU
+9/12/10 13:00,At Tennessee,-6.5,Oakland,39.5,-$275 +$235,1,2010,9,Sun,TEN,OAK
+9/12/10 16:15,Green Bay,-3,At Philadelphia,48,-$145 +$125,1,2010,9,Sun,GB,PHI
+9/12/10 16:15,San Francisco,-3,At Seattle,37,-$175 +$155,1,2010,9,Sun,SF,SEA
+9/12/10 16:15,Arizona,-3,At St. Louis,39,-$165 +$145,1,2010,9,Sun,ARI,STL
+9/12/10 20:20,Dallas,-3.5,At Washington,40,-$200 +$170,1,2010,9,Sun,DAL,WAS
+9/19/10 13:00,At Cleveland,-3,Kansas City,38,-$175 +$155,2,2010,9,Sun,CLE,KC
+9/19/10 13:00,At Green Bay,-12.5,Buffalo,43,-$750 +$525,2,2010,9,Sun,GB,BUF
+9/19/10 13:00,Baltimore,-3,At Cincinnati,39.5,-$150 +$130,2,2010,9,Sun,BAL,CIN
+9/19/10 13:00,At Tennessee,-6,Pittsburgh,37,-$270 +$220,2,2010,9,Sun,TEN,PIT
+9/19/10 13:00,Philadelphia,-6.5,At Detroit,41,-$290 +$240,2,2010,9,Sun,PHI,DET
+9/19/10 13:00,At Dallas,-7,Chicago,41.5,-$330 +$270,2,2010,9,Sun,DAL,CHI
+9/19/10 13:00,At Carolina,-4,Tampa Bay,38,-$210 +$180,2,2010,9,Sun,CAR,TB
+9/19/10 13:00,At Atlanta,-7,Arizona,43,-$300 +$250,2,2010,9,Sun,ATL,ARI
+9/19/10 13:00,At Minnesota,-5.5,Miami,41,-$245 +$205,2,2010,9,Sun,MIN,MIA
+9/19/10 16:05,At Oakland,-3.5,St. Louis,37.5,-$175 +$155,2,2010,9,Sun,OAK,STL
+9/19/10 16:05,At Denver,-3,Seattle,41,-$180 +$160,2,2010,9,Sun,DEN,SEA
+9/19/10 16:15,Houston,-2.5,At Washington,43,-$145 +$125,2,2010,9,Sun,HOU,WAS
+9/19/10 16:15,At San Diego,-7,Jacksonville,45,-$330 +$260,2,2010,9,Sun,SD,JAC
+9/19/10 16:15,New England,-3,At NY Jets,39.5,-$155 +$135,2,2010,9,Sun,NE,NYJ
+9/19/10 20:20,At Indianapolis,-4.5,NY Giants,48,-$220 +$185,2,2010,9,Sun,IND,NYG
+9/19/10 20:20,New Orleans,-4.5,At San Francisco,44,-$230 +$190,2,2010,9,Sun,NO,SF
+9/27/10 20:35,Green Bay,-3,At Chicago,45.5,-$155 +$135,3,2010,9,Mon,GB,CHI
+9/26/10 13:00,At NY Giants,-3,Tennessee,43.5,-$160 +$140,3,2010,9,Sun,NYG,TEN
+9/26/10 13:00,At New England,-14.5,Buffalo,43,-$1050 +$725,3,2010,9,Sun,NE,BUF
+9/26/10 13:00,At Baltimore,-12.5,Cleveland,36.5,-$750 +$550,3,2010,9,Sun,BAL,CLE
+9/26/10 13:00,Pittsburgh,-2.5,At Tampa Bay,33,-$145 +$125,3,2010,9,Sun,PIT,TB
+9/26/10 13:00,Cincinnati,-3.5,At Carolina,37,-$185 +$165,3,2010,9,Sun,CIN,CAR
+9/26/10 13:00,At New Orleans,-3,Atlanta,49,-$170 +$150,3,2010,9,Sun,NO,ATL
+9/26/10 13:00,San Francisco,-3,At Kansas City,38,-$145 +$125,3,2010,9,Sun,SF,KC
+9/26/10 13:00,At Minnesota,-13,Detroit,43,-$775 +$575,3,2010,9,Sun,MIN,DET
+9/26/10 13:00,At Houston,-2.5,Dallas,47.5,-$135 +$115,3,2010,9,Sun,HOU,DAL
+9/26/10 16:05,Washington,-5,At St. Louis,39,-$235 +$195,3,2010,9,Sun,WAS,STL
+9/26/10 16:05,Philadelphia,-2.5,At Jacksonville,45,-$140 +$120,3,2010,9,Sun,PHI,JAC
+9/26/10 16:15,Indianapolis,-6,At Denver,47,-$260 +$220,3,2010,9,Sun,IND,DEN
+9/26/10 16:15,San Diego,-3.5,At Seattle,44,-$190 +$170,3,2010,9,Sun,SD,SEA
+9/26/10 16:15,At Arizona,-5.5,Oakland,39,-$245 +$205,3,2010,9,Sun,ARI,OAK
+9/26/10 20:20,At Miami,-2.5,NY Jets,36,-$140 +$120,3,2010,9,Sun,MIA,NYJ
+10/4/10 20:35,At Miami,0,New England,48.5,-$110 -$110,4,2010,10,Mon,MIA,NE
+10/3/10 13:00,At Tennessee,-6.5,Denver,43.5,-$290 +$240,4,2010,10,Sun,TEN,DEN
+10/3/10 13:00,At Pittsburgh,-2.5,Baltimore,34.5,-$140 +$120,4,2010,10,Sun,PIT,BAL
+10/3/10 13:00,Cincinnati,-2,At Cleveland,36.5,-$135 +$115,4,2010,10,Sun,CIN,CLE
+10/3/10 13:00,At Green Bay,-14.5,Detroit,46,-$1200 +$850,4,2010,10,Sun,GB,DET
+10/3/10 13:00,At New Orleans,-12.5,Carolina,43.5,-$775 +$550,4,2010,10,Sun,NO,CAR
+10/3/10 13:00,At Atlanta,-7,San Francisco,42.5,-$315 +$260,4,2010,10,Sun,ATL,SF
+10/3/10 13:00,Seattle,-2,At St. Louis,40,-$135 +$115,4,2010,10,Sun,SEA,STL
+10/3/10 13:00,NY Jets,-5.5,At Buffalo,36.5,-$250 +$210,4,2010,10,Sun,NYJ,BUF
+10/3/10 16:05,Indianapolis,-7,At Jacksonville,45.5,-$350 +$290,4,2010,10,Sun,IND,JAC
+10/3/10 16:05,Houston,-3,At Oakland,43.5,-$175 +$155,4,2010,10,Sun,HOU,OAK
+10/3/10 16:15,At San Diego,-10,Arizona,47,-$600 +$425,4,2010,10,Sun,SD,ARI
+10/3/10 16:15,At Philadelphia,-5,Washington,44,-$240 +$200,4,2010,10,Sun,PHI,WAS
+10/3/10 20:20,At NY Giants,-3.5,Chicago,44.5,-$195 +$170,4,2010,10,Sun,NYG,CHI
+10/11/10 20:35,At NY Jets,-4,Minnesota,38,-$215 +$180,5,2010,10,Mon,NYJ,MIN
+10/10/10 13:00,At Baltimore,-8,Denver,39.5,-$400 +$330,5,2010,10,Sun,BAL,DEN
+10/10/10 13:00,At Buffalo,-2.5,Jacksonville,41.5,-$140 +$120,5,2010,10,Sun,BUF,JAC
+10/10/10 13:00,At Indianapolis,-7.5,Kansas City,46,-$380 +$320,5,2010,10,Sun,IND,KC
+10/10/10 13:00,At Detroit,-3,St. Louis,43.5,-$155 +$135,5,2010,10,Sun,DET,STL
+10/10/10 13:00,Atlanta,-3,At Cleveland,41.5,-$165 +$145,5,2010,10,Sun,ATL,CLE
+10/10/10 13:00,At Cincinnati,-6.5,Tampa Bay,38,-$310 +$260,5,2010,10,Sun,CIN,TB
+10/10/10 13:00,At Carolina,-3,Chicago,33,-$150 +$130,5,2010,10,Sun,CAR,CHI
+10/10/10 13:00,Green Bay,-3,At Washington,45,-$145 +$125,5,2010,10,Sun,GB,WAS
+10/10/10 13:00,At Houston,-3,NY Giants,48.5,-$175 +$155,5,2010,10,Sun,HOU,NYG
+10/10/10 16:05,New Orleans,-7,At Arizona,45.5,-$310 +$260,5,2010,10,Sun,NO,ARI
+10/10/10 16:15,San Diego,-7,At Oakland,44.5,-$315 +$255,5,2010,10,Sun,SD,OAK
+10/10/10 16:15,At Dallas,-7,Tennessee,43.5,-$300 +$250,5,2010,10,Sun,DAL,TEN
+10/10/10 20:20,At San Francisco,-3.5,Philadelphia,39.5,-$180 +$160,5,2010,10,Sun,SF,PHI
+10/18/10 20:35,Tennessee,-3,At Jacksonville,43.5,-$150 +$130,6,2010,10,Mon,TEN,JAC
+10/17/10 13:00,San Diego,-8.5,At St. Louis,44.5,-$400 +$330,6,2010,10,Sun,SD,STL
+10/17/10 13:00,At Houston,-4.5,Kansas City,46,-$220 +$180,6,2010,10,Sun,HOU,KC
+10/17/10 13:00,At New England,-3,Baltimore,44.5,-$145 +$125,6,2010,10,Sun,NE,BAL
+10/17/10 13:00,New Orleans,-5,At Tampa Bay,43.5,-$245 +$205,6,2010,10,Sun,NO,TB
+10/17/10 13:00,At Philadelphia,-2,Atlanta,43,-$130 +$110,6,2010,10,Sun,PHI,ATL
+10/17/10 13:00,At NY Giants,-10,Detroit,45.5,-$550 +$425,6,2010,10,Sun,NYG,DET
+10/17/10 13:00,At Chicago,-6,Seattle,37.5,-$265 +$225,6,2010,10,Sun,CHI,SEA
+10/17/10 13:00,At Green Bay,-3,Miami,44,-$160 +$140,6,2010,10,Sun,GB,MIA
+10/17/10 13:00,At Pittsburgh,-14,Cleveland,37.5,-$1100 +$750,6,2010,10,Sun,PIT,CLE
+10/17/10 16:05,NY Jets,-3.5,At Denver,43,-$200 +$170,6,2010,10,Sun,NYJ,DEN
+10/17/10 16:05,At San Francisco,-7.5,Oakland,41,-$355 +$295,6,2010,10,Sun,SF,OAK
+10/17/10 16:15,At Minnesota,-1.5,Dallas,43.5,-$125 +$105,6,2010,10,Sun,MIN,DAL
+10/17/10 20:20,Indianapolis,-3,At Washington,44.5,-$170 +$150,6,2010,10,Sun,IND,WAS
+10/25/10 20:35,At Dallas,-3.5,NY Giants,45,-$185 +$165,7,2010,10,Mon,DAL,NYG
+10/24/10 13:00,Pittsburgh,-3,At Miami,40.5,-$150 +$130,7,2010,10,Sun,PIT,MIA
+10/24/10 13:00,At Atlanta,-3.5,Cincinnati,43,-$200 +$175,7,2010,10,Sun,ATL,CIN
+10/24/10 13:00,At Kansas City,-9,Jacksonville,38.5,-$430 +$340,7,2010,10,Sun,KC,JAC
+10/24/10 13:00,At Tennessee,-3,Philadelphia,41.5,-$145 +$125,7,2010,10,Sun,TEN,PHI
+10/24/10 13:00,At Chicago,-3,Washington,40,-$160 +$140,7,2010,10,Sun,CHI,WAS
+10/24/10 13:00,At New Orleans,-12.5,Cleveland,44,-$725 +$525,7,2010,10,Sun,NO,CLE
+10/24/10 13:00,At Baltimore,-12.5,Buffalo,39.5,-$700 +$500,7,2010,10,Sun,BAL,BUF
+10/24/10 13:00,San Francisco,-2,At Carolina,35.5,-$130 +$110,7,2010,10,Sun,SF,CAR
+10/24/10 13:00,At Tampa Bay,-3,St. Louis,39,-$165 +$145,7,2010,10,Sun,TB,STL
+10/24/10 16:05,At Seattle,-6.5,Arizona,40.5,-$300 +$250,7,2010,10,Sun,SEA,ARI
+10/24/10 16:15,At San Diego,-2.5,New England,49,-$135 +$115,7,2010,10,Sun,SD,NE
+10/24/10 16:15,At Denver,-7,Oakland,42.5,-$330 +$270,7,2010,10,Sun,DEN,OAK
+10/24/10 20:20,At Green Bay,-2.5,Minnesota,44,-$140 +$120,7,2010,10,Sun,GB,MIN
+11/1/10 20:35,At Indianapolis,-5.5,Houston,50.5,-$250 +$210,8,2010,11,Mon,IND,HOU
+10/31/10 13:00,San Francisco,-2,Denver,41.5,-$135 +$115,8,2010,10,Sun,SF,DEN
+10/31/10 13:00,At Dallas,-6.5,Jacksonville,43.5,-$300 +$250,8,2010,10,Sun,DAL,JAC
+10/31/10 13:00,At Detroit,-2.5,Washington,45,-$145 +$125,8,2010,10,Sun,DET,WAS
+10/31/10 13:00,At NY Jets,-6.5,Green Bay,41.5,-$285 +$245,8,2010,10,Sun,NYJ,GB
+10/31/10 13:00,At St. Louis,-2.5,Carolina,37.5,-$140 +$120,8,2010,10,Sun,STL,CAR
+10/31/10 13:00,At Cincinnati,0,Miami,44.5,-$110 -$110,8,2010,10,Sun,CIN,MIA
+10/31/10 13:00,At Kansas City,-7,Buffalo,45.5,-$325 +$265,8,2010,10,Sun,KC,BUF
+10/31/10 16:05,At San Diego,-5.5,Tennessee,44.5,-$245 +$205,8,2010,10,Sun,SD,TEN
+10/31/10 16:15,At Arizona,-3,Tampa Bay,38,-$170 +$150,8,2010,10,Sun,ARI,TB
+10/31/10 16:15,At Oakland,-2,Seattle,40,-$130 +$110,8,2010,10,Sun,OAK,SEA
+10/31/10 16:15,At New England,-5,Minnesota,44.5,-$235 +$195,8,2010,10,Sun,NE,MIN
+10/31/10 20:20,At New Orleans,-1.5,Pittsburgh,45,-$125 +$105,8,2010,10,Sun,NO,PIT
+11/8/10 20:35,Pittsburgh,-5,At Cincinnati,41,-$245 +$205,9,2010,11,Mon,PIT,CIN
+11/7/10 13:00,Chicago,-3,At Buffalo,41.5,-$150 +$130,9,2010,11,Sun,CHI,BUF
+11/7/10 13:00,San Diego,-3,At Houston,50,-$150 +$130,9,2010,11,Sun,SD,HOU
+11/7/10 13:00,New Orleans,-6,At Carolina,40.5,-$265 +$235,9,2010,11,Sun,NO,CAR
+11/7/10 13:00,At Minnesota,-7.5,Arizona,42.5,-$340 +$280,9,2010,11,Sun,MIN,ARI
+11/7/10 13:00,At Atlanta,-10,Tampa Bay,45,-$500 +$400,9,2010,11,Sun,ATL,TB
+11/7/10 13:00,NY Jets,-5.5,At Detroit,42,-$250 +$210,9,2010,11,Sun,NYJ,DET
+11/7/10 13:00,At Baltimore,-5.5,Miami,41,-$235 +$195,9,2010,11,Sun,BAL,MIA
+11/7/10 13:00,New England,-4,At Cleveland,44,-$210 +$180,9,2010,11,Sun,NE,CLE
+11/7/10 16:05,NY Giants,-7,At Seattle,40.5,-$340 +$280,9,2010,11,Sun,NYG,SEA
+11/7/10 16:15,Kansas City,-1,At Oakland,41,-$120 +$100,9,2010,11,Sun,KC,OAK
+11/7/10 16:15,At Philadelphia,-3,Indianapolis,46.5,-$170 +$150,9,2010,11,Sun,PHI,IND
+11/7/10 20:25,At Green Bay,-7.5,Dallas,46,-$340 +$280,9,2010,11,Sun,GB,DAL
+11/11/10 20:20,At Atlanta,-1,Baltimore,44,-$120 +$100,10,2010,11,Thu,ATL,BAL
+11/15/10 20:35,Philadelphia,-3,At Washington,44,-$175 +$155,10,2010,11,Mon,PHI,WAS
+11/14/10 13:00,At Indianapolis,-7,Cincinnati,47,-$330 +$260,10,2010,11,Sun,IND,CIN
+11/14/10 13:00,At Jacksonville,-1,Houston,48.5,-$120 +$100,10,2010,11,Sun,JAC,HOU
+11/14/10 13:00,At Miami,-1,Tennessee,43,-$120 +$100,10,2010,11,Sun,MIA,TEN
+11/14/10 13:00,Minnesota,-1,At Chicago,40.5,-$120 +$100,10,2010,11,Sun,MIN,CHI
+11/14/10 13:00,At Buffalo,-1.5,Detroit,45,-$125 +$105,10,2010,11,Sun,BUF,DET
+11/14/10 13:00,NY Jets,-3,At Cleveland,37,-$185 +$165,10,2010,11,Sun,NYJ,CLE
+11/14/10 13:00,At Tampa Bay,-7,Carolina,37,-$320 +$250,10,2010,11,Sun,TB,CAR
+11/14/10 16:05,Kansas City,-1,At Denver,44.5,-$120 +$100,10,2010,11,Sun,KC,DEN
+11/14/10 16:15,At San Francisco,-5,St. Louis,38.5,-$210 +$180,10,2010,11,Sun,SF,STL
+11/14/10 16:15,At Arizona,-3.5,Seattle,41,-$205 +$175,10,2010,11,Sun,ARI,SEA
+11/14/10 16:15,At NY Giants,-12,Dallas,46,-$575 +$425,10,2010,11,Sun,NYG,DAL
+11/14/10 20:25,At Pittsburgh,-4.5,New England,45,-$200 +$175,10,2010,11,Sun,PIT,NE
+11/18/10 20:20,At Miami,-2.5,Chicago,40,-$140 +$120,11,2010,11,Thu,MIA,CHI
+11/22/10 20:35,At San Diego,-9,Denver,50,-$420 +$330,11,2010,11,Mon,SD,DEN
+11/21/10 13:00,At Pittsburgh,-7,Oakland,41,-$320 +$260,11,2010,11,Sun,PIT,OAK
+11/21/10 13:00,At NY Jets,-6.5,Houston,46,-$290 +$240,11,2010,11,Sun,NYJ,HOU
+11/21/10 13:00,Baltimore,-13,At Carolina,37,-$900 +$650,11,2010,11,Sun,BAL,CAR
+11/21/10 13:00,At Tennessee,-7,Washington,44,-$325 +$260,11,2010,11,Sun,TEN,WAS
+11/21/10 13:00,At Dallas,-5.5,Detroit,47.5,-$250 +$210,11,2010,11,Sun,DAL,DET
+11/21/10 13:00,Green Bay,-3,At Minnesota,44.5,-$160 +$140,11,2010,11,Sun,GB,MIN
+11/21/10 13:00,At Cincinnati,-4.5,Buffalo,41,-$225 +$185,11,2010,11,Sun,CIN,BUF
+11/21/10 13:00,At Jacksonville,-2.5,Cleveland,43,-$140 +$120,11,2010,11,Sun,JAC,CLE
+11/21/10 13:00,At Kansas City,-7,Arizona,45,-$340 +$280,11,2010,11,Sun,KC,ARI
+11/21/10 16:05,At New Orleans,-11,Seattle,44.5,-$575 +$425,11,2010,11,Sun,NO,SEA
+11/21/10 16:05,Atlanta,-3.5,At St. Louis,43,-$185 +$165,11,2010,11,Sun,ATL,STL
+11/21/10 16:05,At San Francisco,-3.5,Tampa Bay,41.5,-$190 +$170,11,2010,11,Sun,SF,TB
+11/21/10 16:15,At New England,-4.5,Indianapolis,49.5,-$210 +$180,11,2010,11,Sun,NE,IND
+11/21/10 20:20,At Philadelphia,-3.5,NY Giants,47.5,-$195 +$170,11,2010,11,Sun,PHI,NYG
+11/25/10 12:30,New England,-6,At Detroit,50.5,-$285 +$235,12,2010,11,Thu,NE,DET
+11/25/10 16:15,New Orleans,-4.5,At Dallas,48.5,-$225 +$185,12,2010,11,Thu,NO,DAL
+11/25/10 20:20,At NY Jets,-10,Cincinnati,43.5,-$500 +$400,12,2010,11,Thu,NYJ,CIN
+11/29/10 20:35,San Francisco,-2,At Arizona,41.5,-$130 +$110,12,2010,11,Mon,SF,ARI
+11/28/10 13:00,Minnesota,-2,At Washington,43.5,-$135 +$115,12,2010,11,Sun,MIN,WAS
+11/28/10 13:00,Pittsburgh,-6.5,At Buffalo,43.5,-$300 +$250,12,2010,11,Sun,PIT,BUF
+11/28/10 13:00,At Houston,-5,Tennessee,46.5,-$230 +$190,12,2010,11,Sun,HOU,TEN
+11/28/10 13:00,At NY Giants,-7.5,Jacksonville,43.5,-$345 +$285,12,2010,11,Sun,NYG,JAC
+11/28/10 13:00,At Cleveland,-8,Carolina,37.5,-$370 +$310,12,2010,11,Sun,CLE,CAR
+11/28/10 16:15,At Baltimore,-7.5,Tampa Bay,41.5,-$340 +$280,12,2010,11,Sun,BAL,TB
+11/28/10 16:15,Philadelphia,-3,At Chicago,42,-$165 +$145,12,2010,11,Sun,PHI,CHI
+11/28/10 13:00,At Atlanta,-2,Green Bay,47.5,-$135 +$115,12,2010,11,Sun,ATL,GB
+11/28/10 16:05,At Oakland,-3,Miami,38,-$145 +$125,12,2010,11,Sun,OAK,MIA
+11/28/10 16:05,Kansas City,-1.5,At Seattle,45,-$125 +$105,12,2010,11,Sun,KC,SEA
+11/28/10 16:15,At Denver,-3,St. Louis,46.5,-$180 +$160,12,2010,11,Sun,DEN,STL
+11/28/10 20:20,At Indianapolis,-2,San Diego,50.5,-$135 +$115,12,2010,11,Sun,IND,SD
+12/2/10 20:20,At Philadelphia,-8,Houston,51,-$380 +$320,13,2010,12,Thu,PHI,HOU
+12/6/10 20:35,At New England,-4,NY Jets,44.5,-$215 +$180,13,2010,12,Mon,NE,NYJ
+12/5/10 13:00,At Minnesota,-5.5,Buffalo,43.5,-$245 +$205,13,2010,12,Sun,MIN,BUF
+12/5/10 13:00,At Miami,-5.5,Cleveland,43.5,-$245 +$205,13,2010,12,Sun,MIA,CLE
+12/5/10 13:00,At Tennessee,-3,Jacksonville,43.5,-$180 +$160,13,2010,12,Sun,TEN,JAC
+12/5/10 13:00,At Kansas City,-8,Denver,48,-$380 +$320,13,2010,12,Sun,KC,DEN
+12/5/10 13:00,At NY Giants,-7.5,Washington,43,-$360 +$300,13,2010,12,Sun,NYG,WAS
+12/5/10 13:00,Chicago,-5.5,At Detroit,43.5,-$255 +$215,13,2010,12,Sun,CHI,DET
+12/5/10 13:00,At Green Bay,-9,San Francisco,41,-$450 +$350,13,2010,12,Sun,GB,SF
+12/5/10 13:00,New Orleans,-6.5,At Cincinnati,45,-$280 +$240,13,2010,12,Sun,NO,CIN
+12/5/10 16:15,Atlanta,-3,At Tampa Bay,43,-$150 +$130,13,2010,12,Sun,ATL,TB
+12/5/10 16:05,At San Diego,-13,Oakland,45,-$700 +$500,13,2010,12,Sun,SD,OAK
+12/5/10 16:15,At Seattle,-5,Carolina,40.5,-$230 +$195,13,2010,12,Sun,SEA,CAR
+12/5/10 16:15,At Indianapolis,-6,Dallas,48,-$265 +$225,13,2010,12,Sun,IND,DAL
+12/5/10 16:15,St. Louis,-3,At Arizona,44,-$180 +$160,13,2010,12,Sun,STL,ARI
+12/5/10 20:20,At Baltimore,-3,Pittsburgh,38.5,-$180 +$160,13,2010,12,Sun,BAL,PIT
+12/9/10 20:20,Indianapolis,-3.5,At Tennessee,44,-$185 +$160,14,2010,12,Thu,IND,TEN
+12/13/10 20:35,Baltimore,-3,At Houston,46.5,-$150 +$130,14,2010,12,Mon,BAL,HOU
+12/13/10 19:20,NY Giants,-5,At Minnesota,43.5,-$240 +$200,14,2010,12,Mon,NYG,MIN
+12/12/10 13:00,At Jacksonville,-3.5,Oakland,41.5,-$195 +$170,14,2010,12,Sun,JAC,OAK
+12/12/10 13:00,At Pittsburgh,-8.5,Cincinnati,39.5,-$400 +$320,14,2010,12,Sun,PIT,CIN
+12/12/10 16:15,New England,-3,At Chicago,37,-$150 +$130,14,2010,12,Sun,NE,CHI
+12/12/10 13:00,At Buffalo,0,Cleveland,39,-$110 -$110,14,2010,12,Sun,BUF,CLE
+12/12/10 13:00,Green Bay,-7,At Detroit,46,-$310 +$250,14,2010,12,Sun,GB,DET
+12/12/10 13:00,Atlanta,-7.5,At Carolina,41.5,-$350 +$290,14,2010,12,Sun,ATL,CAR
+12/12/10 13:00,Tampa Bay,-1.5,At Washington,41,-$125 +$105,14,2010,12,Sun,TB,WAS
+12/12/10 16:05,At New Orleans,-9.5,St. Louis,47,-$450 +$350,14,2010,12,Sun,NO,STL
+12/12/10 16:05,At San Francisco,-4.5,Seattle,42.5,-$220 +$180,14,2010,12,Sun,SF,SEA
+12/12/10 16:15,At NY Jets,-5,Miami,37.5,-$230 +$190,14,2010,12,Sun,NYJ,MIA
+12/12/10 16:15,Denver,-4,At Arizona,44.5,-$200 +$170,14,2010,12,Sun,DEN,ARI
+12/12/10 16:15,At San Diego,-10,Kansas City,45.5,-$550 +$425,14,2010,12,Sun,SD,KC
+12/12/10 20:20,Philadelphia,-4.5,At Dallas,51,-$220 +$185,14,2010,12,Sun,PHI,DAL
+12/16/10 20:20,At San Diego,-10,San Francisco,44.5,-$600 +$450,15,2010,12,Thu,SD,SF
+12/20/10 20:35,Chicago,-5.5,At Minnesota,34.5,-$245 +$205,15,2010,12,Mon,CHI,MIN
+12/19/10 13:00,At St. Louis,-3,Kansas City,42.5,-$150 +$130,15,2010,12,Sun,STL,KC
+12/19/10 13:00,At Tennessee,-1.5,Houston,47,-$130 +$110,15,2010,12,Sun,TEN,HOU
+12/19/10 13:00,At Indianapolis,-4.5,Jacksonville,48,-$220 +$185,15,2010,12,Sun,IND,JAC
+12/19/10 13:00,At Carolina,-2.5,Arizona,37.5,-$140 +$120,15,2010,12,Sun,CAR,ARI
+12/19/10 13:00,At Cincinnati,0,Cleveland,41.5,-$110 -$110,15,2010,12,Sun,CIN,CLE
+12/19/10 13:00,At Miami,-5.5,Buffalo,40,-$250 +$210,15,2010,12,Sun,MIA,BUF
+12/19/10 13:00,At NY Giants,-3,Philadelphia,47,-$155 +$135,15,2010,12,Sun,NYG,PHI
+12/19/10 13:00,At Dallas,-9.5,Washington,44,-$450 +$360,15,2010,12,Sun,DAL,WAS
+12/19/10 13:00,At Tampa Bay,-4,Detroit,43,-$210 +$175,15,2010,12,Sun,TB,DET
+12/19/10 13:00,At Baltimore,-2,New Orleans,45,-$135 +$115,15,2010,12,Sun,BAL,NO
+12/19/10 16:05,Atlanta,-5.5,At Seattle,46.5,-$250 +$210,15,2010,12,Sun,ATL,SEA
+12/19/10 16:15,At Pittsburgh,-3.5,NY Jets,36,-$190 +$165,15,2010,12,Sun,PIT,NYJ
+12/19/10 16:15,At Oakland,-8,Denver,41.5,-$380 +$315,15,2010,12,Sun,OAK,DEN
+12/19/10 20:20,At New England,-14.5,Green Bay,43.5,-$1000 +$700,15,2010,12,Sun,NE,GB
+12/25/10 19:30,Dallas,-7,At Arizona,45,-$330 +$260,16,2010,12,Sat,DAL,ARI
+12/23/10 20:20,At Pittsburgh,-14,Carolina,37.5,-$1250 +$800,16,2010,12,Thu,PIT,CAR
+12/28/10 20:00,At Philadelphia,-14,Minnesota,44,-$1100 +$800,16,2010,12,Tue,PHI,MIN
+12/27/10 20:35,At Atlanta,-2,New Orleans,50,-$140 +$120,16,2010,12,Mon,ATL,NO
+12/26/10 13:00,At Miami,-3.5,Detroit,41.5,-$190 +$165,16,2010,12,Sun,MIA,DET
+12/26/10 13:00,At Jacksonville,-7,Washington,45.5,-$310 +$260,16,2010,12,Sun,JAC,WAS
+12/26/10 13:00,At St. Louis,-2.5,San Francisco,40,-$140 +$120,16,2010,12,Sun,STL,SF
+12/26/10 16:15,At Tampa Bay,-5.5,Seattle,43,-$250 +$210,16,2010,12,Sun,TB,SEA
+12/26/10 13:00,New England,-7,At Buffalo,46,-$350 +$290,16,2010,12,Sun,NE,BUF
+12/26/10 13:00,At Chicago,-2.5,NY Jets,35.5,-$145 +$125,16,2010,12,Sun,CHI,NYJ
+12/26/10 13:00,Baltimore,-3.5,At Cleveland,40,-$195 +$170,16,2010,12,Sun,BAL,CLE
+12/26/10 13:00,At Kansas City,-4,Tennessee,42.5,-$205 +$175,16,2010,12,Sun,KC,TEN
+12/26/10 16:05,Indianapolis,-2,At Oakland,46,-$130 +$110,16,2010,12,Sun,IND,OAK
+12/26/10 16:05,Houston,-2,At Denver,49.5,-$130 +$110,16,2010,12,Sun,HOU,DEN
+12/26/10 16:15,At Green Bay,-3,NY Giants,43.5,-$165 +$145,16,2010,12,Sun,GB,NYG
+12/26/10 16:05,San Diego,-8,At Cincinnati,43.5,-$370 +$310,16,2010,12,Sun,SD,CIN
+1/2/10 13:00,At Kansas City,-4.5,Oakland,43,-$230 +$190,17,2010,1,Sat,KC,OAK
+1/2/10 13:00,At New England,-4.5,Miami,44,-$215 +$180,17,2010,1,Sat,NE,MIA
+1/2/10 16:15,At Indianapolis,-8.5,Tennessee,48,-$475 +$375,17,2010,1,Sat,IND,TEN
+1/2/10 16:15,At Houston,-4.5,Jacksonville,47.5,-$225 +$185,17,2010,1,Sat,HOU,JAC
+1/2/10 13:00,Pittsburgh,-6.5,At Cleveland,38,-$270 +$230,17,2010,1,Sat,PIT,CLE
+1/2/10 13:00,At Baltimore,-9.5,Cincinnati,43,-$500 +$400,17,2010,1,Sat,BAL,CIN
+1/2/10 13:00,At Detroit,-3.5,Minnesota,44,-$200 +$170,17,2010,1,Sat,DET,MIN
+1/2/10 16:15,NY Giants,-4.5,At Washington,44.5,-$215 +$180,17,2010,1,Sat,NYG,WAS
+1/2/10 16:15,At Green Bay,-11.5,Chicago,43.5,-$800 +$600,17,2010,1,Sat,GB,CHI
+1/2/10 16:15,Dallas,-2,At Philadelphia,43.5,-$130 +$110,17,2010,1,Sat,DAL,PHI
+1/2/10 13:00,At NY Jets,-1,Buffalo,38,-$120 +$100,17,2010,1,Sat,NYJ,BUF
+1/2/10 13:00,At Atlanta,-14.5,Carolina,41,-$1100 +$750,17,2010,1,Sat,ATL,CAR
+1/2/10 13:00,At New Orleans,-7,Tampa Bay,46.5,-$310 +$260,17,2010,1,Sat,NO,TB
+1/2/10 20:25,St. Louis,-3,At Seattle,42.5,-$165 +$145,17,2010,1,Sat,STL,SEA
+1/2/10 16:15,At San Francisco,-6,Arizona,39,-$250 +$210,17,2010,1,Sat,SF,ARI
+1/2/10 16:15,San Diego,-5,At Denver,47.5,-$230 +$190,17,2010,1,Sat,SD,DEN
+9/10/09 20:30,At Pittsburgh,-6.5,Tennessee,36,-$300 +$250,1,2009,9,Thu,PIT,TEN
+9/14/09 19:00,At New England,-13,Buffalo,47.5,-$975 +$675,1,2009,9,Mon,NE,BUF
+9/14/09 22:15,San Diego,-10.5,At Oakland,43,-$600 +$450,1,2009,9,Mon,SD,OAK
+9/13/09 13:00,At Atlanta,-4,Miami,44,-$215 +$180,1,2009,9,Sun,ATL,MIA
+9/13/09 13:00,At Baltimore,-13,Kansas City,36.5,-$900 +$625,1,2009,9,Sun,BAL,KC
+9/13/09 13:00,Philadelphia,-2.5,At Carolina,43.5,-$145 +$125,1,2009,9,Sun,PHI,CAR
+9/13/09 13:00,At Cincinnati,-4.5,Denver,41,-$240 +$195,1,2009,9,Sun,CIN,DEN
+9/13/09 13:00,Minnesota,-4,At Cleveland,40,-$220 +$190,1,2009,9,Sun,MIN,CLE
+9/13/09 13:00,At Houston,-4.5,NY Jets,44.5,-$220 +$185,1,2009,9,Sun,HOU,NYJ
+9/13/09 13:00,At Indianapolis,-6.5,Jacksonville,45.5,-$290 +$240,1,2009,9,Sun,IND,JAC
+9/13/09 13:00,At New Orleans,-14,Detroit,50,-$1050 +$750,1,2009,9,Sun,NO,DET
+9/13/09 13:00,Dallas,-5.5,At Tampa Bay,40,-$260 +$215,1,2009,9,Sun,DAL,TB
+9/13/09 16:15,At Arizona,-5,San Francisco,46,-$230 +$190,1,2009,9,Sun,ARI,SF
+9/13/09 16:15,At NY Giants,-6.5,Washington,37,-$280 +$240,1,2009,9,Sun,NYG,WAS
+9/13/09 16:15,At Seattle,-7.5,St. Louis,41,-$370 +$300,1,2009,9,Sun,SEA,STL
+9/13/09 20:20,At Green Bay,-4.5,Chicago,47,-$240 +$200,1,2009,9,Sun,GB,CHI
+9/21/09 20:35,Indianapolis,-3,At Miami,41.5,-$165 +$145,2,2009,9,Mon,IND,MIA
+9/20/09 13:00,At Kansas City,-2.5,Oakland,39.5,-$135 +$115,2,2009,9,Sun,KC,OAK
+9/20/09 13:00,At Tennessee,-7,Houston,41,-$315 +$250,2,2009,9,Sun,TEN,HOU
+9/20/09 13:00,New England,-3.5,At NY Jets,45,-$175 +$155,2,2009,9,Sun,NE,NYJ
+9/20/09 13:00,At Green Bay,-7.5,Cincinnati,42,-$390 +$310,2,2009,9,Sun,GB,CIN
+9/20/09 13:00,Minnesota,-10,At Detroit,45.5,-$500 +$400,2,2009,9,Sun,MIN,DET
+9/20/09 13:00,New Orleans,-3,At Philadelphia,46,-$150 +$130,2,2009,9,Sun,NO,PHI
+9/20/09 13:00,At Atlanta,-6,Carolina,43,-$250 +$200,2,2009,9,Sun,ATL,CAR
+9/20/09 13:00,At Washington,-9.5,St. Louis,37,-$550 +$400,2,2009,9,Sun,WAS,STL
+9/20/09 13:00,At Jacksonville,-3,Arizona,44,-$165 +$145,2,2009,9,Sun,JAC,ARI
+9/20/09 16:05,At San Francisco,-1,Seattle,39.5,-$120 +$100,2,2009,9,Sun,SF,SEA
+9/20/09 16:05,At Buffalo,-4,Tampa Bay,42,-$200 +$170,2,2009,9,Sun,BUF,TB
+9/20/09 16:15,At Denver,-3,Cleveland,38.5,-$180 +$160,2,2009,9,Sun,DEN,CLE
+9/20/09 16:15,At San Diego,-1,Baltimore,41,-$120 +$100,2,2009,9,Sun,SD,BAL
+9/20/09 16:15,Pittsburgh,-3,At Chicago,38.5,-$145 +$125,2,2009,9,Sun,PIT,CHI
+9/20/09 20:20,At Dallas,-3,NY Giants,45,-$145 +$125,2,2009,9,Sun,DAL,NYG
+9/28/09 20:35,At Dallas,-8.5,Carolina,48.5,-$400 +$330,3,2009,9,Mon,DAL,CAR
+9/27/09 13:00,At NY Jets,-1,Tennessee,36,-$120 +$100,3,2009,9,Sun,NYJ,TEN
+9/27/09 13:00,At Houston,-4,Jacksonville,47,-$210 +$180,3,2009,9,Sun,HOU,JAC
+9/27/09 13:00,At Philadelphia,-7.5,Kansas City,38.5,-$330 +$270,3,2009,9,Sun,PHI,KC
+9/27/09 13:00,At Baltimore,-13.5,Cleveland,39,-$825 +$600,3,2009,9,Sun,BAL,CLE
+9/27/09 13:00,NY Giants,-6.5,At Tampa Bay,46,-$270 +$230,3,2009,9,Sun,NYG,TB
+9/27/09 13:00,Washington,-6,At Detroit,39,-$260 +$220,3,2009,9,Sun,WAS,DET
+9/27/09 13:00,Green Bay,-6.5,At St. Louis,42.5,-$280 +$240,3,2009,9,Sun,GB,STL
+9/27/09 13:00,At Minnesota,-6.5,San Francisco,39,-$280 +$240,3,2009,9,Sun,MIN,SF
+9/27/09 13:00,At New England,-4.5,Atlanta,45.5,-$240 +$200,3,2009,9,Sun,NE,ATL
+9/27/09 16:05,Chicago,-3,At Seattle,37.5,-$155 +$135,3,2009,9,Sun,CHI,SEA
+9/27/09 16:05,New Orleans,-6,At Buffalo,51,-$265 +$225,3,2009,9,Sun,NO,BUF
+9/27/09 16:15,At San Diego,-5,Miami,45,-$260 +$220,3,2009,9,Sun,SD,MIA
+9/27/09 16:15,Pittsburgh,-3.5,At Cincinnati,36.5,-$180 +$160,3,2009,9,Sun,PIT,CIN
+9/27/09 16:15,Denver,-2.5,At Oakland,38,-$135 +$115,3,2009,9,Sun,DEN,OAK
+9/27/09 20:20,At Arizona,-3,Indianapolis,49.5,-$160 +$140,3,2009,9,Sun,ARI,IND
+10/5/09 20:35,At Minnesota,-4.5,Green Bay,46.5,-$230 +$190,4,2009,10,Mon,MIN,GB
+10/4/09 13:00,At Houston,-8.5,Oakland,42.5,-$410 +$340,4,2009,10,Sun,HOU,OAK
+10/4/09 13:00,Tennessee,-3,At Jacksonville,42,-$180 +$160,4,2009,10,Sun,TEN,JAC
+10/4/09 13:00,At New England,-2,Baltimore,45.5,-$135 +$115,4,2009,10,Sun,NE,BAL
+10/4/09 13:00,Cincinnati,-6.5,At Cleveland,37.5,-$290 +$240,4,2009,10,Sun,CIN,CLE
+10/4/09 13:00,NY Giants,-9,At Kansas City,43,-$425 +$330,4,2009,10,Sun,NYG,KC
+10/4/09 13:00,At Chicago,-10,Detroit,43,-$500 +$375,4,2009,10,Sun,CHI,DET
+10/4/09 13:00,At Washington,-9,Tampa Bay,36,-$400 +$330,4,2009,10,Sun,WAS,TB
+10/4/09 13:00,At Indianapolis,-10,Seattle,43.5,-$550 +$400,4,2009,10,Sun,IND,SEA
+10/4/09 16:05,At New Orleans,-7.5,NY Jets,47,-$360 +$300,4,2009,10,Sun,NO,NYJ
+10/4/09 16:05,At Miami,-1,Buffalo,37,-$120 +$100,4,2009,10,Sun,MIA,BUF
+10/4/09 16:15,At San Francisco,-9.5,St. Louis,37,-$475 +$350,4,2009,10,Sun,SF,STL
+10/4/09 16:15,Dallas,-2.5,At Denver,43.5,-$140 +$120,4,2009,10,Sun,DAL,DEN
+10/4/09 20:20,At Pittsburgh,-5.5,San Diego,43.5,-$240 +$200,4,2009,10,Sun,PIT,SD
+10/12/09 20:35,NY Jets,-3,At Miami,36.5,-$165 +$145,5,2009,10,Mon,NYJ,MIA
+10/11/09 13:00,Minnesota,-10.5,At St. Louis,41,-$625 +$450,5,2009,10,Sun,MIN,STL
+10/11/09 13:00,Dallas,-7,At Kansas City,43.5,-$350 +$290,5,2009,10,Sun,DAL,KC
+10/11/09 13:00,At Carolina,-5,Washington,38,-$260 +$220,5,2009,10,Sun,CAR,WAS
+10/11/09 13:00,At Philadelphia,-15.5,Tampa Bay,42,-$1300 +$900,5,2009,10,Sun,PHI,TB
+10/11/09 13:00,At NY Giants,-15.5,Oakland,38,-$1300 +$900,5,2009,10,Sun,NYG,OAK
+10/11/09 13:00,At Buffalo,-5.5,Cleveland,42,-$250 +$210,5,2009,10,Sun,BUF,CLE
+10/11/09 13:00,At Baltimore,-9,Cincinnati,42.5,-$450 +$350,5,2009,10,Sun,BAL,CIN
+10/11/09 13:00,Pittsburgh,-11,At Detroit,44,-$700 +$500,5,2009,10,Sun,PIT,DET
+10/11/09 16:05,At San Francisco,-1,Atlanta,39.5,-$115 -$105,5,2009,10,Sun,SF,ATL
+10/11/09 16:15,New England,-3,At Denver,41.5,-$165 +$145,5,2009,10,Sun,NE,DEN
+10/11/09 16:15,At Arizona,-6,Houston,50.5,-$250 +$210,5,2009,10,Sun,ARI,HOU
+10/11/09 16:15,At Seattle,-1.5,Jacksonville,44,-$125 +$105,5,2009,10,Sun,SEA,JAC
+10/11/09 20:20,Indianapolis,-4,At Tennessee,44.5,-$200 +$175,5,2009,10,Sun,IND,TEN
+10/19/09 20:35,At San Diego,-3.5,Denver,45,-$175 +$155,6,2009,10,Mon,SD,DEN
+10/18/09 13:00,At Washington,-6,Kansas City,36.5,-$270 +$230,6,2009,10,Sun,WAS,KC
+10/18/09 13:00,At Cincinnati,-4,Houston,46,-$200 +$170,6,2009,10,Sun,CIN,HOU
+10/18/09 13:00,At Pittsburgh,-14,Cleveland,38,-$1150 +$800,6,2009,10,Sun,PIT,CLE
+10/18/09 13:00,At Minnesota,-3,Baltimore,45.5,-$145 +$125,6,2009,10,Sun,MIN,BAL
+10/18/09 13:00,At Jacksonville,-9.5,St. Louis,42.5,-$500 +$350,6,2009,10,Sun,JAC,STL
+10/18/09 13:00,At New Orleans,-3,NY Giants,47.5,-$175 +$155,6,2009,10,Sun,NO,NYG
+10/18/09 13:00,Carolina,-3,At Tampa Bay,40.5,-$170 +$150,6,2009,10,Sun,CAR,TB
+10/18/09 13:00,At Green Bay,-14,Detroit,48,-$1000 +$700,6,2009,10,Sun,GB,DET
+10/18/09 16:05,Philadelphia,-14.5,At Oakland,40.5,-$1000 +$700,6,2009,10,Sun,PHI,OAK
+10/18/09 16:05,At Seattle,-3,Arizona,45.5,-$150 +$130,6,2009,10,Sun,SEA,ARI
+10/18/09 16:15,At NY Jets,-9.5,Buffalo,35.5,-$500 +$375,6,2009,10,Sun,NYJ,BUF
+10/18/09 16:15,At New England,-9,Tennessee,38.5,-$475 +$375,6,2009,10,Sun,NE,TEN
+10/18/09 20:20,At Atlanta,-4,Chicago,46.5,-$210 +$180,6,2009,10,Sun,ATL,CHI
+10/26/09 20:35,Philadelphia,-8.5,At Washington,38,-$410 +$325,7,2009,10,Mon,PHI,WAS
+10/25/09 13:00,San Diego,-5.5,At Kansas City,44,-$245 +$205,7,2009,10,Sun,SD,KC
+10/25/09 13:00,Indianapolis,-14,At St. Louis,45,-$1100 +$800,7,2009,10,Sun,IND,STL
+10/25/09 16:15,Chicago,-1.5,At Cincinnati,42.5,-$125 +$105,7,2009,10,Sun,CHI,CIN
+10/25/09 13:00,Green Bay,-9,At Cleveland,41.5,-$425 +$325,7,2009,10,Sun,GB,CLE
+10/25/09 13:00,At Pittsburgh,-6,Minnesota,46.5,-$270 +$225,7,2009,10,Sun,PIT,MIN
+10/25/09 13:00,New England,-15.5,Tampa Bay,44.5,-$1300 +$900,7,2009,10,Sun,NE,TB
+10/25/09 13:00,At Houston,-3,San Francisco,44.5,-$185 +$160,7,2009,10,Sun,HOU,SF
+10/25/09 16:05,NY Jets,-6,At Oakland,34,-$280 +$240,7,2009,10,Sun,NYJ,OAK
+10/25/09 16:05,At Carolina,-7,Buffalo,37,-$320 +$260,7,2009,10,Sun,CAR,BUF
+10/25/09 16:15,New Orleans,-6.5,At Miami,48,-$285 +$220,7,2009,10,Sun,NO,MIA
+10/25/09 16:15,At Dallas,-5,Atlanta,48,-$235 +$195,7,2009,10,Sun,DAL,ATL
+10/25/09 20:20,At NY Giants,-8,Arizona,47,-$350 +$290,7,2009,10,Sun,NYG,ARI
+11/2/09 20:35,At New Orleans,-11,Atlanta,56,-$550 +$400,8,2009,11,Mon,NO,ATL
+11/1/09 13:00,At Baltimore,-4.5,Denver,42.5,-$230 +$185,8,2009,11,Sun,BAL,DEN
+11/1/09 13:00,At Chicago,-12,Cleveland,40,-$600 +$450,8,2009,11,Sun,CHI,CLE
+11/1/09 13:00,Houston,-3.5,At Buffalo,41.5,-$190 +$165,8,2009,11,Sun,HOU,BUF
+11/1/09 16:15,At Green Bay,-3.5,Minnesota,47.5,-$200 +$175,8,2009,11,Sun,GB,MIN
+11/1/09 13:00,At Indianapolis,-13,San Francisco,45,-$800 +$550,8,2009,11,Sun,IND,SF
+11/1/09 13:00,At NY Jets,-3.5,Miami,40.5,-$185 +$165,8,2009,11,Sun,NYJ,MIA
+11/1/09 13:00,At Detroit,-3,St. Louis,43.5,-$170 +$150,8,2009,11,Sun,DET,STL
+11/1/09 13:00,At Dallas,-10,Seattle,46,-$525 +$400,8,2009,11,Sun,DAL,SEA
+11/1/09 16:05,At San Diego,-16,Oakland,41.5,-$1600 +$1000,8,2009,11,Sun,SD,OAK
+11/1/09 16:05,At Tennessee,-3,Jacksonville,44.5,-$160 +$140,8,2009,11,Sun,TEN,JAC
+11/1/09 16:15,At Arizona,-10,Carolina,43.5,-$500 +$400,8,2009,11,Sun,ARI,CAR
+11/1/09 13:00,NY Giants,-2.5,At Philadelphia,44,-$150 +$130,8,2009,11,Sun,NYG,PHI
+11/9/09 20:35,Pittsburgh,-3,At Denver,41.5,-$155 +$135,9,2009,11,Mon,PIT,DEN
+11/8/09 13:00,At Jacksonville,-7,Kansas City,41.5,-$325 +$250,9,2009,11,Sun,JAC,KC
+11/8/09 13:00,Baltimore,-3,At Cincinnati,45,-$145 +$125,9,2009,11,Sun,BAL,CIN
+11/8/09 13:00,At Indianapolis,-7.5,Houston,50.5,-$350 +$290,9,2009,11,Sun,IND,HOU
+11/8/09 13:00,At Atlanta,-8.5,Washington,41,-$450 +$350,9,2009,11,Sun,ATL,WAS
+11/8/09 13:00,Green Bay,-10,At Tampa Bay,43,-$500 +$400,9,2009,11,Sun,GB,TB
+11/8/09 13:00,At Chicago,-2,Arizona,45,-$135 +$115,9,2009,11,Sun,CHI,ARI
+11/8/09 13:00,At New England,-11,Miami,47,-$625 +$450,9,2009,11,Sun,NE,MIA
+11/8/09 16:05,At New Orleans,-11.5,Carolina,51,-$625 +$450,9,2009,11,Sun,NO,CAR
+11/8/09 16:05,At Seattle,-11,Detroit,42,-$600 +$450,9,2009,11,Sun,SEA,DET
+11/8/09 16:15,At San Francisco,-4.5,Tennessee,40.5,-$220 +$180,9,2009,11,Sun,SF,TEN
+11/8/09 16:15,At NY Giants,-5,San Diego,48.5,-$240 +$200,9,2009,11,Sun,NYG,SD
+11/8/09 20:20,At Philadelphia,-3,Dallas,49.5,-$145 +$125,9,2009,11,Sun,PHI,DAL
+11/12/09 20:20,At San Francisco,-3,Chicago,43,-$175 +$155,10,2009,11,Thu,SF,CHI
+11/16/09 20:35,Baltimore,-11,At Cleveland,39.5,-$600 +$450,10,2009,11,Mon,BAL,CLE
+11/15/09 13:00,At NY Jets,-6.5,Jacksonville,41,-$290 +$240,10,2009,11,Sun,NYJ,JAC
+11/15/09 13:00,Denver,-3.5,At Washington,36.5,-$185 +$165,10,2009,11,Sun,DEN,WAS
+11/15/09 13:00,At Pittsburgh,-7,Cincinnati,41.5,-$310 +$260,10,2009,11,Sun,PIT,CIN
+11/15/09 13:00,At Tennessee,-7.5,Buffalo,41,-$360 +$300,10,2009,11,Sun,TEN,BUF
+11/15/09 13:00,At Minnesota,-17,Detroit,47.5,-$1700 +$1100,10,2009,11,Sun,MIN,DET
+11/15/09 13:00,New Orleans,-14,At St. Louis,50.5,-$900 +$650,10,2009,11,Sun,NO,STL
+11/15/09 13:00,Atlanta,-1.5,At Carolina,44,-$125 +$105,10,2009,11,Sun,ATL,CAR
+11/15/09 13:00,At Miami,-10,Tampa Bay,42.5,-$500 +$375,10,2009,11,Sun,MIA,TB
+11/15/09 16:05,At Oakland,-2.5,Kansas City,36.5,-$140 +$120,10,2009,11,Sun,OAK,KC
+11/15/09 16:15,At Arizona,-8.5,Seattle,46.5,-$360 +$290,10,2009,11,Sun,ARI,SEA
+11/15/09 16:15,At San Diego,-1,Philadelphia,47,-$120 +$100,10,2009,11,Sun,SD,PHI
+11/15/09 16:15,Dallas,-3,At Green Bay,48,-$155 +$135,10,2009,11,Sun,DAL,GB
+11/15/09 20:20,At Indianapolis,-2,New England,49,-$130 +$110,10,2009,11,Sun,IND,NE
+11/19/09 20:20,At Carolina,-3.5,Miami,42,-$200 +$170,11,2009,11,Thu,CAR,MIA
+11/23/09 20:35,At Houston,-3.5,Tennessee,48,-$200 +$170,11,2009,11,Mon,HOU,TEN
+11/22/09 13:00,At Detroit,-3,Cleveland,37.5,-$175 +$155,11,2009,11,Sun,DET,CLE
+11/22/09 13:00,At Jacksonville,-8.5,Buffalo,41,-$375 +$310,11,2009,11,Sun,JAC,BUF
+11/22/09 13:00,Pittsburgh,-11.5,At Kansas City,39.5,-$675 +$475,11,2009,11,Sun,PIT,KC
+11/22/09 13:00,Indianapolis,-1.5,At Baltimore,44.5,-$125 +$105,11,2009,11,Sun,IND,BAL
+11/22/09 13:00,At NY Giants,-7,Atlanta,46.5,-$350 +$290,11,2009,11,Sun,NYG,ATL
+11/22/09 13:00,At Green Bay,-6,San Francisco,41.5,-$265 +$220,11,2009,11,Sun,GB,SF
+11/22/09 13:00,At Minnesota,-10.5,Seattle,47,-$550 +$425,11,2009,11,Sun,MIN,SEA
+11/22/09 13:00,At Dallas,-10.5,Washington,41.5,-$600 +$425,11,2009,11,Sun,DAL,WAS
+11/22/09 13:00,New Orleans,-10.5,At Tampa Bay,51,-$550 +$400,11,2009,11,Sun,NO,TB
+11/22/09 16:05,Arizona,-9,At St. Louis,47,-$400 +$325,11,2009,11,Sun,ARI,STL
+11/22/09 16:15,At New England,-11,NY Jets,45.5,-$650 +$475,11,2009,11,Sun,NE,NYJ
+11/22/09 16:15,Cincinnati,-8.5,At Oakland,36,-$450 +$325,11,2009,11,Sun,CIN,OAK
+11/22/09 16:15,San Diego,-6,At Denver,41.5,-$275 +$235,11,2009,11,Sun,SD,DEN
+11/22/09 20:20,Philadelphia,-3.5,At Chicago,47,-$195 +$170,11,2009,11,Sun,PHI,CHI
+11/26/09 12:30,Green Bay,-11.5,At Detroit,48.5,-$675 +$475,12,2009,11,Thu,GB,DET
+11/26/09 16:15,At Dallas,-13.5,Oakland,40.5,-$800 +$600,12,2009,11,Thu,DAL,OAK
+11/26/09 20:20,NY Giants,-4.5,At Denver,43.5,-$215 +$180,12,2009,11,Thu,NYG,DEN
+11/30/09 20:35,At New Orleans,-2,New England,57.5,-$130 +$110,12,2009,11,Mon,NO,NE
+11/29/09 13:00,Indianapolis,-3,At Houston,48,-$155 +$135,12,2009,11,Sun,IND,HOU
+11/29/09 13:00,At Cincinnati,-12.5,Cleveland,39.5,-$725 +$525,12,2009,11,Sun,CIN,CLE
+11/29/09 16:15,At Minnesota,-10.5,Chicago,47,-$600 +$425,12,2009,11,Sun,MIN,CHI
+11/29/09 13:00,At Philadelphia,-10,Washington,40.5,-$525 +$400,12,2009,11,Sun,PHI,WAS
+11/29/09 13:00,Miami,-3.5,At Buffalo,38.5,-$190 +$170,12,2009,11,Sun,MIA,BUF
+11/29/09 16:15,At Tennessee,-3.5,Arizona,44.5,-$190 +$165,12,2009,11,Sun,TEN,ARI
+11/29/09 13:00,Seattle,-3.5,At St. Louis,42.5,-$200 +$170,12,2009,11,Sun,SEA,STL
+11/29/09 13:00,At Atlanta,-12.5,Tampa Bay,46,-$650 +$475,12,2009,11,Sun,ATL,TB
+11/29/09 13:00,At NY Jets,-3.5,Carolina,41.5,-$180 +$160,12,2009,11,Sun,NYJ,CAR
+11/29/09 16:05,At San Francisco,-3,Jacksonville,42,-$175 +$155,12,2009,11,Sun,SF,JAC
+11/29/09 16:05,At San Diego,-13.5,Kansas City,45,-$775 +$550,12,2009,11,Sun,SD,KC
+11/29/09 20:20,At Baltimore,-7.5,Pittsburgh,35,-$360 +$280,12,2009,11,Sun,BAL,PIT
+12/3/09 20:20,NY Jets,-3.5,Buffalo,37,-$190 +$170,13,2009,12,Thu,NYJ,BUF
+12/7/09 20:35,At Green Bay,-3.5,Baltimore,43,-$210 +$175,13,2009,12,Mon,GB,BAL
+12/6/09 13:00,Denver,-6,At Kansas City,39,-$270 +$220,13,2009,12,Sun,DEN,KC
+12/6/09 13:00,At Pittsburgh,-15,Oakland,37,-$1300 +$850,13,2009,12,Sun,PIT,OAK
+12/6/09 13:00,Houston,-1.5,At Jacksonville,47.5,-$125 +$105,13,2009,12,Sun,HOU,JAC
+12/6/09 13:00,At Indianapolis,-6,Tennessee,47,-$250 +$210,13,2009,12,Sun,IND,TEN
+12/6/09 13:00,Philadelphia,-4.5,At Atlanta,43.5,-$225 +$185,13,2009,12,Sun,PHI,ATL
+12/6/09 13:00,At Cincinnati,-13.5,Detroit,42,-$800 +$600,13,2009,12,Sun,CIN,DET
+12/6/09 13:00,New Orleans,-9,At Washington,47,-$460 +$360,13,2009,12,Sun,NO,WAS
+12/6/09 13:00,At Carolina,-4,Tampa Bay,40,-$200 +$170,13,2009,12,Sun,CAR,TB
+12/6/09 13:00,At Chicago,-9,St. Louis,41,-$460 +$360,13,2009,12,Sun,CHI,STL
+12/6/09 16:05,San Diego,-14,At Cleveland,42.5,-$850 +$600,13,2009,12,Sun,SD,CLE
+12/6/09 16:15,San Francisco,-1,At Seattle,41.5,-$120 +$100,13,2009,12,Sun,SF,SEA
+12/6/09 20:20,Minnesota,-3.5,At Arizona,48.5,-$180 +$160,13,2009,12,Sun,MIN,ARI
+12/6/09 16:15,Dallas,-1.5,At NY Giants,45.5,-$125 +$105,13,2009,12,Sun,DAL,NYG
+12/6/09 13:00,New England,-5.5,At Miami,46,-$240 +$200,13,2009,12,Sun,NE,MIA
+12/10/09 20:20,Pittsburgh,-9.5,At Cleveland,34,-$550 +$400,14,2009,12,Thu,PIT,CLE
+12/14/09 20:35,Arizona,-4,At San Francisco,45,-$225 +$185,14,2009,12,Mon,ARI,SF
+12/13/09 13:00,At Indianapolis,-6.5,Denver,43.5,-$295 +$240,14,2009,12,Sun,IND,DEN
+12/13/09 13:00,At Minnesota,-6,Cincinnati,42.5,-$260 +$215,14,2009,12,Sun,MIN,CIN
+12/13/09 13:00,NY Jets,-3.5,At Tampa Bay,36.5,-$190 +$165,14,2009,12,Sun,NYJ,TB
+12/13/09 13:00,Buffalo,-2.5,At Kansas City,38,-$150 +$140,14,2009,12,Sun,BUF,KC
+12/13/09 13:00,Green Bay,-4,At Chicago,41.5,-$215 +$185,14,2009,12,Sun,GB,CHI
+12/13/09 13:00,New Orleans,-10,At Atlanta,50,-$525 +$400,14,2009,12,Sun,NO,ATL
+12/13/09 13:00,At Baltimore,-14,Detroit,40,-$900 +$600,14,2009,12,Sun,BAL,DET
+12/13/09 13:00,At Jacksonville,-2,Miami,43,-$130 +$110,14,2009,12,Sun,JAC,MIA
+12/13/09 13:00,At New England,-12.5,Carolina,43.5,-$675 +$450,14,2009,12,Sun,NE,CAR
+12/13/09 13:00,At Houston,-7,Seattle,44.5,-$330 +$260,14,2009,12,Sun,HOU,SEA
+12/13/09 16:05,At Tennessee,-14,St. Louis,40,-$800 +$600,14,2009,12,Sun,TEN,STL
+12/13/09 16:05,Washington,-2,At Oakland,37.5,-$135 +$115,14,2009,12,Sun,WAS,OAK
+12/13/09 16:15,At Dallas,-3.5,San Diego,49,-$180 +$155,14,2009,12,Sun,DAL,SD
+12/13/09 20:20,Philadelphia,-1,At NY Giants,43,-$120 +$100,14,2009,12,Sun,PHI,NYG
+12/19/09 20:20,At New Orleans,-7.5,Dallas,53.5,-$350 +$280,15,2009,12,Sat,NO,DAL
+12/17/09 20:20,Indianapolis,-3,At Jacksonville,43,-$175 +$155,15,2009,12,Thu,IND,JAC
+12/21/09 20:35,NY Giants,-3,At Washington,44,-$140 +$120,15,2009,12,Mon,NYG,WAS
+12/20/09 16:15,At Pittsburgh,-3,Green Bay,42,-$145 +$125,15,2009,12,Sun,PIT,GB
+12/20/09 13:00,At Tennessee,-5,Miami,43,-$230 +$190,15,2009,12,Sun,TEN,MIA
+12/20/09 13:00,New England,-7,At Buffalo,41,-$325 +$255,15,2009,12,Sun,NE,BUF
+12/20/09 13:00,Arizona,-14,At Detroit,47,-$1000 +$700,15,2009,12,Sun,ARI,DET
+12/20/09 16:15,At Philadelphia,-7.5,San Francisco,41,-$350 +$280,15,2009,12,Sun,PHI,SF
+12/20/09 13:00,At NY Jets,-5.5,Atlanta,36,-$250 +$210,15,2009,12,Sun,NYJ,ATL
+12/20/09 16:15,At Baltimore,-11,Chicago,39.5,-$600 +$425,15,2009,12,Sun,BAL,CHI
+12/20/09 13:00,At Kansas City,-2.5,Cleveland,38.5,-$145 +$125,15,2009,12,Sun,KC,CLE
+12/20/09 13:00,Houston,-14,At St. Louis,43.5,-$1000 +$700,15,2009,12,Sun,HOU,STL
+12/20/09 16:05,At San Diego,-7,Cincinnati,44,-$310 +$250,15,2009,12,Sun,SD,CIN
+12/20/09 16:05,At Denver,-14,Oakland,37,-$1000 +$700,15,2009,12,Sun,DEN,OAK
+12/20/09 16:15,At Seattle,-6.5,Tampa Bay,39,-$290 +$235,15,2009,12,Sun,SEA,TB
+12/20/09 20:20,Minnesota,-8.5,At Carolina,42.5,-$400 +$325,15,2009,12,Sun,MIN,CAR
+12/25/09 19:30,At Tennessee,-1.5,San Diego,47.5,-$125 +$105,16,2009,12,Fri,TEN,SD
+12/28/09 20:35,Minnesota,-8.5,At Chicago,41.5,-$400 +$330,16,2009,12,Mon,MIN,CHI
+12/27/09 13:00,At Green Bay,-13.5,Seattle,43.5,-$850 +$600,16,2009,12,Sun,GB,SEA
+12/27/09 13:00,At Cleveland,-3,Oakland,37,-$170 +$150,16,2009,12,Sun,CLE,OAK
+12/27/09 13:00,At Cincinnati,-13.5,Kansas City,39.5,-$675 +$475,16,2009,12,Sun,CIN,KC
+12/27/09 13:00,At Atlanta,-8,Buffalo,40,-$370 +$305,16,2009,12,Sun,ATL,BUF
+12/27/09 13:00,At Miami,-1.5,Houston,46.5,-$125 +$105,16,2009,12,Sun,MIA,HOU
+12/27/09 13:00,At NY Giants,-8.5,Carolina,42.5,-$370 +$310,16,2009,12,Sun,NYG,CAR
+12/27/09 13:00,At New Orleans,-14,Tampa Bay,48.5,-$850 +$600,16,2009,12,Sun,NO,TB
+12/27/09 13:00,At New England,-9.5,Jacksonville,44,-$450 +$325,16,2009,12,Sun,NE,JAC
+12/27/09 13:00,At Pittsburgh,-3,Baltimore,43,-$145 +$125,16,2009,12,Sun,PIT,BAL
+12/27/09 16:15,At Philadelphia,-7,Denver,43.5,-$300 +$250,16,2009,12,Sun,PHI,DEN
+12/27/09 16:05,At Arizona,-16.5,St. Louis,43.5,-$1300 +$850,16,2009,12,Sun,ARI,STL
+12/27/09 16:05,At San Francisco,-14,Detroit,41,-$900 +$650,16,2009,12,Sun,SF,DET
+12/27/09 16:15,At Indianapolis,-3,NY Jets,40.5,-$185 +$165,16,2009,12,Sun,IND,NYJ
+12/27/09 20:20,Dallas,-7,At Washington,42,-$320 +$260,16,2009,12,Sun,DAL,WAS
+1/3/09 13:00,At Buffalo,-8,Indianapolis,32,-$380 +$310,17,2009,1,Sat,BUF,IND
+1/3/09 13:00,At Carolina,-10,New Orleans,41,-$420 +$350,17,2009,1,Sat,CAR,NO
+1/3/09 13:00,At Cleveland,-2,Jacksonville,35,-$135 +$115,17,2009,1,Sat,CLE,JAC
+1/3/09 16:15,At Dallas,-3,Philadelphia,47.5,-$155 +$135,17,2009,1,Sat,DAL,PHI
+1/3/09 13:00,Chicago,-4.5,At Detroit,44.5,-$230 +$190,17,2009,1,Sat,CHI,DET
+1/3/09 13:00,At Houston,-8,New England,46.5,-$320 +$260,17,2009,1,Sat,HOU,NE
+1/3/09 13:00,Pittsburgh,-3,At Miami,45.5,-$160 +$140,17,2009,1,Sat,PIT,MIA
+1/3/09 13:00,At Minnesota,-8,NY Giants,48,-$360 +$290,17,2009,1,Sat,MIN,NYG
+1/3/09 20:20,At NY Jets,-10,Cincinnati,33.5,-$550 +$425,17,2009,1,Sat,NYJ,CIN
+1/3/09 13:00,San Francisco,-7,At St. Louis,39.5,-$300 +$250,17,2009,1,Sat,SF,STL
+1/3/09 13:00,Atlanta,-3,At Tampa Bay,42,-$155 +$135,17,2009,1,Sat,ATL,TB
+1/3/09 16:15,At Arizona,-3,Green Bay,42,-$155 +$135,17,2009,1,Sat,ARI,GB
+1/3/09 16:15,At Denver,-9,Kansas City,38,-$425 +$330,17,2009,1,Sat,DEN,KC
+1/3/09 16:15,Baltimore,-10,At Oakland,39,-$550 +$425,17,2009,1,Sat,BAL,OAK
+1/3/09 16:15,At San Diego,-3,Washington,39,-$170 +$150,17,2009,1,Sat,SD,WAS
+1/3/09 16:15,Tennessee,-6,At Seattle,45,-$270 +$230,17,2009,1,Sat,TEN,SEA
