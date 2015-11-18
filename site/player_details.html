@@ -81,6 +81,9 @@
                             </tr>
                         </table>
                     </div>
+                    <div id='playerviz'>
+                        <img id = 'distimage' src='' alt='Player Distribution Unavailable' style='width:600px;height:400px'>
+                    </div>
                 </div>
             </template>
         </div>
@@ -113,6 +116,11 @@
             sessionStorage.clear();
 
             $.getJSON("predictions.json", function( data ) {
+                // sort the data before it is displayed
+                data.sort(function(a, b) {
+                    return parseFloat(b.rushing_yds) - parseFloat(a.rushing_yds);
+                });
+
                 $.each(data, function( index, val ) {
                     var li = document.createElement('li');
                     li.innerHTML = "<a href='player_details.html?player_id=" +
@@ -170,6 +178,8 @@
                     var stat_dom = template.querySelector('#' + stat);
                     stat_dom.textContent = round(player[stat],2);
                 });
+                var distimage = template.querySelector('#distimage')
+                distimage.src = 'distimages/'+player.week+'/' + player_id + '_StandardPoints.png'
                 var clone = document.importNode(template, true);
                 var oldcontent = document.querySelector('#playercontent');
                 oldcontent.parentNode.replaceChild(clone, oldcontent);
@@ -178,3 +188,4 @@
     </script>
   </body>
 </html>
+

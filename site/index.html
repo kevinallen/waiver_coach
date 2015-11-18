@@ -54,9 +54,13 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div id="playercontent">
-                <h2 class="page-header">Welcome to the Waiver Coach!</h2>
+                <p class="lead">Waiver Coach is your personal fantasy football assistant. It will help you quickly find <em>available players</em> relevant to your unique situation.
+                <br/>
+                <br/>
+                In order to make the best use of the site, please <strong>sign in</strong>.</p>
             </div>
             <button id='login' onclick="login('yahoo');">Sign in to Yahoo</button>
+            <div id='yahoocontent'></div>
         </div>
       </div>
     </div>
@@ -79,6 +83,12 @@
 
             //build the left navigation with player names from json
             $.getJSON("predictions.json", function( data ) {
+                // sort the data before it is displayed
+                data.sort(function(a, b) {
+                    return parseFloat(b.rushing_yds) - parseFloat(a.rushing_yds);
+                });
+
+
                 $.each(data, function( index, val ) {
                     var li = document.createElement('li');
                     li.innerHTML = "<a href='player_details.html?player_id=" +

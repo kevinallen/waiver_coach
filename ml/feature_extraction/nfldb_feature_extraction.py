@@ -3,8 +3,13 @@ import pandas as pd
 import numpy as np
 import re
 import math
+import pickle
 
 from sklearn.base import TransformerMixin
+from ml.helpers.nfldb_helpers import week_player_id_list
+from ml.helpers.nfldb_helpers import player_current_game_info
+from ml.helpers.testing_helpers import split_by_year_week
+from sklearn.pipeline import Pipeline
 
 # rs_time stands for regular season time
 # this is elapsed weeks of regular season
@@ -28,7 +33,7 @@ def inverse_rs_time(rs_t, base_year=1970):
 def rs_time_df(obj, base_year=1970):
 	return rs_time(year=obj.year, week=obj.week, base_year=base_year)
 
-# this function fills in missing weeks for each player and 
+# this function fills in missing weeks for each player and
 # creates a variable called "played"
 def fill_time_of_group(group, stats, player_info, group_by='player_id'):
 
@@ -83,6 +88,7 @@ def player_week2dataframe(db, yr_wk, stats, player_info, player_ids=None, positi
 			q.player(position=position)
 		if(player_ids):
 			q.player(player_id=player_ids)
+			# create copy of player_ids to remove as handled
 			player_ids_i = list(player_ids)
 		# loop through PlayPlayer objects, aggregated for the week
 		for pp in q.as_aggregate():
@@ -217,7 +223,20 @@ def filter_played_percent(df, pct_played_threshold):
 	col_matches = [col for col in col_names if re_pat.search(col)]
 	return df[df[col_matches].fillna(value=0).mean(axis=1) >= pct_played_threshold]
 
+### Add column to dataframe to use as a unique key to join
+# other datasets (e.g., projections scraped from web).
+# Creates a name_key when passed a dataframe row-wise
+def make_name_key(df):
+	# building duplicates dict manually for now
+	duplicates = {('DAVIDJOHNSON','TE'):'DAVIDJOHNSON1',
+		('RYANGRIFFIN','TE'):'RYANGRIFFIN'}
 
+	full_name = df['full_name']
+	pos = df['position']
+	name_key = re.sub(r"[\.,\s\']","", full_name).upper()
+	if (name_key,pos) in duplicates:
+	    name_key = duplicates[(name_key,pos)]
+	return name_key
 
 class WeeklyPlayerData(TransformerMixin):
 	def __init__(self, db, yr_wk=None, fill_time=True, stats=[], player_info=['player_id','full_name','position'],position=None):
@@ -236,7 +255,7 @@ class WeeklyPlayerData(TransformerMixin):
 	def transform(self, X=None):
 		# X does nothing for this function
 		# this function essentially pulls data
-		# However, may change that later - X may 
+		# However, may change that later - X may
 		# be a list of player names to get or something
 		return player_week2dataframe(player_ids=X, db=self.db, yr_wk=self.yr_wk, stats=self.stats, fill_time=self.fill_time, player_info=self.player_info, position=self.position)
 	def get_params(self, deep=True):
@@ -330,4 +349,116 @@ class FilterPlayedPercent(TransformerMixin):
 			setattr(self, parameter, value)
 		return self
 
+class AddNameKey(TransformerMixin):
+	def __init__(self):
+		pass
+	def fit(self, *args, **kwargs):
+		return self
+	def transform(self, X):
+		name_keys = X.apply(make_name_key, axis=1)
+		X.loc[:,'name_key'] = pd.Series(name_keys)
+		return X
+	def get_params(self, deep=True):
+		return {}
+	def set_params(self, **parameters):
+		for parameter, value in parameters.items():
+			setattr(self, parameter, value)
+		return self
 
+# which stats are relevant for predicting a position
+def position_stats(position):
+    if position == 'RB':
+        return(['receiving_rec', 'receiving_tar', 'receiving_tds', 'receiving_yac_yds', 'receiving_yds', 'rushing_att', 'rushing_tds','rushing_yds'])
+
+# load feature set for training - returns tuple of (data, pipeline, list-of-stats)
+def load_feature_set(db, cache_path='../data', position='RB', load_cached=True, nlag=6, to_yr_wk=(2015, 6), stat_override=None):
+    if(not load_cached):
+        # make player data transformer
+        yr_wk = [(j, i) for j in range(2009,to_yr_wk[0]) for i in range(1,18)]
+        yr_wk += [(to_yr_wk[0], i) for i in range(1,to_yr_wk[1]+1)]
+
+        if(stat_override):
+            stats = stat_override
+        else:
+            stats = position_stats(position)
+
+        player_info = ['player_id','full_name','position']
+        playerData = WeeklyPlayerData(db=db, yr_wk=yr_wk, stats=stats, player_info=player_info, fill_time=True, position=position)
+
+        # creates lags of the data
+        lag_cols = ['year', 'week', 'played'] + stats
+        lagData = LagPlayerData(nlag=nlag, groupby_cols=['player_id'], lag_cols=lag_cols, same_year_bool=True)
+
+        # creates means of the data
+        mean_cols = stats
+        meanData = MeanPlayerData(groupby_cols=['player_id'], mean_cols=mean_cols)
+
+        # pipeline for getting data
+        pipe1 = Pipeline(steps=[('data',playerData), ('lag',lagData), ('mean',meanData)])
+        #processed_data = pipe1.fit_transform(X=None)
+
+        # print processed_data
+        # pipeline for seting which columns we want and handling NaN
+        pct_played_threshold = 0.0
+        pipe2_steps = [('handle',HandleNaN(method='fill')), ('filterplayed',FilterPlayedPercent(pct_played_threshold=pct_played_threshold))]
+        pipe2 = Pipeline(steps=pipe2_steps)
+
+        pipe = Pipeline([('pipe1',pipe1),('pipe2',pipe2)])
+
+        all_columns = pipe.fit_transform(X=None)
+        all_columns.position = all_columns.position.astype(str)
+
+        # pickle files
+        pickle.dump(pipe.set_params(pipe1__data__db=None), open(cache_path + '/pipe_'+position+'.p', 'wb'))
+        pickle.dump(all_columns, open(cache_path + '/data_'+position+'.p', 'wb'))
+    else:
+        # Load from "cached" (pickled) transformer and data
+        # data
+		all_columns = pickle.load(open(cache_path + '/data_'+position+'.p', 'rb'))
+        # pipeline
+		pipe = pickle.load(open(cache_path + '/pipe_'+position+'.p', 'rb'))
+        # retrieve the list of stats that was predicted
+		pipe_params = pipe.get_params()
+		stats = pipe_params['pipe1__data__stats']
+
+    pipe.set_params(pipe1__data__db=db)
+
+    return (all_columns, pipe, stats)
+
+
+# load features set for prediciton - return tuple of (data, index-of-data-for-predictions, info-about-players-in-data, (year, week))
+def prediction_feature_set(db, pipe, infoColumns, pred_year=None, pred_week=None, player_ids=None):
+    pipe.set_params(pipe1__data__db=db)
+
+    ### prediction data
+    # get information we need to make predictions
+    season_phase, cur_year, cur_week = nfldb.current(db)
+    if(pred_year is None):
+        pred_year = cur_year
+
+    if(pred_week is None):
+        pred_week = cur_week + 1
+
+    pred_yr_wk = [(j, i) for j in range(2009,pred_year-1) for i in range(1,18)]
+    pred_yr_wk += [(pred_year, i) for i in range(1,pred_week+1)]
+
+    pipe.set_params(pipe1__data__yr_wk = pred_yr_wk)
+
+    if(player_ids is None):
+        player_ids = week_player_id_list(db, pred_year, pred_week, position='RB')
+
+    pred_data = pipe.fit_transform(player_ids)
+    pred_info = infoColumns.fit_transform(X=pred_data)
+
+    # get extra info like team and opponent
+    # should probably be put in to infoColumns transformer later
+    extra_info = player_current_game_info(db, year=pred_year, week=pred_week, player_ids = list(pred_info['player_id']))
+    join_on = ['player_id']
+    add_on = ['team', 'opp_team', 'at_home']
+    pred_info = pred_info.join(extra_info.set_index(join_on).loc[:,add_on], on=join_on)
+
+    # predict for the last week
+    pred_yr_wk_t = [pred_yr_wk[-1]]
+    garbage_i, predict_i = split_by_year_week(pred_data, pred_yr_wk_t)
+
+    return((pred_data, predict_i, pred_info, (pred_year, pred_week)))
