@@ -26,6 +26,7 @@ from sklearn.neighbors import KernelDensity
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.pipeline import Pipeline
 from sklearn.pipeline import FeatureUnion
+from sklearn.cross_validation import cross_val_predict
 
 def fit_predict(model, X_train, y_train, X_test = None, y_test = None, predict_proba = False):
     model = model.fit(X_train, y_train)
@@ -45,6 +46,52 @@ def fit_predict(model, X_train, y_train, X_test = None, y_test = None, predict_p
             return_obj += ({'rmse':rmse, 'mae':mae},)
 
     return(return_obj)
+
+def build_vegas_dataframe(X, y, row_info, model, db, y_col):
+    # get vegas data
+    client = MongoClient()
+    mdb = client.data
+    vegas = VegasData(mdb)
+    vegas_pipe = Pipeline(steps=[('vegas', vegas)])
+    vegas_data = vegas_pipe.fit_transform(X=None)
+
+    # create a new training set with predicted values and vegas data
+    cols = ['full_name','player_id','week','year']
+    X_info = row_info[cols]
+
+    # get model output
+    predicted = cross_val_predict(model, X=X, y=y, n_jobs=-1)
+    X_info.loc[:,y_col] = predicted
+
+    team_info = player_team_info(db)
+    with_team = pd.merge(X_info, team_info, how='inner', on=['player_id','year','week'])
+    with_vegas = pd.merge(with_team, vegas_data, how='left',
+        left_on=['team','week','year'],
+        right_on=['Favorite_Abbr','Week','Year'])
+    X = pd.merge(with_vegas, vegas_data, how='left',
+        left_on=['team','week','year'],
+        right_on=['Underdog_Abbr','Week','Year'])
+
+    # TODO: dummy code weekday, month
+    # TODO: discuss whether looking at home team here makes sense
+    cols_to_fill = ['Favorite_Abbr','Underdog_Abbr','Spread','Total']
+    for col in cols_to_fill:
+        X.loc[:,col] = X[col+'_x'].fillna(X[col+'_y'])
+
+    # determine if player's team is favored
+    X.loc[:,'is_favorite'] = X['team'] == X['Favorite_Abbr']
+    # want look at interaction of spread and favorite because
+    # otherwise spread is ambiguous
+    X.loc[:,'is_favorite'] = X['is_favorite'].map({True:1, False:-1})
+    X.loc[:,'spread_X_favorite'] = X['is_favorite']*X['Spread']
+
+    # get rid of unnecessary columns
+    cols_to_drop = [col for col in X.columns if '_x' in col or '_y' in col]
+    cols_to_drop.extend(['Favorite_Abbr','Underdog_Abbr','Spread'])
+    X.drop(cols_to_drop, axis=1, inplace=True)
+
+    info_cols = ['full_name','player_id','week','year']
+    return X
 
 def main(vegas_adjustment=False, run_query=False):
     #pred_week = None
@@ -147,23 +194,48 @@ def main(vegas_adjustment=False, run_query=False):
             predict_proba=predict_proba)
 
         if vegas_adjustment and y_col != 'played':
-            client = MongoClient()
-            mdb = client.data
-            vegas = VegasData(mdb)
-            vegas_pipe = Pipeline(steps=[('vegas', vegas)])
-            vegas_data = vegas_pipe.fit_transform(X=None)
-            cols = ['full_name','player_id','week','year']
-            X_train = X_train_info[cols]
-            print gb_test.shape
-            print X_train.shape
-            print X_train.head
-            team_info = player_team_info(db)
-            joined = pd.merge(X_train, team_info, how='inner', on=['player_id','year','week'])
-            print joined.head
-            exit()
+            print '-'*50
+            print 'Adjusted Prediction:', y_col
+            X_train_all = build_vegas_dataframe(X=X_train, y=y_train,
+                row_info=X_train_info, model=gb, db=db, y_col=y_col)
+            X_test_all = build_vegas_dataframe(X=X_test, y=y_test,
+                row_info=X_test_info, model=gb, db=db, y_col=y_col)
+
+            features=[y_col, 'Total','is_favorite','spread_X_favorite']
+            X_cols = ExtractColumns(exact=features)
+            X_train = X_cols.fit_transform(X=X_train_all)
+            X_test = X_cols.fit_transform(X=X_test_all)
+
+            gb_a, gb_test_a, gb_scores_a = fit_predict(
+                model=models['gb'],
+                X_train=X_train,
+                y_train=y_train,
+                X_test=X_test,
+                y_test=y_test)
+
+            rf_a, rf_test_a, rf_scores_a = fit_predict(
+                model=models['rf'],
+                X_train=X_train,
+                y_train=y_train,
+                X_test=X_test,
+                y_test=y_test)
+
+            lin_a, lin_test_a, lin_scores_a = fit_predict(
+                model=models['lin'],
+                X_train=X_train,
+                y_train=y_train,
+                X_test=X_test,
+                y_test=y_test)
+
+            print 'Predicting %s' % (y_col)
+            print 'Gradient Boosting: RMSE %.2f | MAE %.2f' % (gb_scores_a['rmse'], gb_scores_a['mae'])
+            print 'Random Forest: RMSE %.2f | MAE %.2f' % (rf_scores_a['rmse'], rf_scores_a['mae'])
+            print '%s Regression: RMSE %.2f | MAE %.2f' % ('Linear', lin_scores_a['rmse'], lin_scores_a['mae'])
+
+        print '-'*50
+        print 'Unadjusted Prediction:', y_col
 
         # Print Results
-        print 'Predicting %s' % (y_col)
         print 'Gradient Boosting: RMSE %.2f | MAE %.2f' % (gb_scores['rmse'], gb_scores['mae'])
         print 'Random Forest: RMSE %.2f | MAE %.2f' % (rf_scores['rmse'], rf_scores['mae'])
         print '%s Regression: RMSE %.2f | MAE %.2f' % ('Logistic' if predict_proba else 'Linear', lin_scores['rmse'], lin_scores['mae'])
