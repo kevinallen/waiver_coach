@@ -57,41 +57,47 @@ def build_vegas_dataframe(X, y, row_info, model, db, y_col):
 
     # create a new training set with predicted values and vegas data
     cols = ['full_name','player_id','week','year']
-    X_info = row_info[cols]
+    X_with_info = row_info[cols]
 
     # get model output
-    predicted = cross_val_predict(model, X=X, y=y, n_jobs=-1)
-    X_info.loc[:,y_col] = predicted
+    lr = LinearRegression()
+    predicted = cross_val_predict(lr, X, y)
+    X_with_info.loc[:,y_col] = predicted
+
 
     team_info = player_team_info(db)
-    with_team = pd.merge(X_info, team_info, how='inner', on=['player_id','year','week'])
+    with_team = pd.merge(X_with_info, team_info, how='inner', on=['player_id','year','week'])
     with_vegas = pd.merge(with_team, vegas_data, how='left',
         left_on=['team','week','year'],
         right_on=['Favorite_Abbr','Week','Year'])
-    X = pd.merge(with_vegas, vegas_data, how='left',
+    X_vegas = pd.merge(with_vegas, vegas_data, how='left',
         left_on=['team','week','year'],
         right_on=['Underdog_Abbr','Week','Year'])
 
     # TODO: dummy code weekday, month
     # TODO: discuss whether looking at home team here makes sense
+
+    # combine columns with NaN values, caused by left joins above
     cols_to_fill = ['Favorite_Abbr','Underdog_Abbr','Spread','Total']
     for col in cols_to_fill:
-        X.loc[:,col] = X[col+'_x'].fillna(X[col+'_y'])
+        X_vegas.loc[:,col] = X_vegas[col+'_x'].fillna(X_vegas[col+'_y'])
 
     # determine if player's team is favored
-    X.loc[:,'is_favorite'] = X['team'] == X['Favorite_Abbr']
+    X_vegas.loc[:,'is_favorite'] = X_vegas['team'] == X_vegas['Favorite_Abbr']
     # want look at interaction of spread and favorite because
-    # otherwise spread is ambiguous
-    X.loc[:,'is_favorite'] = X['is_favorite'].map({True:1, False:-1})
-    X.loc[:,'spread_X_favorite'] = X['is_favorite']*X['Spread']
+    # otherwise spread is ambiguous, mapping False to -1 so sign of spread
+    # is reversed
+    X_vegas.loc[:,'is_favorite'] = X_vegas['is_favorite'].map({True:1, False:-1})
+    X_vegas.loc[:,'spread_x_favorite'] = X_vegas['is_favorite']*X_vegas['Spread']
 
     # get rid of unnecessary columns
-    cols_to_drop = [col for col in X.columns if '_x' in col or '_y' in col]
+    cols_to_keep = ['full_name','player_id','week','year','team','Total',
+        'is_favorite','spread_x_favorite', y_col]
+    cols_to_drop = [col for col in X_vegas.columns if col not in cols_to_keep]
     cols_to_drop.extend(['Favorite_Abbr','Underdog_Abbr','Spread'])
-    X.drop(cols_to_drop, axis=1, inplace=True)
+    X_vegas.drop(cols_to_drop, axis=1, inplace=True)
 
-    info_cols = ['full_name','player_id','week','year']
-    return X
+    return X_vegas
 
 def main(vegas_adjustment=False, run_query=False):
     #pred_week = None
@@ -196,12 +202,13 @@ def main(vegas_adjustment=False, run_query=False):
         if vegas_adjustment and y_col != 'played':
             print '-'*50
             print 'Adjusted Prediction:', y_col
+
             X_train_all = build_vegas_dataframe(X=X_train, y=y_train,
                 row_info=X_train_info, model=gb, db=db, y_col=y_col)
             X_test_all = build_vegas_dataframe(X=X_test, y=y_test,
                 row_info=X_test_info, model=gb, db=db, y_col=y_col)
 
-            features=[y_col, 'Total','is_favorite','spread_X_favorite']
+            features = [y_col, 'Total','is_favorite','spread_x_favorite']
             X_cols = ExtractColumns(exact=features)
             X_train = X_cols.fit_transform(X=X_train_all)
             X_test = X_cols.fit_transform(X=X_test_all)
@@ -228,13 +235,13 @@ def main(vegas_adjustment=False, run_query=False):
                 y_test=y_test)
 
             print 'Predicting %s' % (y_col)
+            print lin_a.coef_
             print 'Gradient Boosting: RMSE %.2f | MAE %.2f' % (gb_scores_a['rmse'], gb_scores_a['mae'])
             print 'Random Forest: RMSE %.2f | MAE %.2f' % (rf_scores_a['rmse'], rf_scores_a['mae'])
             print '%s Regression: RMSE %.2f | MAE %.2f' % ('Linear', lin_scores_a['rmse'], lin_scores_a['mae'])
 
         print '-'*50
         print 'Unadjusted Prediction:', y_col
-
         # Print Results
         print 'Gradient Boosting: RMSE %.2f | MAE %.2f' % (gb_scores['rmse'], gb_scores['mae'])
         print 'Random Forest: RMSE %.2f | MAE %.2f' % (rf_scores['rmse'], rf_scores['mae'])
