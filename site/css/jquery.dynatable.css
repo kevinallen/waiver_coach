@@ -13,10 +13,37 @@ th a {
   color: #fff;
 }
 */
+
 th a:hover {
   /*color: #fff;*/
   text-decoration: underline;
 }
+
+a.dynatable-sort-header{
+  color: #34282C;
+}
+
+th, td{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+th{
+  padding-bottom: 5px;
+  border-bottom: 2px solid #848482;
+}
+
+th.table_number {
+  text-align: right;
+  white-space: nowrap;
+}
+
+td{
+  padding-top: 5px;
+  border-bottom: 1px solid #D1D0CE;
+  font-size: 12px;
+}
+
 
 .dynatable-search {
   float: right;

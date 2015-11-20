@@ -1,3 +1,7 @@
+function player_url(player_row){
+	return("player_details.html?player_id="+player_row['player_id'])
+}
+
 function json2table(json_url, table_id, col_config){
 	$.getJSON(json_url, function(data) {
 		var tbl_body = '';
@@ -15,7 +19,13 @@ function json2table(json_url, table_id, col_config){
 				}
 				col_display[col] = col_head
 
-				tbl_head += '<th>'+col_head+'</th>'
+				if(config['number']){
+					// add header for number rows for different formatting (float right)
+					tbl_head += '<th class="table_number">'+col_head+'</th>'	
+				} else{
+					tbl_head += '<th>'+col_head+'</th>'	
+				}
+				
 			}
 			
 		})
@@ -30,8 +40,17 @@ function json2table(json_url, table_id, col_config){
 				if(config){
 					if(config['number']){
 						v = parseFloat(v).toFixed(config['fixed_digits'])
+						//tbl_row += '<td class="table_number" align="right">'+v+'</td>'	
+					} else{
+						//tbl_row += '<td>'+v+'</td>'		
 					}
-					tbl_row += '<td>'+v+'</td>'	
+
+					// link to player's page
+					if(col === 'full_name'){
+						v = '<a href="'+player_url(row)+'">'+v+'</a>'
+					}
+
+					tbl_row += '<td>'+v+'</td>'		
 				}
 			})
 			tbl_body += "<tr>"+tbl_row+'</tr>'
@@ -48,10 +67,14 @@ function json2table(json_url, table_id, col_config){
 		$('#'+table_id+' tbody').html(tbl_body)
 		$('#'+table_id).dynatable({
 			table: {
-			    defaultColumnIdStyle: 'lowercase'
+			    defaultColumnIdStyle: 'lowercase',
+			    copyHeaderClass: true, // copies <th> class to cells
+			    copyClass: true
 			  },
 			dataset: {
-				sortTypes: sortTypeObj
+				sortTypes: sortTypeObj,
+				perPageDefault: 50,
+    			perPageOptions: [20,50,100,200]
 			}
 		});
 	})
@@ -66,5 +89,8 @@ col_config = {
 	'receiving_yds': {'displayName': 'Rec Yards', 'number':true, 'fixed_digits':0},
 	'receiving_tds': {'displayName': 'Rec TDs', 'number':true, 'fixed_digits':2},
 }
+
+// TODO
+// Make player names links to player page
 
 json2table('predictions.json', 'target_table', col_config)
