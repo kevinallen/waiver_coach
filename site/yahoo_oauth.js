@@ -17,7 +17,7 @@ function showProps(obj, objName) {
           var league = obj;
           result += "<h4>League</h4>";
           result += "<div><a href="+league.url+">"+league.name+"</a> "+league.league_key+"</div>";
-		  result += '<button id="players" onclick="players("yahoo");">Show Players</button>';
+		  result += '<button id="players" onclick="players();">Show Players</button>';
           break;
       }
 	  
@@ -60,8 +60,9 @@ function login(network){
 	  
 }
 
-function players(network){
+function players(){
 	// Get player info
+	network = 'yahoo'
 	hello( network ).login().then(function(){
 		return hello( network ).api('me');
 	}).then(function(){
