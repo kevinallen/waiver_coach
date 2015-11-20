@@ -12,7 +12,7 @@ function showProps(obj, objName) {
           if (league.hasOwnProperty('league_key')) {
               result += "<div><a href="+league.url+">"+league.name+"</a> "+league.league_key+"</div>";
           }
-		  result += '<button id="players" onclick="players("yahoo");">Show Players</button>';
+		  result += '<button id="players" onclick="players();">Show Players</button>';
       } else {
           var league = obj;
           result += "<h4>League</h4>";
@@ -53,7 +53,7 @@ function login(network){
 		// Get league info
 		return hello( network ).api('league');
 	}).then(function(d){
-		document.getElementById('yahoocontent').innerHTML = showProps(d, "d");
+		document.getElementById('leaguecontent').innerHTML = showProps(d, "d");
 	}).then(null, function(e){
 		console.error(e);
 	});
@@ -70,7 +70,7 @@ function players(){
 		return
 	*/  
 	hello( network ).api('players').then(function(d){
-		document.getElementById('playercontent').innerHTML = showPlayers(d,"d");
+		document.getElementById('rostercontent').innerHTML = showPlayers(d,"d");
 	}).then(null, function(e){
 		console.error(e);
 	}); 	
