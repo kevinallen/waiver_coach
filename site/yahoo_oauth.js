@@ -26,6 +26,35 @@ function showProps(obj, objName) {
   return result;
 }
 
+function showTeams(obj, objName) {
+  var result = "";
+  console.log(obj);
+  for (var i in obj) {
+      if (typeof obj[i] === null || typeof obj[i] !== "object") {
+          continue;
+      }
+      if (obj instanceof Array) {
+          var team = obj[i];
+          result += "<h4>Team "+i+"</h4>";
+          console.log(team);
+          if (team.hasOwnProperty('team_key')) {
+              result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
+          }
+		  result += '<button id="players" onclick="players();">Show Players</button>';
+      } else {
+          var team = obj;
+          result += "<h4>Team</h4>";
+          result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
+		  result += '<button id="players" onclick="players();">Show Players</button>';
+          break;
+      }
+	  
+
+  }
+  return result;
+}
+
+
 function showPlayers(obj, objName) {
   var result = "";
   console.log(obj);
@@ -36,7 +65,7 @@ function showPlayers(obj, objName) {
       }
 	  var player = obj[i];
 	  console.log(player);
-	  result += "<div>" + player.eligible_positions.position + " - <a href="+player.image_url+">"+player.name.full+"</a> "+"</div>";
+	  result += "<div>" + player.eligible_positions.position + " - "+player.name.full+"</a> "+"</div>";
 
   }
   return result;
@@ -50,10 +79,10 @@ function login(network){
 		document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
 		//document.getElementById('yahoocontent').innerHTML = showProps(p, "p");
 	}).then(function(){
-		// Get league info
-		return hello( network ).api('league');
+		// Get team info
+		return hello( network ).api('teams');
 	}).then(function(d){
-		document.getElementById('leaguecontent').innerHTML = showProps(d, "d");
+		document.getElementById('teamcontent').innerHTML = showProps(d, "d");
 	}).then(null, function(e){
 		console.error(e);
 	});
@@ -63,12 +92,7 @@ function login(network){
 function players(){
 	// Get player info
 	network = 'yahoo'
-	/*
-	hello( network ).login().then(function(){
-		return hello( network ).api('me')
-	}).then(function(){
-		return
-	*/  
+	 
 	hello( network ).api('players').then(function(d){
 		document.getElementById('rostercontent').innerHTML = showPlayers(d,"d");
 	}).then(null, function(e){
