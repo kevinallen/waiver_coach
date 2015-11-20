@@ -12,12 +12,12 @@ function showProps(obj, objName) {
           if (league.hasOwnProperty('league_key')) {
               result += "<div><a href="+league.url+">"+league.name+"</a> "+league.league_key+"</div>";
           }
-		  result += "<button id='players' onclick='players('yahoo');'>Show Players</button>";
+		  result += '<button id="players" onclick="players("yahoo");">Show Players</button>';
       } else {
           var league = obj;
           result += "<h4>League</h4>";
           result += "<div><a href="+league.url+">"+league.name+"</a> "+league.league_key+"</div>";
-		  result += "<button id='players' onclick='players('yahoo');'>Show Players</button>";
+		  result += '<button id="players" onclick="players("yahoo");">Show Players</button>';
           break;
       }
 	  
