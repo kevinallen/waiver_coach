@@ -43,10 +43,9 @@ function showTeams(obj, objName) {
 		  result += '<button id="players" onclick="players();">Show Players</button>';
       } else {
           var queryresults = obj;
-		  console.log(queryresults);
           result += "<h4>Team</h4>";
           result += "<div><a href="+queryresults.url+">"+queryresults.name+"</a> "+queryresults.team_key+"</div>";
-		  for (j in queryresults.roster.players.player) {
+		  for (var j in queryresults.roster.players.player) {
 			  console.log(j);
 			  result += "<div>" + j.eligible_positions.position + " - "+j.name.full+"</a> "+"</div>"; 
 			
