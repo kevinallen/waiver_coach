@@ -63,12 +63,14 @@ function login(network){
 function players(){
 	// Get player info
 	network = 'yahoo'
+	/*
 	hello( network ).login().then(function(){
-		return hello( network ).api('me');
+		return hello( network ).api('me')
 	}).then(function(){
-		return hello( network ).api('players');
-	}).then(function(d){
-		document.getElementById('yahoocontent').innerHTML = showPlayers(d,"d");
+		return
+	*/  
+	hello( network ).api('players').then(function(d){
+		document.getElementById('playercontent').innerHTML = showPlayers(d,"d");
 	}).then(null, function(e){
 		console.error(e);
 	}); 	
