@@ -2,6 +2,21 @@ function player_url(player_row){
 	return("player_details.html?player_id="+player_row['player_id'])
 }
 
+function player_points(player_row, col_config){
+	var totalpoints = 0;
+	$.each(Object.keys(col_config), function(i, col){
+		var config = col_config[col]
+		if(config){
+			var fpoints = config['fpoints']
+			if(fpoints){
+				var statvalue = parseFloat(player_row[col])
+				totalpoints += statvalue * fpoints
+			}
+		}
+	})
+	return(totalpoints)
+}
+
 function json2table(json_url, table_id, col_config){
 	$.getJSON(json_url, function(data) {
 		var tbl_body = '';
@@ -34,12 +49,21 @@ function json2table(json_url, table_id, col_config){
 		$.each(data, function(){
 			var tbl_row = '';
 			var row = this;
+			var fpoints = 0;
+
 			$.each(cols, function(i, col){
 				var config = col_config[col]
-				var v = row[col]
+				
 				if(config){
+					if(config['calculate_points']){
+						var v = String(player_points(row, col_config))
+					} else{
+						var v = row[col]						
+					}
+
 					if(config['number']){
-						v = parseFloat(v).toFixed(config['fixed_digits'])
+						v = parseFloat(v)
+						v = v.toFixed(config['fixed_digits'])
 						//tbl_row += '<td class="table_number" align="right">'+v+'</td>'	
 					} else{
 						//tbl_row += '<td>'+v+'</td>'		
@@ -49,7 +73,6 @@ function json2table(json_url, table_id, col_config){
 					if(col === 'full_name'){
 						v = '<a href="'+player_url(row)+'">'+v+'</a>'
 					}
-
 					tbl_row += '<td>'+v+'</td>'		
 				}
 			})
@@ -82,12 +105,13 @@ function json2table(json_url, table_id, col_config){
 
 col_config = {
 	'full_name': {'displayName': 'Name', 'number':false},
-	'rushing_att': {'displayName': 'Rush Att', 'number':true, 'fixed_digits':0},
-	'rushing_yds': {'displayName': 'Rush Yards', 'number':true, 'fixed_digits':0},
-	'rushing_tds': {'displayName': 'Rush TDs', 'number':true, 'fixed_digits':2},
-	'receiving_rec': {'displayName': 'Receptions', 'number':true, 'fixed_digits':0},
-	'receiving_yds': {'displayName': 'Rec Yards', 'number':true, 'fixed_digits':0},
-	'receiving_tds': {'displayName': 'Rec TDs', 'number':true, 'fixed_digits':2},
+	'calculate_points': {'displayName': 'Points', 'calculate_points': true, 'number':true, 'fixed_digits':2},
+	'rushing_att': {'displayName': 'Rush Att', 'number':true, 'fixed_digits':0, 'fpoints':0},
+	'rushing_yds': {'displayName': 'Rush Yards', 'number':true, 'fixed_digits':0, 'fpoints':0.1},
+	'rushing_tds': {'displayName': 'Rush TDs', 'number':true, 'fixed_digits':2, 'fpoints':6},
+	'receiving_rec': {'displayName': 'Receptions', 'number':true, 'fixed_digits':0, 'fpoints':0},
+	'receiving_yds': {'displayName': 'Rec Yards', 'number':true, 'fixed_digits':0, 'fpoints':0.1},
+	'receiving_tds': {'displayName': 'Rec TDs', 'number':true, 'fixed_digits':2, 'fpoints':6},
 }
 
 // TODO
