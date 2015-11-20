@@ -31,11 +31,11 @@ function showPlayers(obj, objName) {
       if (typeof obj[i] === null || typeof obj[i] !== "object") {
           continue;
       }
-      
+      var j = i + 1
 	  var player = obj[i];
-	  result += "<h4>Player "+(i+1)+"</h4>";
+	  result += "<h4>Player "+ j +"</h4>";
 	  console.log(player);
-	  result += "<div><a href="+player.image_url+">"+player.name.full+"</a> "+player.eligible_positions.position+"</div>";
+	  result += "<div>" + player.eligible_positions.position + "<a href="+player.image_url+">"+player.name.full+"</a> "+"</div>";
 
   }
   return result;
