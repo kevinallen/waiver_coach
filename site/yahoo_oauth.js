@@ -59,7 +59,7 @@ function login(network){
 	  
 }
 
-function players(network='yahoo'){
+function players(network){
 	// Get player info
 	hello( network ).login().then(function(){
 		return hello( network ).api('me');
