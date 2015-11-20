@@ -33,9 +33,9 @@ function showPlayers(obj, objName) {
       }
       
 	  var player = obj[i];
-	  result += "<h4>Player "+i+"</h4>";
+	  result += "<h4>Player "+(i+1)+"</h4>";
 	  console.log(player);
-	  result += "<div><a href="+player.image_url+">"+player.name.full+"</a> "+"player.eligible_positions"+"</div>";
+	  result += "<div><a href="+player.image_url+">"+player.name.full+"</a> "+player.eligible_positions.position+"</div>";
 
   }
   return result;
