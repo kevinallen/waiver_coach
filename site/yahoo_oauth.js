@@ -44,7 +44,7 @@ function showTeams(obj, objName) {
       } else {
           var queryresults = obj;
           result += "<h4>Team</h4>";
-          result += "<div><a href="+queryresults.url+">"+queryresults.name+"</a> "+queryresults.team_key+"</div>";
+          result += "<div><a href="+queryresults.team.url+">"+queryresults.team.name+"</a> "+queryresults.team.team_key+"</div>";
 		  for (var j in queryresults.team.roster.players.player) {
 			  result += "<div>" + queryresults.team.roster.players.player[j].eligible_positions.position + " - "+queryresults.team.roster.players.player[j].name.full+"</a> "+"</div>"; 
 			
