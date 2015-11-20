@@ -40,7 +40,8 @@
 				'me/friends': formatFriends,
 				'me/following': formatFriends,
 				'default': paging,
-				'league': formatLeague
+				'league': formatLeague,
+				'players': formatPlayers
 			}
 		}
 	});
@@ -102,7 +103,15 @@
 		if (o.query && o.query.results && o.query.results.league) {
 			o = o.query.results.league;
 		}
-		// This will probably break if you have more than one league...
+		return o;
+	}
+	
+	function formatPlayers(o) {
+		//   NEEDS WORK
+		formatError(o);
+		if (o.query && o.query.results && o.query.results.player) {
+			o = o.query.results.player;
+		}
 		return o;
 	}
 	
