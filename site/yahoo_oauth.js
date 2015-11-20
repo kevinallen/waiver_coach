@@ -1,12 +1,4 @@
 function showProps(obj, objName) {
-  // var result = "";
-  // for (var i in obj) {
-  // console.log(obj[i]);
-  //   if (obj.hasOwnProperty(i)) {
-  //       result += objName + "." + i + " = " + obj[i] + "\n";
-  //   }
-  // }
-
   var result = "";
   console.log(obj);
   for (var i in obj) {
@@ -32,6 +24,23 @@ function showProps(obj, objName) {
   return result;
 }
 
+function showPlayers(obj, objName) {
+  var result = "";
+  console.log(obj);
+  for (var i in obj) {
+      if (typeof obj[i] === null || typeof obj[i] !== "object") {
+          continue;
+      }
+      
+	  var player = obj[i];
+	  result += "<h4>Player "+i+"</h4>";
+	  console.log(player);
+	  result += "<div><a href="+player[i].image_url+">"+player[i].name.full+"</a> "+player[i].eligible_positions+"</div>";
+
+  }
+  return result;
+}
+
 function login(network){
 	hello( network ).login().then(function(){
 		// Get Profile
@@ -48,7 +57,16 @@ function login(network){
 		console.error(e);
 	});
 	// Get player info
-	//hello( network ).api('players');
+	hello( network ).login().then(function(){
+		// Get Profile
+		return hello( network ).api('me');
+	}).then(function(){
+		return hello( network ).api('players');
+	}).then(function(p){
+		document.getElementById('yahoocontent').innerHTML = showPlayers(p,"p");
+	}).then(null, function(e){
+		console.error(e);
+	});  
 }
 
 
