@@ -57,12 +57,14 @@ function login(network){
 		console.error(e);
 	});
 	// Get player info
+	/*
 	hello( network ).login().then(function(){
 		// Get Profile
 		return hello( network ).api('me');
 	}).then(function(){
-		return hello( network ).api('players');
-	}).then(function(p){
+		return
+	*/
+	hello( network ).api('players').then(function(p){
 		document.getElementById('yahoocontent').innerHTML = showPlayers(p,"p");
 	}).then(null, function(e){
 		console.error(e);
