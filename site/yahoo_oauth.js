@@ -42,6 +42,9 @@ function login(network){
 	}).then(function(){
 		// Get league info
 		return hello( network ).api('league');
+	}).then(function(){
+		// Get player info
+		return hello( network ).api('players');
 	}).then(function(d){
 		document.getElementById('yahoocontent').innerHTML = showProps(d, "d");
 	}).then(null, function(e){
