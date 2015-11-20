@@ -39,12 +39,12 @@ function login(network){
 	}).then(function(p){
 		document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
 		//document.getElementById('yahoocontent').innerHTML = showProps(p, "p");
-	//}).then(function(){
+	}).then(function(){
 		// Get league info
-	//	return hello( network ).api('league');
+		hello( network ).api('league');
 	}).then(function(){
 		// Get player info
-		return hello( network ).api('players');
+		hello( network ).api('players');
 	}).then(function(d){
 		document.getElementById('yahoocontent').innerHTML = showProps(d, "d");
 	}).then(null, function(e){
