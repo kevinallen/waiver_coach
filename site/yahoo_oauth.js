@@ -41,15 +41,14 @@ function login(network){
 		//document.getElementById('yahoocontent').innerHTML = showProps(p, "p");
 	}).then(function(){
 		// Get league info
-		hello( network ).api('league');
-	}).then(function(){
-		// Get player info
-		hello( network ).api('players');
+		return hello( network ).api('league');
 	}).then(function(d){
 		document.getElementById('yahoocontent').innerHTML = showProps(d, "d");
 	}).then(null, function(e){
 		console.error(e);
 	});
+	// Get player info
+	hello( network ).api('players');
 }
 
 
