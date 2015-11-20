@@ -31,7 +31,7 @@
 				'me/following': yql('select * from social.contacts(0) where guid=me'),
 				'league': yql('select * from fantasysports.leagues where use_login=1 and game_key=348'),
 				'players': yql('select * from fantasysports.players where league_key="348.l.1341932"'),
-				'teams': yql('select * from fantasysports.teams where use_login=1 and game_key=348')
+				'teams': yql('select * from fantasysports.teams.roster where use_login=1 and game_key=348')
 			},
 			wrap: {
 				me: formatUser,
@@ -121,7 +121,7 @@
 		
 		formatError(o);
 		if (o.query && o.query.results && o.query.results.team) {
-			o = o.query.results.team;
+			o = o.query.results;
 		}
 		return o;
 	}
