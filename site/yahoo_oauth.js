@@ -48,7 +48,7 @@ function login(network){
 		console.error(e);
 	});
 	// Get player info
-	hello( network ).api('players');
+	//hello( network ).api('players');
 }
 
 
