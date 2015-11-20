@@ -82,7 +82,7 @@ function login(network){
 		// Get team info
 		return hello( network ).api('teams');
 	}).then(function(d){
-		document.getElementById('teamcontent').innerHTML = showProps(d, "d");
+		document.getElementById('teamcontent').innerHTML = showTeams(d, "d");
 	}).then(null, function(e){
 		console.error(e);
 	});
