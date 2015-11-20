@@ -56,21 +56,23 @@ function login(network){
 	}).then(null, function(e){
 		console.error(e);
 	});
-	// Get player info
-	/*
-	hello( network ).login().then(function(){
-		// Get Profile
-		return hello( network ).api('me');
-	}).then(function(){
-		return
-	*/
-	hello( network ).api('players').then(function(p){
-		document.getElementById('yahoocontent').innerHTML = showPlayers(p,"p");
-	}).then(null, function(e){
-		console.error(e);
-	});  
+	  
 }
 
+function players(network='yahoo'){
+	// Get player info
+	hello( network ).login().then(function(){
+		return hello( network ).api('me');
+	}).then(function(){
+		return hello( network ).api('players');
+	}).then(function(d){
+		document.getElementById('yahoocontent').innerHTML = showPlayers(d,"d");
+	}).then(null, function(e){
+		console.error(e);
+	}); 	
+	
+  
+}
 
 hello.init({
 	'yahoo' : 'dj0yJmk9T0dUclhxZXpRU2ExJmQ9WVdrOVdqVTJhekp6TXpZbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1hYQ--'
