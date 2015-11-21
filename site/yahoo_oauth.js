@@ -38,6 +38,9 @@ function showTeams(obj, objName) {
           result += "<h4>Team "+i+"</h4>";
           if (team.hasOwnProperty('team_key')) {
               result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
+			  for (var j in team.roster.players.player) {
+				result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>"; 
+			  }
           }
 		  result += '<button id="players" onclick="players();">Show Players</button>';
       } else {
@@ -46,8 +49,6 @@ function showTeams(obj, objName) {
           result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
 		  for (var j in team.roster.players.player) {
 			  result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>"; 
-			
-			
 		  }
 		  
 		  
