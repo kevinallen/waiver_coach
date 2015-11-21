@@ -36,17 +36,16 @@ function showTeams(obj, objName) {
       if (obj instanceof Array) {
           var team = obj[i];
           result += "<h4>Team "+i+"</h4>";
-          console.log(team);
           if (team.hasOwnProperty('team_key')) {
               result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
           }
 		  result += '<button id="players" onclick="players();">Show Players</button>';
       } else {
-          var queryresults = obj;
+          var team = obj;
           result += "<h4>Team</h4>";
-          result += "<div><a href="+queryresults.team.url+">"+queryresults.team.name+"</a> "+queryresults.team.team_key+"</div>";
-		  for (var j in queryresults.team.roster.players.player) {
-			  result += "<div>" + queryresults.team.roster.players.player[j].eligible_positions.position + " - "+queryresults.team.roster.players.player[j].name.full+"</a> "+"</div>"; 
+          result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
+		  for (var j in team.roster.players.player) {
+			  result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>"; 
 			
 			
 		  }
