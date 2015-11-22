@@ -121,7 +121,7 @@
 		
 		formatError(o);
 		if (o.query && o.query.results && o.query.results.team) {
-			o = o.query.results;
+			o = o.query.results.team;
 		}
 		return o;
 	}
