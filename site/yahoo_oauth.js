@@ -20,7 +20,7 @@ function showProps(obj, objName) {
 		  result += '<button id="players" onclick="players();">Show Players</button>';
           break;
       }
-	  
+
 
   }
   return result;
@@ -39,24 +39,21 @@ function showTeams(obj, objName) {
           if (team.hasOwnProperty('team_key')) {
               result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
 			  for (var j in team.roster.players.player) {
-				result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>"; 
+				result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
 			  }
           }
 		  result += '<button id="players" onclick="players();">Show Players</button>';
       } else {
           var team = obj;
-          result += "<h4>Team</h4>";
-          result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
-		  for (var j in team.roster.players.player) {
-			  result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>"; 
-		  }
-		  
-		  
-		  //result += '<button id="players" onclick="players();">Show Players</button>';
-          break;
-      }
-	  
+          if (team.roster.hasOwnProperty('players')) {
+              result += "<h4>Team</h4>";
+              result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
 
+              for (var j in team.roster.players.player) {
+                  result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
+              }
+          }
+      }
   }
   return result;
 }
@@ -93,20 +90,20 @@ function login(network){
 	}).then(null, function(e){
 		console.error(e);
 	});
-	  
+
 }
 
 function players(){
 	// Get player info
 	network = 'yahoo'
-	 
+
 	hello( network ).api('players').then(function(d){
 		document.getElementById('rostercontent').innerHTML = showPlayers(d,"d");
 	}).then(null, function(e){
 		console.error(e);
-	}); 	
-	
-  
+	});
+
+
 }
 
 hello.init({
