@@ -36,7 +36,7 @@ function showTeams(obj, objName) {
       if (obj instanceof Array) {
           var team = obj[i];
           if (team.roster.players === null) {
-              break;
+              continue;
           }
           result += "<h4>Team "+i+"</h4>";
           if (team.hasOwnProperty('team_key')) {
