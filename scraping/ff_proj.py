@@ -3,12 +3,14 @@ from bs4 import BeautifulSoup
 from pymongo import MongoClient
 import re
 
+predict_week = 12
+
 # storing data in mongodb
 client = MongoClient()
 db = client.data
 
 # fftoday only shows data for week 1 through the current week
-wks = [wk for wk in range(1,10)]
+wks = [wk for wk in range(1,predict_week + 1)]
 
 posids = ['10', '20', '30', '40', '80'] # position ids in URL
 positions = {'10':'QB', '20':'RB', '30':'WR', '40':'TE', '80':'K'}
@@ -34,6 +36,8 @@ for wk in wks:
 
         for url in urls:
             soup = BeautifulSoup(urlopen(url), "html.parser")
+            if soup.find('tr',{'class':'tableclmdhr'}) is None:
+                continue
 
             rows = soup.find('tr',{'class':'tableclmhdr'}).find_next_siblings('tr')
 

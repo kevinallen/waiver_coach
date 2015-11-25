@@ -7,8 +7,10 @@ import re
 client = MongoClient()
 db = client.data
 
+predict_week = 12
+
 # espn only shows data for week 1 through the current week
-wks = [wk for wk in range(1,10)]
+wks = [wk for wk in range(1,predict_week + 1)]
 
 stat_labels = ['pass_comp', 'pass_attempts', 'pass_yds', 'pass_tds',
     'pass_int', 'rush_attempts', 'rush_yds', 'rush_tds', 'receptions',
