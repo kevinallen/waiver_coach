@@ -62,7 +62,7 @@ def build_vegas_dataframe(X, y, row_info, model, db, y_col):
     # get model output
     #lr = LinearRegression()
     #predicted = cross_val_predict(lr, X, y)
-    predicted = moel.predict(X)
+    predicted = model.predict(X)
     X_with_info.loc[:,y_col] = predicted
 
 
