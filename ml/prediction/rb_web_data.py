@@ -1,21 +1,22 @@
-from ml.feature_extraction.nfldb_feature_extraction import WeeklyPlayerData
-from ml.feature_extraction.nfldb_feature_extraction import AddNameKey
-from ml.feature_extraction.nfldb_feature_extraction import HandleNaN
-from ml.mongo_helpers.web_helpers import ProjectedPlayerData
-from ml.helpers.testing_helpers import train_test_split_index
-from sklearn.pipeline import Pipeline
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, mean_absolute_error
+import argparse
 from pymongo import MongoClient
 import pandas as pd
 import nfldb
 import scipy as sp
 
-def main():
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+
+from ml.feature_extraction.nfldb_feature_extraction import WeeklyPlayerData
+from ml.feature_extraction.nfldb_feature_extraction import AddNameKey
+from ml.feature_extraction.nfldb_feature_extraction import HandleNaN
+from ml.mongo_helpers.web_helpers import ProjectedPlayerData
+from ml.helpers.testing_helpers import train_test_split_index
+
+def main(y_col, predict_week):
     # get historical data
     db = nfldb.connect()
-    # week to predict stats for
-    predict_week = 9
 
     yr_wk = [(2015, i) for i in range(1,predict_week)]
     stats = ['receiving_rec', 'receiving_tar', 'receiving_tds', 'receiving_yac_yds',
@@ -59,11 +60,11 @@ def main():
     df.drop(info_cols, axis=1, inplace=True)
 
     hist_cols = ['rushing_tds','rushing_att','receiving_yds','receiving_yac_yds',
-                 'receiving_tds','receiving_tar','receiving_rec']
-    df.drop(hist_cols, axis=1, inplace=True)
+                 'receiving_tds','receiving_tar','receiving_rec','rushing_yds']
 
-    y = df['rushing_yds']
-    X = df.drop('rushing_yds', axis=1)
+    y = df[y_col]
+    X = df.drop(hist_cols, axis=1)
+
     train, test = train_test_split_index(df.shape[0], test_size=0.1, seed=0)
 
     X_train = X.iloc[train]
@@ -74,10 +75,11 @@ def main():
     regr = LinearRegression()
     regr.fit(X_train, y_train)
     pred = regr.predict(X_test)
-    print 'Actual rushing yards statistics:'
+    print 'Predicting ', y_col
+    print 'Actual statistics:'
     print y_test.describe()
     print
-    print 'Projected rushing yards statistics:'
+    print 'Projected statistics:'
     print sp.stats.describe(pred)
     print
     print "RMSE: ", mean_squared_error(y_test, pred)**0.5
@@ -93,12 +95,16 @@ def main():
         pred_labels.append((player[1]['name'], player[1]['week']))
 
     pred = regr.predict(next_week_proj)
-    # print out predicted data for inspection
 
+    # print out predicted data for inspection
     print 'Player\tWeek\tRushing yards'
     for (player,week), prediction in zip(pred_labels,pred):
         print "\t".join([player,str(week),str(prediction)])
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("y_column", help="column to predict")
+    parser.add_argument("week", type=int, help="predict y_column for this week")
+    args = parser.parse_args()
+    main(y_col = args.y_column, predict_week=args.week)
