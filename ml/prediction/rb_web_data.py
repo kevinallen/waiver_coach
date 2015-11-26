@@ -76,10 +76,10 @@ def main(y_col, predict_week):
     regr.fit(X_train, y_train)
     pred = regr.predict(X_test)
     print 'Predicting ', y_col
-    print 'Actual statistics:'
+    print 'Historical summary statistics:'
     print y_test.describe()
     print
-    print 'Projected statistics:'
+    print 'Projected summary statistics:'
     print sp.stats.describe(pred)
     print
     print "RMSE: ", mean_squared_error(y_test, pred)**0.5
