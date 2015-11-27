@@ -56,6 +56,7 @@ function showTeams(obj, objName) {
           for (var j in team.roster.players.player) {
               result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
           }
+          break;
       }
   }
   return result;
