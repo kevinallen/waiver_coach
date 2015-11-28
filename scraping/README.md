@@ -35,5 +35,8 @@ db.projections.remove({})
 Then run the scripts from the terminal.
 
 ```Shell
-python scraping/espn_proj.py && python scraping/nfl_proj.py && python scraping/cbs_proj.py && python scraping/ff_proj.py
+python scraping/espn_proj.py 12 \
+&& python scraping/ff_proj.py 12 \
+&& python scraping/nfl_proj.py \
+&& python scraping/cbs_proj.py
 ```
