@@ -48,7 +48,6 @@ def plot_data_path_file(result_path, pred_yr_wk):
 
 #############
 ### Function for plotting KNN distributinos and saving them
-
 def plot_knn(nn_df, plot_stat, pred_yr_wk, result_path, n_bins=2, bandwidth=2.5, save_id = True, save_time = False, save_stat = True, save_image=True):
     # the histogram of the data
     stat_X = nn_df.iloc[1:][plot_stat]
@@ -98,8 +97,13 @@ def plot_knn(nn_df, plot_stat, pred_yr_wk, result_path, n_bins=2, bandwidth=2.5,
 
         plt.savefig(save_path)
         plt.close()
+        
+        raw_bins = bins[1:]
+        raw_data = [{'x':raw_bins[i],'y':n[i]} for i in range(len(raw_bins))]
+        smooth_data = [{'x':smooth_bins[i],'y':y_smooth[i]} for i in range(len(y_smooth))]
+
     
-    return({player_id:{'raw':{'x':list(bins), 'y':list(n)}, 'smooth':{'x':list(smooth_bins), 'y':list(y_smooth)}}})
+    return({player_id:{'raw':raw_data, 'smooth':smooth_data}})
 
 ############
 ### Function for saveing plot data as json to support web viz
