@@ -58,10 +58,13 @@ function showTeams(obj, objName) {
               result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
 			  players_list.push(team.roster.players.player[j].name.full);
 		  }
+		  if (typeof(Storage) !== "undefined") {
+			sessionStorage.setItem("t1", players_list);
+			console.log(sessionStorage.getItem("t1"));
+		  }
           break;
       }
   }
-  console.log(players_list);
   return result;
 }
 
