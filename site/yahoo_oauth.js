@@ -75,8 +75,12 @@ function showTeams(obj, objName) {
 function getOtherPlayers(team_key) {
     var myTeam = Number(team_key.split("t.")[1]);  // Get user's team number
 	var network = 'yahoo';
-	leagueInfo = hello( network ).api('league');
-	console.log(leagueInfo);
+	hello( network ).api('league').then(function(d){
+	  console.log(d);
+	}).then(null, function(e){
+		console.error(e);
+	});
+	
 }
 
 function login(network){
