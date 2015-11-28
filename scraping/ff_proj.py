@@ -68,8 +68,8 @@ def main(predict_week):
 
                     db.projections.insert_one(player)
 
-if '__name__' == '__main__':
+if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("week", help="current week of the 2015 season")
+    parser.add_argument("week", type=int, help="current week of the 2015 season")
     args = parser.parse_args()
     main(predict_week=args.week)
