@@ -32,7 +32,7 @@ use data
 db.projections.remove({})
 ```
 
-Then run the scripts from the terminal.
+Then run the python scripts from the terminal. For example, to get data for week 12:
 
 ```Shell
 python scraping/espn_proj.py 12 \
