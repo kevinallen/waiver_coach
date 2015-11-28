@@ -2,6 +2,7 @@ from urllib2 import urlopen
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
 import re
+import argparse
 
 def main(predict_week):
     # storing data in mongodb
@@ -35,8 +36,6 @@ def main(predict_week):
 
             for url in urls:
                 soup = BeautifulSoup(urlopen(url), "html.parser")
-                if soup.find('tr',{'class':'tableclmdhr'}) is None:
-                    continue
 
                 rows = soup.find('tr',{'class':'tableclmhdr'}).find_next_siblings('tr')
 
