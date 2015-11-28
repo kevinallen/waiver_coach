@@ -68,7 +68,7 @@ function showTeams(obj, objName) {
   return result;
 }
 
-
+/*
 function showPlayers(obj, objName) {
   var result = "";
   console.log(obj);
@@ -84,7 +84,7 @@ function showPlayers(obj, objName) {
   }
   return result;
 }
-
+*/
 function login(network){
 	hello( network ).login().then(function(){
 		// Get Profile
@@ -102,7 +102,7 @@ function login(network){
 	});
 
 }
-
+/*
 function players(){
 	// Get player info
 	network = 'yahoo'
@@ -115,7 +115,7 @@ function players(){
 
 
 }
-
+*/
 hello.init({
 	'yahoo' : 'dj0yJmk9T0dUclhxZXpRU2ExJmQ9WVdrOVdqVTJhekp6TXpZbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1hYQ--'
 },
