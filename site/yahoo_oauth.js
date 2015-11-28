@@ -1,3 +1,4 @@
+/*
 function showProps(obj, objName) {
   var result = "";
   console.log(obj);
@@ -25,7 +26,7 @@ function showProps(obj, objName) {
   }
   return result;
 }
-
+*/
 function showTeams(obj, objName) {
   var result = "";
   var players_list = [];
@@ -46,7 +47,7 @@ function showTeams(obj, objName) {
 				result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
 			  }
           }
-		  //result += '<button id="players" onclick="players();">Show Players</button>';
+		  
       } else {
           var team = obj;
           if (team.roster.players === null) {
@@ -61,6 +62,9 @@ function showTeams(obj, objName) {
 		  if (typeof(Storage) !== "undefined") {
 			sessionStorage.setItem("t1", players_list);
 			console.log(sessionStorage.getItem("t1"));
+			getOtherPlayers(team.team_key);
+		  } else {
+			alert("Your browser does not support web storage.  Please use a different browser to continue.");
 		  }
           break;
       }
@@ -68,23 +72,13 @@ function showTeams(obj, objName) {
   return result;
 }
 
-/*
-function showPlayers(obj, objName) {
-  var result = "";
-  console.log(obj);
-  result += "<h4>Players</h4>";
-  for (var i in obj) {
-      if (typeof obj[i] === null || typeof obj[i] !== "object") {
-          continue;
-      }
-	  var player = obj[i];
-	  console.log(player);
-	  result += "<div>" + player.eligible_positions.position + " - "+player.name.full+"</a> "+"</div>";
-
-  }
-  return result;
+function getOtherPlayers(team_key) {
+    var myTeam = Number(team_key.split("t.")[1]);
+	console.log(myTeam);
+	var network = 'yahoo';
+	hello( network ).api('league')
 }
-*/
+
 function login(network){
 	hello( network ).login().then(function(){
 		// Get Profile
@@ -102,20 +96,7 @@ function login(network){
 	});
 
 }
-/*
-function players(){
-	// Get player info
-	network = 'yahoo'
 
-	hello( network ).api('players').then(function(d){
-		document.getElementById('rostercontent').innerHTML = showPlayers(d,"d");
-	}).then(null, function(e){
-		console.error(e);
-	});
-
-
-}
-*/
 hello.init({
 	'yahoo' : 'dj0yJmk9T0dUclhxZXpRU2ExJmQ9WVdrOVdqVTJhekp6TXpZbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1hYQ--'
 },
