@@ -77,7 +77,7 @@ function getOtherPlayers(team_key) {
 	var network = 'yahoo';
 	hello( network ).api('league').then(function(d){
 	  console.log(d);
-	  console.log(d.results.league.num_teams);
+	  console.log(d.num_teams);
 	}).then(null, function(e){
 		console.error(e);
 	});
