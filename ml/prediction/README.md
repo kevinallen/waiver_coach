@@ -6,6 +6,7 @@ Contains scripts for actually making predictions
 
 Predicts RB stats for the specified week. There are flags to add a vegas adjustment, to query nfldb (instead of loading a pickled object), and to add expert projections scraped from the web to the output.
 
+```
 usage: rb_stats.py [-h] [-v] [-q] [-x] week
 
 positional arguments:
@@ -18,6 +19,7 @@ optional arguments:
   -q, --run_query       query nfldb instead of using cached data
   -x, --expert_projections
                         add expert projections to output
+```
 
 It can be configured to first training and testing on held out set, then predicting on the entire data set.
 
