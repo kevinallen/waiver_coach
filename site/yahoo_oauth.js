@@ -73,11 +73,16 @@ function showTeams(obj, objName) {
 }
 
 function getOtherPlayers(team_key) {
-    var myTeam = Number(team_key.split("t.")[1]);  // Get user's team number
+	var myLeague = team_key.split(".t")[0];  		// Get user's League number
+    var myTeam = Number(team_key.split("t.")[1]);   // Get user's team number
 	var network = 'yahoo';
 	hello( network ).api('league').then(function(d){
 	  console.log(d);
-	  console.log(d.num_teams);
+	  for (var i in d.num_teams) {
+		q = 'select * from fantasysports.teams.roster where team_key="348.l.1341932.t.3"'
+		qresults = 'https://query.yahooapis.com/v1/yql?q=' + (q).replace(/\s/g, '%20') + '&format=json&diagnostics=true&callback=';
+	  }
+	  console.log(qresults);
 	}).then(null, function(e){
 		console.error(e);
 	});
