@@ -56,7 +56,7 @@ function showTeams(obj, objName) {
           result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
           for (var j in team.roster.players.player) {
               result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
-			  players_list += team.roster.players.player[j].name.full;
+			  players_list.push(team.roster.players.player[j].name.full);
 		  }
           break;
       }
