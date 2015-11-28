@@ -28,6 +28,7 @@ function showProps(obj, objName) {
 
 function showTeams(obj, objName) {
   var result = "";
+  var players_list = [];
   console.log(obj);
   for (var i in obj) {
       if (typeof obj[i] === null || typeof obj[i] !== "object") {
@@ -45,7 +46,7 @@ function showTeams(obj, objName) {
 				result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
 			  }
           }
-		  result += '<button id="players" onclick="players();">Show Players</button>';
+		  //result += '<button id="players" onclick="players();">Show Players</button>';
       } else {
           var team = obj;
           if (team.roster.players === null) {
@@ -55,10 +56,12 @@ function showTeams(obj, objName) {
           result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
           for (var j in team.roster.players.player) {
               result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
-          }
+			  players_list += team.roster.players.player[j].name.full;
+		  }
           break;
       }
   }
+  console.log(players_list);
   return result;
 }
 
