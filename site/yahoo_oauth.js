@@ -84,7 +84,7 @@ function getOtherPlayers(team_key) {
 	var myLeague = team_key.split(".t")[0];  		// Get user's League number
     var myTeam = Number(team_key.split("t.")[1]);   // Get user's team number
 	var network = 'yahoo';
-	hello( network ).api('http://fantasysports.yahooapis.com/fantasy/v2/league/' + myLeague).then(function(d){
+	hello( network ).api('league').then(function(d){
 	  console.log(d);
 
 	  for (i = 1; i <= Number(d.num_teams); i++) {
