@@ -79,7 +79,7 @@ function getOtherPlayers(team_key) {
 	hello( network ).api('league').then(function(d){
 	  console.log(d);
 	  
-	  for (var i in Number(d.num_teams)) {
+	  for (i = 1; i <= Number(d.num_teams); i++) {
 		if (i === myTeam) {
 		  console.log("got here", d.num_teams, i);
 		  continue;
