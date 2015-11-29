@@ -5,8 +5,8 @@ body {
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
 }
 
+
 a {
-    color: yellowgreen;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -49,8 +49,8 @@ header .header-content .header-content-inner h1 {
     font-size: 50px;
     font-weight: 300;
     display: inline-block;
-    padding: 10px 30px 10px 30px;
-    background-color: rgba(64,64,64,.9);
+    padding: 0px 20px 10px 20px;
+    background-color: rgba(64,64,64,.6);
 }
 
 header .header-content .header-content-inner p {
@@ -58,9 +58,9 @@ header .header-content .header-content-inner p {
     font-size: 16px;
     font-weight: 300;
     display: inline-block;
-    padding: 10px 30px 10px 30px;
+    padding: 5px 20px 5px 20px;
     color: rgba(255,255,255,.7);
-    background-color: rgba(64,64,64,.9);
+    background-color: rgba(64,64,64,.8);
 }
 
 @media(min-width:768px) {
@@ -208,7 +208,8 @@ header .header-content .header-content-inner p {
 }
 
 .navbar-default .navbar-header .navbar-brand {
-    color: yellowgreen;
+    color: #FF5930;
+    letter-spacing: 0.1em;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
@@ -228,7 +229,7 @@ header .header-content .header-content-inner p {
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: yellowgreen!important;
+    color: #FF5930!important;
     background-color: transparent;
 }
 
@@ -244,8 +245,8 @@ header .header-content .header-content-inner p {
     }
 
     .navbar-default .navbar-header .navbar-brand {
-        color: #FF5930;
-        letter-spacing: 0.2em;
+        color: rgba(255,255,255,.7);
+        letter-spacing: 0.1em;
     }
 
     .navbar-default .navbar-header .navbar-brand:hover,
@@ -270,8 +271,8 @@ header .header-content .header-content-inner p {
     }
 
     .navbar-default.affix .navbar-header .navbar-brand {
-        letter-spacing: 0;
-        color: yellowgreen;
+        letter-spacing: 0.1em;
+        color: #FF5930;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
