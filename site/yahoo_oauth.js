@@ -88,6 +88,7 @@ function getOtherPlayers(team_key) {
 	  console.log(d);
 
       for (var league in d) {
+          console.log(league);
     	  for (i = 1; i <= Number(league.num_teams); i++) {
     		if (i == myTeam) {
     		  console.log("got here", league.num_teams, i);
