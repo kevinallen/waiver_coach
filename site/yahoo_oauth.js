@@ -78,9 +78,16 @@ function getOtherPlayers(team_key) {
 	var network = 'yahoo';
 	hello( network ).api('league').then(function(d){
 	  console.log(d);
+	  
 	  for (var i in d.num_teams) {
-		q = 'select * from fantasysports.teams.roster where team_key="348.l.1341932.t.3"'
-		qresults = 'https://query.yahooapis.com/v1/yql?q=' + (q).replace(/\s/g, '%20') + '&format=json&diagnostics=true&callback=';
+		if (i === myTeam) {
+		  continue;
+		}
+		teamID = myLeague + ".t." + i
+	    data = {"team": teamID}
+		hello( network ).api('moreteams', 'get', data).then(function(m){
+		  console.log(m);
+		})
 	  }
 	  console.log(qresults);
 	}).then(null, function(e){
