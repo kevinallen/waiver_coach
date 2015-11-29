@@ -81,6 +81,7 @@ function getOtherPlayers(team_key) {
 	  
 	  for (var i in d.num_teams) {
 		if (i === myTeam) {
+		  console.log("got here", d.num_teams, i);
 		  continue;
 		}
 		teamID = myLeague + ".t." + i
