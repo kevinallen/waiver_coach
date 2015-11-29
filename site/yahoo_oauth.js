@@ -85,10 +85,8 @@ function getOtherPlayers(team_key) {
 		  continue;
 		}
 		teamID = myLeague + ".t." + i
-		console.log(teamID)
 	    qdata = {team: teamID}
-		console.log("qdata:", qdata)
-		hello( network ).api('moreteams', 'get', qdata).then(function(m){
+		return hello( network ).api('moreteams', 'get', qdata).then(function(m){
 		  console.log(m);
 		})
 	  }
