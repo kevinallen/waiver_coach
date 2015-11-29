@@ -89,7 +89,6 @@ function getOtherPlayers(team_key) {
 		  console.log(m);
 		})
 	  }
-	  console.log(qresults);
 	}).then(null, function(e){
 		console.error(e);
 	});
