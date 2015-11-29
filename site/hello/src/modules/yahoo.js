@@ -34,6 +34,7 @@
 				'teams': yql('select * from fantasysports.teams.roster where use_login=1 and game_key=348'),
 				'moreteams': function(p) {
 					var team = p.team;
+					console.log("team", team)
 					var queryStr = 'select * from fantasysports.teams.roster where team_key="' + team + '"'
 					yql(queryStr)
 				}
