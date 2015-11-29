@@ -88,7 +88,7 @@ function getOtherPlayers(team_key) {
 	  console.log(d);
 
 	  for (i = 1; i <= Number(d.num_teams); i++) {
-		if (i === myTeam) {
+		if (i == myTeam) {
 		  console.log("got here", d.num_teams, i);
 		  continue;
 		}
