@@ -84,13 +84,10 @@ function getOtherPlayers(team_key) {
 	var myLeague = team_key.split(".t")[0];  		// Get user's League number
     var myTeam = Number(team_key.split("t.")[1]);   // Get user's team number
 	var network = 'yahoo';
-	hello( network ).api('league').then(function(d){
+	hello( network ).api('league/' + myLeague).then(function(d){
 	  console.log(d);
 
 	  for (i = 1; i <= Number(d.num_teams); i++) {
-        console.log(myteam);
-        console.log(i);
-
 		if (i == myTeam) {
 		  console.log("got here", d.num_teams, i);
 		  continue;
@@ -114,7 +111,6 @@ function login(network){
 		return hello( network ).api('me');
 	}).then(function(p){
 		document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
-        console.log(p);
 		//document.getElementById('yahoocontent').innerHTML = showProps(p, "p");
 	}).then(function(){
 		// Get team info
