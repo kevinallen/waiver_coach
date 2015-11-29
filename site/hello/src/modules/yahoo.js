@@ -36,7 +36,8 @@
 					var team = p.data.team;
 					console.log("p:", p);
 					console.log("team:", team);
-					var queryStr = 'select * from fantasysports.teams.roster where team_key="' + team + '"'
+					var queryStr = 'select * from fantasysports.teams.roster where team_key="' + team + '"';
+					console.log("queryStr:", queryStr);
 					yql(queryStr)
 				}
 			},
