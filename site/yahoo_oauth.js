@@ -55,7 +55,7 @@ function showTeams(obj, objName) {
 				alert("Your browser does not support web storage.  Please use a different browser to continue.");
 			  }
           }
-		  
+
       } else {
           var team = obj;
           if (team.roster.players === null) {
@@ -86,8 +86,8 @@ function getOtherPlayers(team_key) {
 	var network = 'yahoo';
 	hello( network ).api('league').then(function(d){
 	  console.log(d);
-	  
-	  for (i = 1; i <= Number(d.num_teams); i++) {
+
+	  for (i = 1; i <= Number(parseInt(d.num_teams)); i++) {
 		if (i === myTeam) {
 		  console.log("got here", d.num_teams, i);
 		  continue;
@@ -102,7 +102,7 @@ function getOtherPlayers(team_key) {
 	}).then(null, function(e){
 		console.error(e);
 	});
-	
+
 }
 
 function login(network){
