@@ -386,6 +386,7 @@ def main(pred_week, vegas_adjustment=False, run_query=False, expert_projections=
         # add our prediction based on historical data to output
         pred_results.loc[:,y_col] = preds
 
+    pred_results.replace(0, np.nan, inplace=True)
     out_path = result_path + '/predictions' + '_' + str(int(pred_yr_wk[0])) + '_' + str(int(pred_yr_wk[1])) + '.json'
     pred_results.to_json(path_or_buf = out_path, orient = 'records')
 
