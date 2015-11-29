@@ -87,18 +87,20 @@ function getOtherPlayers(team_key) {
 	hello( network ).api('league').then(function(d){
 	  console.log(d);
 
-	  for (i = 1; i <= Number(d.num_teams); i++) {
-		if (i == myTeam) {
-		  console.log("got here", d.num_teams, i);
-		  continue;
-		}
-		teamID = myLeague + ".t." + i;
-	    qdata = {team: teamID};
-		console.log(qdata);
-		hello( network ).api('moreteams', 'get', qdata).then(function(m){
-		  console.log(m);
-		});
-	  }
+      for (var league in d) {
+    	  for (i = 1; i <= Number(league.num_teams); i++) {
+    		if (i == myTeam) {
+    		  console.log("got here", league.num_teams, i);
+    		  continue;
+    		}
+    		teamID = myLeague + ".t." + i;
+    	    qdata = {team: teamID};
+    		console.log(qdata);
+    		hello( network ).api('moreteams', 'get', qdata).then(function(m){
+    		  console.log(m);
+    		});
+    	  }
+      }
 	}).then(null, function(e){
 		console.error(e);
 	});
