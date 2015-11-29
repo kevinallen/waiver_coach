@@ -87,8 +87,11 @@ function getOtherPlayers(team_key) {
 	hello( network ).api('league').then(function(d){
 	  console.log(d);
 
-      for (var league in d) {
-          console.log(league);
+      for (var j in d) {
+          league = d[j];
+          if (league.draft_status != "postdraft") {
+              continue;
+          }
     	  for (i = 1; i <= Number(league.num_teams); i++) {
     		if (i == myTeam) {
     		  console.log("got here", league.num_teams, i);
