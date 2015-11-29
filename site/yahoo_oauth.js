@@ -87,6 +87,7 @@ function getOtherPlayers(team_key) {
 	hello( network ).api('league').then(function(d){
 	  console.log(d);
 
+      console.log(Number(d.num_teams));
 	  for (i = 1; i <= Number(d.num_teams); i++) {
         console.log(myteam);
         console.log(i);
