@@ -118,7 +118,6 @@ function login(network){
 		//document.getElementById('yahoocontent').innerHTML = showProps(p, "p");
 	}).then(function(){
 		// Get team info
-        console.log(p);
 		return hello( network ).api('teams');
 	}).then(function(d){
 		document.getElementById('teamcontent').innerHTML = showTeams(d, "d");
