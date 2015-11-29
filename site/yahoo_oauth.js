@@ -87,18 +87,24 @@ function getOtherPlayers(team_key) {
 	hello( network ).api('league').then(function(d){
 	  console.log(d);
 
-	  for (i = 1; i <= Number(parseInt(d.num_teams)); i++) {
-		if (i === myTeam) {
-		  console.log("got here", d.num_teams, i);
-		  continue;
-		}
-		teamID = myLeague + ".t." + i;
-	    qdata = {team: teamID};
-		console.log(qdata);
-		hello( network ).api('moreteams', 'get', qdata).then(function(m){
-		  console.log(m);
-		});
-	  }
+      for (var j in d) {
+          league = d[j];
+          if (league.draft_status != "postdraft") {
+              continue;
+          }
+    	  for (i = 1; i <= Number(league.num_teams); i++) {
+    		if (i == myTeam) {
+    		  console.log("got here", league.num_teams, i);
+    		  continue;
+    		}
+    		teamID = myLeague + ".t." + i;
+    	    qdata = {team: teamID};
+    		console.log(qdata);
+    		hello( network ).api('moreteams', 'get', qdata).then(function(m){
+    		  console.log(m);
+    		});
+    	  }
+      }
 	}).then(null, function(e){
 		console.error(e);
 	});
@@ -120,7 +126,17 @@ function login(network){
 	}).then(null, function(e){
 		console.error(e);
 	});
+}
 
+function players(){
+	// Get player info
+	network = 'yahoo'
+
+	hello( network ).api('players').then(function(d){
+		document.getElementById('rostercontent').innerHTML = showPlayers(d,"d");
+	}).then(null, function(e){
+		console.error(e);
+	});
 }
 
 hello.init({
