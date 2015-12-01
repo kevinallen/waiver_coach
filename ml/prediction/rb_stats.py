@@ -208,10 +208,15 @@ def add_expert_projections(pred_results, pred_week, y_col):
 
     # before adding name_key, need to add position
     pred_results.loc[:,'position'] = 'RB'
+
+    for column in next_week_proj.columns:
+        if column not in pred_results.columns:
+            df.loc[:,column] = next_week_proj[column]
+
     # add name_key (to join on) to results predicted from historical data
     pipe = Pipeline(steps=[('key',AddNameKey())])
     results_with_key = pipe.fit_transform(X=pred_results)
-    results_with_expert = pd.merge(pred_results, df, how="left", on="name_key")
+    results_with_expert = pd.merge(results_with_key, df, how="left", on="name_key")
 
     return results_with_expert
 
