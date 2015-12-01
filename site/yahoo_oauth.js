@@ -1,3 +1,4 @@
+/*
 function showProps(obj, objName) {
   var result = "";
   console.log(obj);
@@ -25,9 +26,10 @@ function showProps(obj, objName) {
   }
   return result;
 }
-
+*/
 function showTeams(obj, objName) {
   var result = "";
+  var players_list = [];
   console.log(obj);
   for (var i in obj) {
       if (typeof obj[i] === null || typeof obj[i] !== "object") {
@@ -43,9 +45,17 @@ function showTeams(obj, objName) {
               result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
 			  for (var j in team.roster.players.player) {
 				result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
+				players_list.push(team.roster.players.player[j].name.full);
+			  }
+			  if (typeof(Storage) !== "undefined") {
+				sessionStorage.setItem("t1", players_list);
+				console.log(sessionStorage.getItem("t1"));
+				getOtherPlayers(team.team_key);
+			  } else {
+				alert("Your browser does not support web storage.  Please use a different browser to continue.");
 			  }
           }
-		  result += '<button id="players" onclick="players();">Show Players</button>';
+
       } else {
           var team = obj;
           if (team.roster.players === null) {
@@ -55,27 +65,50 @@ function showTeams(obj, objName) {
           result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
           for (var j in team.roster.players.player) {
               result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
-          }
+			  players_list.push(team.roster.players.player[j].name.full);
+		  }
+		  if (typeof(Storage) !== "undefined") {
+			sessionStorage.setItem("t1", players_list);
+			console.log(sessionStorage.getItem("t1"));
+			getOtherPlayers(team.team_key);
+		  } else {
+			alert("Your browser does not support web storage.  Please use a different browser to continue.");
+		  }
+          break;
       }
   }
   return result;
 }
 
+function getOtherPlayers(team_key) {
+	var myLeague = team_key.split(".t")[0];  		// Get user's League number
+    var myTeam = Number(team_key.split("t.")[1]);   // Get user's team number
+	var network = 'yahoo';
+	hello( network ).api('league').then(function(d){
+	  console.log(d);
 
-function showPlayers(obj, objName) {
-  var result = "";
-  console.log(obj);
-  result += "<h4>Players</h4>";
-  for (var i in obj) {
-      if (typeof obj[i] === null || typeof obj[i] !== "object") {
-          continue;
+      for (var j in d) {
+          league = d[j];
+          if (league.draft_status != "postdraft") {
+              continue;
+          }
+    	  for (i = 1; i <= Number(league.num_teams); i++) {
+    		if (i == myTeam) {
+    		  console.log("got here", league.num_teams, i);
+    		  continue;
+    		}
+    		teamID = myLeague + ".t." + i;
+    	    qdata = {team: teamID};
+    		console.log(qdata);
+    		hello( network ).api('moreteams', 'get', qdata).then(function(m){
+    		  console.log(m);
+    		});
+    	  }
       }
-	  var player = obj[i];
-	  console.log(player);
-	  result += "<div>" + player.eligible_positions.position + " - "+player.name.full+"</a> "+"</div>";
+	}).then(null, function(e){
+		console.error(e);
+	});
 
-  }
-  return result;
 }
 
 function login(network){
@@ -93,7 +126,6 @@ function login(network){
 	}).then(null, function(e){
 		console.error(e);
 	});
-
 }
 
 function players(){
@@ -105,8 +137,6 @@ function players(){
 	}).then(null, function(e){
 		console.error(e);
 	});
-
-
 }
 
 hello.init({

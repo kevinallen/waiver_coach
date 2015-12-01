@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+</style>  
+<head>
+  <link href="css/jquery-ui.css" rel="stylesheet"> 
+</head>
+<body>
+<div class="menu_div">
+  <label for="player1_menu">Player1: </label>
+  <input id="player1_menu">
+</div>
+<div class="menu_div">
+  <label for="player2_menu">Player2: </label>
+  <input id="player2_menu">
+</div>
+<div id='plot'>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/d3.min.js"></script>
+<script src="js/underscore-min.js"></script>
+<script>
+
+var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scale.linear()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var color = d3.scale.category10();
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+var line = d3.svg.line()
+    .x(function(d) { return x(d.x); })
+    .y(function(d) { return y(d.y); });
+
+var svg = d3.select("#plot").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var GLOBAL_data;
+// initial players
+var GLOBAL_players = ['00-0023500','00-0023564'];
+
+d3.json("../site_data/distdata/2015_10.json", function(error, data) {
+  
+  if (error) throw error;
+
+  //######## SET UP
+
+  // initialize menus
+  create_player_menu(data)
+  
+  create_plot(data, GLOBAL_players)
+
+  GLOBAL_data = data
+
+  //######## UPDATE
+  // this is just for testing update
+  // new players
+  players = ['00-0024217','00-0024204']
+
+  update_plot(data, players)
+
+});
+
+var collect_player_data = function(data, players){
+  // this functions picks out the keys in players
+  // formats the objects, and adds the player_id
+  var player_data = _.pick(data, players)
+  player_data = _.map(player_data, function(obj, pid){
+    obj.player_id = pid;
+    obj.smooth = _.map(obj.smooth, function(d){return {'x':+d.x, 'y':+d.y}})
+    return obj;
+  });
+  return player_data
+}
+
+var combine_player_data = function(data, players){
+  // this function combines the "smooth" series for the keys in players
+  var combined_player_data = _.reduce(players, function(memo, player){
+    return memo.concat(data[player]['smooth']); 
+  }, []);
+  return combined_player_data
+}
+
+var create_player_menu = function(data){
+  var menu_data = _.map(_.values(data), function(d){
+    return {'label':d.player_name, 'value':d.player_id}
+  })
+  $('#player1_menu').autocomplete({
+    source: menu_data,
+    change: function(event, ui){
+      GLOBAL_players[0] = ui.item.value
+      update_plot(GLOBAL_data, GLOBAL_players)
+    },
+    select: function (event, ui){
+      $( "#player1_menu" ).val( ui.item.label );
+      return false
+    }
+  })
+  $('#player2_menu').autocomplete({
+    source: menu_data,
+    change: function(event, ui)
+    {
+      GLOBAL_players[1] = ui.item.value
+      update_plot(GLOBAL_data, GLOBAL_players)
+    },
+    select: function (event, ui){
+      $( "#player2_menu" ).val( ui.item.label );
+      return false
+    }
+  })
+}
+
+
+var update_color = function(data, players){
+  color.domain(players)
+}
+
+var update_axis_domain = function(data, players){
+  var combined_player_data = combine_player_data(data, players)
+  x.domain(d3.extent(combined_player_data, function(d) { return d.x; }));
+  y.domain(d3.extent(combined_player_data, function(d) { return d.y; }));
+}
+
+var create_x_axis = function(){
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+}
+
+var create_y_axis = function(){
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Density");
+}
+
+var create_lines = function(data, players){
+  var player = svg.selectAll('.player')
+    .data(collect_player_data(data, players))
+    .enter()
+    .append('g')
+    .attr('class', 'player')
+
+  player.append('path')
+    .attr('class','line')
+    .attr("d", function(d){
+      return line(d.smooth)
+    })
+    .style('stroke', function(d){ return color(d.player_id)});
+}
+
+var update_x_axis = function(ms){
+  svg.select('g.x.axis').transition().duration(ms).call(xAxis)
+}
+var update_y_axis = function(ms){
+  svg.select('g.y.axis').transition().duration(ms).call(yAxis)
+}
+var update_lines = function(data, players, ms){
+  svg.selectAll('.player')
+    .data(collect_player_data(data, players))
+    .select('path')
+    .transition().duration(ms)
+    .attr("d", function(d){
+      return line(d.smooth)
+    })
+}
+
+var create_plot = function(data, players){
+  // bind color for players
+  update_color(data, players)
+
+  // set axis domain from player data
+  update_axis_domain(data, players)
+
+  // create axes
+  create_x_axis()
+  create_y_axis()
+
+  // create plot lines
+  create_lines(data, players)
+}
+
+var update_plot = function(data, players, transition_duration){
+  if( transition_duration === undefined){
+    transition_duration = 2000
+  }
+
+  // bind color for players
+  update_color(data, players)
+
+  // set axis domain from player data
+  update_axis_domain(data, players)
+
+  // update axes
+  update_x_axis(transition_duration)
+  update_y_axis(transition_duration)
+
+  // update lines
+  update_lines(data, players, transition_duration)
+}
+
+</script>
