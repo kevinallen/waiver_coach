@@ -103,7 +103,7 @@ def plot_knn(nn_df, plot_stat, pred_yr_wk, result_path, n_bins=2, bandwidth=2.5,
         smooth_data = [{'x':smooth_bins[i],'y':y_smooth[i]} for i in range(len(y_smooth))]
 
     
-    return({player_id:{'raw':raw_data, 'smooth':smooth_data}})
+    return({player_id:{'raw':raw_data, 'smooth':smooth_data, 'player_name':player_name, 'player_id':player_id}})
 
 ############
 ### Function for saveing plot data as json to support web viz
