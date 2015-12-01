@@ -85,7 +85,7 @@ d3.json("../site_data/distdata/2015_10.json", function(error, data) {
   //######## SET UP
 
   // initialize menus
-  fill_player_menu(data)
+  create_player_menu(data)
   
   create_plot(data, GLOBAL_players)
 
@@ -98,8 +98,6 @@ d3.json("../site_data/distdata/2015_10.json", function(error, data) {
 
   update_plot(data, players)
 
-  
-  
 });
 
 var collect_player_data = function(data, players){
@@ -122,22 +120,31 @@ var combine_player_data = function(data, players){
   return combined_player_data
 }
 
-var fill_player_menu = function(data){
-  var all_players = _.keys(data)
+var create_player_menu = function(data){
+  var menu_data = _.map(_.values(data), function(d){
+    return {'label':d.player_name, 'value':d.player_id}
+  })
   $('#player1_menu').autocomplete({
-    source: all_players,
-    change: function(event, ui)
-    {
-      GLOBAL_players[0] = ui.item.label
+    source: menu_data,
+    change: function(event, ui){
+      GLOBAL_players[0] = ui.item.value
       update_plot(GLOBAL_data, GLOBAL_players)
+    },
+    select: function (event, ui){
+      $( "#player1_menu" ).val( ui.item.label );
+      return false
     }
   })
   $('#player2_menu').autocomplete({
-    source: all_players,
+    source: menu_data,
     change: function(event, ui)
     {
-      GLOBAL_players[1] = ui.item.label
+      GLOBAL_players[1] = ui.item.value
       update_plot(GLOBAL_data, GLOBAL_players)
+    },
+    select: function (event, ui){
+      $( "#player2_menu" ).val( ui.item.label );
+      return false
     }
   })
 }
