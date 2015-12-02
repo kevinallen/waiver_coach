@@ -1,72 +1,5 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
 
-body {
-  font: 10px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.x.axis path {
-  display: none;
-}
-
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
-
-.line.hidden {
-  visibility: hidden;
-}
-
-.menu_input {
-  color: white;
-  border: 0px;
-}
-.menu_div{
-  padding-bottom: 1px;
-}
-
-#menu_message{
-  padding-bottom: 3px;
-}
-
-</style>  
-<head>
-  <link href="css/jquery-ui.css" rel="stylesheet"> 
-</head>
-<body>
-<div>
-  <div id='menu_message'>
-    Start typing in these boxes to search for players...
-  </div>
-  <div class="menu_div">
-    <label for="player1_menu">Player1: </label>
-    <input id="player1_menu" class='menu_input'>
-  </div>
-  <div class="menu_div">
-    <label for="player2_menu">Player2: </label>
-    <input id="player2_menu" class='menu_input'>
-  </div>
-</div>
-<div id='plot'>
-</div>
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/d3.min.js"></script>
-<script src="js/underscore-min.js"></script>
-<script src="js/d3.legend.js"></script>
-<script>
-
-var margin = {top: 20, right: 20, bottom: 30, left: 50},
+var margin = {top: 20, right: 20, bottom: 40, left: 50},
     width = 600 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 
@@ -99,10 +32,6 @@ var svg = d3.select("#plot").append("svg")
 var GLOBAL_data;
 // initial players
 
-function initial_players(){
-  return [getParameterByName('player1'), getParameterByName('player2')]
-}
-
 var GLOBAL_players = initial_players()//['00-0023500',''];
 
 d3.json("../site_data/distdata/2015_10.json", function(error, data) {
@@ -114,18 +43,16 @@ d3.json("../site_data/distdata/2015_10.json", function(error, data) {
   // initialize menus
   create_player_menu(data)
   
-  create_plot(data, GLOBAL_players)
+  create_plot(data, ['',''])
 
   GLOBAL_data = data
-
-  //######## UPDATE
-  // this is just for testing update
-  // new players
-  //players = ['00-0024217','00-0024204']
 
   update_plot(data, GLOBAL_players)
 
 });
+
+//#####################
+// FUNCTIONS
 
 var empty_player = function(data){
   if( data === undefined){
@@ -146,13 +73,7 @@ var collect_player_data = function(data, players){
     obj.smooth = _.map(obj.smooth, function(d){return {'x':+d.x, 'y':+d.y}})
     return obj
   })
-  /*
-  //_.pick(data, players)
-  player_data = _.map(player_data, function(obj){
-    obj.smooth = _.map(obj.smooth, function(d){return {'x':+d.x, 'y':+d.y}})
-    return obj;
-  });
-*/
+
   return player_data
 }
 
@@ -180,26 +101,25 @@ var create_player_menu = function(data){
 
   $('#player1_menu').autocomplete({
     source: menu_data,
-    change: function(event, ui){
+    select: function (event, ui){
+      update_menu_display(ui.item.label, 'player1_menu')
       GLOBAL_players[0] = ui.item? ui.item.value: ''
       update_plot(GLOBAL_data, GLOBAL_players)
       return false
     },
-    select: function (event, ui){
-      update_menu_display(ui.item.label, 'player1_menu')
-      //$( "#player1_menu" ).val( ui.item.label );
+    focus: function(event, ui){
       return false
     }
   })
   $('#player2_menu').autocomplete({
     source: menu_data,
-    change: function(event, ui)
-    {
-      GLOBAL_players[1] = ui.item? ui.item.value: ''
-      update_plot(GLOBAL_data, GLOBAL_players)
-    },
     select: function (event, ui){
       update_menu_display(ui.item.label, 'player2_menu')
+      GLOBAL_players[1] = ui.item? ui.item.value: ''
+      update_plot(GLOBAL_data, GLOBAL_players)
+      return false
+    },
+    focus: function(event, ui){
       return false
     }
   })
@@ -221,9 +141,14 @@ var update_axis_domain = function(data, players){
 
 var create_x_axis = function(){
   svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis)
+      .append('text')
+        .attr('transform', 'translate('+width/2 +',30)')
+        .style("text-anchor", "middle")
+        .text('Standard Fantasy Points');
+
 }
 
 var create_y_axis = function(){
@@ -250,7 +175,6 @@ var create_lines = function(data, players){
     .attr("d", function(d){
       return line(d.smooth)
     })
-    //.attr('data-legend', function(d){return d.player_name})
     .style('stroke', function(d){ return color(d.player_id)});
 }
 
@@ -264,7 +188,7 @@ var update_lines = function(data, players, ms){
   var el_players = svg.selectAll('.player')
     .data(collect_player_data(data, players))
     .select('path')
-    //.attr('data-legend', function(d){return d.player_name})
+    .style('stroke', function(d){ return color(d.player_id)});
   
   el_players.transition().duration(ms)
     .attr("d", function(d){
@@ -273,37 +197,11 @@ var update_lines = function(data, players, ms){
     .style('opacity', function(d){
       return d.player_name === '' ? 0 : 1
     })
-  
-  /*
-  //el_players.classed('hidden', function(d){return d.player_name === ''})
-  el_players.transition().duration(ms)
-  .style('visibility', function(d){
-    return d.player_name === '' ? 'hidden' : 'visible'
-  })
-*/
-
- // d3.select('.legend')
- //   .call(d3.legend)
 }
 
 var create_plot = function(data, players){
   // bind color for players
   update_color(data, players)
-
-  /*
-  legend = svg.append("g")
-    .attr("class","legend")
-    .attr("transform","translate(50,30)")
-    .style("font-size","12px")
-    .call(d3.legend)
-
-  setTimeout(function() { 
-    legend
-      .style("font-size","20px")
-      .attr("data-style-padding",10)
-      .call(d3.legend)
-  },1000)
-*/
 
   // set axis domain from player data
   update_axis_domain(data, players)
@@ -314,6 +212,8 @@ var create_plot = function(data, players){
 
   // create plot lines
   create_lines(data, players)
+  create_prompt_text()
+  update_prompt_text(players)
 }
 
 var update_plot = function(data, players, transition_duration){
@@ -337,6 +237,27 @@ var update_plot = function(data, players, transition_duration){
   collected_data = collect_player_data(data, players)
 
   update_all_menu_displays(_.pluck(collected_data,'player_name'))
+
+  update_prompt_text(players,transition_duration/2)
+}
+
+function create_prompt_text(){
+  svg.append('g')
+  .attr('class', 'prompt_text')
+  .append('text')
+        .attr('transform', 'translate('+width/2 +','+height/2+')')
+        .style("text-anchor", "middle")
+        .text('Enter Player Names in the Text Boxes to Get Started')
+  
+}
+
+function update_prompt_text(players, transition_duration){
+  if(transition_duration === undefined){
+    transition_duration = 0
+  }
+
+  var no_players = _.reduce(players, function(memo, player){return memo && player===''}, true)
+  d3.select('.prompt_text text').transition().duration(transition_duration).style('opacity', no_players ? 1 : 0)
 }
 
 function getParameterByName(name) {
@@ -347,4 +268,6 @@ function getParameterByName(name) {
 }
 
 
-</script>
+function initial_players(){
+  return [getParameterByName('player1'), getParameterByName('player2')]
+}

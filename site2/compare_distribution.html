@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">  
+<head>
+  <link href="css/jquery-ui.css" rel="stylesheet"> 
+  <link href="css/compare_distribution.css" rel="stylesheet"> 
+</head>
+<body>
+
+  <div id='plot_widget'>
+    <div>
+      <div id='menu_message'>
+        Start typing in these boxes to search for players...
+      </div>
+      <div class="menu_div">
+        <label for="player1_menu">Player1: </label>
+        <input id="player1_menu" class='menu_input'>
+      </div>
+      <div class="menu_div">
+        <label for="player2_menu">Player2: </label>
+        <input id="player2_menu" class='menu_input'>
+      </div>
+    </div>
+    <div id='plot'>
+    </div>
+  </div>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/d3.min.js"></script>
+  <script src="js/underscore-min.js"></script>
+  <script src="js/compare_distribution.js"></script>
+</body>
