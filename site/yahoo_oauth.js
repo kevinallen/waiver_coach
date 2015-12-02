@@ -98,6 +98,7 @@ function getOtherPlayers(team_key) {
     		var teamID = myLeague + ".t." + i;
     	    var qdata = {team: teamID};
             var result = "";
+            var players_list = sessionStorage.getItem("t1");
     		hello( network ).api('moreteams', 'get', qdata).then(function(m){
               console.log(m);
               var team = m;
