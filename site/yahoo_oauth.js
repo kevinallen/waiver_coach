@@ -84,8 +84,8 @@ function getOtherPlayers(team_key) {
 	var myLeague = team_key.split(".t")[0];  		// Get user's League number
     var myTeam = Number(team_key.split("t.")[1]);   // Get user's team number
 	var network = 'yahoo';
+    var otherteams = [];
 	hello( network ).api('league').then(function(d){
-	  console.log(d);
 
       for (var j in d) {
           league = d[j];
@@ -99,7 +99,7 @@ function getOtherPlayers(team_key) {
     		var teamID = myLeague + ".t." + i;
     	    var qdata = {team: teamID};
     		hello( network ).api('moreteams', 'get', qdata).then(function(m){
-    		  console.log(m);
+    		  otherteams.push(m);
             }).then(null, function(e){
               console.error(e);
             });
@@ -108,7 +108,7 @@ function getOtherPlayers(team_key) {
 	}).then(null, function(e){
 		console.error(e);
 	});
-
+    console.log(otherteams);
 }
 
 function login(network){
