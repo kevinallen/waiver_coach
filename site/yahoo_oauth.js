@@ -98,8 +98,11 @@ function getOtherPlayers(team_key) {
     		}
     		var teamID = myLeague + ".t." + i;
     	    var qdata = {team: teamID};
-    		var teams = hello( network ).api('moreteams', 'get', qdata);
-            console.log(teams);
+    		hello( network ).api('moreteams', 'get', qdata).then(function(m){
+    		  console.log(m);
+            }).then(null, function(e){
+              console.error(e);
+            });
     	  }
       }
 	}).then(null, function(e){
