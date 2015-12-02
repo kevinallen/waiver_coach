@@ -32,10 +32,10 @@
 				'league': yql('select * from fantasysports.leagues where use_login=1 and game_key=348'),
 				'players': yql('select * from fantasysports.players where league_key="348.l.1341932"'),
 				'teams': yql('select * from fantasysports.teams.roster where use_login=1 and game_key=348'),
-				'moreteams': function(p) {
+				'moreteams': function(p, callback) {
 					var team = p.options.team;
 					var queryStr = 'select * from fantasysports.teams.roster where team_key="' + team + '"';
-					return yql(queryStr);
+					callback(yql(queryStr));
 				}
 			},
 			wrap: {

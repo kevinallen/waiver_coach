@@ -85,7 +85,6 @@ function getOtherPlayers(team_key) {
     var myTeam = Number(team_key.split("t.")[1]);   // Get user's team number
 	var network = 'yahoo';
 	hello( network ).api('league').then(function(d){
-	  console.log(d);
 
       for (var j in d) {
           league = d[j];
@@ -94,21 +93,36 @@ function getOtherPlayers(team_key) {
           }
     	  for (i = 1; i <= Number(league.num_teams); i++) {
     		if (i == myTeam) {
-    		  console.log("got here", league.num_teams, i);
     		  continue;
     		}
-    		teamID = myLeague + ".t." + i;
-    	    qdata = {team: teamID};
-    		console.log(qdata);
+    		var teamID = myLeague + ".t." + i;
+    	    var qdata = {team: teamID};
+            var result = "";
+            var players_list = sessionStorage.getItem("t1").split(",");
     		hello( network ).api('moreteams', 'get', qdata).then(function(m){
-    		  console.log(m);
-    		});
+              console.log(m);
+              var team = m;
+              result += "<h4>"+team.name+"</h4>";
+              if (team.hasOwnProperty('team_key')) {
+    			  for (var j in team.roster.players.player) {
+    				result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
+    				players_list.push(team.roster.players.player[j].name.full);
+    			  }
+    			  if (typeof(Storage) !== "undefined") {
+    				sessionStorage.setItem("t1", players_list);
+    				console.log(sessionStorage.getItem("t1"));
+    			  } else {
+    				alert("Your browser does not support web storage.  Please use a different browser to continue.");
+    			  }
+              }
+            }).then(null, function(e){
+              console.error(e);
+            });
     	  }
       }
 	}).then(null, function(e){
 		console.error(e);
 	});
-
 }
 
 function login(network){
