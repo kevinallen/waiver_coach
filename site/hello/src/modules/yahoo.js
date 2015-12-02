@@ -35,7 +35,7 @@
 				'moreteams': function(p) {
 					var team = p.options.team;
 					var queryStr = 'select * from fantasysports.teams.roster where team_key="' + team + '"';
-					yql(queryStr)
+					return yql(queryStr);
 				}
 			},
 			wrap: {
@@ -104,7 +104,7 @@
 
 		return o;
 	}
-	
+
 	function formatLeague(o) {
 
 		formatError(o);
@@ -113,25 +113,25 @@
 		}
 		return o;
 	}
-	
+
 	function formatPlayers(o) {
-		
+
 		formatError(o);
 		if (o.query && o.query.results && o.query.results.player) {
 			o = o.query.results.player;
 		}
 		return o;
 	}
-	
+
 	function formatTeams(o) {
-		
+
 		formatError(o);
 		if (o.query && o.query.results && o.query.results.team) {
 			o = o.query.results.team;
 		}
 		return o;
 	}
-	
+
 	function formatFriends(o, headers, request) {
 		formatError(o);
 		paging(o, headers, request);
