@@ -111,7 +111,6 @@ function getOtherPlayers(team_key) {
     			  if (typeof(Storage) !== "undefined") {
     				sessionStorage.setItem("t1", players_list);
     				console.log(sessionStorage.getItem("t1"));
-    				getOtherPlayers(team.team_key);
     			  } else {
     				alert("Your browser does not support web storage.  Please use a different browser to continue.");
     			  }
