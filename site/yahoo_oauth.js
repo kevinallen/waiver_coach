@@ -100,7 +100,7 @@ function getOtherPlayers(team_key) {
             var result = "";
     		hello( network ).api('moreteams', 'get', qdata).then(function(m){
               console.log(m);
-              var team = m[i];
+              var team = m;
               result += "<h4>"+team.name+"</h4>";
               if (team.hasOwnProperty('team_key')) {
     			  for (var j in team.roster.players.player) {
