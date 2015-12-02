@@ -35,7 +35,7 @@
 				'moreteams': function(p) {
 					var team = p.options.team;
 					var queryStr = 'select * from fantasysports.teams.roster where team_key="' + team + '"';
-					return yql(queryStr);
+					yql(queryStr);
 				}
 			},
 			wrap: {
