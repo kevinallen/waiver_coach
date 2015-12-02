@@ -34,8 +34,8 @@
 				'teams': yql('select * from fantasysports.teams.roster where use_login=1 and game_key=348'),
 				'moreteams': function(p) {
 					console.log(p);
-					var team = p.team;
-					var queryStr = 'select * from fantasysports.teams.roster where team_key="' + team + '"';
+					var team = p.options.team;
+					var queryStr = 'select * from fantasysports.teams.roster where team_key=' + team;
 					yql(queryStr);
 				}
 			},
