@@ -98,9 +98,8 @@ function getOtherPlayers(team_key) {
     		}
     		var teamID = myLeague + ".t." + i;
     	    var qdata = {team: teamID};
-    		hello( network ).api('moreteams', 'get', qdata).then(function(m){
-    		  console.log(m);
-    		});
+    		var teams = hello( network ).api('moreteams', 'get', qdata);
+            console.log(teams);
     	  }
       }
 	}).then(null, function(e){
