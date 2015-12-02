@@ -32,11 +32,10 @@
 				'league': yql('select * from fantasysports.leagues where use_login=1 and game_key=348'),
 				'players': yql('select * from fantasysports.players where league_key="348.l.1341932"'),
 				'teams': yql('select * from fantasysports.teams.roster where use_login=1 and game_key=348'),
-				'moreteams': function(p) {
+				'moreteams': function(p, callback) {
 					var team = p.options.team;
 					var queryStr = 'select * from fantasysports.teams.roster where team_key="' + team + '"';
-					console.log(queryStr);
-					yql(queryStr);
+					callback(yql(queryStr));
 				}
 			},
 			wrap: {
@@ -184,7 +183,6 @@
 	}
 
 	function yql(q) {
-		console.log(q);
 		return 'https://query.yahooapis.com/v1/yql?q=' + (q).replace(/\s/g, '%20') + '&format=json&diagnostics=true&callback=';
 	//	return 'https://query.yahooapis.com/v1/yql?q=' + (q + ' limit @{limit|100} offset @{start|0}').replace(/\s/g, '%20') + '&format=json';
 	}
