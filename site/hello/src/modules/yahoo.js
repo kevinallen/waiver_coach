@@ -35,7 +35,8 @@
 				'moreteams': function(p) {
 					var team = p.options.team;
 					var queryStr = 'select * from fantasysports.teams.roster where team_key="' + team + '"';
-					return yql(queryStr);
+					console.log(queryStr);
+					yql(queryStr);
 				}
 			},
 			wrap: {
@@ -183,6 +184,7 @@
 	}
 
 	function yql(q) {
+		console.log(q);
 		return 'https://query.yahooapis.com/v1/yql?q=' + (q).replace(/\s/g, '%20') + '&format=json&diagnostics=true&callback=';
 	//	return 'https://query.yahooapis.com/v1/yql?q=' + (q + ' limit @{limit|100} offset @{start|0}').replace(/\s/g, '%20') + '&format=json';
 	}
