@@ -76,7 +76,7 @@ function showTeams(obj, objName) {
 			var league_team = {"t0": players_list};
 			sessionStorage.setItem("league1", league_team);
 			//sessionStorage.setItem("t0", players_list);
-			console.log(sessionStorage.getItem("league1"));
+			console.log(sessionStorage.getItem("league1").t0);
 			getOtherPlayers(team.team_key, "league1");
 		  } else {
 			alert("Your browser does not support web storage.  Please use a different browser to continue.");
@@ -116,7 +116,7 @@ function getOtherPlayers(team_key, league_number) {
     	    var qdata = {team: teamID};
             var result = "";
             var players_list = sessionStorage.getItem(league_number);//.split(",");
-			console_log("players_list 1:", players_list);
+			console.log("players_list 1:", players_list);
     		hello( network ).api('moreteams', 'get', qdata).then(function(m){
               console.log(m);
               var team = m;
