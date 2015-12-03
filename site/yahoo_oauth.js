@@ -109,19 +109,24 @@ function getOtherPlayers(team_key, league_number) {
 	
 }
 
+function loggedIn(network) {
+  
+  hello( network ).api('me').then(function(p){
+	  document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
+  }).then(function(){
+	  // Get team info
+	  return hello( network ).api('teams');
+  }).then(function(d){
+	  document.getElementById('teamcontent').innerHTML = showTeams(d, "d");
+  }).then(null, function(e){
+	  console.error(e);
+  });
+	
+}
 function login(network){
   
 	if (hello('yahoo').getAuthResponse()) {
-		hello( network ).api('me').then(function(p){
-		  document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
-	  }).then(function(){
-		  // Get team info
-		  return hello( network ).api('teams');
-	  }).then(function(d){
-		  document.getElementById('teamcontent').innerHTML = showTeams(d, "d");
-	  }).then(null, function(e){
-		  console.error(e);
-	  });
+	  loggedIn(network);
 	} else {
 		hello( network ).login().then(function(f){
 		  for (var i in f){
