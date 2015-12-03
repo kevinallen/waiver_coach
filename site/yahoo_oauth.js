@@ -110,7 +110,7 @@ function getOtherPlayers(team_key, league_number) {
 }
 
 function loggedIn(network) {
-  if (hello( network ).getAuthResponse()) {
+  
   hello( network ).api('me').then(function(p){
 	  document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
   }).then(function(){
@@ -121,7 +121,7 @@ function loggedIn(network) {
   }).then(null, function(e){
 	  console.error(e);
   });
-  }
+  
 }
 function login(network){
   
