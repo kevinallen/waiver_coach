@@ -108,7 +108,7 @@ function getOtherPlayers(team_key, league_number) {
           if (league.draft_status != "postdraft") {
               continue;
           }
-    	  for (var i = 1; i <= Number(league.num_teams); i++) {
+    	  for (i = 1; i <= Number(league.num_teams); i++) {
     		if (i == myTeam) {
     		  continue;
     		}
@@ -132,8 +132,8 @@ function getOtherPlayers(team_key, league_number) {
  					var next_team= {team_number: players_list};
     				sessionStorage.setItem(league_number, JSON.stringify(next_team));
 					obj = JSON.parse(sessionStorage.getItem(league_number));
-					for (var i in obj){
-					  console.log(i, obj[i]);
+					for (var o in obj){
+					  console.log(o, obj[o]);
 					}
     			  } else {
     				alert("Your browser does not support web storage.  Please use a different browser to continue.");
