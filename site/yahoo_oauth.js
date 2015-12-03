@@ -127,22 +127,20 @@ function getOtherPlayers(team_key, league_number) {
     				//result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
     				players_list.push(team.roster.players.player[j].name.full);
     			  }
-			  }  
+			  }
+			  // Store other teams' players 
+			  if (typeof(Storage) !== "undefined") {
+					league_teams[team_number] = players_list;
+					sessionStorage.setItem(league_number, JSON.stringify(league_teams));
+					obj = JSON.parse(sessionStorage.getItem(league_number));
+			  } else {
+					alert("Your browser does not support web storage.  Please use a different browser to continue.");
+			  }
+			  console.log("leaguex", JSON.parse(sessionStorage.getItem(league_number)));
             }).then(null, function(e){
               console.error(e);
             });
     	  }
-		  // Store other teams' players 
-		  if (typeof(Storage) !== "undefined") {
-				league_teams[team_number] = players_list;
-				for (var l in league_teams){
-				  console.log(l, league_teams[l]);
-				}
-				sessionStorage.setItem(league_number, JSON.stringify(league_teams));
-				obj = JSON.parse(sessionStorage.getItem(league_number));
-		  } else {
-				alert("Your browser does not support web storage.  Please use a different browser to continue.");
-		  }
 		  
 		  if (onlyOneLeague) {
 			break;
