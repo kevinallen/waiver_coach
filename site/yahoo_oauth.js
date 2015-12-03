@@ -130,6 +130,10 @@ function getOtherPlayers(team_key, league_number) {
     			  if (typeof(Storage) !== "undefined") {
 					team_number = "t" + i;
 					league_players_list.push({team_number: players_list});
+					obj = league_players_list;
+					for (var i in obj){
+					  console.log(i);
+					}
     				sessionStorage.setItem(league_number, league_players_list);
     			  } else {
     				alert("Your browser does not support web storage.  Please use a different browser to continue.");
@@ -139,10 +143,7 @@ function getOtherPlayers(team_key, league_number) {
               console.error(e);
             });
     	  }
-		  obj = sessionStorage.getItem(league_number);
-		  for (var i in obj){
-			console.log(i);
-		  }
+		  
 		  if (onlyOneLeague) {
 			break;
 		  }
