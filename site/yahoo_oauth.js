@@ -158,6 +158,7 @@ function getOtherPlayers(team_key) {
               console.error(e);
             });
     	  }
+		  break;
 	  }
 	  } // end for loop
 	}).then(null, function(e){
