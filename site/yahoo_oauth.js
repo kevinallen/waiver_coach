@@ -157,6 +157,7 @@ function getOtherPlayers(team_key, league_number) {
     			  if (typeof(Storage) !== "undefined") {
 					var team_num = "t" + i;
 					var league_players = {team_num: players_list};
+					console.log(league_players);
 					sessionStorage.setItem(league_number, league_players);
     				//sessionStorage.setItem("t0", players_list);
 					var test = sessionStorage.getItem(league_number)
