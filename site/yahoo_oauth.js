@@ -105,7 +105,7 @@ function getOtherPlayers(team_key, league_number) {
 	});
 	setTimeout(function() {
 	  console.log("Other Teams' Players", JSON.parse(sessionStorage.getItem(league_number)));
-	}, 1000);
+	}, 2000);
 	
 }
 
