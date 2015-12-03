@@ -73,7 +73,8 @@ function showTeams(obj, objName) {
 			  players_list.push(team.roster.players.player[j].name.full);
 		  }
 		  if (typeof(Storage) !== "undefined") {
-			var league_team = {"t0": players_list};
+			var league_team = {};
+			league_team["t0"] = players_list;
 			sessionStorage.setItem("league1", league_team);
 			//sessionStorage.setItem("t0", players_list);
 			console.log("league1", sessionStorage.getItem("league1"));
@@ -117,6 +118,7 @@ function getOtherPlayers(team_key, league_number) {
             var result = "";
 			var players_list = [];
             var league_players_list = [];
+			var next_team = {};
 			league_players_list.push(sessionStorage.getItem(league_number));
     		hello( network ).api('moreteams', 'get', qdata).then(function(m){
               console.log(m);
@@ -129,7 +131,8 @@ function getOtherPlayers(team_key, league_number) {
     			  }
     			  if (typeof(Storage) !== "undefined") {
 					team_number = "t" + i;
-					league_players_list.push({team_number: players_list});
+					next_team[team_number] = players_list;
+					league_players_list.push(next_team);
 					
     				sessionStorage.setItem(league_number, league_players_list);
 					obj = sessionStorage.getItem(league_number);
