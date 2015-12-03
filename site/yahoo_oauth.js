@@ -103,10 +103,23 @@ function getOtherPlayers(team_key, league_number) {
 	}).then(null, function(e){
 		console.error(e);
 	});
-	console.log("Other Teams' Players", JSON.parse(sessionStorage.getItem(league_number)));
+	setTimeout(function() {
+	  console.log("Other Teams' Players", JSON.parse(sessionStorage.getItem(league_number)));
+	}, 100);
+	
 }
 
 function login(network){
+  
+	var online = function(session) {
+	  var currentTime = (new Date()).getTime() / 1000;
+	  return session && session.access_token && session.expires > currentTime;
+	};
+
+	var yh = hello('yahoo').getAuthResponse();
+
+	alert((online(yh) ? 'Signed' : 'Not signed') + ' into Yahoo');
+	
 	hello( network ).login().then(function(f){
 		for (var i in f){
 		  console.log("i", f[i]);
