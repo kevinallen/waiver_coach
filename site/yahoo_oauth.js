@@ -1,34 +1,7 @@
-/*
-function showProps(obj, objName) {
-  var result = "";
-  console.log(obj);
-  for (var i in obj) {
-      if (typeof obj[i] === null || typeof obj[i] !== "object") {
-          continue;
-      }
-      if (obj instanceof Array) {
-          var league = obj[i];
-          result += "<h4>League "+i+"</h4>";
-          console.log(league);
-          if (league.hasOwnProperty('league_key')) {
-              result += "<div><a href="+league.url+">"+league.name+"</a> "+league.league_key+"</div>";
-          }
-		  result += '<button id="players" onclick="players();">Show Players</button>';
-      } else {
-          var league = obj;
-          result += "<h4>League</h4>";
-          result += "<div><a href="+league.url+">"+league.name+"</a> "+league.league_key+"</div>";
-		  result += '<button id="players" onclick="players();">Show Players</button>';
-          break;
-      }
 
-
-  }
-  return result;
-}
-*/
 function showTeams(obj, objName) {
   var result = "";
+  var onlyOneTeam = false;
   var players_list = [];
   console.log(obj);
   for (var i in obj) {
@@ -37,52 +10,35 @@ function showTeams(obj, objName) {
       }
       if (obj instanceof Array) {
           var team = obj[i];
-		  var num = 1;
-          if (team.roster.players === null) {
-              continue;
-          }
-          result += "<h4>Team "+i+"</h4>";
-          if (team.hasOwnProperty('team_key')) {
-              result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
-			  for (var j in team.roster.players.player) {
-				result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
-				players_list.push(team.roster.players.player[j].name.full);
-			  }
-			  if (typeof(Storage) !== "undefined") {
-				var league_team = ("t0", players_list);
-				var league_number = "league" + num;
-				sessionStorage.setItem(league_number, league_team);
-				//sessionStorage.setItem("t0", players_list);
-				console.log(sessionStorage.getItem(league_number));
-				getOtherPlayers(team.team_key, league_number);
-				num += 1;
-			  } else {
-				alert("Your browser does not support web storage.  Please use a different browser to continue.");
-			  }
-          }
-
-      } else {
+	  } else {
+		  onlyOneTeam = true;
           var team = obj;
-          if (team.roster.players === null) {
-              break;
-          }
-          result += "<h4>Team</h4>";
-          result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
-          for (var j in team.roster.players.player) {
-              result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
-			  players_list.push(team.roster.players.player[j].name.full);
+	  }
+	  var num = 1;
+	  if (team.roster.players === null) {
+		  continue;
+	  }
+	  result += "<h4>Team "+i+"</h4>";
+	  if (team.hasOwnProperty('team_key')) {
+		  result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
+		  for (var j in team.roster.players.player) {
+			result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
+			players_list.push(team.roster.players.player[j].name.full);
 		  }
 		  if (typeof(Storage) !== "undefined") {
-			var league_team = {"t0":players_list};
-			sessionStorage.setItem("league1", JSON.stringify(league_team));
-			//sessionStorage.setItem("t0", players_list);
-			console.log("league1", JSON.parse(sessionStorage.getItem("league1")));
-			getOtherPlayers(team.team_key, "league1");
+			var league_team = {"myteam": players_list}; 
+			var league_number = "league" + num;
+			sessionStorage.setItem(league_number, JSON.stringify(league_team));
+			console.log(league_number, JSON.parse(sessionStorage.getItem(league_number)));
+			getOtherPlayers(team.team_key, league_number);
+			num += 1;
 		  } else {
 			alert("Your browser does not support web storage.  Please use a different browser to continue.");
 		  }
-          break;
-      }
+	  }
+	  if (onlyOneTeam) {
+		break;
+	  }
   }
   return result;
 }
@@ -121,10 +77,9 @@ function getOtherPlayers(team_key, league_number) {
     		hello( network ).api('moreteams', 'get', qdata).then(function(m){
               console.log(m);
               var team = m;
-              //result += "<h4>"+team.name+"</h4>";
+              
               if (team.hasOwnProperty('team_key')) {
     			  for (var j in team.roster.players.player) {
-    				//result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
     				players_list.push(team.roster.players.player[j].name.full);
     			  }
 			  }
@@ -136,7 +91,6 @@ function getOtherPlayers(team_key, league_number) {
 			  } else {
 					alert("Your browser does not support web storage.  Please use a different browser to continue.");
 			  }
-			  console.log("leaguex", JSON.parse(sessionStorage.getItem(league_number)));
             }).then(null, function(e){
               console.error(e);
             });
@@ -149,15 +103,18 @@ function getOtherPlayers(team_key, league_number) {
 	}).then(null, function(e){
 		console.error(e);
 	});
+	console.log("Other Teams' Players", JSON.parse(sessionStorage.getItem(league_number)));
 }
 
 function login(network){
-	hello( network ).login().then(function(){
+	hello( network ).login().then(function(f){
+		for (var i in f){
+		  console.log("i", f[i]);
+		}
 		// Get Profile
 		return hello( network ).api('me');
 	}).then(function(p){
 		document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
-		//document.getElementById('yahoocontent').innerHTML = showProps(p, "p");
 	}).then(function(){
 		// Get team info
 		return hello( network ).api('teams');
@@ -168,16 +125,6 @@ function login(network){
 	});
 }
 
-function players(){
-	// Get player info
-	network = 'yahoo'
-
-	hello( network ).api('players').then(function(d){
-		document.getElementById('rostercontent').innerHTML = showPlayers(d,"d");
-	}).then(null, function(e){
-		console.error(e);
-	});
-}
 
 hello.init({
 	'yahoo' : 'dj0yJmk9T0dUclhxZXpRU2ExJmQ9WVdrOVdqVTJhekp6TXpZbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1hYQ--'
