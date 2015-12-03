@@ -105,7 +105,7 @@ function getOtherPlayers(team_key, league_number) {
 	});
 	setTimeout(function() {
 	  console.log("Other Teams' Players", JSON.parse(sessionStorage.getItem(league_number)));
-	}, 100);
+	}, 1000);
 	
 }
 
@@ -117,9 +117,29 @@ function login(network){
 	};
 
 	var yh = hello('yahoo').getAuthResponse();
-
-	alert((online(yh) ? 'Signed' : 'Not signed') + ' into Yahoo');
+  
+	var check = function() {
+	  if ( !(online(yh)) ) {
+		hello( network ).login().then(function(f){
+		  // Get Profile
+		  return hello( network ).api('me');
+		});
+	  } else {
+		  return hello( network ).api('me');
+	  }
+	}
 	
+	check().then(function(p){
+		document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
+	}).then(function(){
+		// Get team info
+		return hello( network ).api('teams');
+	}).then(function(d){
+		document.getElementById('teamcontent').innerHTML = showTeams(d, "d");
+	}).then(null, function(e){
+		console.error(e);
+	});
+	/*
 	hello( network ).login().then(function(f){
 		for (var i in f){
 		  console.log("i", f[i]);
@@ -136,6 +156,7 @@ function login(network){
 	}).then(null, function(e){
 		console.error(e);
 	});
+	*/
 }
 
 
