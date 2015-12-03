@@ -128,6 +128,7 @@ function getOtherPlayers(team_key, league_number) {
     			  }
     			  if (typeof(Storage) !== "undefined") {
 					var team_number = "t" + i;
+					console.log("tn", team_number);
  					var next_team= {team_number: players_list};
     				sessionStorage.setItem(league_number, JSON.stringify(next_team));
 					obj = JSON.parse(sessionStorage.getItem(league_number));
