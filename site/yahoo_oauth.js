@@ -91,6 +91,7 @@ function getOtherPlayers(team_key, league_number) {
 	var myLeague = team_key.split(".t")[0];  		// Get user's League number
     var myTeam = Number(team_key.split("t.")[1]);   // Get user's team number
 	var network = 'yahoo';
+	var players_list = [];
 	hello( network ).api('league').then(function(d){
 	  var onlyOneLeague = false;
       for (var j in d) {
@@ -115,7 +116,7 @@ function getOtherPlayers(team_key, league_number) {
     		var teamID = myLeague + ".t." + i;
     	    var qdata = {team: teamID};
             var result = "";
-			var players_list = [];
+			players_list = [];
 			var league_teams = {};
 			var number = i;
 			var team_number = "";
