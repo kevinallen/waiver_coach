@@ -19,9 +19,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
-    <script type="text/javascript">
-      window.online = loggedIn('yahoo');
-    </script>
+    
   </head>
 
   <body>
@@ -104,8 +102,11 @@
     <script src="hello/src/modules/yahoo.js"></script>
     <script src="yahoo_oauth.js"></script>
     <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
+    <script type="text/javascript">
+      window.online = loggedIn('yahoo');
+    </script>
     <script type="text/javascript" language="javascript">
-
+    
 
         $(document).ready( function () {
             //clear session storage on page refresh
