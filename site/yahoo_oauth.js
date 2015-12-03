@@ -102,9 +102,6 @@ function getOtherPlayers(team_key, league_number) {
 			league = d;
 			onlyOneLeague = true;
 		  }
-		 // if (typeof d[j] === null || typeof d[j] !== "object") {
-         // continue;
-		 // }
 		  
           if (league.draft_status != "postdraft") {
               continue;
@@ -118,7 +115,6 @@ function getOtherPlayers(team_key, league_number) {
             var result = "";
 			players_list = [];
 			var league_teams = {};
-			var number = i;
 			var team_number = "other";
 			
             
@@ -131,23 +127,22 @@ function getOtherPlayers(team_key, league_number) {
     				//result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
     				players_list.push(team.roster.players.player[j].name.full);
     			  }
-				  
-				  
-              }
-			  if (typeof(Storage) !== "undefined") {
-					league_teams[team_number] = players_list;
-					for (var l in league_teams){
-					  console.log(l, league_teams[l]);
-					}
-    				sessionStorage.setItem(league_number, JSON.stringify(league_teams));
-					obj = JSON.parse(sessionStorage.getItem(league_number));
-    			  } else {
-    				alert("Your browser does not support web storage.  Please use a different browser to continue.");
-    			  }
+			  }  
             }).then(null, function(e){
               console.error(e);
             });
     	  }
+		  // Store other teams' players 
+		  if (typeof(Storage) !== "undefined") {
+				league_teams[team_number] = players_list;
+				for (var l in league_teams){
+				  console.log(l, league_teams[l]);
+				}
+				sessionStorage.setItem(league_number, JSON.stringify(league_teams));
+				obj = JSON.parse(sessionStorage.getItem(league_number));
+		  } else {
+				alert("Your browser does not support web storage.  Please use a different browser to continue.");
+		  }
 		  
 		  if (onlyOneLeague) {
 			break;
