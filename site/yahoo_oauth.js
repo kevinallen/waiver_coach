@@ -108,7 +108,7 @@ function getOtherPlayers(team_key, league_number) {
           if (league.draft_status != "postdraft") {
               continue;
           }
-    	  for (i = 1; i <= Number(league.num_teams); i++) {
+    	  for (var i = 1; i <= Number(league.num_teams); i++) {
     		if (i == myTeam) {
     		  continue;
     		}
