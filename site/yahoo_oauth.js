@@ -95,16 +95,16 @@ function getOtherPlayers(team_key, league_number) {
 	hello( network ).api('league').then(function(d){
 	  var onlyOneLeague = false;
       for (var j in d) {
-          if (typeof d[j] === null || typeof d[j] !== "object") {
-          continue;
-		  }
-		  
+          
 		  if (d instanceof Array) {
 			league = d[j];
 		  } else {
 			league = d;
 			onlyOneLeague = true;
 		  }
+		 // if (typeof d[j] === null || typeof d[j] !== "object") {
+         // continue;
+		 // }
 		  
           if (league.draft_status != "postdraft") {
               continue;
