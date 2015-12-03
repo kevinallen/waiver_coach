@@ -116,6 +116,7 @@ function getOtherPlayers(team_key, league_number) {
     	    var qdata = {team: teamID};
             var result = "";
 			var players_list = [];
+			var league_teams = {};
 			var number = i;
             
     		hello( network ).api('moreteams', 'get', qdata).then(function(m){
@@ -127,12 +128,11 @@ function getOtherPlayers(team_key, league_number) {
     				//result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
     				players_list.push(team.roster.players.player[j].name.full);
     			  }
-    			  if (typeof(Storage) !== "undefined") {
-					var team_number = "t" + number;
-					console.log("tn", team_number);
-					var next_team = {}
- 					next_team[team_number] = players_list;
-    				sessionStorage.setItem(league_number, JSON.stringify(next_team));
+				  var team_number = "t" + number;
+				  league_teams[team_number] = players_list;  
+              }
+			  if (typeof(Storage) !== "undefined") {
+    				sessionStorage.setItem(league_number, JSON.stringify(league_teams));
 					obj = JSON.parse(sessionStorage.getItem(league_number));
 					for (var o in obj){
 					  console.log(o, obj[o]);
@@ -140,7 +140,6 @@ function getOtherPlayers(team_key, league_number) {
     			  } else {
     				alert("Your browser does not support web storage.  Please use a different browser to continue.");
     			  }
-              }
             }).then(null, function(e){
               console.error(e);
             });
