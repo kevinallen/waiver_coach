@@ -118,6 +118,7 @@ function getOtherPlayers(team_key, league_number) {
 			var players_list = [];
 			var league_teams = {};
 			var number = i;
+			var team_number = "";
             
     		hello( network ).api('moreteams', 'get', qdata).then(function(m){
               console.log(m);
@@ -128,8 +129,11 @@ function getOtherPlayers(team_key, league_number) {
     				//result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
     				players_list.push(team.roster.players.player[j].name.full);
     			  }
-				  var team_number = "t" + number;
-				  league_teams[team_number] = players_list;  
+				  team_number = "t" + number;
+				  league_teams[team_number] = players_list;
+				  for (var l in league_teams){
+					  console.log(l, obj[l]);
+					}
               }
 			  if (typeof(Storage) !== "undefined") {
     				sessionStorage.setItem(league_number, JSON.stringify(league_teams));
