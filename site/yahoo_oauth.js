@@ -87,7 +87,13 @@ function getOtherPlayers(team_key) {
 	hello( network ).api('league').then(function(d){
 
       for (var j in d) {
-          league = d[j];
+          if (typeof d[j] === null || typeof d[j] !== "object") {
+          continue;
+		  }
+		  
+		  if (obj instanceof Array) {
+		  
+		  league = d[j];
           if (league.draft_status != "postdraft") {
               continue;
           }
@@ -119,7 +125,41 @@ function getOtherPlayers(team_key) {
               console.error(e);
             });
     	  }
-      }
+      } else {
+		league = d;
+		if (league.draft_status != "postdraft") {
+              continue;
+        }
+		for (i = 1; i <= Number(league.num_teams); i++) {
+    		if (i == myTeam) {
+    		  continue;
+    		}
+    		var teamID = myLeague + ".t." + i;
+    	    var qdata = {team: teamID};
+            var result = "";
+            var players_list = sessionStorage.getItem("t1").split(",");
+    		hello( network ).api('moreteams', 'get', qdata).then(function(m){
+              console.log(m);
+              var team = m;
+              result += "<h4>"+team.name+"</h4>";
+              if (team.hasOwnProperty('team_key')) {
+    			  for (var j in team.roster.players.player) {
+    				result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
+    				players_list.push(team.roster.players.player[j].name.full);
+    			  }
+    			  if (typeof(Storage) !== "undefined") {
+    				sessionStorage.setItem("t1", players_list);
+    				console.log(sessionStorage.getItem("t1"));
+    			  } else {
+    				alert("Your browser does not support web storage.  Please use a different browser to continue.");
+    			  }
+              }
+            }).then(null, function(e){
+              console.error(e);
+            });
+    	  }
+	  }
+	  } // end for loop
 	}).then(null, function(e){
 		console.error(e);
 	});
