@@ -16,6 +16,7 @@ Although you can use them, for a more unique website, replace these images with 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    
     <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
     <link href="css/custom.css" rel="stylesheet">
 
@@ -28,6 +29,11 @@ Although you can use them, for a more unique website, replace these images with 
 
     <!-- Custom Fonts from Google -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- FOR PLOTING WIDGET -->
+    <link href="css/jquery-ui.css" rel="stylesheet"> 
+    <link href="css/compare_distribution.css" rel="stylesheet">
+
 
 </head>
 
@@ -101,9 +107,11 @@ Although you can use them, for a more unique website, replace these images with 
     <section class="content">
         <div class="container">
             <div class="row">
+                <!--
                 <div class="col-sm-6">
                     <img class="img-responsive img-circle center-block" src="images/microphone.jpg" alt="">
                 </div>
+                -->
                 <div class="col-sm-6">
                 	<h2 class="section-header">A New Approach</h2>
                 	<p class="lead text-muted">We use advanced statistical methods to predict player performance. In addition, we show the probability that a player will exceed or fall short of expectations.</p>
@@ -123,15 +131,17 @@ Although you can use them, for a more unique website, replace these images with 
                 	<p class="lead text-light">Waiver Coach uses a combination of historical data and expert opinion to determine the best available player in your league. Sign in to your Yahoo account for the best experience.</p>
                 	<a href="#" class="btn btn-default btn-lg">Sign in now</a>
                 </div>
+                <!--
                 <div class="col-sm-6">
                     <img class="img-responsive img-circle center-block" src="images/iphone.jpg" alt="">
                 </div>
-
+                -->
             </div>
         </div>
     </section>
 
     <!-- Promos -->
+    <!--
 	<div class="container-fluid">
         <div class="row promo">
         	<a href="#">
@@ -157,15 +167,31 @@ Although you can use them, for a more unique website, replace these images with 
 				</div>
             </a>
         </div>
-    </div><!-- /.container-fluid -->
+    </div>
+    -->
+    <!-- /.container-fluid -->
 
 	<!-- Content 3 -->
-     <section class="content content-3">
+     <section class="content content-3" id='distribution-section'>
         <div class="container">
-			<h2 class="section-header"><span class="glyphicon glyphicon-pushpin text-primary"></span><br> Sanity Check</h2>
-			<p class="lead text-muted">Holisticly predominate extensible testing procedures for reliable supply chains. Dynamically innovate resource-leveling customer service for state of the art customer service.</p>
-                    <a href="#" class="btn btn-primary btn-lg">Check Now</a>
-            </div>
+			<h2 class="section-header"><span class="glyphicon glyphicon-resize-small text-primary"></span><br>Compare Predictions</h2>
+			<div id='plot_widget'>
+                <div>
+                  <div id='menu_message'>
+                    <p class='lead text-muted'>Start typing in these boxes to search for players...</p>
+                  </div>
+                  <div class="menu_div">
+                    <label for="player1_menu">Player1: </label>
+                    <input id="player1_menu" class='menu_input'>
+                  </div>
+                  <div class="menu_div">
+                    <label for="player2_menu">Player2: </label>
+                    <input id="player2_menu" class='menu_input'>
+                  </div>
+                </div>
+                <div id='plot'>
+                </div>
+              </div>
         </div>
     </section>
 
@@ -201,6 +227,13 @@ Although you can use them, for a more unique website, replace these images with 
 
     <!-- Custom Javascript -->
     <script src="js/custom.js"></script>
+
+    <!-- FOR PLOTTING WIDGET -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src='js/compare_distribution.js'></script>
 
 </body>
 
