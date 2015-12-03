@@ -107,6 +107,13 @@ var create_player_menu = function(data){
       update_plot(GLOBAL_data, GLOBAL_players)
       return false
     },
+    change: function (event, ui){
+      if(!ui.item){
+        GLOBAL_players[0] = ''
+        update_plot(GLOBAL_data, GLOBAL_players)
+      }
+      return false
+    },
     focus: function(event, ui){
       return false
     }
@@ -117,6 +124,13 @@ var create_player_menu = function(data){
       update_menu_display(ui.item.label, 'player2_menu')
       GLOBAL_players[1] = ui.item? ui.item.value: ''
       update_plot(GLOBAL_data, GLOBAL_players)
+      return false
+    },
+    change: function (event, ui){
+      if(!ui.item){
+        GLOBAL_players[1] = ''
+        update_plot(GLOBAL_data, GLOBAL_players)
+      }
       return false
     },
     focus: function(event, ui){
