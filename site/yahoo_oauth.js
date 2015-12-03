@@ -111,34 +111,36 @@ function getOtherPlayers(team_key, league_number) {
 
 function login(network){
   
-	var online = function(session) {
-	  var currentTime = (new Date()).getTime() / 1000;
-	  return session && session.access_token && session.expires > currentTime;
-	};
-
-	var yh = hello('yahoo').getAuthResponse();
-  
-	var check = function() {
-	  if ( !(online(yh)) ) {
+	if (hello('yahoo').getAuthResponse()) {
+		hello( network ).api('me').then(function(p){
+		  document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
+	  }).then(function(){
+		  // Get team info
+		  return hello( network ).api('teams');
+	  }).then(function(d){
+		  document.getElementById('teamcontent').innerHTML = showTeams(d, "d");
+	  }).then(null, function(e){
+		  console.error(e);
+	  });
+	} else {
 		hello( network ).login().then(function(f){
-		  // Get Profile
-		  return hello( network ).api('me');
+		  for (var i in f){
+			console.log("i", f[i]);
+		  }
+		// Get Profile
+		return hello( network ).api('me');
+		}).then(function(p){
+			document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
+		}).then(function(){
+			// Get team info
+			return hello( network ).api('teams');
+		}).then(function(d){
+			document.getElementById('teamcontent').innerHTML = showTeams(d, "d");
+		}).then(null, function(e){
+			console.error(e);
 		});
-	  } else {
-		  return hello( network ).api('me');
-	  }
 	}
-	
-	check().then(function(p){
-		document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
-	}).then(function(){
-		// Get team info
-		return hello( network ).api('teams');
-	}).then(function(d){
-		document.getElementById('teamcontent').innerHTML = showTeams(d, "d");
-	}).then(null, function(e){
-		console.error(e);
-	});
+  
 	/*
 	hello( network ).login().then(function(f){
 		for (var i in f){
