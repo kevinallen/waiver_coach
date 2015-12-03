@@ -111,7 +111,10 @@
       window.online = checkLogin();
       document.addEventListener('DOMContentLoaded', function() {
         alert("Ready!");
-        loggedIn('yahoo');
+        if (hello( 'yahoo' ).getAuthResponse()) {
+          alert("yes!");
+          loggedIn('yahoo');
+        } else { alert("nope")}
       }, false);
     </script>
     <script type="text/javascript" language="javascript">
