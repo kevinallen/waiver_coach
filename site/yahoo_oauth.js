@@ -91,7 +91,7 @@ function getOtherPlayers(team_key) {
           continue;
 		  }
 		  
-		  if (obj instanceof Array) {
+		  if (d instanceof Array) {
 		  
 		  league = d[j];
           if (league.draft_status != "postdraft") {
