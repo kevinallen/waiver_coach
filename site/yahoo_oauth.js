@@ -117,8 +117,7 @@ function getOtherPlayers(team_key, league_number) {
             var result = "";
 			var players_list = [];
             var league_players_list = [];
-			league_players_list.push(sessionStorage.getItem(league_number));//.split(",");
-			console.log("players_list 1:", JSON.stringify(league_players_list));
+			league_players_list.push(sessionStorage.getItem(league_number));
     		hello( network ).api('moreteams', 'get', qdata).then(function(m){
               console.log(m);
               var team = m;
@@ -132,7 +131,6 @@ function getOtherPlayers(team_key, league_number) {
 					team_number = "t" + i;
 					league_players_list.push({team_number: players_list});
     				sessionStorage.setItem(league_number, league_players_list);
-    				console.log(sessionStorage.getItem(JSON.stringify(league_number)));
     			  } else {
     				alert("Your browser does not support web storage.  Please use a different browser to continue.");
     			  }
@@ -141,6 +139,10 @@ function getOtherPlayers(team_key, league_number) {
               console.error(e);
             });
     	  }
+		  obj = sessionStorage.getItem(league_number);
+		  for (var i in obj){
+			console.log(i);
+		  }
 		  if (onlyOneLeague) {
 			break;
 		  }
