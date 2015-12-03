@@ -160,6 +160,9 @@ function getOtherPlayers(team_key, league_number) {
 					sessionStorage.setItem(league_number, league_players);
     				//sessionStorage.setItem("t0", players_list);
 					var test = sessionStorage.getItem(league_number)
+					for (var i in test) {
+					  console.log(i);
+					}
     				console.log(test, "test");
     			  } else {
     				alert("Your browser does not support web storage.  Please use a different browser to continue.");
