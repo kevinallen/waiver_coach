@@ -1,4 +1,5 @@
 
+
 function showTeams(obj, objName) {
   var result = "";
   var onlyOneTeam = false;
@@ -71,7 +72,7 @@ function getOtherPlayers(team_key, league_number) {
             var result = "";
 			players_list = [];
 			var league_teams = {};
-			var team_number = "other";
+			var team_name = "other";
 			
             
     		hello( network ).api('moreteams', 'get', qdata).then(function(m){
@@ -85,7 +86,7 @@ function getOtherPlayers(team_key, league_number) {
 			  }
 			  // Store other teams' players 
 			  if (typeof(Storage) !== "undefined") {
-					league_teams[team_number] = players_list;
+					league_teams[team_name] = players_list;
 					sessionStorage.setItem(league_number, JSON.stringify(league_teams));
 					obj = JSON.parse(sessionStorage.getItem(league_number));
 			  } else {
