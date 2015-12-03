@@ -132,7 +132,7 @@ function getOtherPlayers(team_key, league_number) {
 				  team_number = "t" + number;
 				  league_teams[team_number] = players_list;
 				  for (var l in league_teams){
-					  console.log(l, obj[l]);
+					  console.log(l, league_teams[l]);
 					}
               }
 			  if (typeof(Storage) !== "undefined") {
