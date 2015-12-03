@@ -103,7 +103,12 @@
     <script src="yahoo_oauth.js"></script>
     <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
     <script type="text/javascript">
-      window.online = loggedIn('yahoo');
+      function checkLogin() {
+        if (hello( network ).getAuthResponse()) {
+          loggedIn('yahoo');
+        }
+      }
+      window.online = checkLogin();
     </script>
     <script type="text/javascript" language="javascript">
     

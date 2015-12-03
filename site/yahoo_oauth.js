@@ -125,7 +125,7 @@ function loggedIn(network) {
 }
 function login(network){
   
-	if (hello('yahoo').getAuthResponse()) {
+	if (hello( network ).getAuthResponse()) {
 	  loggedIn(network);
 	} else {
 		hello( network ).login().then(function(f){
