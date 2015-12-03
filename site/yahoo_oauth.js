@@ -73,7 +73,7 @@ function showTeams(obj, objName) {
 			  players_list.push(team.roster.players.player[j].name.full);
 		  }
 		  if (typeof(Storage) !== "undefined") {
-			var league_team = ("t0", players_list);
+			var league_team = {"t0": players_list};
 			sessionStorage.setItem("league1", league_team);
 			//sessionStorage.setItem("t0", players_list);
 			console.log(sessionStorage.getItem("league1"));
@@ -156,7 +156,7 @@ function getOtherPlayers(team_key, league_number) {
     			  }
     			  if (typeof(Storage) !== "undefined") {
 					var team_num = "t" + i;
-					var league_players = (team_num, players_list);
+					var league_players = {team_num: players_list};
 					sessionStorage.setItem(league_number, league_players);
     				//sessionStorage.setItem("t0", players_list);
     				console.log(sessionStorage.getItem(league_number));
