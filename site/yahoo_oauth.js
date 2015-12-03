@@ -130,6 +130,7 @@ function getOtherPlayers(team_key, league_number) {
     				//result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
     				players_list.push(team.roster.players.player[j].name.full);
     			  }
+				  console.log("before:", team_number);
 				  team_number = "t" + number;
 				  league_teams[team_number] = players_list;
 				  for (var l in league_teams){
