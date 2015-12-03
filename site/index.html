@@ -104,18 +104,12 @@
     <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
     <script type="text/javascript">
       function checkLogin() {
+        console.log( (hello( 'yahoo' ).getAuthResponse()))
         if (hello( 'yahoo' ).getAuthResponse()) {
           loggedIn('yahoo');
         }
       }
       window.online = checkLogin();
-      document.addEventListener('DOMContentLoaded', function() {
-        alert("Ready!");
-        if (hello( 'yahoo' ).getAuthResponse()) {
-          alert("yes!");
-          loggedIn('yahoo');
-        } else { alert("nope")}
-      }, false);
     </script>
     <script type="text/javascript" language="javascript">
     
