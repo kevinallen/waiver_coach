@@ -124,13 +124,30 @@ Although you can use them, for a more unique website, replace these images with 
 
 	<!-- Content 2 -->
      <section class="content content-2">
-        <a name="login"></a>
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
                 	<h2 class="section-header">Personalized Recommendations</h2>
                 	<p class="lead text-light">Waiver Coach uses a combination of historical data and expert opinion to determine the best available player in your league. Sign in to your Yahoo account for the best experience.</p>
                 	<a id="login" href="#login" class="btn btn-default btn-lg" onclick="login('yahoo');">Sign in now</a>
+                </div>
+                <!--
+                <div class="col-sm-6">
+                    <img class="img-responsive img-circle center-block" src="images/iphone.jpg" alt="">
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+    <a name="login"></a>
+    <section id="myteam" class="content content-3" style="display:hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                	<h2 class="section-header">My Team</h2>
+                	<p class="lead text-light">To save you time, we can filter out players that aren't available in your league.</p>
+                	<div id="teamcontent"></div>
                 </div>
                 <!--
                 <div class="col-sm-6">

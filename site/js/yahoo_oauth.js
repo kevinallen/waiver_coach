@@ -136,13 +136,14 @@ function login(network){
 		// Get Profile
 		return hello( network ).api('me');
 		}).then(function(p){
-            console.log(p);
 			document.getElementById('login').innerHTML = "Connected to Yahoo!";
+
 		}).then(function(){
 			// Get team info
 			return hello( network ).api('teams');
 		}).then(function(d){
 			document.getElementById('teamcontent').innerHTML = showTeams(d, "d");
+            $('#myteam').show();
 		}).then(null, function(e){
 			console.error(e);
 		});
