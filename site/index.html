@@ -1,137 +1,240 @@
 <!DOCTYPE html>
+<!-- Template by Quackit.com -->
+<!-- Images by various sources under the Creative Commons CC0 license and/or the Creative Commons Zero license.
+Although you can use them, for a more unique website, replace these images with your own. -->
 <html lang="en">
-  <head>
+
+<head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <link href='https://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
-    <!-- still need to design an 32x32 icon -->
-    <link rel="icon" href="favicon.ico">
 
     <title>Waiver Coach</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/dashboard.css" rel="stylesheet">
     
-  </head>
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="css/custom.css" rel="stylesheet">
 
-  <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid title_bg">
-        <div class="navbar-header ">
-          <a class="navbar-brand title" href="index.html">Waiver Coach</a>
-        </div>
-        <!--
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div>
-            -->
-      </div>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom Fonts from Google -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- FOR PLOTING WIDGET -->
+    <link href="css/jquery-ui.css" rel="stylesheet"> 
+    <link href="css/compare_distribution.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="siteNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Logo and responsive toggle -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                	<span class="glyphicon glyphicon-stats"></span>
+                	Waiver Coach
+                </a>
+            </div>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analysis <span class="caret"></span></a>
+						<ul class="dropdown-menu" aria-labelledby="about-us">
+							<li><a href="#">My Team</a></li>
+							<li><a href="#">Recommendations</a></li>
+						</ul>
+					</li>
+                    <li>
+                        <a href="#">Sign in</a>
+                    </li>
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
     </nav>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <div class="nav-heading">
-              Recommended
-              <span class="more_link">(<a href="recommended_players.html">more</a>)</span>
-          </div>
-          <ul id="playerlist" class="nav nav-sidebar"></ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <div id="playercontent">
-                <p class="lead">Waiver Coach is your personal fantasy football assistant. It will help you quickly find <em>available players</em> relevant to your unique situation.
-                <br/>
-                <br/>
-                In order to make the best use of the site, please <strong>sign in</strong>.</p>
-
-                <button id='login' onclick="login('yahoo');">Sign in to Yahoo</button>
-                <div id='teamcontent'></div>
-                <div id='rostercontent'></div>
+	<!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Choose Wisely</h1>
+                <p>In-depth analysis, expert opinions. We're here to help.</p>
+                <!--<div><a href="#" class="btn btn-primary btn-lg">Engage Now</a></div>-->
             </div>
         </div>
-        <!-- <div class='tableauPlaceholder' style='width: 1204px; height: 869px;'>
-	  <noscript>
-            <a href='#'>
-              <img alt='Player Dashboard - RBs 'src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;RB&#47;RBdashboards&#47;Dashboard1&#47;1_rss.png' style='border: none' />
+    </header>
+
+	<!-- Intro Section -->
+    <section class="intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2 class="section-heading">About Us</h2>
+                    <p class="text-light">Waiver Coach is a capstone project for the UC-Berkeley MIDS program. With Waiver Coach, we brought a fresh perspective to making projections of fantasy football player statistics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<!-- Content 1 -->
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <!--
+                <div class="col-sm-6">
+                    <img class="img-responsive img-circle center-block" src="images/microphone.jpg" alt="">
+                </div>
+                -->
+                <div class="col-sm-6">
+                	<h2 class="section-header">A New Approach</h2>
+                	<p class="lead text-muted">We use advanced statistical methods to predict player performance. In addition, we show the probability that a player will exceed or fall short of expectations.</p>
+                	<a href="#" class="btn btn-primary btn-lg">See how we did it</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+	<!-- Content 2 -->
+     <section class="content content-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                	<h2 class="section-header">Personalized Recommendations</h2>
+                	<p class="lead text-light">Waiver Coach uses a combination of historical data and expert opinion to determine the best available player in your league. Sign in to your Yahoo account for the best experience.</p>
+                	<a href="#" class="btn btn-default btn-lg">Sign in now</a>
+                </div>
+                <!--
+                <div class="col-sm-6">
+                    <img class="img-responsive img-circle center-block" src="images/iphone.jpg" alt="">
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Promos -->
+    <!--
+	<div class="container-fluid">
+        <div class="row promo">
+        	<a href="#">
+				<div class="col-md-4 promo-item item-1">
+					<h3>
+						Unleash
+					</h3>
+				</div>
             </a>
-          </noscript>
-          <object class='tableauViz' width='1204' height='869' style='display:none;'>
-            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-            <param name='site_root' value='' />
-            <param name='name' value='RBdashboards&#47;Dashboard1' />
-            <param name='tabs' value='no' />
-            <param name='toolbar' value='yes' />
-            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;RB&#47;RBdashboards&#47;Dashboard1&#47;1.png' />
-            <param name='animate_transition' value='yes' />
-            <param name='display_static_image' value='yes' />
-            <param name='display_spinner' value='yes' />
-            <param name='display_overlay' value='yes' />
-            <param name='display_count' value='yes' />
-            <param name='showVizHome' value='no' />
-            <param name='showTabs' value='y' />
-            <param name='bootstrapWhenNotified' value='true' />
-          </object>
-        </div> -->
-      </div>
+            <a href="#">
+				<div class="col-md-4 promo-item item-2">
+					<h3>
+						Synergize
+					</h3>
+				</div>
+            </a>
+
+			<a href="#">
+				<div class="col-md-4 promo-item item-3">
+					<h3>
+						Procrastinate
+					</h3>
+				</div>
+            </a>
+        </div>
     </div>
+    -->
+    <!-- /.container-fluid -->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<!-- Content 3 -->
+     <section class="content content-3" id='distribution-section'>
+        <div class="container">
+			<h2 class="section-header"><span class="glyphicon glyphicon-resize-small text-primary"></span><br>Compare Predictions</h2>
+			<div id='plot_widget'>
+                <div>
+                  <div id='menu_message'>
+                    <p class='lead text-muted'>Start typing in these boxes to search for players...</p>
+                  </div>
+                  <div class="menu_div">
+                    <label for="player1_menu">Player1: </label>
+                    <input id="player1_menu" class='menu_input'>
+                  </div>
+                  <div class="menu_div">
+                    <label for="player2_menu">Player2: </label>
+                    <input id="player2_menu" class='menu_input'>
+                  </div>
+                </div>
+                <div id='plot'>
+                </div>
+              </div>
+        </div>
+    </section>
+
+	<!-- Footer -->
+    <footer class="page-footer">
+
+    	<!-- Contact Us -->
+        <div class="contact">
+        	<div class="container">
+				<h2 class="section-heading">Contact Us</h2>
+				<p><span class="glyphicon glyphicon-earphone"></span><br> (123) 456 7890</p>
+				<p><span class="glyphicon glyphicon-envelope"></span><br> info@example.com</p>
+        	</div>
+        </div>
+
+        <!-- Copyright etc -->
+        <div class="small-print">
+        	<div class="container">
+        		<p>Copyright &copy; Example.com 2015</p>
+        	</div>
+        </div>
+
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="hello/demos/client_ids.js"></script>
-    <script src="hello/src/hello.polyfill.js"></script>
-    <script src="hello/src/hello.js"></script>
-    <script src="hello/src/modules/yahoo.js"></script>
-    <script src="yahoo_oauth.js"></script>
-    <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
-    <script type="text/javascript" language="javascript">
-    
 
-        $(document).ready( function () {
-            //clear session storage on page refresh
-            sessionStorage.clear();
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
 
-            //build the left navigation with player names from json
-            $.getJSON("predictions.json", function( data ) {
-                // sort the data before it is displayed
-                data.sort(function(a, b) {
-                    return parseFloat(b.rushing_yds) - parseFloat(a.rushing_yds);
-                });
+    <!-- Custom Javascript -->
+    <script src="js/custom.js"></script>
 
+    <!-- FOR PLOTTING WIDGET -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src='js/compare_distribution.js'></script>
 
-                $.each(data, function( index, val ) {
-                    var li = document.createElement('li');
-                    li.innerHTML = "<a href='player_details.html?player_id=" +
-                        val.player_id + "'>" + val.full_name + "</a>";
-                    document.getElementById("playerlist").appendChild(li);
-                    // only show the first 5 players in left navigation
-                    // TODO: sort data prior to display
-                    if(index >= 4) { return false; }
-                });
+</body>
 
-                // load model output into session to use in other functions
-                sessionStorage.setItem('playerjson', JSON.stringify(data));
-
-            });
-        });
-    </script>
-  </body>
 </html>

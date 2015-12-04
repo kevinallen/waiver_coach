@@ -117,4 +117,4 @@ col_config = {
 // TODO
 // Make player names links to player page
 
-json2table('predictions.json', 'target_table', col_config)
+json2table('../site_data/predictions.json', 'target_table', col_config)
