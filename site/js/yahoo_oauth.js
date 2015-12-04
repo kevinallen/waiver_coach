@@ -27,7 +27,7 @@ function showTeams(obj, objName) {
 			players_list.push(team.roster.players.player[j].name.full);
 		  }
 		  if (typeof(Storage) !== "undefined") {
-			var league_team = {"myteam": players_list}; 
+			var league_team = {"myteam": players_list};
 			var league_number = "league" + num;
 			sessionStorage.setItem(league_number, JSON.stringify(league_team));
 			console.log(league_number, JSON.parse(sessionStorage.getItem(league_number)));
@@ -52,14 +52,14 @@ function getOtherPlayers(team_key, league_number) {
 	hello( network ).api('league').then(function(d){
 	  var onlyOneLeague = false;
       for (var j in d) {
-          
+
 		  if (d instanceof Array) {
 			league = d[j];
 		  } else {
 			league = d;
 			onlyOneLeague = true;
 		  }
-		  
+
           if (league.draft_status != "postdraft") {
               continue;
           }
@@ -73,18 +73,18 @@ function getOtherPlayers(team_key, league_number) {
 			players_list = [];
 			var league_teams = {};
 			var team_name = "other";
-			
-            
+
+
     		hello( network ).api('moreteams', 'get', qdata).then(function(m){
               console.log(m);
               var team = m;
-              
+
               if (team.hasOwnProperty('team_key')) {
     			  for (var j in team.roster.players.player) {
     				players_list.push(team.roster.players.player[j].name.full);
     			  }
 			  }
-			  // Store other teams' players 
+			  // Store other teams' players
 			  if (typeof(Storage) !== "undefined") {
 					league_teams[team_name] = players_list;
 					sessionStorage.setItem(league_number, JSON.stringify(league_teams));
@@ -96,22 +96,22 @@ function getOtherPlayers(team_key, league_number) {
               console.error(e);
             });
     	  }
-		  
+
 		  if (onlyOneLeague) {
 			break;
 		  }
-	  } 
+	  }
 	}).then(null, function(e){
 		console.error(e);
 	});
 	setTimeout(function() {
 	  console.log("Other Teams' Players", JSON.parse(sessionStorage.getItem(league_number)));
 	}, 2000);
-	
+
 }
 
 function loggedIn(network) {
-  
+
   hello( network ).api('me').then(function(p){
 	  document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
   }).then(function(){
@@ -122,10 +122,10 @@ function loggedIn(network) {
   }).then(null, function(e){
 	  console.error(e);
   });
-  
+
 }
 function login(network){
-  
+
 	if (hello( network ).getAuthResponse()) {
 	  loggedIn(network);
 	} else {
@@ -136,35 +136,18 @@ function login(network){
 		// Get Profile
 		return hello( network ).api('me');
 		}).then(function(p){
-			document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
+			document.getElementById('login').innerHTML = "Connected to Yahoo!";
+
 		}).then(function(){
 			// Get team info
 			return hello( network ).api('teams');
 		}).then(function(d){
 			document.getElementById('teamcontent').innerHTML = showTeams(d, "d");
+            $('#myteam').show();
 		}).then(null, function(e){
 			console.error(e);
 		});
 	}
-  
-	/*
-	hello( network ).login().then(function(f){
-		for (var i in f){
-		  console.log("i", f[i]);
-		}
-		// Get Profile
-		return hello( network ).api('me');
-	}).then(function(p){
-		document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
-	}).then(function(){
-		// Get team info
-		return hello( network ).api('teams');
-	}).then(function(d){
-		document.getElementById('teamcontent').innerHTML = showTeams(d, "d");
-	}).then(null, function(e){
-		console.error(e);
-	});
-	*/
 }
 
 
