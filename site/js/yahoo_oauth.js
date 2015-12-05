@@ -15,7 +15,6 @@ function showTeams(obj, objName) {
 		  onlyOneTeam = true;
           var team = obj;
 	  }
-	  var num = 1;
 	  if (team.roster.players === null) {
 		  continue;
 	  }
@@ -28,11 +27,9 @@ function showTeams(obj, objName) {
 		  }
 		  if (typeof(Storage) !== "undefined") {
 			var league_team = {"myteam": players_list};
-			var league_number = "league" + num;
-			sessionStorage.setItem(league_number, JSON.stringify(league_team));
-			console.log(league_number, JSON.parse(sessionStorage.getItem(league_number)));
-			getOtherPlayers(team.team_key, league_number);
-			num += 1;
+			sessionStorage.setItem(team.team_key, JSON.stringify(league_team));
+			console.log(team.team_key, JSON.parse(sessionStorage.getItem(team.team_key)));
+			getOtherPlayers(team.team_key);
 		  } else {
 			alert("Your browser does not support web storage.  Please use a different browser to continue.");
 		  }
@@ -44,7 +41,7 @@ function showTeams(obj, objName) {
   return result;
 }
 
-function getOtherPlayers(team_key, league_number) {
+function getOtherPlayers(team_key) {
 	var myLeague = team_key.split(".t")[0];  		// Get user's League number
     var myTeam = Number(team_key.split("t.")[1]);   // Get user's team number
 	var network = 'yahoo';
@@ -87,8 +84,8 @@ function getOtherPlayers(team_key, league_number) {
 			  // Store other teams' players
 			  if (typeof(Storage) !== "undefined") {
 					league_teams[team_name] = players_list;
-					sessionStorage.setItem(league_number, JSON.stringify(league_teams));
-					obj = JSON.parse(sessionStorage.getItem(league_number));
+					sessionStorage.setItem(myLeague, JSON.stringify(league_teams));
+					console.log(myLeague, JSON.parse(sessionStorage.getItem(myLeague)));
 			  } else {
 					alert("Your browser does not support web storage.  Please use a different browser to continue.");
 			  }
@@ -105,7 +102,7 @@ function getOtherPlayers(team_key, league_number) {
 		console.error(e);
 	});
 	setTimeout(function() {
-	  console.log("Other Teams' Players", JSON.parse(sessionStorage.getItem(league_number)));
+	  console.log("Other Teams' Players", JSON.parse(sessionStorage.getItem(myLeague)));
 	}, 2000);
 
 }
