@@ -29,7 +29,6 @@ function showTeams(teams) {
           team_html += name + " - <span class='team-players'>" + player.display_position + "</span><br/>";
       }
       team_html += "</p></div>";
-      console.log(team_html);
       document.getElementById("myteam").innerHTML += team_html;
       $('#myteam').show();
 
@@ -160,7 +159,7 @@ function login(network){
 }
 
 $(document).ready(function() {
-    if (hello( network ).getAuthResponse()) {
+    if (hello( 'yahoo' ).getAuthResponse()) {
         showTeams(sessionStorage.getItem("myteams"));
     }
 });
