@@ -6,7 +6,6 @@ function showTeams(teams) {
   var players_list = [];
   console.log(teams);
   for (var i in teams) {
-      console.log("inside teams");
       if (typeof teams[i] === null || typeof teams[i] !== "object") {
           continue;
       }
@@ -116,24 +115,29 @@ function getOtherPlayers(team_key) {
 
 }
 
-// function loggedIn(network) {
-//
-//   hello( network ).api('me').then(function(p){
-// 	  document.getElementById('login').innerHTML = "<img src='"+ p.thumbnail + "' width=24/> Connected to "+ network+" as " + p.name;
-//   }).then(function(){
-// 	  // Get team info
-// 	  return hello( network ).api('teams');
-//   }).then(function(d){
-// 	  document.getElementById('teamcontent').innerHTML = showTeams(d);
-//   }).then(null, function(e){
-// 	  console.error(e);
-//   });
-//
-// }
+function loggedIn(network) {
+
+  hello( network ).api('me').then(function(p){
+	  // Get team info
+	  return hello( network ).api('teams');
+  }).then(function(p){
+      $(".login-button").addClass("currently-displayed");
+      $(".login-button").html("Connected to Yahoo!");
+  }).then(function(){
+      // Get team info
+      return hello( network ).api('teams');
+  }).then(function(d){
+      showTeams(d);
+      //sessionStorage.setItem("myteams", d);
+  }).then(null, function(e){
+      console.error(e);
+  });
+}
+
 function login(network){
 
 	if (hello( network ).getAuthResponse()) {
-	  //loggedIn(network);
+	  loggedIn(network);
 	} else {
 		hello( network ).login().then(function(f){
 		  for (var i in f){
@@ -149,12 +153,22 @@ function login(network){
 			return hello( network ).api('teams');
 		}).then(function(d){
 			showTeams(d);
+            //sessionStorage.setItem("myteams", d);
 		}).then(null, function(e){
 			console.error(e);
 		});
 	}
 }
 
+$(document).ready(function() {
+    if (sessionStorage.getItem("myteams")) {
+        console.log("found teams");
+        showTeams(sessionStorage.getItem("myteams"));
+    }
+    else {
+        console.log("did not find teams");
+    }
+});
 
 hello.init({
 	'yahoo' : 'dj0yJmk9T0dUclhxZXpRU2ExJmQ9WVdrOVdqVTJhekp6TXpZbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1hYQ--'
@@ -171,6 +185,7 @@ function test() {
     $(".login-button").addClass("currently-displayed");
     $(".login-button").html("Connected to Yahoo!");
     $.getJSON("myteams.json", function(teams) {
+        sessionStorage.setItem("myteams", teams);
         for (var i in teams) {
             // skip this team if there are no players
             var team = teams[i];
