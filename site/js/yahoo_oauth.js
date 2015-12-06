@@ -160,7 +160,7 @@ function login(network){
 
 $(document).ready(function() {
     if (hello( 'yahoo' ).getAuthResponse()) {
-        showTeams(sessionStorage.getItem("myteams"));
+        loggedIn('yahoo');
     }
 });
 
