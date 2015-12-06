@@ -141,7 +141,7 @@ function login(network){
 		// Get Profile
 		return hello( network ).api('me');
 		}).then(function(p){
-			document.getElementById('login').innerHTML = "Connected to Yahoo!";
+			document.getElementById('login-button').innerHTML = "Connected to Yahoo!";
 
 		}).then(function(){
 			// Get team info
