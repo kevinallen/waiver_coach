@@ -8,7 +8,7 @@ client = MongoClient()
 db = client.data
 
 positions = ['QB','RB','WR','TE','K','DST']
-wks = [wk for wk in range(1,17)]
+wks = [wk for wk in range(1,18)]
 
 # stats available on CBS
 qb_stats = ['pass_attempts','pass_comp', 'pass_yds','pass_tds','pass_int',

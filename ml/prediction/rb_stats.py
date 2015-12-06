@@ -7,6 +7,9 @@ from pymongo import MongoClient
 from ml.feature_extraction.nfldb_feature_extraction import ExtractColumns
 from ml.feature_extraction.nfldb_feature_extraction import load_feature_set
 from ml.feature_extraction.nfldb_feature_extraction import prediction_feature_set
+from ml.feature_extraction.nfldb_feature_extraction import WeeklyPlayerData
+from ml.feature_extraction.nfldb_feature_extraction import AddNameKey
+from ml.feature_extraction.nfldb_feature_extraction import HandleNaN
 
 from ml.helpers.scoring_helpers import make_scorer
 from ml.helpers.scoring_helpers import score_stats
@@ -14,6 +17,7 @@ from ml.helpers.testing_helpers import train_test_split_index
 from ml.helpers.testing_helpers import split_by_year_week
 from ml.helpers.nfldb_helpers import player_team_info
 from ml.mongo_helpers.web_helpers import VegasData
+from ml.mongo_helpers.web_helpers import ProjectedPlayerData
 
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.ensemble import GradientBoostingClassifier
@@ -60,8 +64,9 @@ def build_vegas_dataframe(X, y, row_info, model, db, y_col):
     X_with_info = row_info[cols]
 
     # get model output
-    lr = LinearRegression()
-    predicted = cross_val_predict(lr, X, y)
+    #lr = LinearRegression()
+    #predicted = cross_val_predict(lr, X, y)
+    predicted = model.predict(X)
     X_with_info.loc[:,y_col] = predicted
 
 
@@ -99,9 +104,123 @@ def build_vegas_dataframe(X, y, row_info, model, db, y_col):
 
     return X_vegas
 
-def main(vegas_adjustment=False, run_query=False):
-    #pred_week = None
-    pred_week = 10
+# TODO: pass in nfldb and mongodb as arguments to simplify changes
+def add_expert_projections(pred_results, pred_week, y_col):
+    db = nfldb.connect()
+
+    yr_wk = [(2015, i) for i in range(1,pred_week + 1)]
+    stats = ['receiving_rec', 'receiving_tar', 'receiving_tds', 'receiving_yac_yds',
+             'receiving_yds', 'rushing_att', 'rushing_tds','rushing_yds']
+    player_info = ['player_id','full_name','position']
+    position = 'RB'
+
+    playerdata = WeeklyPlayerData(db=db, yr_wk=yr_wk, stats=stats,
+                                  player_info=player_info, fill_time=True,
+                                  position=position)
+
+    pipe = Pipeline(steps=[('data',playerdata), ('key',AddNameKey()),
+                           ('nan',HandleNaN(method='fill'))])
+    hist_data = pipe.fit_transform(X=None)
+
+    client = MongoClient()
+    mdb = client.data
+
+    include_stats = ['fumbles','receptions','rec_yds','rec_tds',
+                     'rush_attempts','rush_yds','rush_tds']
+
+    data = ProjectedPlayerData(db=mdb, stats=include_stats, position='RB')
+    # data already has name_key, so don't need to add it to pipeline
+    pipe = Pipeline(steps=[('data', data), ('nan',HandleNaN())])
+    proj_data = pipe.fit_transform(X=None)
+
+    # join the two datasets
+    df = pd.merge(proj_data, hist_data, how="inner", on=["name_key","week","year"])
+
+    # drop the week you want to predict from the training data
+    df = df[df.week < pred_week]
+
+    # store the player data and then remove those columns from the training data
+    info_cols = ['name','name_key','position_x','position_y','team','week',
+        'year','full_name','played','player_id']
+    hist_info = df[info_cols]
+    df.drop(info_cols, axis=1, inplace=True)
+
+    hist_cols = ['rushing_tds','rushing_att','receiving_yds','receiving_yac_yds',
+                 'receiving_tds','receiving_tar','receiving_rec','rushing_yds']
+
+    y = df[y_col]
+    X = df.drop(hist_cols, axis=1)
+
+
+    train, test = train_test_split_index(df.shape[0], test_size=0.1, seed=0)
+
+    X_train = X.iloc[train]
+    y_train = y.iloc[train]
+    X_test = X.iloc[test]
+    y_test = y.iloc[test]
+
+    models = {
+        'gb':GradientBoostingRegressor(n_estimators=100, learning_rate=0.1),
+        'rf':RandomForestRegressor(),
+        'lin':LinearRegression()
+    }
+
+    gb, gb_test, gb_scores = fit_predict(
+        model=models['gb'],
+        X_train=X_train,
+        y_train=y_train,
+        X_test=X_test,
+        y_test=y_test)
+
+    rf, rf_test, rf_scores = fit_predict(
+        model=models['rf'],
+        X_train=X_train,
+        y_train=y_train,
+        X_test=X_test,
+        y_test=y_test)
+
+    lin, lin_test, lin_scores = fit_predict(
+        model=models['lin'],
+        X_train=X_train,
+        y_train=y_train,
+        X_test=X_test,
+        y_test=y_test)
+
+    print "-"*50
+    print "Expert prediction: ", y_col
+    print 'Gradient Boosting: RMSE %.2f | MAE %.2f' % (gb_scores['rmse'], gb_scores['mae'])
+    print 'Random Forest: RMSE %.2f | MAE %.2f' % (rf_scores['rmse'], rf_scores['mae'])
+    print '%s Regression: RMSE %.2f | MAE %.2f' % ('Linear', lin_scores['rmse'], lin_scores['mae'])
+
+    # get stats for the prediction week then remove player info
+    next_week_proj = proj_data[proj_data.week == pred_week]
+    info_cols = ['name','name_key','team','position','year','week']
+    pred_info = next_week_proj[info_cols]
+    next_week_proj.drop(info_cols, axis=1, inplace=True)
+
+    # make prediction for next week
+    gb.fit(X, y)
+    pred = gb.predict(next_week_proj)
+
+    df = pd.DataFrame(pred_info['name_key'])
+    df.columns = ['name_key']
+    df.loc[:,'expert_' + y_col] = pred
+
+    # before adding name_key, need to add position
+    pred_results.loc[:,'position'] = 'RB'
+
+    for column in next_week_proj.columns:
+        if column not in pred_results.columns:
+            df.loc[:,column] = next_week_proj[column]
+
+    # add name_key (to join on) to results predicted from historical data
+    pipe = Pipeline(steps=[('key',AddNameKey())])
+    results_with_key = pipe.fit_transform(X=pred_results)
+    results_with_expert = pd.merge(results_with_key, df, how="left", on="name_key")
+
+    return results_with_expert
+
+def main(pred_week, vegas_adjustment=False, run_query=False, expert_projections=False):
 
     db = nfldb.connect()
     result_path='../results'
@@ -201,7 +320,7 @@ def main(vegas_adjustment=False, run_query=False):
 
         if vegas_adjustment and y_col != 'played':
             print '-'*50
-            print 'Adjusted Prediction:', y_col
+            print 'Vegas Adjusted:', y_col
 
             X_train_all = build_vegas_dataframe(X=X_train, y=y_train,
                 row_info=X_train_info, model=gb, db=db, y_col=y_col)
@@ -240,12 +359,17 @@ def main(vegas_adjustment=False, run_query=False):
             print 'Random Forest: RMSE %.2f | MAE %.2f' % (rf_scores_a['rmse'], rf_scores_a['mae'])
             print '%s Regression: RMSE %.2f | MAE %.2f' % ('Linear', lin_scores_a['rmse'], lin_scores_a['mae'])
 
+        # add expert projections, then make a final prediction
+        if expert_projections and y_col != 'played':
+            pred_results = add_expert_projections(pred_results, pred_week, y_col)
+
         print '-'*50
-        print 'Unadjusted Prediction:', y_col
+        print 'Historical Prediction:', y_col
         # Print Results
         print 'Gradient Boosting: RMSE %.2f | MAE %.2f' % (gb_scores['rmse'], gb_scores['mae'])
         print 'Random Forest: RMSE %.2f | MAE %.2f' % (rf_scores['rmse'], rf_scores['mae'])
         print '%s Regression: RMSE %.2f | MAE %.2f' % ('Logistic' if predict_proba else 'Linear', lin_scores['rmse'], lin_scores['mae'])
+        print
         # Build full models on all data
 
         gb = gb.fit(X, y)
@@ -259,18 +383,22 @@ def main(vegas_adjustment=False, run_query=False):
         else:
             preds = gb.predict(X_pred)
 
+        # add our prediction based on historical data to output
         pred_results.loc[:,y_col] = preds
 
+    pred_results.replace(0, np.nan, inplace=True)
     out_path = result_path + '/predictions' + '_' + str(int(pred_yr_wk[0])) + '_' + str(int(pred_yr_wk[1])) + '.json'
     pred_results.to_json(path_or_buf = out_path, orient = 'records')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-va", "--vegas_adjustment",
-        help="adjust model output using Vegas data",
-        action="store_true")
+    parser.add_argument("-v", "--vegas_adjustment",
+        help="adjust model output using Vegas data", action="store_true")
     parser.add_argument("-q", "--run_query",
-        help="query nfldb instead of using cached data",
-        action="store_true")
+        help="query nfldb instead of using cached data", action="store_true")
+    parser.add_argument("-x", "--expert_projections",
+        help="add expert projections to output", action="store_true")
+    parser.add_argument("week", type=int, help="week of 2015 season to predict stats for")
     args = parser.parse_args()
-    main(vegas_adjustment=args.vegas_adjustment, run_query=args.run_query)
+    main(pred_week=args.week, vegas_adjustment=args.vegas_adjustment,
+        run_query=args.run_query, expert_projections=args.expert_projections)

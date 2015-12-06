@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href='https://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+    <!-- still need to design an 32x32 icon -->
+    <link rel="icon" href="favicon.ico">
+
+    <title>Waiver Coach</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+
+    <!-- Dynatable styles -->
+    <link rel='stylesheet' type='text/css' href='css/jquery.dynatable.css'>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid title_bg">
+        <div class="navbar-header ">
+          <a class="navbar-brand title" href="index.html">Waiver Coach</a>
+        </div>
+        <!--
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+            -->
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <div class="nav-heading">
+              Recommended
+              <span class="more_link">(<a href="recommended_players.html">more</a>)</span>
+          </div>
+          <ul id="playerlist" class="nav nav-sidebar"></ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <!-- filled in by javscript from JSON -->
+          <table id='target_table' class='.table'>
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div> 
+      </div>
+    </div>
+  </body>
+  <script src='https://code.jquery.com/jquery-1.10.2.js'></script>
+  <script src='js/underscore-min.js'></script>
+  <script src='js/jquery.dynatable.js'></script>
+  <script src='js/player_table.js'></script>
+</html>

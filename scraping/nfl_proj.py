@@ -7,7 +7,7 @@ import re
 client = MongoClient()
 db = client.data
 
-wks = [wk for wk in range(1,17)]
+wks = [wk for wk in range(1,18)]
 
 for wk in wks:
     offset = 1

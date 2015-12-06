@@ -1,3 +1,22 @@
+function player_url(player_row){
+	return("player_details.html?player_id="+player_row['player_id'])
+}
+
+function player_points(player_row, col_config){
+	var totalpoints = 0;
+	$.each(Object.keys(col_config), function(i, col){
+		var config = col_config[col]
+		if(config){
+			var fpoints = config['fpoints']
+			if(fpoints){
+				var statvalue = parseFloat(player_row[col])
+				totalpoints += statvalue * fpoints
+			}
+		}
+	})
+	return(totalpoints)
+}
+
 function json2table(json_url, table_id, col_config){
 	$.getJSON(json_url, function(data) {
 		var tbl_body = '';
@@ -15,7 +34,13 @@ function json2table(json_url, table_id, col_config){
 				}
 				col_display[col] = col_head
 
-				tbl_head += '<th>'+col_head+'</th>'
+				if(config['number']){
+					// add header for number rows for different formatting (float right)
+					tbl_head += '<th class="table_number">'+col_head+'</th>'	
+				} else{
+					tbl_head += '<th>'+col_head+'</th>'	
+				}
+				
 			}
 			
 		})
@@ -24,14 +49,31 @@ function json2table(json_url, table_id, col_config){
 		$.each(data, function(){
 			var tbl_row = '';
 			var row = this;
+			var fpoints = 0;
+
 			$.each(cols, function(i, col){
 				var config = col_config[col]
-				var v = row[col]
+				
 				if(config){
-					if(config['number']){
-						v = parseFloat(v).toFixed(config['fixed_digits'])
+					if(config['calculate_points']){
+						var v = String(player_points(row, col_config))
+					} else{
+						var v = row[col]						
 					}
-					tbl_row += '<td>'+v+'</td>'	
+
+					if(config['number']){
+						v = parseFloat(v)
+						v = v.toFixed(config['fixed_digits'])
+						//tbl_row += '<td class="table_number" align="right">'+v+'</td>'	
+					} else{
+						//tbl_row += '<td>'+v+'</td>'		
+					}
+
+					// link to player's page
+					if(col === 'full_name'){
+						v = '<a href="'+player_url(row)+'">'+v+'</a>'
+					}
+					tbl_row += '<td>'+v+'</td>'		
 				}
 			})
 			tbl_body += "<tr>"+tbl_row+'</tr>'
@@ -48,10 +90,14 @@ function json2table(json_url, table_id, col_config){
 		$('#'+table_id+' tbody').html(tbl_body)
 		$('#'+table_id).dynatable({
 			table: {
-			    defaultColumnIdStyle: 'lowercase'
+			    defaultColumnIdStyle: 'lowercase',
+			    copyHeaderClass: true, // copies <th> class to cells
+			    copyClass: true
 			  },
 			dataset: {
-				sortTypes: sortTypeObj
+				sortTypes: sortTypeObj,
+				perPageDefault: 50,
+    			perPageOptions: [20,50,100,200]
 			}
 		});
 	})
@@ -59,12 +105,16 @@ function json2table(json_url, table_id, col_config){
 
 col_config = {
 	'full_name': {'displayName': 'Name', 'number':false},
-	'rushing_att': {'displayName': 'Rush Att', 'number':true, 'fixed_digits':0},
-	'rushing_yds': {'displayName': 'Rush Yards', 'number':true, 'fixed_digits':0},
-	'rushing_tds': {'displayName': 'Rush TDs', 'number':true, 'fixed_digits':2},
-	'receiving_rec': {'displayName': 'Receptions', 'number':true, 'fixed_digits':0},
-	'receiving_yds': {'displayName': 'Rec Yards', 'number':true, 'fixed_digits':0},
-	'receiving_tds': {'displayName': 'Rec TDs', 'number':true, 'fixed_digits':2},
+	'calculate_points': {'displayName': 'Points', 'calculate_points': true, 'number':true, 'fixed_digits':2},
+	'rushing_att': {'displayName': 'Rush Att', 'number':true, 'fixed_digits':0, 'fpoints':0},
+	'rushing_yds': {'displayName': 'Rush Yards', 'number':true, 'fixed_digits':0, 'fpoints':0.1},
+	'rushing_tds': {'displayName': 'Rush TDs', 'number':true, 'fixed_digits':2, 'fpoints':6},
+	'receiving_rec': {'displayName': 'Receptions', 'number':true, 'fixed_digits':0, 'fpoints':0},
+	'receiving_yds': {'displayName': 'Rec Yards', 'number':true, 'fixed_digits':0, 'fpoints':0.1},
+	'receiving_tds': {'displayName': 'Rec TDs', 'number':true, 'fixed_digits':2, 'fpoints':6},
 }
 
-json2table('predictions.json', 'target_table', col_config)
+// TODO
+// Make player names links to player page
+
+json2table('../site_data/predictions.json', 'target_table', col_config)

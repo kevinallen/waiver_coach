@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href='https://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+    <!-- still need to design an 32x32 icon -->
+    <link rel="icon" href="favicon.ico">
+
+    <title>Waiver Coach</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+    
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid title_bg">
+        <div class="navbar-header ">
+          <a class="navbar-brand title" href="index.html">Waiver Coach</a>
+        </div>
+        <!--
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+            -->
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <div class="nav-heading">
+              Recommended
+              <span class="more_link">(<a href="recommended_players.html">more</a>)</span>
+          </div>
+          <ul id="playerlist" class="nav nav-sidebar"></ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div id="playercontent">
+                <p class="lead">Waiver Coach is your personal fantasy football assistant. It will help you quickly find <em>available players</em> relevant to your unique situation.
+                <br/>
+                <br/>
+                In order to make the best use of the site, please <strong>sign in</strong>.</p>
+
+                <button id='login' onclick="login('yahoo');">Sign in to Yahoo</button>
+                <div id='teamcontent'></div>
+                <div id='rostercontent'></div>
+            </div>
+        </div>
+        <!-- <div class='tableauPlaceholder' style='width: 1204px; height: 869px;'>
+	  <noscript>
+            <a href='#'>
+              <img alt='Player Dashboard - RBs 'src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;RB&#47;RBdashboards&#47;Dashboard1&#47;1_rss.png' style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' width='1204' height='869' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='site_root' value='' />
+            <param name='name' value='RBdashboards&#47;Dashboard1' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;RB&#47;RBdashboards&#47;Dashboard1&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='showVizHome' value='no' />
+            <param name='showTabs' value='y' />
+            <param name='bootstrapWhenNotified' value='true' />
+          </object>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="hello/demos/client_ids.js"></script>
+    <script src="hello/src/hello.polyfill.js"></script>
+    <script src="hello/src/hello.js"></script>
+    <script src="hello/src/modules/yahoo.js"></script>
+    <script src="yahoo_oauth.js"></script>
+    <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
+    <script type="text/javascript" language="javascript">
+    
+
+        $(document).ready( function () {
+            //clear session storage on page refresh
+            sessionStorage.clear();
+
+            //build the left navigation with player names from json
+            $.getJSON("predictions.json", function( data ) {
+                // sort the data before it is displayed
+                data.sort(function(a, b) {
+                    return parseFloat(b.rushing_yds) - parseFloat(a.rushing_yds);
+                });
+
+
+                $.each(data, function( index, val ) {
+                    var li = document.createElement('li');
+                    li.innerHTML = "<a href='player_details.html?player_id=" +
+                        val.player_id + "'>" + val.full_name + "</a>";
+                    document.getElementById("playerlist").appendChild(li);
+                    // only show the first 5 players in left navigation
+                    // TODO: sort data prior to display
+                    if(index >= 4) { return false; }
+                });
+
+                // load model output into session to use in other functions
+                sessionStorage.setItem('playerjson', JSON.stringify(data));
+
+            });
+        });
+    </script>
+  </body>
+</html>

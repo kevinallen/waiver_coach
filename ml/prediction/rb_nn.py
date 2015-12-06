@@ -11,6 +11,7 @@ import numpy as np
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
 import os
+import json
 
 from ml.feature_extraction.nfldb_feature_extraction import ExtractColumns
 from ml.feature_extraction.nfldb_feature_extraction import load_feature_set
@@ -34,10 +35,20 @@ from sklearn.pipeline import Pipeline
 from sklearn.pipeline import FeatureUnion
 
 
+
+############
+### Determines the path for distribution image plots
+def plot_image_path(result_path, pred_yr_wk):
+    return(result_path+'/knn/distimages/'+str(pred_yr_wk[0])+'_'+str(pred_yr_wk[1]))
+
+############
+### Determines the path and file name for plot data
+def plot_data_path_file(result_path, pred_yr_wk):
+    return([result_path+'/knn/distdata/',str(pred_yr_wk[0])+'_'+str(pred_yr_wk[1])+'.json'])
+
 #############
 ### Function for plotting KNN distributinos and saving them
-
-def plot_knn(nn_df, plot_stat, pred_yr_wk, result_path, n_bins=2, bandwidth=2.5, save_id = True, save_time = False, save_stat = True):
+def plot_knn(nn_df, plot_stat, pred_yr_wk, result_path, n_bins=2, bandwidth=2.5, save_id = True, save_time = False, save_stat = True, save_image=True):
     # the histogram of the data
     stat_X = nn_df.iloc[1:][plot_stat]
     player_name = nn_df.iloc[0]['full_name']
@@ -51,40 +62,59 @@ def plot_knn(nn_df, plot_stat, pred_yr_wk, result_path, n_bins=2, bandwidth=2.5,
     ymax = max(n)*1.1
 
     # get bins for kernel density plot
-    bins = np.linspace(xmin, xmax, 100)
+    smooth_bins = np.linspace(xmin, xmax, 100)
 
     # set up kernel density
     kde = KernelDensity(kernel='gaussian', bandwidth=bandwidth).fit(X=stat_X[:,np.newaxis])
-    y_smooth = np.exp(kde.score_samples(bins[:,np.newaxis]))
+    y_smooth = np.exp(kde.score_samples(smooth_bins[:,np.newaxis]))
     y_smooth
 
-    l = plt.plot(bins, y_smooth, 'b--', linewidth=1)
+    l = plt.plot(smooth_bins, y_smooth, 'b--', linewidth=1)
     plt.xlabel(plot_stat)
     plt.ylabel('Probability')
-    plt.axis([0, max(bins)*1.1, 0, max(n)*1.1])
+    plt.axis([xmin, xmax, ymin, ymax])
     plt.title(player_name)
     plt.grid(True)
+    
+    if save_image:
+        if not os.path.exists(result_path):
+            os.makedirs(result_path)
 
-    if not os.path.exists(result_path):
-    	os.makedirs(result_path)
+        save_path = result_path + '/'
+        fname_list = []
+        if save_id:
+            fname_list += [player_id]
+        else:
+            fname_list += [player_name]
 
-    save_path = result_path + '/'
-    fname_list = []
-    if save_id:
-    	fname_list += [player_id]
-    else:
-    	fname_list += [player_name]
+        if save_time:
+            fname_list += [str(pred_yr_wk[0]), str(pred_yr_wk[1])]
 
-    if save_time:
-    	fname_list += [str(pred_yr_wk[0]), str(pred_yr_wk[1])]
+        if save_stat:
+            fname_list += [plot_stat]
 
-    if save_stat:
-    	fname_list += [plot_stat]
+        save_path += '_'.join(fname_list) + '.png'
 
-    save_path += '_'.join(fname_list) + '.png'
+        plt.savefig(save_path)
+        plt.close()
+        
+        raw_bins = bins[1:]
+        raw_data = [{'x':raw_bins[i],'y':n[i]} for i in range(len(raw_bins))]
+        smooth_data = [{'x':smooth_bins[i],'y':y_smooth[i]} for i in range(len(y_smooth))]
 
-    plt.savefig(save_path)
-    plt.close()
+    
+    return({player_id:{'raw':raw_data, 'smooth':smooth_data, 'player_name':player_name, 'player_id':player_id}})
+
+############
+### Function for saveing plot data as json to support web viz
+def save_plot_data_json(nn_dict, result_path, pred_yr_wk):
+    json_fp = plot_data_path_file(result_path, pred_yr_wk)
+
+    if not os.path.exists(json_fp[0]):
+                os.makedirs(json_fp[0])
+
+    with open('/'.join(json_fp), 'w+') as fp:
+        json.dump(nn_dict, fp)
 
 def main():
 	################################
@@ -104,6 +134,7 @@ def main():
 
 	infoColumns = ExtractColumns(like=[], exact=['year','week','time','player_id','full_name'])
 	row_info = infoColumns.fit_transform(X=full_train)
+
 
 	# load prediction data
 	pred_data, predict_i, pred_info, pred_yr_wk = prediction_feature_set(db, pipe, infoColumns, pred_week=pred_week)
@@ -130,30 +161,13 @@ def main():
 
 	played_only = True
 
-	###### THIS SECTION NOT NEED FOR KNN - MAY USE IN STAT PREDICTION
-	# y_col = 'receiving_yds'
-
-	# y = X_all[y_col]
-
-	# if(played_only and y_col != 'played'):
-	#     train_i = list(set.intersection(set(train_index), set(played_index)))
-	#     test_i = list(set.intersection(set(test_index), set(played_index)))
-	# else:
-	#     train_i = train_index
-	#     test_i = test_index
-
-	# X_train = X.iloc[train_i]
-	# y_train = y.iloc[train_i]
-	# X_test = X.iloc[test_i]
-	# y_test = y.iloc[test_i]
-
 	##################################
 	### SET UP & TRAIN KNN
 	# fit k nearest neighbors
 	k = 100
 	played_only = True
 	i_knn = played_index if played_only else range(X.shape[0])
-	    
+
 	nn = NearestNeighbors(n_neighbors=k).fit(X.iloc[i_knn])
 
 	# returns tuple of (distances, indices of neighbors)
@@ -162,6 +176,7 @@ def main():
 
 	##################################
 	### READ AND PLOT KNN RESULTS
+	nn_dict = {}
 	for check_i in range(pred_all.shape[0]):
 	    # check neighbors
 	    # check_nn is a data frame where the first row is the player
@@ -169,8 +184,11 @@ def main():
 	    check_nn = pred_all.iloc[[check_i],:].append(X_all.iloc[i_knn].iloc[neighbor[check_i,:]])
 	    check_nn['StandardPoints'] = score_stats(check_nn, make_scorer(base_type='standard'))
 	    check_nn['PPRPoints'] = score_stats(check_nn, make_scorer(base_type='ppr'))
-	    
-	    plot_knn(check_nn, plot_stat='StandardPoints', pred_yr_wk=pred_yr_wk, result_path=result_path+'/knn/distimages/'+str(pred_yr_wk[1]), n_bins=25, bandwidth=2.5)
+
+	    nn_i = plot_knn(check_nn, save_image=True, plot_stat='StandardPoints', pred_yr_wk=pred_yr_wk, result_path=plot_image_path(result_path, pred_yr_wk), n_bins=25, bandwidth=2.5)
+	    nn_dict.update(nn_i)
+
+	save_plot_data_json(nn_dict, result_path, pred_yr_wk)
 
 
 if __name__ == "__main__":

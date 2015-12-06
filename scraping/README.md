@@ -23,3 +23,20 @@ mongod
 ```
 
 This will start MongoDB on the default port.
+
+### Get projections
+If you have previously added these projections to MongoDB, you will need to delete that data. Execute the following commands from the Mongo CLI.
+
+```
+use data
+db.projections.remove({})
+```
+
+Then run the python scripts from the terminal. For example, to get data for week 12:
+
+```Shell
+python scraping/espn_proj.py 12 \
+&& python scraping/ff_proj.py 12 \
+&& python scraping/nfl_proj.py \
+&& python scraping/cbs_proj.py
+```
