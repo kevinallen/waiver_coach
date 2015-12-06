@@ -36,6 +36,11 @@
 					var team = p.options.team;
 					var queryStr = 'select * from fantasysports.teams.roster where team_key="' + team + '"';
 					callback(yql(queryStr));
+				},
+				'league_name': function(p, callback) {
+					var league_key = p.options.league_key;
+					var queryStr = 'select * from fantasysports.leagues where league_key="' + league_key + '"';
+					callback(yql(queryStr));
 				}
 			},
 			wrap: {

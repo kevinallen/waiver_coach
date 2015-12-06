@@ -36,8 +36,8 @@ function showTeams(teams) {
       // put players_list in session storage and grab players from other teams
 	  if (typeof(Storage) !== "undefined") {
 		var league_team = {"myteam": players_list};
-		sessionStorage.setItem(team.team_key, JSON.stringify(league_team));
-		console.log(team.team_key, JSON.parse(sessionStorage.getItem(team.team_key)));
+		sessionStorage.setItem(team.name, JSON.stringify(league_team));
+		console.log(team.name, JSON.parse(sessionStorage.getItem(team.name)));
 		getOtherPlayers(team.team_key);
 	  } else {
 		alert("Your browser does not support web storage.  Please use a different browser to continue.");
@@ -69,34 +69,35 @@ function getOtherPlayers(team_key) {
               continue;
           }
     	  for (var i = 1; i <= Number(league.num_teams); i++) {
-    		if (i == myTeam) {
-    		  continue;
-    		}
+    		// if (i == myTeam) {
+    		//   continue;
+    		// }
     		var teamID = myLeague + ".t." + i;
     	    var qdata = {team: teamID};
-            var result = "";
-			players_list = [];
-			var league_teams = {};
-			var team_name = "other";
-
 
     		hello( network ).api('moreteams', 'get', qdata).then(function(m){
-              console.log(m);
               var team = m;
-
-              if (team.hasOwnProperty('team_key')) {
-    			  for (var j in team.roster.players.player) {
-    				players_list.push(team.roster.players.player[j].name.full);
-    			  }
-			  }
-			  // Store other teams' players
-			  if (typeof(Storage) !== "undefined") {
-					league_teams[team_name] = players_list;
-					sessionStorage.setItem(myLeague, JSON.stringify(league_teams));
-					console.log(myLeague, JSON.parse(sessionStorage.getItem(myLeague)));
-			  } else {
-					alert("Your browser does not support web storage.  Please use a different browser to continue.");
-			  }
+              var players = team.roster.players.player;
+    		  for (var j in players) {
+                var player = players[j];
+                if (player.display_position = "RB") {
+                  players_list.push(player.name.full);
+                }
+              }
+              var league_name = "";
+              hello( network ).api('league_name', 'get', {league_key:myLeague}).then(function(n) {
+                console.log("league", n);
+                // Store other teams' players
+      			if (typeof(Storage) !== "undefined") {
+      			  league_teams[team_name] = players_list;
+      			  sessionStorage.setItem(myLeague, JSON.stringify(players_list));
+      			  console.log(myLeague, JSON.parse(sessionStorage.getItem(myLeague)));
+      			} else {
+      			  alert("Your browser does not support web storage.  Please use a different browser to continue.");
+      			}
+              }).then(null, function(e){
+                console.error(e);
+              });
             }).then(null, function(e){
               console.error(e);
             });
