@@ -1,3 +1,8 @@
+a.login-button.currently-displayed {
+    color: #fff;
+    background-color: #222;
+}
+
 .login-button {
     margin-bottom: 20px;
 }

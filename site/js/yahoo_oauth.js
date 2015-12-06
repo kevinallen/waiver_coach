@@ -25,7 +25,8 @@ function showTeams(teams, objName) {
       for (var j in players) {
           var player = players[j];
           players_list.push(team.roster.players.player[j].name.full);
-          team_html += player.name.first.substring(0,1) + ". " + player.name.last + " - <span class='team-players'>" + player.display_position + "</span><br/>";
+          var name = player.display_position == "DEF" ? player.name.first : player.name.first.substring(0,1) + ". " + player.name.last;
+          team_html += name + " - <span class='team-players'>" + player.display_position + "</span><br/>";
       }
       team_html += "</p></div>";
       console.log(team_html);
@@ -140,8 +141,8 @@ function login(network){
 		// Get Profile
 		return hello( network ).api('me');
 		}).then(function(p){
-			document.getElementById('login-button').innerHTML = "Connected to Yahoo!";
-
+		    $(".login-button").addClass("currently-displayed");
+            $(".login-button").html("Connected to Yahoo!");
 		}).then(function(){
 			// Get team info
 			return hello( network ).api('teams');
@@ -166,6 +167,8 @@ hello.init({
 // before using this, need to save the object myteams.json to the site root
 function test() {
     document.getElementById("myteam").innerHTML = "";
+    $(".login-button").addClass("currently-displayed");
+    $(".login-button").html("Connected to Yahoo!");
     $.getJSON("myteams.json", function(teams) {
         for (var i in teams) {
             // skip this team if there are no players
@@ -178,7 +181,8 @@ function test() {
             var players = team.roster.players.player;
             for (var j in players) {
                 var player = players[j];
-                team_html += player.name.first.substring(0,1) + ". " + player.name.last + " - <span class='team-players'>" + player.display_position + "</span><br/>";
+                var name = player.display_position == "DEF" ? player.name.first : player.name.first.substring(0,1) + ". " + player.name.last;
+                team_html += name + " - <span class='team-players'>" + player.display_position + "</span><br/>";
             }
             team_html += "</p></div>";
             console.log(team_html);
