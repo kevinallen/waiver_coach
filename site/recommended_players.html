@@ -25,7 +25,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid title_bg">
         <div class="navbar-header ">
-          <a class="navbar-brand title" href="/index.html">Waiver Coach</a>
+          <a class="navbar-brand title" href="index.html">Waiver Coach</a>
         </div>
         <!--
         <div id="navbar" class="navbar-collapse collapse">
@@ -80,6 +80,11 @@
             sessionStorage.clear();
 
             $.getJSON("predictions.json", function( data ) {
+                // sort the data before it is displayed
+                data.sort(function(a, b) {
+                    return parseFloat(b.rushing_yds) - parseFloat(a.rushing_yds);
+                });
+                
                 $.each(data, function( index, val ) {
                     // build the left navigation
                     var li = document.createElement('li');
@@ -96,7 +101,7 @@
                     var template = document.querySelector('#playertemplate').content;
                     // create link using player name
                     var link = template.querySelector('#playername');
-                    link.href = '/player_details.html?player_id=' + val.player_id;
+                    link.href = 'player_details.html?player_id=' + val.player_id;
                     link.textContent = val.full_name;
                     // add the rank
                     // TODO: sort so rank is meaningful

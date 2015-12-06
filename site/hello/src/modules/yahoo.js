@@ -18,7 +18,7 @@
 				// Yahoo does dynamically change it on the fly for the signin screen (only, what if your already signed in)
 				p.options.popup.width = 560;
 
-				// Yahoo throws an parameter error if for whatever reason the state.scope contains a comma, so lets remove scope
+				// Yahoo throws an error if for whatever reason the state.scope contains a comma, so lets remove scope
 				try {delete p.qs.state.scope;}
 				catch (e) {}
 			},
@@ -28,7 +28,9 @@
 			get: {
 				me: yql('select * from social.profile(0) where guid=me'),
 				'me/friends': yql('select * from social.contacts(0) where guid=me'),
-				'me/following': yql('select * from social.contacts(0) where guid=me')
+				'me/following': yql('select * from social.contacts(0) where guid=me'),
+				'league': yql('select * from fantasysports.leagues where use_login=1 and game_key=348'),
+				'players': yql('select * from fantasysports.players.stats where league_key="348.l.1341932"')
 			},
 			wrap: {
 				me: formatUser,
@@ -37,7 +39,9 @@
 				// It might be better to loop through the social.relationship table with has unique IDs of users.
 				'me/friends': formatFriends,
 				'me/following': formatFriends,
-				'default': paging
+				'default': paging,
+				'league': formatLeague,
+				'players': formatPlayers
 			}
 		}
 	});
@@ -92,7 +96,25 @@
 
 		return o;
 	}
+	
+	function formatLeague(o) {
 
+		formatError(o);
+		if (o.query && o.query.results && o.query.results.league) {
+			o = o.query.results.league;
+		}
+		return o;
+	}
+	
+	function formatPlayers(o) {
+		//   NEEDS WORK
+		formatError(o);
+		if (o.query && o.query.results && o.query.results.player) {
+			o = o.query.results.player;
+		}
+		return o;
+	}
+	
 	function formatFriends(o, headers, request) {
 		formatError(o);
 		paging(o, headers, request);
@@ -144,7 +166,8 @@
 	}
 
 	function yql(q) {
-		return 'https://query.yahooapis.com/v1/yql?q=' + (q + ' limit @{limit|100} offset @{start|0}').replace(/\s/g, '%20') + '&format=json';
+		return 'https://query.yahooapis.com/v1/yql?q=' + (q).replace(/\s/g, '%20') + '&format=json&diagnostics=true&callback=';
+	//	return 'https://query.yahooapis.com/v1/yql?q=' + (q + ' limit @{limit|100} offset @{start|0}').replace(/\s/g, '%20') + '&format=json';
 	}
 
 })(hello);
