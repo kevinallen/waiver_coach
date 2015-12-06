@@ -2,6 +2,7 @@
 
 function showTeams(teams) {
   var result = "";
+  document.getElementById("myteam").innerHTML = "";
   var onlyOneTeam = false;
   var players_list = [];
   console.log(teams);
