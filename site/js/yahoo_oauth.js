@@ -153,7 +153,6 @@ function login(network){
 			return hello( network ).api('teams');
 		}).then(function(d){
 			showTeams(d);
-            //sessionStorage.setItem("myteams", d);
 		}).then(null, function(e){
 			console.error(e);
 		});
@@ -161,12 +160,8 @@ function login(network){
 }
 
 $(document).ready(function() {
-    if (sessionStorage.getItem("myteams")) {
-        console.log("found teams");
+    if (hello( network ).getAuthResponse()) {
         showTeams(sessionStorage.getItem("myteams"));
-    }
-    else {
-        console.log("did not find teams");
     }
 });
 
