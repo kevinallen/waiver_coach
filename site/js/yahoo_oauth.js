@@ -147,6 +147,7 @@ function login(network){
 			// Get team info
 			return hello( network ).api('teams');
 		}).then(function(d){
+            console.log('here');
 			showTeams(d, "d");
 		}).then(null, function(e){
 			console.error(e);
