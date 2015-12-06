@@ -1,39 +1,47 @@
 
 
-function showTeams(obj, objName) {
+function showTeams(teams, objName) {
   var result = "";
   var onlyOneTeam = false;
   var players_list = [];
   console.log(obj);
-  for (var i in obj) {
-      if (typeof obj[i] === null || typeof obj[i] !== "object") {
+  for (var i in teams) {
+      if (typeof teams[i] === null || typeof obj[i] !== "object") {
           continue;
       }
-      if (obj instanceof Array) {
-          var team = obj[i];
+      if (teams instanceof Array) {
+          var team = teams[i];
 	  } else {
 		  onlyOneTeam = true;
-          var team = obj;
+          var team = teams;
 	  }
 	  if (team.roster.players === null) {
 		  continue;
 	  }
-	  result += "<h4>Team "+i+"</h4>";
-	  if (team.hasOwnProperty('team_key')) {
-		  result += "<div><a href="+team.url+">"+team.name+"</a> "+team.team_key+"</div>";
-		  for (var j in team.roster.players.player) {
-			result += "<div>" + team.roster.players.player[j].eligible_positions.position + " - "+team.roster.players.player[j].name.full+"</a> "+"</div>";
-			players_list.push(team.roster.players.player[j].name.full);
-		  }
-		  if (typeof(Storage) !== "undefined") {
-			var league_team = {"myteam": players_list};
-			sessionStorage.setItem(team.team_key, JSON.stringify(league_team));
-			console.log(team.team_key, JSON.parse(sessionStorage.getItem(team.team_key)));
-			getOtherPlayers(team.team_key);
-		  } else {
-			alert("Your browser does not support web storage.  Please use a different browser to continue.");
-		  }
+      console.log(team);
+      // display team on page, and keep track of all players in players_list
+      var team_html = "<div class='col-sm-6'><h3 class=''>" + team.name + "</h3><p class='team'>";
+      var players = team.roster.players.player;
+      for (var j in players) {
+          var player = players[j];
+          players_list.push(team.roster.players.player[j].name.full);
+          team_html += player.name.first.substring(0,1) + ". " + player.name.last + " - <span class='team-players'>" + player.display_position + "</span><br/>";
+      }
+      team_html += "</p></div>";
+      console.log(team_html);
+      document.getElementById("myteam").innerHTML += team_html;
+      $('#myteam').show();
+
+      // put players_list in session storage and grab players from other teams
+	  if (typeof(Storage) !== "undefined") {
+		var league_team = {"myteam": players_list};
+		sessionStorage.setItem(team.team_key, JSON.stringify(league_team));
+		console.log(team.team_key, JSON.parse(sessionStorage.getItem(team.team_key)));
+		getOtherPlayers(team.team_key);
+	  } else {
+		alert("Your browser does not support web storage.  Please use a different browser to continue.");
 	  }
+
 	  if (onlyOneTeam) {
 		break;
 	  }
@@ -155,3 +163,29 @@ hello.init({
 	redirect_uri:'http://kevinallen.github.io/waiver_coach/site/index.html',
 	oauth_proxy: "https://auth-server.herokuapp.com/proxy"
 });
+
+// function used to test display of a user's teams, useful to develop locally
+// before using this, need to save the object myteams.json to the site root
+function test() {
+    document.getElementById("myteam").innerHTML = "";
+    $.getJSON("myteams.json", function(teams) {
+        for (var i in teams) {
+            // skip this team if there are no players
+            var team = teams[i];
+            if (team.roster.players === null) {
+                continue;
+            }
+            console.log(team);
+            var team_html = "<div class='col-sm-6'><h3 class=''>" + team.name + "</h3><p class='team'>";
+            var players = team.roster.players.player;
+            for (var j in players) {
+                var player = players[j];
+                team_html += player.name.first.substring(0,1) + ". " + player.name.last + " - <span class='team-players'>" + player.display_position + "</span><br/>";
+            }
+            team_html += "</p></div>";
+            console.log(team_html);
+            document.getElementById("myteam").innerHTML += team_html;
+            $('#myteam').show();
+        }
+    });
+}
