@@ -46,7 +46,6 @@ function showTeams(teams, objName) {
 		break;
 	  }
   }
-  return result;
 }
 
 function getOtherPlayers(team_key) {
@@ -147,8 +146,7 @@ function login(network){
 			// Get team info
 			return hello( network ).api('teams');
 		}).then(function(d){
-			document.getElementById('teamcontent').innerHTML = showTeams(d, "d");
-            $('#myteam').show();
+			showTeams(d, "d");
 		}).then(null, function(e){
 			console.error(e);
 		});
