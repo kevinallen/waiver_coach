@@ -1,12 +1,13 @@
 
 
-function showTeams(teams, objName) {
+function showTeams(teams) {
   var result = "";
   var onlyOneTeam = false;
   var players_list = [];
-  console.log(obj);
+  console.log(teams);
   for (var i in teams) {
-      if (typeof teams[i] === null || typeof obj[i] !== "object") {
+      console.log("inside teams");
+      if (typeof teams[i] === null || typeof teams[i] !== "object") {
           continue;
       }
       if (teams instanceof Array) {
@@ -123,7 +124,7 @@ function loggedIn(network) {
 	  // Get team info
 	  return hello( network ).api('teams');
   }).then(function(d){
-	  document.getElementById('teamcontent').innerHTML = showTeams(d, "d");
+	  document.getElementById('teamcontent').innerHTML = showTeams(d);
   }).then(null, function(e){
 	  console.error(e);
   });
@@ -147,8 +148,7 @@ function login(network){
 			// Get team info
 			return hello( network ).api('teams');
 		}).then(function(d){
-            console.log('here');
-			showTeams(d, "d");
+			showTeams(d);
 		}).then(null, function(e){
 			console.error(e);
 		});
