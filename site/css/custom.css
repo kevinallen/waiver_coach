@@ -1,3 +1,7 @@
+.player-table {
+    width: 650px;
+}
+
 a.login-button.currently-displayed {
     color: #fff;
     background-color: #222;
