@@ -88,7 +88,7 @@ function parseLeagues(leagues, network) {
                 for (var j in players) {
                     var player = players[j];
                     if (player.display_position == "RB") {
-                        current_players.push(player.name.full);
+                        current_players.running_backs.push(player.name.full);
                     }
                 }
 
