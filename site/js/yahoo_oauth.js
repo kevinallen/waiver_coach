@@ -1,51 +1,37 @@
 
 
 function showTeams(teams) {
-  var result = "";
-  document.getElementById("myteam").innerHTML = "";
-  var onlyOneTeam = false;
-  var players_list = [];
-  console.log(teams);
-  for (var i in teams) {
+    var onlyOneTeam = false;
+    console.log(teams);
+    for (var i in teams) {
       if (typeof teams[i] === null || typeof teams[i] !== "object") {
           continue;
       }
       if (teams instanceof Array) {
           var team = teams[i];
-	  } else {
-		  onlyOneTeam = true;
+      } else {
+    	  onlyOneTeam = true;
           var team = teams;
-	  }
-	  if (team.roster.players === null) {
-		  continue;
-	  }
+      }
+      if (team.roster.players === null) {
+    	  continue;
+      }
       console.log(team);
       // display team on page, and keep track of all players in players_list
       var team_html = "<div class='col-sm-6'><h3 class=''>" + team.name + "</h3><p class='team'>";
       var players = team.roster.players.player;
       for (var j in players) {
           var player = players[j];
-          players_list.push(team.roster.players.player[j].name.full);
           var name = player.display_position == "DEF" ? player.name.first : player.name.first.substring(0,1) + ". " + player.name.last;
           team_html += name + " - <span class='team-players'>" + player.display_position + "</span><br/>";
       }
       team_html += "</p></div>";
       document.getElementById("myteam").innerHTML += team_html;
-      $('#myteam').show();
 
-      // put players_list in session storage and grab players from other teams
-	  if (typeof(Storage) !== "undefined") {
-		var league_team = {"myteam": players_list};
-		sessionStorage.setItem(team.name, JSON.stringify(league_team));
-		console.log(team.name, JSON.parse(sessionStorage.getItem(team.name)));
-	  } else {
-		alert("Your browser does not support web storage.  Please use a different browser to continue.");
-	  }
-
-	  if (onlyOneTeam) {
-		break;
-	  }
-  }
+      if (onlyOneTeam) {
+    	break;
+      }
+    }
 }
 
 function parseLeagues(leagues, network) {
@@ -62,6 +48,12 @@ function parseLeagues(leagues, network) {
         if (league.draft_status != "postdraft") {
             continue;
         }
+
+        hello( network ).api('teams','get',{league_key:league.league_key}).then(function(teams){
+            document.getElementById("myteam").innerHTML = "";
+            showTeams(teams);
+            $('#myteam').show();
+        });
 
         for (var i = 1; i <= Number(league.num_teams); i++) {
             var teamID = league.league_key + ".t." + i;
