@@ -72,7 +72,7 @@ function parseLeagues(leagues) {
             console.log("Getting players for: " + teamID);
             hello( network ).api('players', 'get', qdata).then(function(team){
                 if (team.roster.players == null) {
-                    continue;
+                    return;
                 }
                 var players = team.roster.players.player;
                 for (var j in players) {
