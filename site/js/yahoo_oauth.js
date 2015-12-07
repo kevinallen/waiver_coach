@@ -66,7 +66,7 @@ function parseLeagues(leagues, network) {
                     return;
                 }
                 var key = team.team_key.split(".t")[0];
-                var current_players = null;
+                var current_players = [];
 
                 // get running list of running backs from storage
                 var all_players = JSON.parse(sessionStorage.getItem("running_backs"));
