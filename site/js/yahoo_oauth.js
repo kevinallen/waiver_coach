@@ -89,7 +89,6 @@ function getOtherPlayers(team_key) {
                 console.log("league", n);
                 // Store other teams' players
       			if (typeof(Storage) !== "undefined") {
-      			  league_teams[team_name] = players_list;
       			  sessionStorage.setItem(myLeague, JSON.stringify(players_list));
       			  console.log(myLeague, JSON.parse(sessionStorage.getItem(myLeague)));
       			} else {
