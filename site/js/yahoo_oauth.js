@@ -16,7 +16,7 @@ function showTeams(teams) {
       if (team.roster.players === null) {
     	  continue;
       }
-      console.log(team);
+
       // display team on page, and keep track of all players in players_list
       var team_html = "<div class='col-sm-6'><h3 class=''>" + team.name + "</h3><p class='team'>";
       var players = team.roster.players.player;
@@ -67,9 +67,21 @@ function parseLeagues(leagues, network) {
                 }
                 var key = team.team_key.split(".t")[0];
                 var current_players = [];
-                var all_players = JSON.parse(sessionStorage.getItem(key));
+
+                // get running list of running backs from storage
+                var current_league_i = null;
+                var all_players = JSON.parse(sessionStorage.getItem("players"));
                 if (all_players != null) {
-                    current_players = all_players;
+                    for (var k in all_players) {
+                        if (all_players[k].league_key == key) {
+                            current_players = all_players[k];
+                            current_league_i = k;
+                            break;
+                        }
+                    }
+                }
+                else {
+                    all_players = [];
                 }
 
                 var players = team.roster.players.player;
@@ -79,10 +91,19 @@ function parseLeagues(leagues, network) {
                         current_players.push(player.name.full);
                     }
                 }
+
+                // add the user's teams to session storage
+                if (current_league_i != null) {
+                    all_players[current_league_i] = current_players;
+                }
+                else {
+                    all_players.push({league_key: key, running_backs: current_players});
+                }
+
                 // Store all running backs in league
                 if (typeof(Storage) !== "undefined") {
-                    sessionStorage.setItem(key, JSON.stringify(current_players));
-                    console.log(key, JSON.parse(sessionStorage.getItem(key)));
+                    sessionStorage.setItem("players", JSON.stringify(all_players));
+                    console.log("players", JSON.parse(sessionStorage.getItem("players")));
                 } else {
                     alert("Your browser does not support web storage.  Please use a different browser to continue.");
                 }
