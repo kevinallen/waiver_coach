@@ -63,7 +63,6 @@ function parseLeagues(leagues, network) {
             continue;
         }
 
-        var players_list = [];
         for (var i = 1; i <= Number(league.num_teams); i++) {
             var teamID = league.league_key + ".t." + i;
             var qdata = {team: teamID};
@@ -73,17 +72,23 @@ function parseLeagues(leagues, network) {
                 if (team.roster.players == null) {
                     return;
                 }
+                var key = team.team_key.split(".t")[0];
+                var current_players = [];
+                var all_players = sessionStorage.getItem(key);
+                if (all_players != null) {
+                    current_players = all_players.split(",");
+                }
+
                 var players = team.roster.players.player;
                 for (var j in players) {
                     var player = players[j];
                     if (player.display_position == "RB") {
-                        players_list.push(player.name.full);
+                        current_players.push(player.name.full);
                     }
                 }
                 // Store all running backs in league
                 if (typeof(Storage) !== "undefined") {
-                    var key = team.team_key.split(".t")[0];
-                    sessionStorage.setItem(key, JSON.stringify(players_list));
+                    sessionStorage.setItem(key, JSON.stringify(current_players));
                     console.log(key, JSON.parse(sessionStorage.getItem(key)));
                 } else {
                     alert("Your browser does not support web storage.  Please use a different browser to continue.");
