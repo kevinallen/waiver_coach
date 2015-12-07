@@ -50,6 +50,7 @@ function parseLeagues(leagues, network) {
         }
 
         hello( network ).api('teams','get',{league_key:league.league_key}).then(function(teams){
+            console.log(teams);
             document.getElementById("myteam").innerHTML = "";
             showTeams(teams);
             $('#myteam').show();
