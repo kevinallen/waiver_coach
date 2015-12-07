@@ -1,38 +1,44 @@
 
 
-function showTeams(teams) {
-    var onlyOneTeam = false;
-    console.log(teams);
-    for (var i in teams) {
-      if (typeof teams[i] === null || typeof teams[i] !== "object") {
-          continue;
-      }
-      if (teams instanceof Array) {
-          var team = teams[i];
-      } else {
-    	  onlyOneTeam = true;
-          var team = teams;
-      }
-      if (team.roster.players === null) {
-    	  continue;
-      }
+function showTeams() {
+    hello( network ).api('myteams').then(function(teams){
+        console.log(teams);
+        document.getElementById("myteam").innerHTML = "";
 
-      // display team on page, and keep track of all players in players_list
-      var team_html = "<div class='col-sm-6'><h3 class=''>" + team.name + "</h3><p class='team'>";
-      var players = team.roster.players.player;
-      for (var j in players) {
-          var player = players[j];
-          var name = player.display_position == "DEF" ? player.name.first : player.name.first.substring(0,1) + ". " + player.name.last;
-          team_html += name + " - <span class='team-players'>" + player.display_position + "</span><br/>";
-      }
-      team_html += "</p></div>";
-      document.getElementById("myteam").innerHTML += team_html;
+        var onlyOneTeam = false;
+        console.log(teams);
+        for (var i in teams) {
+          if (typeof teams[i] === null || typeof teams[i] !== "object") {
+              continue;
+          }
+          if (teams instanceof Array) {
+              var team = teams[i];
+          } else {
+        	  onlyOneTeam = true;
+              var team = teams;
+          }
+          if (team.roster.players === null) {
+        	  continue;
+          }
 
-      if (onlyOneTeam) {
-    	break;
-      }
+          // display team on page, and keep track of all players in players_list
+          var team_html = "<div class='col-sm-6'><h3 class=''>" + team.name + "</h3><p class='team'>";
+          var players = team.roster.players.player;
+          for (var j in players) {
+              var player = players[j];
+              var name = player.display_position == "DEF" ? player.name.first : player.name.first.substring(0,1) + ". " + player.name.last;
+              team_html += name + " - <span class='team-players'>" + player.display_position + "</span><br/>";
+          }
+          team_html += "</p></div>";
+          document.getElementById("myteam").innerHTML += team_html;
+
+          if (onlyOneTeam) {
+        	break;
+          }
+        }
+        $('#myteam').show();
     }
-}
+});
 
 function parseLeagues(leagues, network) {
     var onlyOneLeague = false;
@@ -48,13 +54,6 @@ function parseLeagues(leagues, network) {
         if (league.draft_status != "postdraft") {
             continue;
         }
-
-        hello( network ).api('myteams').then(function(teams){
-            console.log(teams);
-            document.getElementById("myteam").innerHTML = "";
-            showTeams(teams);
-            $('#myteam').show();
-        });
 
         for (var i = 1; i <= Number(league.num_teams); i++) {
             var teamID = league.league_key + ".t." + i;
@@ -179,24 +178,24 @@ function parseLeagues(leagues, network) {
 //
 // }
 
-function loggedIn(network) {
-
-  hello( network ).api('me').then(function(p){
-	  // Get team info
-	  return hello( network ).api('teams');
-  }).then(function(p){
-      $(".login-button").addClass("currently-displayed");
-      $(".login-button").html("Connected to Yahoo!");
-  }).then(function(){
-      // Get team info
-      return hello( network ).api('teams');
-  }).then(function(d){
-      showTeams(d);
-      //sessionStorage.setItem("myteams", d);
-  }).then(null, function(e){
-      console.error(e);
-  });
-}
+// function loggedIn(network) {
+//
+//   hello( network ).api('me').then(function(p){
+// 	  // Get team info
+// 	  return hello( network ).api('teams');
+//   }).then(function(p){
+//       $(".login-button").addClass("currently-displayed");
+//       $(".login-button").html("Connected to Yahoo!");
+//   }).then(function(){
+//       // Get team info
+//       return hello( network ).api('teams');
+//   }).then(function(d){
+//       showTeams(d);
+//       //sessionStorage.setItem("myteams", d);
+//   }).then(null, function(e){
+//       console.error(e);
+//   });
+// }
 
 function login(network){
 
@@ -217,6 +216,7 @@ function login(network){
 			return hello( network ).api('league');
 		}).then(function(d){
             parseLeagues(d, network);
+            showTeams();
 		}).then(null, function(e){
 			console.error(e);
 		});
@@ -225,7 +225,9 @@ function login(network){
 
 $(document).ready(function() {
     if (hello( 'yahoo' ).getAuthResponse()) {
-        loggedIn('yahoo');
+        showTeams();
+        $(".login-button").addClass("currently-displayed");
+        $(".login-button").html("Connected to Yahoo!");
     }
 });
 
