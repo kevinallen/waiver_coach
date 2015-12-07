@@ -126,9 +126,6 @@ function login(network){
 
 	if (!hello( network ).getAuthResponse()) {
 		hello( network ).login().then(function(f){
-		  for (var i in f){
-			console.log("i", f[i]);
-		  }
 		// Get Profile
 		return hello( network ).api('me');
 		}).then(function(p){
@@ -155,7 +152,7 @@ function login(network){
 
 $(document).ready(function() {
     if (hello( 'yahoo' ).getAuthResponse()) {
-        showTeams();
+        showTeams('yahoo');
         $(".login-button").addClass("currently-displayed");
         $(".login-button").html("Connected to Yahoo!");
 
