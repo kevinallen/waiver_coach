@@ -30,6 +30,7 @@
 				'me/friends': yql('select * from social.contacts(0) where guid=me'),
 				'me/following': yql('select * from social.contacts(0) where guid=me'),
 				'league': yql('select * from fantasysports.leagues where use_login=1 and game_key=348'),
+				'myteams': yql('select * from fantasysports.teams.roster where use_login=1 and game_key=348'),
 				'teams': function(p, callback) {
 					var league_key = p.options.league_key;
 					var queryStr = 'select * from fantasysports.teams where league_key="' + league_key + '"';
@@ -57,7 +58,8 @@
 				'league': formatLeague,
 				'teams': formatTeams,
 				'players': formatTeams,
-				'league_name': formatLeague
+				'league_name': formatLeague,
+				'myteams': formatTeams
 			}
 		}
 	});
