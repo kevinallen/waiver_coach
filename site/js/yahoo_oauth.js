@@ -76,7 +76,7 @@ function parseLeagues(leagues, network) {
                 var players = team.roster.players.player;
                 for (var j in players) {
                     var player = players[j];
-                    if (player.display_position = "RB") {
+                    if (player.display_position == "RB") {
                         players_list.push(player.name.full);
                     }
                 }
