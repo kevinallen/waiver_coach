@@ -74,7 +74,7 @@ function parseLeagues(leagues, network) {
                 if (all_players != null) {
                     for (var k in all_players) {
                         if (all_players[k].league_key == key) {
-                            current_players = all_players[k];
+                            current_players = all_players[k].running_backs;
                             current_league_i = k;
                             break;
                         }
@@ -88,13 +88,13 @@ function parseLeagues(leagues, network) {
                 for (var j in players) {
                     var player = players[j];
                     if (player.display_position == "RB") {
-                        current_players.running_backs.push(player.name.full);
+                        current_players.push(player.name.full);
                     }
                 }
 
                 // add the user's teams to session storage
                 if (current_league_i != null) {
-                    all_players[current_league_i] = current_players;
+                    all_players[current_league_i] = {league_key: key, running_backs: current_players};
                 }
                 else {
                     all_players.push({league_key: key, running_backs: current_players});
