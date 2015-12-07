@@ -70,7 +70,6 @@ function parseLeagues(leagues, network) {
 
             console.log("Getting players for: " + teamID);
             hello( network ).api('players', 'get', qdata).then(function(team){
-                var currentLeague = league.league_key;
                 if (team.roster.players == null) {
                     return;
                 }
@@ -83,8 +82,9 @@ function parseLeagues(leagues, network) {
                 }
                 // Store all running backs in league
                 if (typeof(Storage) !== "undefined") {
-                    sessionStorage.setItem(currentLeague, JSON.stringify(players_list));
-                    console.log(currentLeague, JSON.parse(sessionStorage.getItem(currentLeague)));
+                    console.log(team.team_key)
+                    sessionStorage.setItem("running_backs", JSON.stringify(players_list));
+                    console.log("running_backs", JSON.parse(sessionStorage.getItem("running_backs")));
                 } else {
                     alert("Your browser does not support web storage.  Please use a different browser to continue.");
                 }
