@@ -84,7 +84,7 @@ function parseLeagues(leagues, network) {
                 // Store all running backs in league
                 if (typeof(Storage) !== "undefined") {
                     sessionStorage.setItem(currentLeague, JSON.stringify(players_list));
-                    console.log(league.league_key, JSON.parse(sessionStorage.getItem(currentLeague)));
+                    console.log(currentLeague, JSON.parse(sessionStorage.getItem(currentLeague)));
                 } else {
                     alert("Your browser does not support web storage.  Please use a different browser to continue.");
                 }
