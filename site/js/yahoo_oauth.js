@@ -60,7 +60,7 @@ function parseLeagues(leagues, network) {
         }
 
         if (league.draft_status != "postdraft") {
-            console.log("league has not drafted");
+            continue;
         }
 
         var players_list = [];
@@ -70,6 +70,7 @@ function parseLeagues(leagues, network) {
 
             console.log("Getting players for: " + teamID);
             hello( network ).api('players', 'get', qdata).then(function(team){
+                var currentLeague = league.league_key;
                 if (team.roster.players == null) {
                     return;
                 }
@@ -82,8 +83,8 @@ function parseLeagues(leagues, network) {
                 }
                 // Store all running backs in league
                 if (typeof(Storage) !== "undefined") {
-                    sessionStorage.setItem(league.league_key, JSON.stringify(players_list));
-                    console.log(league.league_key, JSON.parse(sessionStorage.getItem(league.league_key)));
+                    sessionStorage.setItem(currentLeague, JSON.stringify(players_list));
+                    console.log(league.league_key, JSON.parse(sessionStorage.getItem(currentLeague)));
                 } else {
                     alert("Your browser does not support web storage.  Please use a different browser to continue.");
                 }
