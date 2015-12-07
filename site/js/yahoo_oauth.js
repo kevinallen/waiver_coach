@@ -1,6 +1,6 @@
 
 
-function showTeams() {
+function showTeams(network) {
     hello( network ).api('myteams').then(function(teams){
         console.log(teams);
         document.getElementById("myteam").innerHTML = "";
@@ -217,7 +217,7 @@ function login(network){
 			return hello( network ).api('league');
 		}).then(function(d){
             parseLeagues(d, network);
-            showTeams();
+            showTeams(network);
 		}).then(null, function(e){
 			console.error(e);
 		});
