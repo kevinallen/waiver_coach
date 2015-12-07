@@ -134,6 +134,13 @@ function login(network){
 		}).then(function(p){
 		    $(".login-button").addClass("currently-displayed");
             $(".login-button").html("Connected to Yahoo!");
+            #("#signin").html(p.first_name);
+            if (typeof(Storage) !== "undefined") {
+                sessionStorage.setItem("me", JSON.stringify(p));
+                console.log("me", JSON.parse(sessionStorage.getItem("me")));
+            } else {
+                alert("Your browser does not support web storage.  Please use a different browser to continue.");
+            }
 		}).then(function(){
 			// Get leagues for player
 			return hello( network ).api('league');
@@ -151,6 +158,13 @@ $(document).ready(function() {
         showTeams();
         $(".login-button").addClass("currently-displayed");
         $(".login-button").html("Connected to Yahoo!");
+
+        if (typeof(Storage) !== "undefined") {
+            var me = JSON.parse(sessionStorage.getItem("me"));
+            $("#signin").html(me.first_name);
+        } else {
+            alert("Your browser does not support web storage.  Please use a different browser to continue.");
+        }
     }
 });
 
