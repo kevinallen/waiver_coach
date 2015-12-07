@@ -49,7 +49,7 @@
 //   getOtherPlayers(team.team_key);
 // }
 
-function parseLeagues(leagues) {
+function parseLeagues(leagues, network) {
     var onlyOneLeague = false;
 
     for (var i in leagues) {
@@ -197,7 +197,7 @@ function login(network){
 			// Get leagues for player
 			return hello( network ).api('league');
 		}).then(function(d){
-            parseLeagues(d);
+            parseLeagues(d, network);
 		}).then(null, function(e){
 			console.error(e);
 		});
