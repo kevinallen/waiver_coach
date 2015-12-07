@@ -76,7 +76,7 @@ function parseLeagues(leagues, network) {
                 var current_players = [];
                 var all_players = sessionStorage.getItem(key);
                 if (all_players != null) {
-                    current_players = all_players.split(",");
+                    current_players = all_players;
                 }
 
                 var players = team.roster.players.player;
