@@ -61,7 +61,7 @@ function parseLeagues(leagues) {
         }
 
         if (league.draft_status != "postdraft") {
-            continue;
+            console.log("league has not drafted");
         }
 
         var players_list = [];
