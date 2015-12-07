@@ -82,9 +82,9 @@ function parseLeagues(leagues, network) {
                 }
                 // Store all running backs in league
                 if (typeof(Storage) !== "undefined") {
-                    console.log(team.team_key)
-                    sessionStorage.setItem("running_backs", JSON.stringify(players_list));
-                    console.log("running_backs", JSON.parse(sessionStorage.getItem("running_backs")));
+                    var key = team.team_key.split(".t")[0];
+                    sessionStorage.setItem(key, JSON.stringify(players_list));
+                    console.log(key, JSON.parse(sessionStorage.getItem(key)));
                 } else {
                     alert("Your browser does not support web storage.  Please use a different browser to continue.");
                 }
