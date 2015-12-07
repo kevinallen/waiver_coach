@@ -37,8 +37,9 @@ function showTeams() {
           }
         }
         $('#myteam').show();
-    }
-});
+    });
+}
+
 
 function parseLeagues(leagues, network) {
     var onlyOneLeague = false;
