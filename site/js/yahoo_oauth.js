@@ -56,6 +56,21 @@ function parseLeagues(leagues, network) {
             continue;
         }
 
+        // get league names
+        hello(network).api('league_name', 'get', {league_key: league.league_key}).then(function(league){
+            if (typeof(Storage) !== "undefined") {
+                var current_leagues = JSON.parse(sessionStorage.getItem("leagues"));
+                if (current_leagues == null) {
+                    current_leagues = {};
+                }
+                current_leagues[league.league_key] = league.name;
+                sessionStorage.setItem("leagues", JSON.stringify(current_leagues));
+                console.log("leagues", JSON.parse(sessionStorage.getItem("leagues")));
+            } else {
+                alert("Your browser does not support web storage.  Please use a different browser to continue.");
+            }
+        });
+
         for (var i = 1; i <= Number(league.num_teams); i++) {
             var teamID = league.league_key + ".t." + i;
             var qdata = {team: teamID};
