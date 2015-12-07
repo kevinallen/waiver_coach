@@ -85,7 +85,9 @@ function getOtherPlayers(team_key) {
                 }
               }
               var league_name = "";
-              hello( network ).api('league_name', 'get', {league_key:myLeague}).then(function(n) {
+              var options = {league_key: myLeague};
+              console.log("options", options);
+              hello( network ).api('league_name', 'get', options).then(function(n) {
                 console.log("league", n);
                 // Store other teams' players
       			if (typeof(Storage) !== "undefined") {
