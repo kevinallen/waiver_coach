@@ -38,7 +38,6 @@ function showTeams(teams) {
 		var league_team = {"myteam": players_list};
 		sessionStorage.setItem(team.name, JSON.stringify(league_team));
 		console.log(team.name, JSON.parse(sessionStorage.getItem(team.name)));
-		getOtherPlayers(team.team_key);
 	  } else {
 		alert("Your browser does not support web storage.  Please use a different browser to continue.");
 	  }
@@ -47,6 +46,57 @@ function showTeams(teams) {
 		break;
 	  }
   }
+  getOtherPlayers(team.team_key);
+}
+
+function parseLeagues(leagues) {
+    var onlyOneLeague = false;
+
+    for (var i in leagues) {
+        if (leagues instanceof Array) {
+          league = leagues[i];
+        } else {
+          league = leagues;
+          onlyOneLeague = true;
+        }
+
+        if (league.draft_status != "postdraft") {
+            continue;
+        }
+
+        var players_list = [];
+        for (var i = 1; i <= Number(league.num_teams); i++) {
+            var teamID = league.league_key + ".t." + i;
+            var qdata = {team: teamID};
+
+            console.log("Getting players for: " + teamID);
+            hello( network ).api('players', 'get', qdata).then(function(team){
+                if (team.roster.players == null) {
+                    continue;
+                }
+                var players = team.roster.players.player;
+                for (var j in players) {
+                    var player = players[j];
+                    if (player.display_position = "RB") {
+                        players_list.push(player.name.full);
+                    }
+                }
+                // Store all running backs in league
+                if (typeof(Storage) !== "undefined") {
+                    sessionStorage.setItem(league.league_key, JSON.stringify(players_list));
+                    console.log(league.league_key, JSON.parse(sessionStorage.getItem(myLeague)));
+                } else {
+                    alert("Your browser does not support web storage.  Please use a different browser to continue.");
+                }
+            }).then(null, function(e){
+              console.error(e);
+            });
+        }
+
+        if (onlyOneLeague) {
+            break;
+        }
+    }
 }
 
 function getOtherPlayers(team_key) {
@@ -84,19 +134,14 @@ function getOtherPlayers(team_key) {
                   players_list.push(player.name.full);
                 }
               }
-              var league_name = "";
-              hello( network ).api('league_name', 'get', {league_key:myLeague}).then(function(n) {
-                console.log("league", n);
-                // Store other teams' players
-      			if (typeof(Storage) !== "undefined") {
-      			  sessionStorage.setItem(myLeague, JSON.stringify(players_list));
-      			  console.log(myLeague, JSON.parse(sessionStorage.getItem(myLeague)));
-      			} else {
-      			  alert("Your browser does not support web storage.  Please use a different browser to continue.");
-      			}
-              }).then(null, function(e){
-                console.error(e);
-              });
+              // Store other teams' players
+              if (typeof(Storage) !== "undefined") {
+                league_teams[team_name] = players_list;
+                sessionStorage.setItem(myLeague, JSON.stringify(players_list));
+                console.log(myLeague, JSON.parse(sessionStorage.getItem(myLeague)));
+              } else {
+                alert("Your browser does not support web storage.  Please use a different browser to continue.");
+              }
             }).then(null, function(e){
               console.error(e);
             });
@@ -137,7 +182,7 @@ function loggedIn(network) {
 function login(network){
 
 	if (hello( network ).getAuthResponse()) {
-	  loggedIn(network);
+	  //loggedIn(network);
 	} else {
 		hello( network ).login().then(function(f){
 		  for (var i in f){
@@ -149,10 +194,10 @@ function login(network){
 		    $(".login-button").addClass("currently-displayed");
             $(".login-button").html("Connected to Yahoo!");
 		}).then(function(){
-			// Get team info
-			return hello( network ).api('teams');
+			// Get leagues for player
+			return hello( network ).api('league');
 		}).then(function(d){
-			showTeams(d);
+            parseLeagues(d);
 		}).then(null, function(e){
 			console.error(e);
 		});
