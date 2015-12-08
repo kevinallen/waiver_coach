@@ -1,3 +1,11 @@
+.league_div {
+    margin-bottom: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 .player-table {
     width: 650px;
 }
