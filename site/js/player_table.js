@@ -122,7 +122,7 @@ json2table('../site_data/predictions.json', 'target_table', col_config)
 function filter_table() {
 	var players = JSON.parse(sessionStorage.getItem("running_backs"));
 	console.log("players", players);
-	
+
 	var selected_league = "";
 	$("#league_select option:selected").each(function(){
 		selected_league = $(this).val();
@@ -165,7 +165,7 @@ $('#filter_rb').click(function() {
 	});
 
 	if ($('#filter_rb').is(':checked')) {
-		filter_table(players);
+		filter_table();
 	}
 });
 
