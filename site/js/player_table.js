@@ -122,7 +122,7 @@ json2table('../site_data/predictions.json', 'target_table', col_config)
 function filter_table(players) {
 	var selected_league = "";
 	$("select option:selected").each(function(){
-		selected_league += $(this).val();
+		selected_league = $(this).val();
 	});
 	console.log("selected_league", selected_league);
 	league_players = players[selected_league];
