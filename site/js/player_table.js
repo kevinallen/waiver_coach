@@ -131,10 +131,11 @@ function filter_table() {
 	league_players = players[selected_league];
 	console.log("league_players", league_players);
 
-	var sortTypeObj = {}
+	var cols = Object.keys(col_config);
+	var sortTypeObj = {};
 	$.each(cols, function(i, col){
 		if(col_config[col]['number']){
-			sortTypeObj[col_display[col].toLowerCase()] = 'number'
+			sortTypeObj[col_display[col].toLowerCase()] = 'number';
 		}
 	});
 
