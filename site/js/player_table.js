@@ -26,7 +26,7 @@ function json2table(json_url, table_id, col_config){
 		$.each(cols, function(i, col){
 			var config = col_config[col]
 			if(config){
-				var col_head = ''	
+				var col_head = ''
 				if(config['displayName']){
 					col_head = config['displayName']
 				} else{
@@ -36,13 +36,13 @@ function json2table(json_url, table_id, col_config){
 
 				if(config['number']){
 					// add header for number rows for different formatting (float right)
-					tbl_head += '<th class="table_number">'+col_head+'</th>'	
+					tbl_head += '<th class="table_number">'+col_head+'</th>'
 				} else{
-					tbl_head += '<th>'+col_head+'</th>'	
+					tbl_head += '<th>'+col_head+'</th>'
 				}
-				
+
 			}
-			
+
 		})
 		tbl_head += '</tr>'
 
@@ -53,27 +53,27 @@ function json2table(json_url, table_id, col_config){
 
 			$.each(cols, function(i, col){
 				var config = col_config[col]
-				
+
 				if(config){
 					if(config['calculate_points']){
 						var v = String(player_points(row, col_config))
 					} else{
-						var v = row[col]						
+						var v = row[col]
 					}
 
 					if(config['number']){
 						v = parseFloat(v)
 						v = v.toFixed(config['fixed_digits'])
-						//tbl_row += '<td class="table_number" align="right">'+v+'</td>'	
+						//tbl_row += '<td class="table_number" align="right">'+v+'</td>'
 					} else{
-						//tbl_row += '<td>'+v+'</td>'		
+						//tbl_row += '<td>'+v+'</td>'
 					}
 
 					// link to player's page
 					if(col === 'full_name'){
 						v = '<a href="'+player_url(row)+'">'+v+'</a>'
 					}
-					tbl_row += '<td>'+v+'</td>'		
+					tbl_row += '<td>'+v+'</td>'
 				}
 			})
 			tbl_body += "<tr>"+tbl_row+'</tr>'
@@ -118,3 +118,48 @@ col_config = {
 // Make player names links to player page
 
 json2table('../site_data/predictions.json', 'target_table', col_config)
+
+$('#filter_rb').click(function() {
+
+	$('#league_select').toggle();
+
+    if (typeof(Storage) !== "undefined") {
+        var players = JSON.parse(sessionStorage.getItem("running_backs"));
+        $("#signin").html(me.first_name).addClass("bold");
+		var leagues = JSON.parse(sessionStorage.getItem("leagues"));
+		console.log("players", players);
+		console.log("leagues", leagues);
+
+		$.each(leagues, function(key, val) {
+			// select and modify the HTML5 template
+			var template = document.querySelector('#league_template').content;
+			var option = template.querySelector('#option');
+			option.value = key;
+			option.textContent = value;
+			// append template to DOM
+			var clone = document.importNode(template, true);
+			var oldcontent = document.querySelector('#league_select');
+			oldcontent.appendChild(clone);
+		});
+
+		if ($('#filter_rb').is(':checked') {
+
+
+			$('#target_table').dynatable({
+				table: {
+				    defaultColumnIdStyle: 'lowercase',
+				    copyHeaderClass: true, // copies <th> class to cells
+				    copyClass: true
+				  },
+				dataset: {
+					sortTypes: sortTypeObj,
+					perPageDefault: 50,
+	    			perPageOptions: [20,50,100,200]
+				}
+			});
+		}
+
+	} else {
+        alert("Your browser does not support web storage.  Please use a different browser to continue.");
+    }
+});

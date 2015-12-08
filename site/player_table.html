@@ -80,6 +80,17 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                   <h2 class="section-header">Predictions</h2>
+                  <div class="checkbox">
+                      <label>
+                          <input type="checkbox" value="" id="filter_rb">
+                          Show players available in my league
+                      </label>
+                  </div>
+                  <select class="form-control" id="league_select" style="display:none">
+                      <template id="league_template">
+                          <option id="option"></option>
+                      </template>
+                  </select>
                   <!-- filled in by javscript from JSON -->
                   <table id='target_table' class='.table'>
                     <thead></thead>
