@@ -120,26 +120,34 @@ col_config = {
 json2table('../site_data/predictions.json', 'target_table', col_config)
 
 function filter_table() {
-	var players = JSON.parse(sessionStorage.getItem("running_backs"));
-	console.log("players", players);
+	var taken_players = JSON.parse(sessionStorage.getItem("running_backs"));
+	console.log("taken_players", taken_players);
 
 	var selected_league = "";
 	$("#league_select option:selected").each(function(){
 		selected_league = $(this).val();
 	});
 	console.log("selected_league", selected_league);
-	league_players = players[selected_league];
+	league_players = taken_players[selected_league];
 	console.log("league_players", league_players);
 
 	var dynatable = $('#target_table').data('dynatable');
-	dynatable.queries.add("name","Frank Gore");
+
+	dynatable.queries.add("name", "");
+	dynatable.queries.functions['name'] = function(record, queryValue) {
+		console.log(record);
+		return league_players.indexOf(record['dynatable-sortable-text'].name) == -1;
+	};
+
 	dynatable.process();
 }
 
 $('#filter_rb').click(function() {
 
+	// make dropdown visible
 	$('.league_div').toggle();
 
+	// get leagues and add to dropdown
 	var leagues = JSON.parse(sessionStorage.getItem("leagues"));
 	console.log("leagues", leagues);
 
