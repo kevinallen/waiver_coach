@@ -86,11 +86,13 @@
                           Show players available in my league
                       </label>
                   </div>
-                  <select class="form-control" id="league_select" style="display:none">
-                      <template id="league_template">
-                          <option id="option" value=""></option>
-                      </template>
-                  </select>
+                  <div style="display:none" class="league_div">
+                      <select class="form-control" id="league_select">
+                          <template id="league_template">
+                              <option id="option" value=""></option>
+                          </template>
+                      </select>
+                  </div>
                   <!-- filled in by javscript from JSON -->
                   <table id='target_table' class='.table'>
                     <thead></thead>

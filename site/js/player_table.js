@@ -121,7 +121,7 @@ json2table('../site_data/predictions.json', 'target_table', col_config)
 
 $('#filter_rb').click(function() {
 
-	$('#league_select').toggle();
+	$('.league_div').toggle();
 
     if (typeof(Storage) !== "undefined") {
         var players = JSON.parse(sessionStorage.getItem("running_backs"));
