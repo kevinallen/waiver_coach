@@ -26,7 +26,7 @@ function json2table(json_url, table_id, col_config){
 		$.each(cols, function(i, col){
 			var config = col_config[col]
 			if(config){
-				var col_head = ''	
+				var col_head = ''
 				if(config['displayName']){
 					col_head = config['displayName']
 				} else{
@@ -36,13 +36,13 @@ function json2table(json_url, table_id, col_config){
 
 				if(config['number']){
 					// add header for number rows for different formatting (float right)
-					tbl_head += '<th class="table_number">'+col_head+'</th>'	
+					tbl_head += '<th class="table_number">'+col_head+'</th>'
 				} else{
-					tbl_head += '<th>'+col_head+'</th>'	
+					tbl_head += '<th>'+col_head+'</th>'
 				}
-				
+
 			}
-			
+
 		})
 		tbl_head += '</tr>'
 
@@ -53,27 +53,27 @@ function json2table(json_url, table_id, col_config){
 
 			$.each(cols, function(i, col){
 				var config = col_config[col]
-				
+
 				if(config){
 					if(config['calculate_points']){
 						var v = String(player_points(row, col_config))
 					} else{
-						var v = row[col]						
+						var v = row[col]
 					}
 
 					if(config['number']){
 						v = parseFloat(v)
 						v = v.toFixed(config['fixed_digits'])
-						//tbl_row += '<td class="table_number" align="right">'+v+'</td>'	
+						//tbl_row += '<td class="table_number" align="right">'+v+'</td>'
 					} else{
-						//tbl_row += '<td>'+v+'</td>'		
+						//tbl_row += '<td>'+v+'</td>'
 					}
 
 					// link to player's page
 					if(col === 'full_name'){
 						v = '<a href="'+player_url(row)+'">'+v+'</a>'
 					}
-					tbl_row += '<td>'+v+'</td>'		
+					tbl_row += '<td>'+v+'</td>'
 				}
 			})
 			tbl_body += "<tr>"+tbl_row+'</tr>'
@@ -84,7 +84,7 @@ function json2table(json_url, table_id, col_config){
 			if(col_config[col]['number']){
 				sortTypeObj[col_display[col].toLowerCase()] = 'number'
 			}
-		})
+		});
 
 		$('#'+table_id+' thead').html(tbl_head)
 		$('#'+table_id+' tbody').html(tbl_body)
@@ -118,3 +118,51 @@ col_config = {
 // Make player names links to player page
 
 json2table('../site_data/predictions.json', 'target_table', col_config)
+
+function filter_table() {
+	var players = JSON.parse(sessionStorage.getItem("running_backs"));
+	console.log("players", players);
+
+	var selected_league = "";
+	$("#league_select option:selected").each(function(){
+		selected_league = $(this).val();
+	});
+	console.log("selected_league", selected_league);
+	league_players = players[selected_league];
+	console.log("league_players", league_players);
+
+	var dynatable = $('#target_table').data('dynatable');
+	dynatable.queries.add("name","Frank Gore");
+	dynatable.process();
+}
+
+$('#filter_rb').click(function() {
+
+	$('.league_div').toggle();
+
+	var leagues = JSON.parse(sessionStorage.getItem("leagues"));
+	console.log("leagues", leagues);
+
+	$.each(leagues, function(key, val) {
+		// select and modify the HTML5 template
+		var template = document.querySelector('#league_template').content;
+		var option = template.querySelector('#option');
+		option.value = key;
+		option.textContent = val;
+		// append template to DOM
+		var clone = document.importNode(template, true);
+		var oldcontent = document.querySelector('#league_select');
+		oldcontent.appendChild(clone);
+	});
+
+	if ($('#filter_rb').is(':checked')) {
+		filter_table();
+	}
+	else {
+		document.querySelector('#league_select').innerHTML = '';
+	}
+});
+
+$('#league_select').on('change', function() {
+	filter_table();
+});
