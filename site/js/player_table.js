@@ -84,7 +84,7 @@ function json2table(json_url, table_id, col_config){
 			if(col_config[col]['number']){
 				sortTypeObj[col_display[col].toLowerCase()] = 'number'
 			}
-		})
+		});
 
 		$('#'+table_id+' thead').html(tbl_head)
 		$('#'+table_id+' tbody').html(tbl_body)
@@ -130,6 +130,13 @@ function filter_table() {
 	console.log("selected_league", selected_league);
 	league_players = players[selected_league];
 	console.log("league_players", league_players);
+
+	var sortTypeObj = {}
+	$.each(cols, function(i, col){
+		if(col_config[col]['number']){
+			sortTypeObj[col_display[col].toLowerCase()] = 'number'
+		}
+	});
 
 	$('#target_table').bind('dynatable:init', function(e, dynatable) {
 		dynatable.queries.functions['name'] = function(record, queryValue) {
