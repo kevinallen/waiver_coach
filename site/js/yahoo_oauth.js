@@ -131,7 +131,7 @@ function login(network){
 		}).then(function(p){
 		    $(".login-button").addClass("currently-displayed");
             $(".login-button").html("Connected to Yahoo!");
-            $("#signin").html(p.first_name);
+            $("#signin").html(p.first_name).addClass("bold");
             if (typeof(Storage) !== "undefined") {
                 sessionStorage.setItem("me", JSON.stringify(p));
                 console.log("me", JSON.parse(sessionStorage.getItem("me")));
@@ -158,7 +158,7 @@ $(document).ready(function() {
 
         if (typeof(Storage) !== "undefined") {
             var me = JSON.parse(sessionStorage.getItem("me"));
-            $("#signin").html(me.first_name);
+            $("#signin").html(me.first_name).addClass("bold");
         } else {
             alert("Your browser does not support web storage.  Please use a different browser to continue.");
         }
