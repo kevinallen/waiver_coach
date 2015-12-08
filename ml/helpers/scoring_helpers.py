@@ -41,3 +41,4 @@ def score_stats(stat_df, scorer=make_scorer(base_type='standard')):
     
     score_df = pd.DataFrame({k:[v]*n for k, v in scorer.iteritems()}).set_index(stat_sub.index)
     return (score_df * stat_sub).sum(axis=1)
+
