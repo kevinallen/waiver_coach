@@ -124,22 +124,22 @@ function filter_table(players) {
 	$("select option:selected").each(function(){
 		selected_league += $(this).value;
 	});
-
+	console.log(selected_league);
 	league_players = players[selected_league];
 	console.log("league_players", league_players);
 
-	$('#target_table').dynatable({
-		table: {
-		    defaultColumnIdStyle: 'lowercase',
-		    copyHeaderClass: true, // copies <th> class to cells
-		    copyClass: true
-		  },
-		dataset: {
-			sortTypes: sortTypeObj,
-			perPageDefault: 50,
-			perPageOptions: [20,50,100,200]
-		}
-	});
+	// $('#target_table').dynatable({
+	// 	table: {
+	// 	    defaultColumnIdStyle: 'lowercase',
+	// 	    copyHeaderClass: true, // copies <th> class to cells
+	// 	    copyClass: true
+	// 	  },
+	// 	dataset: {
+	// 		sortTypes: sortTypeObj,
+	// 		perPageDefault: 50,
+	// 		perPageOptions: [20,50,100,200]
+	// 	}
+	// });
 }
 
 $('#filter_rb').click(function() {
