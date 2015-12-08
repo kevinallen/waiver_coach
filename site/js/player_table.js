@@ -119,6 +119,29 @@ col_config = {
 
 json2table('../site_data/predictions.json', 'target_table', col_config)
 
+function filter_table(players) {
+	var selected_league = "";
+	$("select option:selected").each(function(){
+		selected_league += $(this).value;
+	});
+
+	league_players = players[selected_league];
+	console.log("league_players", league_players);
+
+	$('#target_table').dynatable({
+		table: {
+		    defaultColumnIdStyle: 'lowercase',
+		    copyHeaderClass: true, // copies <th> class to cells
+		    copyClass: true
+		  },
+		dataset: {
+			sortTypes: sortTypeObj,
+			perPageDefault: 50,
+			perPageOptions: [20,50,100,200]
+		}
+	});
+}
+
 $('#filter_rb').click(function() {
 
 	$('.league_div').toggle();
@@ -141,20 +164,9 @@ $('#filter_rb').click(function() {
 			oldcontent.appendChild(clone);
 		});
 
-		// if ($('#filter_rb').is(':checked')) {
-		// 	$('#target_table').dynatable({
-		// 		table: {
-		// 		    defaultColumnIdStyle: 'lowercase',
-		// 		    copyHeaderClass: true, // copies <th> class to cells
-		// 		    copyClass: true
-		// 		  },
-		// 		dataset: {
-		// 			sortTypes: sortTypeObj,
-		// 			perPageDefault: 50,
-	    // 			perPageOptions: [20,50,100,200]
-		// 		}
-		// 	});
-		// }
+		if ($('#filter_rb').is(':checked')) {
+			filter_table(players);
+		}
 
 	} else {
         alert("Your browser does not support web storage.  Please use a different browser to continue.");
