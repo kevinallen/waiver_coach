@@ -131,14 +131,6 @@ function filter_table() {
 	league_players = players[selected_league];
 	console.log("league_players", league_players);
 
-	var cols = Object.keys(col_config);
-	var sortTypeObj = {};
-	$.each(cols, function(i, col){
-		if(col_config[col]['number']){
-			sortTypeObj[col_display[col].toLowerCase()] = 'number';
-		}
-	});
-
 	$('#target_table').bind('dynatable:init', function(e, dynatable) {
 		dynatable.queries.functions['name'] = function(record, queryValue) {
 			console.log(record);
@@ -152,7 +144,6 @@ function filter_table() {
 		    copyClass: true
 		  },
 		dataset: {
-			sortTypes: sortTypeObj,
 			perPageDefault: 50,
 			perPageOptions: [20,50,100,200]
 		},
