@@ -133,8 +133,9 @@ function filter_table() {
 
 	var dynatable = $('#target_table').data('dynatable');
 
-	dynatable.queries.add("rush att", "13");
-	dynatable.queries.functions['rush att'] = function(record, queryValue) {
+	dynatable.queries.add("name", "");
+	dynatable.queries.functions['name'] = function(record, queryValue) {
+		console.log(record);
 		return league_players.indexOf(record['dynatable-sortable-text'].name) == -1;
 	};
 
