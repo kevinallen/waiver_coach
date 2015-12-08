@@ -131,6 +131,7 @@ function filter_table() {
 	league_players = players[selected_league];
 	console.log("league_players", league_players);
 
+	var dynatable = $('#target_table').data('dynatable');
 	dynatable.queries.add("name","Frank Gore");
 	dynatable.process();
 }
