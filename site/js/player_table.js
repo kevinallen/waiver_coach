@@ -119,7 +119,9 @@ col_config = {
 
 json2table('../site_data/predictions.json', 'target_table', col_config)
 
-function filter_table(players) {
+function filter_table() {
+	var players = JSON.parse(sessionStorage.getItem("running_backs"));
+
 	var selected_league = "";
 	$("#league_select option:selected").each(function(){
 		selected_league = $(this).val();
@@ -146,29 +148,27 @@ $('#filter_rb').click(function() {
 
 	$('.league_div').toggle();
 
-    if (typeof(Storage) !== "undefined") {
-        var players = JSON.parse(sessionStorage.getItem("running_backs"));
-		var leagues = JSON.parse(sessionStorage.getItem("leagues"));
-		console.log("players", players);
-		console.log("leagues", leagues);
+	var leagues = JSON.parse(sessionStorage.getItem("leagues"));
+	console.log("players", players);
+	console.log("leagues", leagues);
 
-		$.each(leagues, function(key, val) {
-			// select and modify the HTML5 template
-			var template = document.querySelector('#league_template').content;
-			var option = template.querySelector('#option');
-			option.value = key;
-			option.textContent = val;
-			// append template to DOM
-			var clone = document.importNode(template, true);
-			var oldcontent = document.querySelector('#league_select');
-			oldcontent.appendChild(clone);
-		});
+	$.each(leagues, function(key, val) {
+		// select and modify the HTML5 template
+		var template = document.querySelector('#league_template').content;
+		var option = template.querySelector('#option');
+		option.value = key;
+		option.textContent = val;
+		// append template to DOM
+		var clone = document.importNode(template, true);
+		var oldcontent = document.querySelector('#league_select');
+		oldcontent.appendChild(clone);
+	});
 
-		if ($('#filter_rb').is(':checked')) {
-			filter_table(players);
-		}
+	if ($('#filter_rb').is(':checked')) {
+		filter_table(players);
+	}
+});
 
-	} else {
-        alert("Your browser does not support web storage.  Please use a different browser to continue.");
-    }
+$('#league_select').on('change', function() {
+	filter_table();
 });
