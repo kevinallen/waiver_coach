@@ -121,7 +121,8 @@ json2table('../site_data/predictions.json', 'target_table', col_config)
 
 function filter_table() {
 	var players = JSON.parse(sessionStorage.getItem("running_backs"));
-
+	console.log("players", players);
+	
 	var selected_league = "";
 	$("#league_select option:selected").each(function(){
 		selected_league = $(this).val();
@@ -149,7 +150,6 @@ $('#filter_rb').click(function() {
 	$('.league_div').toggle();
 
 	var leagues = JSON.parse(sessionStorage.getItem("leagues"));
-	console.log("players", players);
 	console.log("leagues", leagues);
 
 	$.each(leagues, function(key, val) {
