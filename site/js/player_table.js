@@ -131,18 +131,27 @@ function filter_table() {
 	league_players = players[selected_league];
 	console.log("league_players", league_players);
 
-	// $('#target_table').dynatable({
-	// 	table: {
-	// 	    defaultColumnIdStyle: 'lowercase',
-	// 	    copyHeaderClass: true, // copies <th> class to cells
-	// 	    copyClass: true
-	// 	  },
-	// 	dataset: {
-	// 		sortTypes: sortTypeObj,
-	// 		perPageDefault: 50,
-	// 		perPageOptions: [20,50,100,200]
-	// 	}
-	// });
+	$('#target_table').bind('dynatable:init', function(e, dynatable) {
+		dynatable.queries.functions['name'] = function(record, queryValue) {
+			console.log(record);
+      		return true;
+    	};
+	})
+	.dynatable({
+		table: {
+		    defaultColumnIdStyle: 'lowercase',
+		    copyHeaderClass: true, // copies <th> class to cells
+		    copyClass: true
+		  },
+		dataset: {
+			sortTypes: sortTypeObj,
+			perPageDefault: 50,
+			perPageOptions: [20,50,100,200]
+		},
+    	inputs: {
+      		queries: $('#name')
+    	}
+	});
 }
 
 $('#filter_rb').click(function() {
@@ -166,6 +175,9 @@ $('#filter_rb').click(function() {
 
 	if ($('#filter_rb').is(':checked')) {
 		filter_table();
+	}
+	else {
+		document.querySelector('#league_select').innerHTML = '';
 	}
 });
 
