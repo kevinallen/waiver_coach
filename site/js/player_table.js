@@ -142,9 +142,7 @@ $('#filter_rb').click(function() {
 			oldcontent.appendChild(clone);
 		});
 
-		if ($('#filter_rb').is(':checked') {
-
-
+		if ($('#filter_rb').is(':checked')) {
 			$('#target_table').dynatable({
 				table: {
 				    defaultColumnIdStyle: 'lowercase',
