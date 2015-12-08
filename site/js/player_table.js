@@ -125,7 +125,6 @@ $('#filter_rb').click(function() {
 
     if (typeof(Storage) !== "undefined") {
         var players = JSON.parse(sessionStorage.getItem("running_backs"));
-        $("#signin").html(me.first_name).addClass("bold");
 		var leagues = JSON.parse(sessionStorage.getItem("leagues"));
 		console.log("players", players);
 		console.log("leagues", leagues);
@@ -142,20 +141,20 @@ $('#filter_rb').click(function() {
 			oldcontent.appendChild(clone);
 		});
 
-		if ($('#filter_rb').is(':checked')) {
-			$('#target_table').dynatable({
-				table: {
-				    defaultColumnIdStyle: 'lowercase',
-				    copyHeaderClass: true, // copies <th> class to cells
-				    copyClass: true
-				  },
-				dataset: {
-					sortTypes: sortTypeObj,
-					perPageDefault: 50,
-	    			perPageOptions: [20,50,100,200]
-				}
-			});
-		}
+		// if ($('#filter_rb').is(':checked')) {
+		// 	$('#target_table').dynatable({
+		// 		table: {
+		// 		    defaultColumnIdStyle: 'lowercase',
+		// 		    copyHeaderClass: true, // copies <th> class to cells
+		// 		    copyClass: true
+		// 		  },
+		// 		dataset: {
+		// 			sortTypes: sortTypeObj,
+		// 			perPageDefault: 50,
+	    // 			perPageOptions: [20,50,100,200]
+		// 		}
+		// 	});
+		// }
 
 	} else {
         alert("Your browser does not support web storage.  Please use a different browser to continue.");
