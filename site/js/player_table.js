@@ -134,7 +134,7 @@ $('#filter_rb').click(function() {
 			var template = document.querySelector('#league_template').content;
 			var option = template.querySelector('#option');
 			option.value = key;
-			option.textContent = value;
+			option.textContent = val;
 			// append template to DOM
 			var clone = document.importNode(template, true);
 			var oldcontent = document.querySelector('#league_select');
