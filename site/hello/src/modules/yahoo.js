@@ -46,7 +46,7 @@
 					var queryStr = 'select * from fantasysports.leagues where league_key="' + league_key + '"';
 					callback(yql(queryStr));
 				},
-				'all_players': yql('select * from fantasysports.players where game_key=348')
+				'all_players': yql('select * from fantasysports.players(0,1696) where game_key=348')
 			},
 			wrap: {
 				me: formatUser,
