@@ -121,7 +121,7 @@ function parseLeagues(leagues, network) {
 
 function getInjuredPlayers(network) {
     // get injury status
-    for (var i=0; i <= 1696; i += 25) {
+    for (var i=0; i <= 500; i += 25) {
         hello(network).api('all_players', 'get', {start: i}).then(function(players){
 
             var statuses = ["IR","O"];
