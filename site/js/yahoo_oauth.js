@@ -81,16 +81,15 @@ function parseLeagues(leagues, network) {
                     return;
                 }
                 var key = team.team_key.split(".t")[0];
-                var current_players = [];
 
-                // get running list of running backs from storage
+                // get running backs in this league from storage
+                var current_players = [];
                 var all_players = JSON.parse(sessionStorage.getItem("running_backs"));
                 if (all_players != null) {
                     if (key in all_players) {
                         current_players = all_players[key];
                     }
-                }
-                else {
+                } else {
                     all_players = {};
                 }
 
@@ -99,11 +98,33 @@ function parseLeagues(leagues, network) {
                     var player = players[j];
                     if (player.display_position == "RB") {
                         current_players.push(player.name.full);
+
+                        // get injury status
+                        hello(network).api('player', 'get', {player_key: player.player_key}).then(function(player){
+                            if ("status" in player) {
+                                // check if this player is injured and keep track of all injured players
+                                var injured_players = [];
+                                var statuses = ["IR","O"];
+                                var all_injured_players = JSON.parse(sessionStorage.getItem("injured_players"));
+                                if (all_injured_players != null) {
+                                    if (key in all_injured_players) {
+                                        injured_players = all_injured_players[key];
+                                    }
+                                } else {
+                                    all_injured_players = {};
+                                }
+                                if (statuses.indexOf(player.status) > -1) {
+                                    injured_players.push(player.name.full);
+                                    all_injured_players[key] = injured_players;
+                                    sessionStorage.setItem("injured_players", JSON.stringify(all_injured_players));
+                                    console.log("injured_players", JSON.parse(sessionStorage.getItem("injured_playeres")));
+                                }
+                            }
+                        });
                     }
                 }
 
                 all_players[key] = current_players;
-
                 // Store all running backs in league
                 if (typeof(Storage) !== "undefined") {
                     sessionStorage.setItem("running_backs", JSON.stringify(all_players));
