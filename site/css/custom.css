@@ -19,6 +19,10 @@ a.login-button.currently-displayed {
     margin-bottom: 20px;
 }
 
+.github-button {
+    margin-top: 20px;
+}
+
 .team {
     font-size: 1.1em;
     color: rgba(255,255,255,.7);
@@ -28,6 +32,20 @@ a.login-button.currently-displayed {
     font-size: .85em;
     color: rgba(255,255,255,.5)
 }
+
+.blocking {
+    display: block;
+}
+
+.headshot {
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.center-text {text-align: center;}
 
 html,
 body {
