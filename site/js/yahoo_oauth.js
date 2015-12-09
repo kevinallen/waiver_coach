@@ -131,7 +131,9 @@ function getInjuredPlayers(network) {
 
         for (var i in players) {
             var player = players[i];
+            console.log(player);
             if ("status" in player && player.display_position == "RB") {
+                console.log("potential injury");
                 // check if this player is injured and keep track of all injured players
                 if (statuses.indexOf(player.status) > -1) {
                     all_injured_players.push(player.name.full);
