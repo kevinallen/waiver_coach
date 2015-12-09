@@ -137,7 +137,7 @@ function filter_table() {
 		unavailable_players = taken_players[selected_league];
 	}
 
-	unavailable_players.concat(injured_players);
+	unavailable_players = unavailable_players.concat(injured_players);
 	console.log("unavailable_players", unavailable_players);
 
 	var dynatable = $('#target_table').data('dynatable');
