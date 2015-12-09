@@ -50,6 +50,7 @@
 					var start = p.options.start;
 					var queryStr = 'select * from fantasysports.players where game_key=348 and start=' + start;
 					callback(yql(queryStr));
+				}
 			},
 			wrap: {
 				me: formatUser,
