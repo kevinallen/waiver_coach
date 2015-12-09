@@ -100,6 +100,7 @@ function json2table(json_url, table_id, col_config){
     			perPageOptions: [20,50,100,200]
 			}
 		});
+		filter_table();
 	})
 }
 
@@ -122,21 +123,25 @@ json2table('../site_data/predictions.json', 'target_table', col_config)
 function filter_table() {
 	var taken_players = JSON.parse(sessionStorage.getItem("running_backs"));
 	console.log("taken_players", taken_players);
+	var injured_players = JSON.parse(sessionStorage.getItem("injured_players"));
+	console.log("injured_players", injured_players);
 
 	var selected_league = "";
 	$("#league_select option:selected").each(function(){
 		selected_league = $(this).val();
 	});
 	console.log("selected_league", selected_league);
-	league_players = taken_players[selected_league];
-	console.log("league_players", league_players);
+
+	unavailable_players = taken_players[selected_league];
+	unavailable_players.concat(injured_players);
+	console.log("unavailable_players", unavailable_players);
 
 	var dynatable = $('#target_table').data('dynatable');
 
 	dynatable.queries.add("name", "");
 	dynatable.queries.functions['name'] = function(record, queryValue) {
 		console.log(record);
-		return league_players.indexOf(record['dynatable-sortable-text'].name) == -1;
+		return unavailable_players.indexOf(record['dynatable-sortable-text'].name) == -1;
 	};
 
 	dynatable.process();
