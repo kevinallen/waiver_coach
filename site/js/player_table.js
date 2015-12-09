@@ -132,7 +132,11 @@ function filter_table() {
 	});
 	console.log("selected_league", selected_league);
 
-	unavailable_players = taken_players[selected_league];
+	var unavailable_players = [];
+	if (selected_league in taken_players) {
+		unavailable_players = taken_players[selected_league];
+	}
+
 	unavailable_players.concat(injured_players);
 	console.log("unavailable_players", unavailable_players);
 
