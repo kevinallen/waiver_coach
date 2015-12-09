@@ -121,30 +121,32 @@ function parseLeagues(leagues, network) {
 
 function getInjuredPlayers(network) {
     // get injury status
-    hello(network).api('all_players').then(function(players){
+    for (var i=0; i <= 1696; i += 25) {
+        hello(network).api('all_players', 'get', {start: i}).then(function(players){
 
-        var statuses = ["IR","O"];
-        var all_injured_players = JSON.parse(sessionStorage.getItem("injured_players"));
-        if (all_injured_players == null) {
-            all_injured_players = [];
-        }
+            var statuses = ["IR","O"];
+            var all_injured_players = JSON.parse(sessionStorage.getItem("injured_players"));
+            if (all_injured_players == null) {
+                all_injured_players = [];
+            }
 
-        console.log(players);
-        for (var i in players) {
-            var player = players[i];
-            if ("status" in player && player.display_position == "RB") {
-                console.log("potential injury");
-                // check if this player is injured and keep track of all injured players
-                if (statuses.indexOf(player.status) > -1) {
-                    all_injured_players.push(player.name.full);
+            console.log(players);
+            for (var i in players) {
+                var player = players[i];
+                if ("status" in player && player.display_position == "RB") {
+                    console.log("potential injury");
+                    // check if this player is injured and keep track of all injured players
+                    if (statuses.indexOf(player.status) > -1) {
+                        all_injured_players.push(player.name.full);
+                    }
                 }
             }
-        }
 
-        sessionStorage.setItem("injured_players", JSON.stringify(all_injured_players));
-        console.log("injured_players", JSON.parse(sessionStorage.getItem("injured_players")));
+            sessionStorage.setItem("injured_players", JSON.stringify(all_injured_players));
+            console.log("injured_players", JSON.parse(sessionStorage.getItem("injured_players")));
 
-    });
+        });
+    }
 }
 
 function login(network){
