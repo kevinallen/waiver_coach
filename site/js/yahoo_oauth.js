@@ -40,7 +40,6 @@ function showTeams(network) {
     });
 }
 
-
 function parseLeagues(leagues, network) {
     var onlyOneLeague = false;
 
@@ -81,16 +80,15 @@ function parseLeagues(leagues, network) {
                     return;
                 }
                 var key = team.team_key.split(".t")[0];
-                var current_players = [];
 
-                // get running list of running backs from storage
+                // get running backs in this league from storage
+                var current_players = [];
                 var all_players = JSON.parse(sessionStorage.getItem("running_backs"));
                 if (all_players != null) {
                     if (key in all_players) {
                         current_players = all_players[key];
                     }
-                }
-                else {
+                } else {
                     all_players = {};
                 }
 
@@ -103,7 +101,6 @@ function parseLeagues(leagues, network) {
                 }
 
                 all_players[key] = current_players;
-
                 // Store all running backs in league
                 if (typeof(Storage) !== "undefined") {
                     sessionStorage.setItem("running_backs", JSON.stringify(all_players));
@@ -119,6 +116,36 @@ function parseLeagues(leagues, network) {
         if (onlyOneLeague) {
             break;
         }
+    }
+}
+
+function getInjuredPlayers(network) {
+    // get injury status
+    for (var i=0; i <= 500; i += 25) {
+        hello(network).api('all_players', 'get', {start: i}).then(function(players){
+
+            var statuses = ["IR","O"];
+            var all_injured_players = JSON.parse(sessionStorage.getItem("injured_players"));
+            if (all_injured_players == null) {
+                all_injured_players = [];
+            }
+
+            console.log(players);
+            for (var i in players) {
+                var player = players[i];
+                if ("status" in player && player.display_position == "RB") {
+                    console.log("potential injury");
+                    // check if this player is injured and keep track of all injured players
+                    if (statuses.indexOf(player.status) > -1) {
+                        all_injured_players.push(player.name.full);
+                    }
+                }
+            }
+
+            sessionStorage.setItem("injured_players", JSON.stringify(all_injured_players));
+            console.log("injured_players", JSON.parse(sessionStorage.getItem("injured_players")));
+
+        });
     }
 }
 
@@ -144,6 +171,7 @@ function login(network){
 		}).then(function(d){
             parseLeagues(d, network);
             showTeams(network);
+            getInjuredPlayers(network);
 		}).then(null, function(e){
 			console.error(e);
 		});

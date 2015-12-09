@@ -45,6 +45,11 @@
 					var league_key = p.options.league_key;
 					var queryStr = 'select * from fantasysports.leagues where league_key="' + league_key + '"';
 					callback(yql(queryStr));
+				},
+				'all_players': function(p, callback) {
+					var start = p.options.start;
+					var queryStr = 'select * from fantasysports.players where game_key=348 and start=' + start;
+					callback(yql(queryStr));
 				}
 			},
 			wrap: {
@@ -59,7 +64,8 @@
 				'teams': formatTeams,
 				'players': formatTeams,
 				'league_name': formatLeague,
-				'myteams': formatTeams
+				'myteams': formatTeams,
+				'all_players': formatPlayers
 			}
 		}
 	});
