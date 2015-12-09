@@ -40,7 +40,6 @@ function showTeams(network) {
     });
 }
 
-
 function parseLeagues(leagues, network) {
     var onlyOneLeague = false;
 
@@ -98,29 +97,6 @@ function parseLeagues(leagues, network) {
                     var player = players[j];
                     if (player.display_position == "RB") {
                         current_players.push(player.name.full);
-
-                        // get injury status
-                        hello(network).api('player', 'get', {player_key: player.player_key}).then(function(player){
-                            if ("status" in player) {
-                                // check if this player is injured and keep track of all injured players
-                                var injured_players = [];
-                                var statuses = ["IR","O"];
-                                var all_injured_players = JSON.parse(sessionStorage.getItem("injured_players"));
-                                if (all_injured_players != null) {
-                                    if (key in all_injured_players) {
-                                        injured_players = all_injured_players[key];
-                                    }
-                                } else {
-                                    all_injured_players = {};
-                                }
-                                if (statuses.indexOf(player.status) > -1) {
-                                    injured_players.push(player.name.full);
-                                    all_injured_players[key] = injured_players;
-                                    sessionStorage.setItem("injured_players", JSON.stringify(all_injured_players));
-                                    console.log("injured_players", JSON.parse(sessionStorage.getItem("injured_playeres")));
-                                }
-                            }
-                        });
                     }
                 }
 
@@ -141,6 +117,32 @@ function parseLeagues(leagues, network) {
             break;
         }
     }
+}
+
+function getInjuredPlayers(network) {
+    // get injury status
+    hello(network).api('all_players').then(function(players){
+
+        var statuses = ["IR","O"];
+        var all_injured_players = JSON.parse(sessionStorage.getItem("injured_players"));
+        if (all_injured_players == null) {
+            all_injured_players = [];
+        }
+
+        for (var i in players) {
+            var player = players[i];
+            if ("status" in player && player.display_position == "RB") {
+                // check if this player is injured and keep track of all injured players
+                if (statuses.indexOf(player.status) > -1) {
+                    all_injured_players.push(player.name.full);
+                }
+            }
+        }
+
+        sessionStorage.setItem("injured_players", JSON.stringify(all_injured_players));
+        console.log("injured_players", JSON.parse(sessionStorage.getItem("injured_players")));
+
+    });
 }
 
 function login(network){
@@ -165,6 +167,7 @@ function login(network){
 		}).then(function(d){
             parseLeagues(d, network);
             showTeams(network);
+            getInjuredPlayers(network);
 		}).then(null, function(e){
 			console.error(e);
 		});
