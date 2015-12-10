@@ -72,7 +72,7 @@ function json2table(json_url, table_id, col_config){
 
 					// link to player's page
 					if(col === 'full_name'){
-						v = '<a href="'+player_url(row)+'">'+v+'</a>'
+						v = '<a href="'+player_url(row)+'" target="_blank">'+v+'</a>'
 					}
 					tbl_row += '<td>'+v+'</td>'
 				}
