@@ -1,157 +1,177 @@
 
 
-function showTeams(teams) {
-  var result = "";
-  var onlyOneTeam = false;
-  var players_list = [];
-  console.log(teams);
-  for (var i in teams) {
-      if (typeof teams[i] === null || typeof teams[i] !== "object") {
-          continue;
-      }
-      if (teams instanceof Array) {
-          var team = teams[i];
-	  } else {
-		  onlyOneTeam = true;
-          var team = teams;
-	  }
-	  if (team.roster.players === null) {
-		  continue;
-	  }
-      console.log(team);
-      // display team on page, and keep track of all players in players_list
-      var team_html = "<div class='col-sm-6'><h3 class=''>" + team.name + "</h3><p class='team'>";
-      var players = team.roster.players.player;
-      for (var j in players) {
-          var player = players[j];
-          players_list.push(team.roster.players.player[j].name.full);
-          var name = player.display_position == "DEF" ? player.name.first : player.name.first.substring(0,1) + ". " + player.name.last;
-          team_html += name + " - <span class='team-players'>" + player.display_position + "</span><br/>";
-      }
-      team_html += "</p></div>";
-      document.getElementById("myteam").innerHTML += team_html;
-      $('#myteam').show();
+function showTeams(network) {
+    hello( network ).api('myteams').then(function(teams){
+        console.log(teams);
+        document.getElementById("myteam").innerHTML = "";
 
-      // put players_list in session storage and grab players from other teams
-	  if (typeof(Storage) !== "undefined") {
-		var league_team = {"myteam": players_list};
-		sessionStorage.setItem(team.team_key, JSON.stringify(league_team));
-		console.log(team.team_key, JSON.parse(sessionStorage.getItem(team.team_key)));
-		getOtherPlayers(team.team_key);
-	  } else {
-		alert("Your browser does not support web storage.  Please use a different browser to continue.");
-	  }
-
-	  if (onlyOneTeam) {
-		break;
-	  }
-  }
-}
-
-function getOtherPlayers(team_key) {
-	var myLeague = team_key.split(".t")[0];  		// Get user's League number
-    var myTeam = Number(team_key.split("t.")[1]);   // Get user's team number
-	var network = 'yahoo';
-	var players_list = [];
-	hello( network ).api('league').then(function(d){
-	  var onlyOneLeague = false;
-      for (var j in d) {
-
-		  if (d instanceof Array) {
-			league = d[j];
-		  } else {
-			league = d;
-			onlyOneLeague = true;
-		  }
-
-          if (league.draft_status != "postdraft") {
+        var onlyOneTeam = false;
+        console.log(teams);
+        for (var i in teams) {
+          if (typeof teams[i] === null || typeof teams[i] !== "object") {
               continue;
           }
-    	  for (var i = 1; i <= Number(league.num_teams); i++) {
-    		if (i == myTeam) {
-    		  continue;
-    		}
-    		var teamID = myLeague + ".t." + i;
-    	    var qdata = {team: teamID};
-            var result = "";
-			players_list = [];
-			var league_teams = {};
-			var team_name = "other";
+          if (teams instanceof Array) {
+              var team = teams[i];
+          } else {
+        	  onlyOneTeam = true;
+              var team = teams;
+          }
+          if (team.roster.players === null) {
+        	  continue;
+          }
 
+          // display team on page, and keep track of all players in players_list
+          var team_html = "<div class='col-sm-6'><h3 class=''>" + team.name + "</h3><p class='team'>";
+          var players = team.roster.players.player;
+          for (var j in players) {
+              var player = players[j];
+              var name = player.display_position == "DEF" ? player.name.first : player.name.first.substring(0,1) + ". " + player.name.last;
+              team_html += name + " - <span class='team-players'>" + player.display_position + "</span><br/>";
+          }
+          team_html += "</p></div>";
+          document.getElementById("myteam").innerHTML += team_html;
 
-    		hello( network ).api('moreteams', 'get', qdata).then(function(m){
-              console.log(m);
-              var team = m;
+          if (onlyOneTeam) {
+        	break;
+          }
+        }
+        $('#myteam').show();
+    });
+}
 
-              if (team.hasOwnProperty('team_key')) {
-    			  for (var j in team.roster.players.player) {
-    				players_list.push(team.roster.players.player[j].name.full);
-    			  }
-			  }
-			  // Store other teams' players
-			  if (typeof(Storage) !== "undefined") {
-					league_teams[team_name] = players_list;
-					sessionStorage.setItem(myLeague, JSON.stringify(league_teams));
-					console.log(myLeague, JSON.parse(sessionStorage.getItem(myLeague)));
-			  } else {
-					alert("Your browser does not support web storage.  Please use a different browser to continue.");
-			  }
+function parseLeagues(leagues, network) {
+    var onlyOneLeague = false;
+
+    for (var i in leagues) {
+        if (leagues instanceof Array) {
+          league = leagues[i];
+        } else {
+          league = leagues;
+          onlyOneLeague = true;
+        }
+
+        if (league.draft_status != "postdraft") {
+            continue;
+        }
+
+        // get league names
+        hello(network).api('league_name', 'get', {league_key: league.league_key}).then(function(league){
+            if (typeof(Storage) !== "undefined") {
+                var current_leagues = JSON.parse(sessionStorage.getItem("leagues"));
+                if (current_leagues == null) {
+                    current_leagues = {};
+                }
+                current_leagues[league.league_key] = league.name;
+                sessionStorage.setItem("leagues", JSON.stringify(current_leagues));
+                console.log("leagues", JSON.parse(sessionStorage.getItem("leagues")));
+            } else {
+                alert("Your browser does not support web storage.  Please use a different browser to continue.");
+            }
+        });
+
+        for (var i = 1; i <= Number(league.num_teams); i++) {
+            var teamID = league.league_key + ".t." + i;
+            var qdata = {team: teamID};
+
+            console.log("Getting players for: " + teamID);
+            hello( network ).api('players', 'get', qdata).then(function(team){
+                if (team.roster.players == null) {
+                    return;
+                }
+                var key = team.team_key.split(".t")[0];
+
+                // get running backs in this league from storage
+                var current_players = [];
+                var all_players = JSON.parse(sessionStorage.getItem("running_backs"));
+                if (all_players != null) {
+                    if (key in all_players) {
+                        current_players = all_players[key];
+                    }
+                } else {
+                    all_players = {};
+                }
+
+                var players = team.roster.players.player;
+                for (var j in players) {
+                    var player = players[j];
+                    if (player.display_position == "RB") {
+                        current_players.push(player.name.full);
+                    }
+                }
+
+                all_players[key] = current_players;
+                // Store all running backs in league
+                if (typeof(Storage) !== "undefined") {
+                    sessionStorage.setItem("running_backs", JSON.stringify(all_players));
+                    console.log("running_backs", JSON.parse(sessionStorage.getItem("running_backs")));
+                } else {
+                    alert("Your browser does not support web storage.  Please use a different browser to continue.");
+                }
             }).then(null, function(e){
               console.error(e);
             });
-    	  }
+        }
 
-		  if (onlyOneLeague) {
-			break;
-		  }
-	  }
-	}).then(null, function(e){
-		console.error(e);
-	});
-	setTimeout(function() {
-	  console.log("Other Teams' Players", JSON.parse(sessionStorage.getItem(myLeague)));
-	}, 2000);
-
+        if (onlyOneLeague) {
+            break;
+        }
+    }
 }
 
-function loggedIn(network) {
+function getInjuredPlayers(network) {
+    // get injury status
+    for (var i=0; i <= 500; i += 25) {
+        hello(network).api('all_players', 'get', {start: i}).then(function(players){
 
-  hello( network ).api('me').then(function(p){
-	  // Get team info
-	  return hello( network ).api('teams');
-  }).then(function(p){
-      $(".login-button").addClass("currently-displayed");
-      $(".login-button").html("Connected to Yahoo!");
-  }).then(function(){
-      // Get team info
-      return hello( network ).api('teams');
-  }).then(function(d){
-      showTeams(d);
-      //sessionStorage.setItem("myteams", d);
-  }).then(null, function(e){
-      console.error(e);
-  });
+            var statuses = ["IR","O"];
+            var all_injured_players = JSON.parse(sessionStorage.getItem("injured_players"));
+            if (all_injured_players == null) {
+                all_injured_players = [];
+            }
+
+            console.log(players);
+            for (var i in players) {
+                var player = players[i];
+                if ("status" in player && player.display_position == "RB") {
+                    console.log("potential injury");
+                    // check if this player is injured and keep track of all injured players
+                    if (statuses.indexOf(player.status) > -1) {
+                        all_injured_players.push(player.name.full);
+                    }
+                }
+            }
+
+            sessionStorage.setItem("injured_players", JSON.stringify(all_injured_players));
+            console.log("injured_players", JSON.parse(sessionStorage.getItem("injured_players")));
+
+        });
+    }
 }
 
 function login(network){
 
-	if (hello( network ).getAuthResponse()) {
-	  loggedIn(network);
-	} else {
+	if (!hello( network ).getAuthResponse()) {
 		hello( network ).login().then(function(f){
-		  for (var i in f){
-			console.log("i", f[i]);
-		  }
 		// Get Profile
 		return hello( network ).api('me');
 		}).then(function(p){
 		    $(".login-button").addClass("currently-displayed");
             $(".login-button").html("Connected to Yahoo!");
+            $("#signin").html(p.first_name).addClass("bold");
+            if (typeof(Storage) !== "undefined") {
+                sessionStorage.setItem("me", JSON.stringify(p));
+                console.log("me", JSON.parse(sessionStorage.getItem("me")));
+            } else {
+                alert("Your browser does not support web storage.  Please use a different browser to continue.");
+            }
 		}).then(function(){
-			// Get team info
-			return hello( network ).api('teams');
+			// Get leagues for player
+			return hello( network ).api('league');
 		}).then(function(d){
-			showTeams(d);
+            parseLeagues(d, network);
+            showTeams(network);
+            getInjuredPlayers(network);
 		}).then(null, function(e){
 			console.error(e);
 		});
@@ -160,7 +180,16 @@ function login(network){
 
 $(document).ready(function() {
     if (hello( 'yahoo' ).getAuthResponse()) {
-        loggedIn('yahoo');
+        showTeams('yahoo');
+        $(".login-button").addClass("currently-displayed");
+        $(".login-button").html("Connected to Yahoo!");
+
+        if (typeof(Storage) !== "undefined") {
+            var me = JSON.parse(sessionStorage.getItem("me"));
+            $("#signin").html(me.first_name).addClass("bold");
+        } else {
+            alert("Your browser does not support web storage.  Please use a different browser to continue.");
+        }
     }
 });
 

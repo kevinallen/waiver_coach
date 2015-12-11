@@ -60,8 +60,9 @@ var empty_player = function(data){
   } else{
     smooth = _.map(data[_.keys(data)[0]]['smooth'], function(d){return {'x':0, 'y':0}})
   }
+  player_info = {'standard_score':0}
 
-  return {'player_id':'', 'player_name':'', 'smooth':smooth}
+  return {'player_id':'', 'player_name':'', 'smooth':smooth, 'player_info':player_info}
 }
 
 var collect_player_data = function(data, players){
@@ -69,7 +70,7 @@ var collect_player_data = function(data, players){
   // formats the objects, and adds the player_id
 
   var player_data = _.map(players, function(p){
-    obj = p===''? empty_player(data): data[p]
+    obj = p ===''? empty_player(data): data[p]
     obj.smooth = _.map(obj.smooth, function(d){return {'x':+d.x, 'y':+d.y}})
     return obj
   })
@@ -131,7 +132,7 @@ var create_player_menu = function(data){
         GLOBAL_players[1] = ''
         update_plot(GLOBAL_data, GLOBAL_players)
       }
-      return false
+      //return false
     },
     focus: function(event, ui){
       return false
@@ -190,6 +191,15 @@ var create_lines = function(data, players){
       return line(d.smooth)
     })
     .style('stroke', function(d){ return color(d.player_id)});
+
+  player.append('line')
+    .attr('class','vline')
+    .attr('y1', 0)
+    .attr('y2', height)
+    .attr('x1', function(d){return x(d.player_info.standard_score)})
+    .attr('x2', function(d){return x(d.player_info.standard_score)})
+    .style('opacity', 0)
+
 }
 
 var update_x_axis = function(ms){
@@ -201,13 +211,25 @@ var update_y_axis = function(ms){
 var update_lines = function(data, players, ms){
   var el_players = svg.selectAll('.player')
     .data(collect_player_data(data, players))
-    .select('path')
-    .style('stroke', function(d){ return color(d.player_id)});
+    
   
-  el_players.transition().duration(ms)
+  el_players.select('path')
+    .style('stroke', function(d){ return color(d.player_id)})
+    .transition().duration(ms)
     .attr("d", function(d){
       return line(d.smooth)
     })
+    .style('opacity', function(d){
+      return d.player_name === '' ? 0 : 1
+    })
+
+  el_players.select('.vline')
+    .style('stroke', function(d){ return color(d.player_id)})
+    .transition().duration(ms)
+    .attr('y1', 0)
+    .attr('y2', height)
+    .attr('x1', function(d){return x(d.player_info.standard_score)})
+    .attr('x2', function(d){return x(d.player_info.standard_score)})
     .style('opacity', function(d){
       return d.player_name === '' ? 0 : 1
     })

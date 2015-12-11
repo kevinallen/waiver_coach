@@ -50,7 +50,7 @@ Although you can use them, for a more unique website, replace these images with 
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                 	<span class="glyphicon glyphicon-stats"></span>
                 	Waiver Coach
                 </a>
@@ -59,20 +59,23 @@ Although you can use them, for a more unique website, replace these images with 
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        <a href="#">Home</a>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="player_table.html">Predictions</a>
                     </li>
                     <li>
                         <a href="#">Blog</a>
                     </li>
-					<li class="dropdown">
+					<!-- <li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analysis <span class="caret"></span></a>
 						<ul class="dropdown-menu" aria-labelledby="about-us">
 							<li><a href="#">My Team</a></li>
 							<li><a href="#">Recommendations</a></li>
 						</ul>
-					</li>
+					</li> -->
                     <li>
-                        <a href="#">Sign in</a>
+                        <a id="signin" href="#" onclick="login('yahoo');">Sign in</a>
                     </li>
                 </ul>
 
@@ -85,7 +88,7 @@ Although you can use them, for a more unique website, replace these images with 
         <div class="header-content">
             <div class="header-content-inner">
                 <h1>Choose Wisely</h1>
-                <p>In-depth analysis, expert opinions. We're here to help.</p>
+                <p>Advanced analytics, expert opinions. We're here to help.</p>
                 <!--<div><a href="#" class="btn btn-primary btn-lg">Engage Now</a></div>-->
             </div>
         </div>
@@ -198,9 +201,45 @@ Although you can use them, for a more unique website, replace these images with 
     	<!-- Contact Us -->
         <div class="contact">
         	<div class="container">
-				<h2 class="section-heading">Contact Us</h2>
-				<p><span class="glyphicon glyphicon-earphone"></span><br> (123) 456 7890</p>
-				<p><span class="glyphicon glyphicon-envelope"></span><br> info@example.com</p>
+              <h2 class="section-heading">Contact Us</h2>
+                <div class="row center-text top-buffer">
+            
+                    <div class="col-md-2 col-md-offset-2">
+                      <p class="lead" class="blocking">Kevin</p>
+                        <a href="https://www.linkedin.com/in/kgallen">
+                            <img class="headshot" src="images/kevin.jpg" width="100px"/>
+                          <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_liprofile_blue_80x15.png" width="80" height="15" border="0" alt="View Charlie Carbery's profile on LinkedIn">
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                      <p class="lead" class="blocking">Ross</p>
+                        <a href="https://www.linkedin.com/in/rossboberg">
+                            <img class="headshot" src="images/ross.jpg" width="100px"/>
+                          <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_liprofile_blue_80x15.png" width="80" height="15" border="0" alt="View Bovard Doerschuk-Tiberi's profile on LinkedIn">
+                        </a>
+                    </div>
+                    <div class="col-md-2 ">
+                      <p class="lead" class="blocking">Shelly</p>
+                        <a href="https://www.linkedin.com/in/shellystanley">
+                            <img class="headshot" src="images/shelly.jpg" width="100px" />
+                          <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_liprofile_blue_80x15.png" width="80" height="15" border="0" alt="View Shelly Stanley's profile on LinkedIn">
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                      <p class="lead" class="blocking">Younghak</p>
+                        <a href="https://kr.linkedin.com/in/jang-younghak-82b83717">
+                            <img class="headshot" src="images/younghak.jpg" width="100px"/>
+                          <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_liprofile_blue_80x15.png" width="80" height="15" border="0" alt="View Bovard Doerschuk-Tiberi's profile on LinkedIn">
+                        </a>
+                    </div>
+                  
+                </div>
+				<div>
+                  <p></p>
+                  <a href="https://github.com/kevinallen/waiver_coach" class="btn btn-default btn-lg github-button">GitHub</a>
+				</div>
+                <!--<p><span class="glyphicon glyphicon-earphone"></span><br> (123) 456 7890</p>
+				<p><span class="glyphicon glyphicon-envelope"></span><br> info@example.com</p> -->
         	</div>
         </div>
 

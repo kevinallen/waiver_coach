@@ -43,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                   <span class="glyphicon glyphicon-stats"></span>
                   Waiver Coach
                 </a>
@@ -51,21 +51,24 @@
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
                     <li class="active">
-                        <a href="#">Home</a>
+                        <a href="player_table.html">Predictions</a>
                     </li>
                     <li>
                         <a href="#">Blog</a>
                     </li>
-          <li class="dropdown">
+          <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analysis <span class="caret"></span></a>
             <ul class="dropdown-menu" aria-labelledby="about-us">
               <li><a href="#">My Team</a></li>
               <li><a href="#">Recommendations</a></li>
             </ul>
-          </li>
+          </li> -->
                     <li>
-                        <a href="#">Sign in</a>
+                        <a id="signin" href="#" onclick="login('yahoo');">Sign in</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -73,10 +76,23 @@
     </nav>
 
     <section class="content">
-        <div class="container">
+        <div class="container player-table">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                   <h2 class="section-header">Predictions</h2>
+                  <div class="checkbox">
+                      <label>
+                          <input type="checkbox" value="" id="filter_rb">
+                          Show players available in my league
+                      </label>
+                  </div>
+                  <div style="display:none" class="league_div">
+                      <select class="form-control" id="league_select">
+                          <template id="league_template">
+                              <option id="option" value=""></option>
+                          </template>
+                      </select>
+                  </div>
                   <!-- filled in by javscript from JSON -->
                   <table id='target_table' class='.table'>
                     <thead></thead>
@@ -97,7 +113,7 @@
             <thead></thead>
             <tbody></tbody>
           </table>
-        </div> 
+        </div>
       </div>
     </div>
     -->
@@ -106,4 +122,10 @@
   <script src='js/underscore-min.js'></script>
   <script src='js/jquery.dynatable.js'></script>
   <script src='js/player_table.js'></script>
+    <!-- FOR OAUTH -->
+    <script src="hello/demos/client_ids.js"></script>
+    <script src="hello/src/hello.polyfill.js"></script>
+    <script src="hello/src/hello.js"></script>
+    <script src="hello/src/modules/yahoo.js"></script>
+    <script src="js/yahoo_oauth.js"></script>
 </html>
