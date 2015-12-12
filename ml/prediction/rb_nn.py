@@ -26,6 +26,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import Ridge
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import NearestNeighbors
@@ -33,6 +34,7 @@ from sklearn.neighbors import KernelDensity
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.pipeline import Pipeline
 from sklearn.pipeline import FeatureUnion
+from sklearn.base import TransformerMixin
 
 
 
@@ -105,6 +107,25 @@ def plot_knn(nn_df, plot_stat, pred_yr_wk, result_path, n_bins=2, bandwidth=2.5,
     
     return({player_id:{'raw':raw_data, 'smooth':smooth_data, 'player_name':player_name, 'player_id':player_id}})
 
+#############
+### CoefScaler - multiplies values by their weight in some linear model
+
+class CoefScaler(TransformerMixin):
+    def __init__(self, linear_model):
+        self.linear_model = linear_model
+    def fit(self, X, y):
+        self.linear_model = self.linear_model.fit(X, y)
+        return self
+    def transform(self, X):
+        return X * self.linear_model.coef_
+    def get_params(self, deep=True):
+        return {}
+    def set_params(self, **parameters):
+        for parameter, value in parameters.items():
+            setattr(self, parameter, value)
+        return self
+
+
 ############
 ### Function for saveing plot data as json to support web viz
 def save_plot_data_json(nn_dict, result_path, pred_yr_wk):
@@ -159,8 +180,6 @@ def main():
 	X = XColumns.fit_transform(X=X_all)
 	X_pred = XColumns.fit_transform(X=pred_all)
 
-	played_only = True
-
 	##################################
 	### SET UP & TRAIN KNN
 	# fit k nearest neighbors
@@ -168,11 +187,18 @@ def main():
 	played_only = True
 	i_knn = played_index if played_only else range(X.shape[0])
 
-	nn = NearestNeighbors(n_neighbors=k).fit(X.iloc[i_knn])
+	#nn = NearestNeighbors(n_neighbors=k).fit(X.iloc[i_knn])
+	# regularization
+	reg = CoefScaler(linear_model=Ridge())
+	reg = reg.fit(X=X.iloc[i_knn], y = score_stats(X_all, make_scorer(base_type='standard')).iloc[i_knn])
+	X_reg = reg.transform(X.iloc[i_knn])
+	nn = NearestNeighbors(n_neighbors=k).fit(X_reg)
 
 	# returns tuple of (distances, indices of neighbors)
 	# for prediction set
-	distance, neighbor = nn.kneighbors(X=X_pred)
+	#distance, neighbor = nn.kneighbors(X=X_pred)
+	X_reg_pred = reg.transform(X=X_pred)
+	distance, neighbor = nn.kneighbors(X=X_reg_pred)
 
 	##################################
 	### READ AND PLOT KNN RESULTS
