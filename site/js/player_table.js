@@ -1,5 +1,6 @@
 function player_url(player_row){
-	return("player_details.html?player_id="+player_row['player_id'])
+	//return("player_details.html?player_id="+player_row['player_id'])
+	return("index.html?player1="+player_row['player_id']+'#distribution-section')
 }
 
 function player_points(player_row, col_config){
@@ -71,7 +72,7 @@ function json2table(json_url, table_id, col_config){
 
 					// link to player's page
 					if(col === 'full_name'){
-						v = '<a href="'+player_url(row)+'">'+v+'</a>'
+						v = '<a href="'+player_url(row)+'" target="_blank">'+v+'</a>'
 					}
 					tbl_row += '<td>'+v+'</td>'
 				}

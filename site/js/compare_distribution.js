@@ -198,6 +198,7 @@ var create_lines = function(data, players){
     .attr('y2', height)
     .attr('x1', function(d){return x(d.player_info.standard_score)})
     .attr('x2', function(d){return x(d.player_info.standard_score)})
+    .style('opacity', 0)
 
 }
 
