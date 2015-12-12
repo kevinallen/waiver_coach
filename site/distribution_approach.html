@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+      <title>Distribution Approach</title>
+
+      <!-- Bootstrap Core CSS -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+
+      <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+      <link href="css/custom.css" rel="stylesheet">
+
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+      <!-- Custom Fonts from Google -->
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+
+  <!-- Navigation -->
+    <nav id="siteNav" class="navbar navbar-default navbar-fixed-top affix" role="navigation">
+        <div class="container">
+            <!-- Logo and responsive toggle -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                  <span class="glyphicon glyphicon-stats"></span>
+                  Waiver Coach
+                </a>
+            </div>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="active">
+                        <a href="player_table.html">Predictions</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+          <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analysis <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="about-us">
+              <li><a href="#">My Team</a></li>
+              <li><a href="#">Recommendations</a></li>
+            </ul>
+          </li> -->
+                    <li>
+                        <a id="signin" href="#" onclick="login('yahoo');">Sign in</a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+
+    <section class='content'>
+    <div class='container' style='width: 654px'>
+    <h1><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Distributions</h1>
+    <h2>Why we did it.</h2>
+
+      <h3>Move to California</h3>
+
+      <p>
+      You are an alien fresh off the spaceship in Roswell. You really miss the weather on your home planet and you are really not feeling the New Mexico desert (besides you got Breaking Bad on your home planet and don’t think drug dealing is for you). You know nothing about the weather in the US-of-A except the <a href="http://www.currentresults.com/Weather/US/average-annual-temperatures-large-cities.php">average highs and lows of each major city</a>. You like the sound of the weather in San Francisco and Washington DC. Average daily high around 65, average daily low around 50? Ah, just like sweet old Gelgamak all 597 days a year!
+      </p>
+
+      <p>
+      Do you head west or east? It’s really tough to say unless you know more about the distribution of the weather. If you knew that the average low in DC in January is 29 vs 46 in SF, that decision might be a whole lot easier.
+      </p>
+
+      <h3>Tale of Two RB's</h3>
+
+      <p>
+      Moving on from an alien freezing off his 12 foot tail in the middle of a Nor’easter, imagine you are a fantasy football player (if you are here you probably are). You have to decide whether to start Adrian Peterson or Todd Gurley at RB (high class problems). They are both projected to get about 14 points. You are projected to lose your match and you know you will need a bit of luck, so want to choose the higher risk / higher upside player. Who do you choose?
+      </p>
+      <p>
+      You could waste your entire lunch break pontificating about whether Gurley’s youth gives him a better chance to break a long run or whether better QB play on Peterson’s team means he could be a big factor in the passing game. Or you could look at our charts.
+      </p>
+
+      <p>
+      This image compares Adrian Peterson to Todd Gurley. The vertical lines show the projections for each player. You can see that Todd Gurley is projected slightly higher than Adrian Peterson. (<a href="index.html?player1=00-0025394&player2=00-0032241#distribution-section">Compare these and other players' predictions for this week in the interactive visualizaiton</a>)
+      </p>
+
+      <img src="images/GurleyVsPeterson.png" alt="Todd Gurley vs Adrian Peterson Distribution" style="width:654px;">
+
+      <p>
+      The other lines show our estimate of the distribution of points each player might score. A higher line at a point on the x-axis means they are more likely to score that many points. Adrian Peterson’s blue squigly line is higher for lots of fantasy points. That suggests he is the higher upside player.
+      </p>
+
+      <p>
+      In addition to helping you compare players potential upside and point scoring variability. These charts can help you get a better sense of how likely different outcomes are for you player. For example, you can see that Todd Gurley is about twice as likely to get 15 points as he is to get 4 points. Similarly, he is about half as likely to get 22 points as he is to get 15 points. 
+      </p>
+
+      <h2>How we did it.</h2>
+
+      <p>
+      We used an approach called “nearest neighbors” to estimate the distribution of points a player will score. It is a pretty intuitive model- find the players from the past that are the nearest 100 statistical neighbor to the player in question and see how many points those neighbors actually scored. We show the distribution of the points those neighbors actually scored in the past in the hope this will be a good proxy for how many points this player will score in the future.
+      </p>
+
+      <p>
+      This approach has a couple of drawbacks. Firstly, the algorithm does not pick which statistics are important when deciding who the closest neighbors are. Every statistic we give the algorithm will be treated as equally important to predicting performance. Secondly, our current methodology weights the closest neighbor as just as impactful as 100th nearest neighbor. This will particularly be an issue if a player does not have very many near neighbors.
+      </p>
+
+      <p>
+      Despite those drawbacks, we think this approach gives some reasonable insights into the distributions of points you can expect from players.
+      </p>
+
+    </div>
+  </section>
+    
+  </body>
+    <!-- FOR OAUTH -->
+    <script src="hello/demos/client_ids.js"></script>
+    <script src="hello/src/hello.polyfill.js"></script>
+    <script src="hello/src/hello.js"></script>
+    <script src="hello/src/modules/yahoo.js"></script>
+    <script src="js/yahoo_oauth.js"></script>
+</html>
