@@ -32,6 +32,14 @@ from sklearn.pipeline import Pipeline
 from sklearn.pipeline import FeatureUnion
 from sklearn.cross_validation import cross_val_predict
 
+from sklearn.dummy import DummyRegressor
+from sklearn.dummy import DummyClassifier
+
+def result_row(method, results, stat, learner='', rows=[]):
+    row = {'stat':stat, 'method':method, 'learner':learner, 'rmse':results['rmse'], 'mae':results['mae']}
+    rows.append(row)
+
+
 def fit_predict(model, X_train, y_train, X_test = None, y_test = None, predict_proba = False):
     model = model.fit(X_train, y_train)
     return_obj = (model,)
@@ -323,6 +331,9 @@ def main(pred_week, vegas_adjustment=False, run_query=False, expert_projections=
 
     y_cols = ['played', 'receiving_rec', 'receiving_tds', 'receiving_yds', 'rushing_att', 'rushing_tds','rushing_yds']
 
+    # added for saving test results for model evaluation
+    rows = []
+
     for y_col in y_cols:
 
         y = X_all[y_col]
@@ -351,13 +362,15 @@ def main(pred_week, vegas_adjustment=False, run_query=False, expert_projections=
             models = {
                 'gb':GradientBoostingClassifier(n_estimators=100, learning_rate=0.1),
                 'rf':RandomForestClassifier(),
-                'lin':LogisticRegression()
+                'lin':LogisticRegression(),
+                'dum':DummyClassifier()
             }
         else:
             models = {
                 'gb':GradientBoostingRegressor(n_estimators=100, learning_rate=0.1),
                 'rf':RandomForestRegressor(),
-                'lin':LinearRegression()
+                'lin':LinearRegression(),
+                'dum':DummyRegressor()
             }
 
         gb, gb_test, gb_scores = fit_predict(
@@ -378,6 +391,15 @@ def main(pred_week, vegas_adjustment=False, run_query=False, expert_projections=
 
         lin, lin_test, lin_scores = fit_predict(
             model=models['lin'],
+            X_train=X_train,
+            y_train=y_train,
+            X_test=X_test,
+            y_test=y_test,
+            predict_proba=predict_proba)
+
+
+        dum, dum_test, dum_scores = fit_predict(
+            model=models['dum'],
             X_train=X_train,
             y_train=y_train,
             X_test=X_test,
@@ -431,8 +453,21 @@ def main(pred_week, vegas_adjustment=False, run_query=False, expert_projections=
         print 'Gradient Boosting: RMSE %.2f | MAE %.2f' % (gb_scores['rmse'], gb_scores['mae'])
         print 'Random Forest: RMSE %.2f | MAE %.2f' % (rf_scores['rmse'], rf_scores['mae'])
         print '%s Regression: RMSE %.2f | MAE %.2f' % ('Logistic' if predict_proba else 'Linear', lin_scores['rmse'], lin_scores['mae'])
-        # Build full models on all data
+        print 'Baseline: RMSE %.2f | MAE %.2f' % (dum_scores['rmse'], dum_scores['mae'])
+        
 
+        result_row(method='Historical Only', results=gb_scores, stat=y_col, learner='Gradient Boosting', rows=rows)
+        result_row(method='Historical Only', results=rf_scores, stat=y_col, learner='Random Forest', rows=rows)
+        result_row(method='Historical Only', results=lin_scores, stat=y_col, learner='Logistic' if predict_proba else 'Linear', rows=rows)
+        
+        result_row(method='Baseline', results=dum_scores, stat=y_col, learner='Stratified' if predict_proba else 'Mean', rows=rows)
+        
+        result_row(method='Vegas Adjusted', results=gb_scores_a, stat=y_col, learner='Gradient Boosting', rows=rows)
+        result_row(method='Vegas Adjusted', results=rf_scores_a, stat=y_col, learner='Random Forest', rows=rows)
+        result_row(method='Vegas Adjusted', results=lin_scores_a, stat=y_col, learner='Logistic' if predict_proba else 'Linear', rows=rows)
+        
+
+        # Build full models on all data
         gb = gb.fit(X, y)
         rf = rf.fit(X, y)
         lin = lin.fit(X, y)
