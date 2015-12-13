@@ -114,8 +114,10 @@ def build_vegas_dataframe(X, y, row_info, model, db, y_col):
 
 # TODO pass in nfldb and mongodb as arguments to simplify changes
 # TODO make this code year independent
-def add_expert_projections(pred_results, pred_week, y_col, info_2015):
+def add_expert_projections(pred_results, pred_week, y_col, info_2015, result_rows=[]):
     db = nfldb.connect()
+
+    rows = result_rows
 
     yr_wk = [(2015, i) for i in range(1,pred_week + 1)]
     stats = ['receiving_rec', 'receiving_tar', 'receiving_tds', 'receiving_yac_yds',
@@ -171,7 +173,8 @@ def add_expert_projections(pred_results, pred_week, y_col, info_2015):
     models = {
         'gb':GradientBoostingRegressor(n_estimators=100, learning_rate=0.1),
         'rf':RandomForestRegressor(),
-        'lin':LinearRegression()
+        'lin':LinearRegression(),
+        'dum':DummyRegressor()
     }
 
     gb, gb_test, gb_scores = fit_predict(
@@ -195,11 +198,25 @@ def add_expert_projections(pred_results, pred_week, y_col, info_2015):
         X_test=X_test,
         y_test=y_test)
 
+    dum, dum_test, dum_scores = fit_predict(
+        model=models['dum'],
+        X_train=X_train,
+        y_train=y_train,
+        X_test=X_test,
+        y_test=y_test,
+        predict_proba=False)
+
     print "-"*50
     print "Expert prediction: ", y_col
     print 'Gradient Boosting: RMSE %.2f | MAE %.2f' % (gb_scores['rmse'], gb_scores['mae'])
     print 'Random Forest: RMSE %.2f | MAE %.2f' % (rf_scores['rmse'], rf_scores['mae'])
     print '%s Regression: RMSE %.2f | MAE %.2f' % ('Linear', lin_scores['rmse'], lin_scores['mae'])
+
+    result_row(method='Expert Only', results=gb_scores, stat=y_col, learner='Gradient Boosting', rows=rows)
+    result_row(method='Expert Only', results=rf_scores, stat=y_col, learner='Random Forest', rows=rows)
+    result_row(method='Expert Only', results=lin_scores, stat=y_col, learner='Linear', rows=rows)
+    
+    result_row(method='Baseline For Expert Adjusted', results=dum_scores, stat=y_col, learner='Mean', rows=rows)
 
     # get stats for the prediction week then remove player info
     next_week_proj = proj_data[proj_data.week == pred_week]
@@ -272,6 +289,10 @@ def add_expert_projections(pred_results, pred_week, y_col, info_2015):
     print '%s Regression: RMSE %.2f | MAE %.2f' % ('Linear', lin_scores['rmse'], lin_scores['mae'])
     print
     print
+
+    result_row(method='Historical + Expert', results=gb_scores, stat=y_col, learner='Gradient Boosting', rows=rows)
+    result_row(method='Historical + Expert', results=rf_scores, stat=y_col, learner='Random Forest', rows=rows)
+    result_row(method='Historical + Expert', results=lin_scores, stat=y_col, learner='Linear', rows=rows)
 
     pred_info = next_week_proj[info_cols]
     next_week_proj.drop(info_cols + [y_col], axis=1, inplace=True)
@@ -495,7 +516,7 @@ def main(pred_week, vegas_adjustment=False, run_query=False, expert_projections=
 
         # add expert projections, then make a final prediction
         if expert_projections and y_col != 'played':
-            pred_results = add_expert_projections(pred_results, pred_week, y_col, info_2015)
+            pred_results = add_expert_projections(pred_results, pred_week, y_col, info_2015, result_rows=rows)
 
     pred_results.replace(0, np.nan, inplace=True)
     out_path = result_path + '/predictions' + '_' + str(int(pred_yr_wk[0])) + '_' + str(int(pred_yr_wk[1])) + '.json'
