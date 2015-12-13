@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+      <title>Other Data Sources</title>
+
+      <!-- Bootstrap Core CSS -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+
+      <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+      <link href="css/custom.css" rel="stylesheet">
+
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+      <!-- Custom Fonts from Google -->
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+
+  <!-- Navigation -->
+    <nav id="siteNav" class="navbar navbar-default navbar-fixed-top affix" role="navigation">
+        <div class="container">
+            <!-- Logo and responsive toggle -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                  <span class="glyphicon glyphicon-stats"></span>
+                  Waiver Coach
+                </a>
+            </div>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="active">
+                        <a href="player_table.html">Predictions</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+          <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analysis <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="about-us">
+              <li><a href="#">My Team</a></li>
+              <li><a href="#">Recommendations</a></li>
+            </ul>
+          </li> -->
+                    <li>
+                        <a id="signin" href="#" onclick="login('yahoo');">Sign in</a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+
+    <section class='content'>
+    <div class='container' style='width: 654px'>
+    <h1><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Data Variety</h1>
+
+      <h3>What were we thinking?</h3>
+
+      <p>
+          The first step when creating Waiver Coach was to create a model that predicted player performance based on stats from previous games. After we built that model, we started wondering.</p><blockquote>What other data sources could we use to improve our predictions? </blockquote><p>A couple things came to mind right away. Most obvious was the same expert predictions that were an inspiration for Waiver Coach. Web sites like NFL.com and ESPN.com have predictions made by some of the top analysts in football. Also, we thought that the odds and over/under line might help us tap the collective wisdom of all the gamblers in Vegas. Weather data was another source that kept popping up in discussions. It is intuitive that players would be impacted by rain, snow, or cold, at least for teams that play outdoors. In the interest of time, we started with the most promising source first, expert predictions.
+      </p>
+
+      <h3>Getting the data</h3>
+
+      <p>
+          So we went about compiling the expert predictions. The Python library BeautifulSoup made it pretty easy. After identifying the URL and all of the querystring arguments we needed to manipulate, we could do something like this.
+      </p>
+
+      <pre>url = "http://games.espn.go.com/ffl/tools/projections?&scoringPeriodId=" + \
+    str(wk) + "&seasonId=2015&startIndex=" + str(offset)
+soup = BeautifulSoup(urlopen(url), "html.parser")
+table = soup.find('table', {'id': 'playertable_0'})
+rows = table.find_all('tr', {'class': lambda x: x and 'pncPlayerRow' \
+    in x.split()})</pre>
+
+      <p>
+          This code loads a page and finds the HTML table with an id of <em>playertable_0</em>. All of the rows in that table with the CSS class <em>pncPlayerRow</em> are stored in a list, which we can loop through to grab the columns we are interested in.
+      </p>
+
+      <p>
+          This same general process was repeated for a couple sites that displayed their predictions back to the beginning of the season. This history was important because we needed data to train with and we had a deadline! The end result of this web scraping was several predictions for each week of all the statistics we were trying to predict from the historical data—rushing yards, attempts, touchdowns, etc.
+      </p>
+
+      <h3>Making a prediction</h3>
+
+      <p>
+          After we had gathered the source data into our database, we connected to it with Python and loaded it into a pandas dataframe. Now all we needed was the actual performance statistics for each week of the season. These actual statistics were queried from nfldb and stored in another dataframe. The two dataframes were joined using the week and year columns and a key column created from the player's name by setting the name in lowercase and stripping out punctuation and whitespace. Thankfully almost all players in the NFL have a unique name. After all the gathering and data structuring were complete, making a prediction was a breeze.
+      </p>
+
+      <p>
+          The output of this process was a couple of new predictions. There is a prediction of each player's stats based solely on expert opinions. More importantly, there is also a prediction that used all of the data scraped from the web as features along with our original prediction based on historical data. This gives us the best of both data sources in a single metric. 
+      </p>
+
+    </div>
+  </section>
+
+  </body>
+    <!-- FOR OAUTH -->
+    <script src="hello/demos/client_ids.js"></script>
+    <script src="hello/src/hello.polyfill.js"></script>
+    <script src="hello/src/hello.js"></script>
+    <script src="hello/src/modules/yahoo.js"></script>
+    <script src="js/yahoo_oauth.js"></script>
+</html>
