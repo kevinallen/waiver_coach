@@ -1,6 +1,6 @@
 function player_url(player_row){
 	//return("player_details.html?player_id="+player_row['player_id'])
-	return("index.html?player1="+player_row['player_id']+'#distribution-section')
+	return("index.html?player1="+player_row['player_id']+'#distribution')
 }
 
 function player_points(player_row, col_config){
