@@ -371,6 +371,11 @@ header .header-content .header-content-inner p {
     .navbar-default.affix .nav>li>a:focus:hover {
         color: yellowgreen;
     }
+
+    nav.navbar-default.show .nav > li>a:hover,
+    nav.navbar-default.show .nav>li>a:focus:hover {
+        color: yellowgreen;
+    }
 }
 
 .btn-default {
