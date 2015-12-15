@@ -1,6 +1,6 @@
 function player_url(player_row){
 	//return("player_details.html?player_id="+player_row['player_id'])
-	return("index.html?player1="+player_row['player_id']+'#distribution-section')
+	return("index.html?player1="+player_row['player_id']+'#distribution')
 }
 
 function player_points(player_row, col_config){
@@ -20,6 +20,8 @@ function player_points(player_row, col_config){
 
 function json2table(json_url, table_id, col_config){
 	$.getJSON(json_url, function(data) {
+		sessionStorage.setItem('current_wk_data', JSON.stringify(data));
+		console.log('current_wk_data', JSON.parse(sessionStorage.getItem('current_wk_data')));
 		var tbl_body = '';
 		var tbl_head = '<tr>'
 		var cols = Object.keys(col_config)
@@ -134,8 +136,10 @@ function filter_table() {
 	console.log("selected_league", selected_league);
 
 	var unavailable_players = [];
-	if (selected_league in taken_players) {
-		unavailable_players = taken_players[selected_league];
+	if (taken_players) {
+		if (selected_league in taken_players) {
+			unavailable_players = taken_players[selected_league];
+		}
 	}
 
 	unavailable_players = unavailable_players.concat(injured_players);
@@ -145,7 +149,6 @@ function filter_table() {
 
 	dynatable.queries.add("name", "");
 	dynatable.queries.functions['name'] = function(record, queryValue) {
-		console.log(record);
 		return unavailable_players.indexOf(record['dynatable-sortable-text'].name) == -1;
 	};
 
@@ -183,4 +186,9 @@ $('#filter_rb').click(function() {
 
 $('#league_select').on('change', function() {
 	filter_table();
+});
+
+$(document).ready(function() {
+	var data = JSON.parse(sessionStorage.getItem('current_wk_data'));
+	document.getElementById('include_week').innerHTML='Week ' + data[0].week + ' ';
 });
