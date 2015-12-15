@@ -527,3 +527,8 @@ img::-moz-selection {
 .bg-primary {
     background-color: yellowgreen;
 }
+
+a.subtle-link {
+    font-size: 0.9em;
+    color: grey;
+} 
