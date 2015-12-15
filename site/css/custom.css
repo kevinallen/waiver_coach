@@ -494,6 +494,10 @@ fieldset[disabled] .btn-primary.active {
     padding: 15px 30px;
 }
 
+.btn-sm{
+    margin-bottom: 2px;
+}
+
 ::-moz-selection {
     text-shadow: none;
     color: #fff;
