@@ -51,8 +51,10 @@ function json2table(json_url, table_id, col_config){
 					if(config['number']){
 						v = parseFloat(v)
 						v = v.toFixed(config['fixed_digits'])
+						class_str =  ' class="table_number"'
 						//tbl_row += '<td class="table_number" align="right">'+v+'</td>'
 					} else{
+						class_str = ''
 						//tbl_row += '<td>'+v+'</td>'
 					}
 
@@ -60,7 +62,7 @@ function json2table(json_url, table_id, col_config){
 					if(col === 'full_name'){
 						v = '<a href="'+player_url(row)+'" target="_blank">'+v+'</a>'
 					}
-					tbl_row += '<td>'+v+'</td>'
+					tbl_row += '<td'+class_str+'>'+v+'</td>'
 				}
 			})
 			tbl_body += "<tr>"+tbl_row+'</tr>'
@@ -76,8 +78,13 @@ function json2table(json_url, table_id, col_config){
 		
 		$('#'+table_id+' thead').html(tbl_head)
 		$('#'+table_id+' tbody').html(tbl_body)
-		/*
+		
 		$('#'+table_id).dynatable({
+			features: {
+        		paginate: false,
+        		search: false,
+        		recordCount: false
+      		},
 			table: {
 			    defaultColumnIdStyle: 'lowercase',
 			    copyHeaderClass: true, // copies <th> class to cells
@@ -89,19 +96,19 @@ function json2table(json_url, table_id, col_config){
     			perPageOptions: [20,50,100,200]
 			}
 		});
-		*/
+		
 		//filter_table();
 	})
 }
 
 col_config = {
-	'stat': {'displayName': 'Statistic', 'number':false},
-	'Historical': {'displayName': 'Historical', 'number':true, 'fixed_digits':2},
-	'CBS': {'displayName': 'CBS', 'number':true, 'fixed_digits':2},
-	'ESPN': {'displayName': 'ESPN', 'number':true, 'fixed_digits':2},
-	'FFToday': {'displayName': 'FF Today', 'number':true, 'fixed_digits':2},
-	'Expert': {'displayName': 'Expert', 'number':true, 'fixed_digits':2},
-	'HistoricalAndExpert': {'displayName': 'Historical + Expert', 'number':true, 'fixed_digits':2},
+	'type': {'displayName': 'Prediction', 'number':false},
+	'rush_yards': {'displayName': 'Rush Yards', 'number':true, 'fixed_digits':2},
+	'receiving_yards': {'displayName': 'Rec Yards', 'number':true, 'fixed_digits':2},
+	'rush_tds': {'displayName': 'Rush TDs', 'number':true, 'fixed_digits':2},
+	'receiving_tds': {'displayName': 'Rec TDs', 'number':true, 'fixed_digits':2},
+	'receptions': {'displayName': 'Recs', 'number':true, 'fixed_digits':2},
+	'rush_attempts': {'displayName': 'Rush Attempts', 'number':true, 'fixed_digits':2}
 }
 
 // TODO
