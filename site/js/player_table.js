@@ -58,6 +58,8 @@ function json2table(json_url, table_id, col_config){
 				var config = col_config[col]
 
 				if(config){
+					
+
 					if(config['calculate_points']){
 						var v = String(player_points(row, col_config))
 					} else{
@@ -67,8 +69,10 @@ function json2table(json_url, table_id, col_config){
 					if(config['number']){
 						v = parseFloat(v)
 						v = v.toFixed(config['fixed_digits'])
+						
 						//tbl_row += '<td class="table_number" align="right">'+v+'</td>'
 					} else{
+
 						//tbl_row += '<td>'+v+'</td>'
 					}
 
