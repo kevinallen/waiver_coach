@@ -145,10 +145,10 @@ def add_expert_projections(pred_results, pred_week, y_col, info_2015, result_row
     proj_data = pipe.fit_transform(X=None)
 
     # join the two datasets
-    df = pd.merge(proj_data, hist_data, how="inner", on=["name_key","week","year"])
+    merged_df = pd.merge(proj_data, hist_data, how="inner", on=["name_key","week","year"])
 
     # drop the week you want to predict from the training data
-    df = df[df.week < pred_week]
+    df = merged_df[merged_df.week < pred_week]
 
     # store the player data and then remove those columns from the training data
     info_cols = ['name','name_key','position_x','position_y','team','week',
@@ -215,7 +215,7 @@ def add_expert_projections(pred_results, pred_week, y_col, info_2015, result_row
     result_row(method='Expert Only', results=gb_scores, stat=y_col, learner='Gradient Boosting', rows=rows)
     result_row(method='Expert Only', results=rf_scores, stat=y_col, learner='Random Forest', rows=rows)
     result_row(method='Expert Only', results=lin_scores, stat=y_col, learner='Linear', rows=rows)
-    
+
     result_row(method='Baseline For Expert Adjusted', results=dum_scores, stat=y_col, learner='Mean', rows=rows)
 
     # get stats for the prediction week then remove player info
@@ -239,7 +239,7 @@ def add_expert_projections(pred_results, pred_week, y_col, info_2015, result_row
         if column not in pred_results.columns:
             df.loc[:,column] = next_week_proj[column]
 
-    # add name_key (to join on) to data predicted from historical data
+    # add name_key to data predicted from historical data
     pipe = Pipeline(steps=[('key',AddNameKey())])
     results_with_key = pipe.fit_transform(X=pred_results)
     results_with_expert = pd.merge(results_with_key, df, how="left", on="name_key")
@@ -247,7 +247,6 @@ def add_expert_projections(pred_results, pred_week, y_col, info_2015, result_row
     # make a combined prediction
     pred_with_y = pipe.fit_transform(X=info_2015)
     df_all = pd.merge(proj_data, pred_with_y, how="inner", on=["name_key","week","year"])
-    next_week_proj = df_all[df_all.week == pred_week]
     df = df_all[df_all.week < pred_week]
 
     y = df[y_col]
@@ -294,8 +293,10 @@ def add_expert_projections(pred_results, pred_week, y_col, info_2015, result_row
     result_row(method='Historical + Expert', results=rf_scores, stat=y_col, learner='Random Forest', rows=rows)
     result_row(method='Historical + Expert', results=lin_scores, stat=y_col, learner='Linear', rows=rows)
 
+    next_week_proj = proj_data[proj_data.week == pred_week]
+    info_cols = ['name','name_key','team','position','year','week']
     pred_info = next_week_proj[info_cols]
-    next_week_proj.drop(info_cols + [y_col], axis=1, inplace=True)
+    next_week_proj.drop(info_cols, axis=1, inplace=True)
 
     # make prediction for next week
     gb.fit(X, y)
@@ -475,18 +476,18 @@ def main(pred_week, vegas_adjustment=False, run_query=False, expert_projections=
         print 'Random Forest: RMSE %.2f | MAE %.2f' % (rf_scores['rmse'], rf_scores['mae'])
         print '%s Regression: RMSE %.2f | MAE %.2f' % ('Logistic' if predict_proba else 'Linear', lin_scores['rmse'], lin_scores['mae'])
         print 'Baseline: RMSE %.2f | MAE %.2f' % (dum_scores['rmse'], dum_scores['mae'])
-        
+
 
         result_row(method='Historical Only', results=gb_scores, stat=y_col, learner='Gradient Boosting', rows=rows)
         result_row(method='Historical Only', results=rf_scores, stat=y_col, learner='Random Forest', rows=rows)
         result_row(method='Historical Only', results=lin_scores, stat=y_col, learner='Logistic' if predict_proba else 'Linear', rows=rows)
-        
+
         result_row(method='Baseline', results=dum_scores, stat=y_col, learner='Stratified' if predict_proba else 'Mean', rows=rows)
-        
-        result_row(method='Vegas Adjusted', results=gb_scores_a, stat=y_col, learner='Gradient Boosting', rows=rows)
-        result_row(method='Vegas Adjusted', results=rf_scores_a, stat=y_col, learner='Random Forest', rows=rows)
-        result_row(method='Vegas Adjusted', results=lin_scores_a, stat=y_col, learner='Logistic' if predict_proba else 'Linear', rows=rows)
-        
+
+        # result_row(method='Vegas Adjusted', results=gb_scores_a, stat=y_col, learner='Gradient Boosting', rows=rows)
+        # result_row(method='Vegas Adjusted', results=rf_scores_a, stat=y_col, learner='Random Forest', rows=rows)
+        # result_row(method='Vegas Adjusted', results=lin_scores_a, stat=y_col, learner='Logistic' if predict_proba else 'Linear', rows=rows)
+
 
         # Build full models on all data
         gb = gb.fit(X, y)

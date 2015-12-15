@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+      <title>Distribution Approach</title>
+
+      <!-- Bootstrap Core CSS -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+
+      <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+      <link href="css/custom.css" rel="stylesheet">
+
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+      <!-- Custom Fonts from Google -->
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  </head>
+
+  <body>
+
+  <!-- Navigation -->
+    <nav id="siteNav" class="navbar navbar-default navbar-fixed-top affix" role="navigation">
+        <div class="container">
+            <!-- Logo and responsive toggle -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                  <span class="glyphicon glyphicon-stats"></span>
+                  Waiver Coach
+                </a>
+            </div>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="active">
+                        <a href="player_table.html">Predictions</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+          <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analysis <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="about-us">
+              <li><a href="#">My Team</a></li>
+              <li><a href="#">Recommendations</a></li>
+            </ul>
+          </li> -->
+                    <li>
+                        <a id="signin" href="#" onclick="login('yahoo');">Sign in</a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+
+    <section class='content'>
+    <div class='container' style='width: 654px'>
+    <h1><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Result Analysis</h1>
+      <h2>RMSE Table</h2>
+      <div>
+      <!-- filled in by javscript from JSON -->
+        <table id='target_table' class='.table'>
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <h2>Error Box Plots</h2>
+      <img src="images/result_boxplots/rush_yards_8_14.png" alt="Rush Yards Box Plot" style="width:654px;">
+      <img src="images/result_boxplots/rush_tds_8_14.png" alt="Rush TDs Box Plot" style="width:654px;">
+      <img src="images/result_boxplots/receiving_yards_8_14.png" alt="Receiving Yards Box Plot" style="width:654px;">
+      <img src="images/result_boxplots/receiving_tds_8_14.png" alt="Receiving TDs Box Plot" style="width:654px;">
+      <img src="images/result_boxplots/receptions_8_14.png" alt="Receptions Box Plot" style="width:654px;">
+      <img src="images/result_boxplots/rush_attempts_8_14.png" alt="Rush Attempts Box Plot" style="width:654px;">
+
+    </div>
+  </section>
+    
+  </body>
+  <script src='https://code.jquery.com/jquery-1.10.2.js'></script>
+  <script src='js/underscore-min.js'></script>
+  <script src='js/jquery.dynatable.js'></script>
+    <script src="js/results_table.js"></script>
+
+    <!-- FOR OAUTH -->
+    <script src="hello/demos/client_ids.js"></script>
+    <script src="hello/src/hello.polyfill.js"></script>
+    <script src="hello/src/hello.js"></script>
+    <script src="hello/src/modules/yahoo.js"></script>
+    <script src="js/yahoo_oauth.js"></script>
+</html>
