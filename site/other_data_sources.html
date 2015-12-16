@@ -112,6 +112,34 @@ rows = table.find_all('tr', {'class': lambda x: x and 'pncPlayerRow' \
           The output of this process was a couple of new predictions. There is a prediction of each player's stats based solely on expert opinions. More importantly, there is also a prediction that used all of the data scraped from the web as features along with our original prediction based on historical data. This gives us the best of both data sources in a single value.
       </p>
 
+      <h3>Other data sources</h3>
+      <p>
+          Vegas totals and spreads are the only other data sources that we have added to our analysis. The intuition here is that a team that is heavily favored is likely to rush the ball more, piling on points for the running backs, while a game that has a high total is likely to have a lot of points scored overall by all of their skill players.
+      </p>
+      <p>
+          After manually compiling these two data points for every game back to 2009, we did a little feature engineering. The spread is only useful when you know who is favored. So we created a new feature that was the spread multiplied by either <b>1</b> (if the current player's team was favored) or <b>-1</b> (for the underdog). Then a model was built to predict the error left over from our historical model. We referred to this as our Vegas-adjusted prediction.
+      </p>
+
+      <h3>Results</h3>
+      <p>
+          Imagine our chagrin when these additional data sources <a href="result_analysis.html">did nothing to improve our results!</a> Undeterred, we have a few ideas for how to incorporate these additional data sources more effectively.<br><br>
+      </p>
+          <h5>Expert Opinions</h5>
+          <ol>
+              <li>Use fewer, higher quality opinions (i.e. CBS) to reduce noise</li>
+              <li>Create a feature that is the difference between our prediction and the expert's prediction</li>
+              <li>Test combining the predictions using different models</li>
+          </ol>
+          <h5>Vegas Data</h5>
+          <ol>
+              <li>Create a feature that is the difference between a team's average point total and what Vegas thinks they will score</li>
+          </ol>
+          <br>
+      <p>
+          This post will be updated as we try to make our predictions better with new data.
+      </p>
+      <div class="last-updated">Last updated 12/15/2015
+      </div>
     </div>
   </section>
 

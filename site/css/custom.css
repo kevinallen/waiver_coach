@@ -1,3 +1,9 @@
+.last-updated {
+    font-size: 0.8em;
+    color: rgba(0,0,0,0.5);
+    text-align: right;
+}
+
 .anchor {
     display: block;
     position: relative;
@@ -531,4 +537,4 @@ img::-moz-selection {
 a.subtle-link {
     font-size: 0.9em;
     color: grey;
-} 
+}
