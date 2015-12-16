@@ -25,6 +25,8 @@
       <!-- Custom Fonts from Google -->
       <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
+      <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+
   </head>
 
   <body>
@@ -116,7 +118,10 @@
       </p>
 
       <p>
-      This approach has a couple of drawbacks. Firstly, the algorithm does not pick which statistics are important when deciding who the closest neighbors are. Every statistic we give the algorithm will be treated as equally important to predicting performance. Secondly, our current methodology weights the closest neighbor as just as impactful as 100th nearest neighbor. This will particularly be an issue if a player does not have very many near neighbors.
+      This approach has a couple of drawbacks. Firstly, the algorithm does not pick which statistics are important when deciding who the closest neighbors are. Every statistic we give the algorithm will be treated as equally important to predicting performance. We compensate for this by scaling the statistics by the weights from a linear regression.
+      </p>
+      <p>
+      Secondly, our current methodology weights the closest neighbor as just as impactful as 100th nearest neighbor. This will particularly be an issue if a player does not have very many near neighbors.
       </p>
 
       <p>
