@@ -34,7 +34,7 @@ var GLOBAL_data;
 
 var GLOBAL_players = initial_players()//['00-0023500',''];
 
-d3.json("../site_data/distdata/2015_10.json", function(error, data) {
+d3.json("../site_data/distdata/2015_14.json", function(error, data) {
   
   if (error) throw error;
 

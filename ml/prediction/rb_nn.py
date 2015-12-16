@@ -140,7 +140,7 @@ def save_plot_data_json(nn_dict, result_path, pred_yr_wk):
 def main():
 	################################
 	### CONFIGURE
-	pred_week = 10 #None
+	pred_week = 14 #None
 	db = nfldb.connect()
 	result_path='../results'
 

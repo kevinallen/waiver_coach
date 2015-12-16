@@ -9,9 +9,9 @@ def score_stats_dict(stat_dict, scorer=make_scorer(base_type='standard')):
     return stat_dict
 
 def main(dist_file, pred_file, scoring_type):
-    dist_file = '2015_10.json'
-    pred_file = '../predictions.json'
-    scoring_type = 'standard'
+    #dist_file = '2015_10.json'
+    #pred_file = '../predictions.json'
+    #scoring_type = 'standard'
 
     # Load dist data file
     with open(dist_file) as f:    
@@ -29,7 +29,10 @@ def main(dist_file, pred_file, scoring_type):
 
     # add pred data to dist data
     for k, v in distdata.iteritems():
-        distdata[k].update({'player_info':preddata[k]})
+        if k in preddata.keys():
+            distdata[k].update({'player_info':preddata[k]})
+        else:
+            print(k)
 
     # save updated dist data
     with open(dist_file, 'w') as f:
