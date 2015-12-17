@@ -1,3 +1,7 @@
+nav.navbar-default.affix-top .nav > li.active>a.discreet {
+    color: rgba(255,255,255,0.7)!important;
+}
+
 .last-updated {
     font-size: 0.8em;
     color: rgba(0,0,0,0.5);
