@@ -22,6 +22,7 @@ function json2table(json_url, table_id, col_config){
 	$.getJSON(json_url, function(data) {
 		sessionStorage.setItem('current_wk_data', JSON.stringify(data));
 		console.log('current_wk_data', JSON.parse(sessionStorage.getItem('current_wk_data')));
+		document.getElementById('include_week').innerHTML='Week ' + data[0].week + ' ';
 		var tbl_body = '';
 		var tbl_head = '<tr>'
 		var cols = Object.keys(col_config)
@@ -58,7 +59,7 @@ function json2table(json_url, table_id, col_config){
 				var config = col_config[col]
 
 				if(config){
-					
+
 
 					if(config['calculate_points']){
 						var v = String(player_points(row, col_config))
@@ -69,7 +70,7 @@ function json2table(json_url, table_id, col_config){
 					if(config['number']){
 						v = parseFloat(v)
 						v = v.toFixed(config['fixed_digits'])
-						
+
 						//tbl_row += '<td class="table_number" align="right">'+v+'</td>'
 					} else{
 
@@ -190,9 +191,4 @@ $('#filter_rb').click(function() {
 
 $('#league_select').on('change', function() {
 	filter_table();
-});
-
-$(document).ready(function() {
-	var data = JSON.parse(sessionStorage.getItem('current_wk_data'));
-	document.getElementById('include_week').innerHTML='Week ' + data[0].week + ' ';
 });
